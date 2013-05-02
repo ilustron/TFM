@@ -1,0 +1,168 @@
+\section{El Tensor de Deformaciones}
+La posición tridimensional de un punto de la membrana viene determinado por su radio vector
+$\vec{r}(\sigma^1,\sigma^2)$, donde $\sigma^1$ y $\sigma^2$ son las cordenadas
+internas del punto. Si la membrana sufre una deformación las posiciones
+tridimensionales de sus puntos cambiarán, no así sus cordenadas
+internas que serán las mismas. Consideremos un punto particular con cordenadas internas
+$(\sigma^1,\sigma^2)$, y sometamos a una deformación la membrana, el radio
+vector del punto antes de la deformación es $\vec{r_0}(\sigma^2,\sigma^2)$, y
+después de la deformación es $\vec{r}(\sigma^1,\sigma^2)$. El desplazamiento
+de este punto debido a la deformación viene dado por el vector desplazamiento
+$\vec{u}$ que corresponde a la diferencia de la posición anterior y posterior
+a la deformación del punto: 
+
+\begin{equation}\label{vector_u}
+\vec{u}=\vec{r}-\vec{r_0}
+\end{equation}
+
+Las distancias relativas de los puntos de la membrana, en general, cambiarán
+al producirse una deformación. Consideremos dos puntos muy próximos de la
+membrana, descritos por sus cordenadas internas $(\sigma^1,\sigma^2)$ y
+$(\sigma^1+d\sigma^1,\sigma^2+d\sigma^2)$. Denotamos por $d\vec{r_0}$ y
+$d\vec{r}$ a los vectores que unen estos dos puntos antes y después de la
+deformación respectivamente. Estos dos vectores al ser infinitesimales
+pertenecen al plano tangente a la superficie y por tanto, podemos expresarlos
+en función de la base de estos\footnote{En lo que sigue se utilizará el
+  convenio de sumación de Einstein, donde las sumas serán en dos dimensiones}:
+\begin{align}
+d\vec{r_0}&=d\sigma^i \boldsymbol{\sigma_0}_i\label{dr0_vectorial}\\
+d\vec{r}&=d\sigma^i \boldsymbol{\sigma}_i
+\end{align}
+
+Donde
+\begin{align*}
+\boldsymbol{\sigma_0}_i&=\frac{\partial \vec{r_0}}{\partial \sigma^i}\\
+\boldsymbol{\sigma}_i&=\frac{\partial \vec{r}}{\partial \sigma^i}
+\end{align*}
+
+Son los vectores de la base del plano tangente a la superficie anterior y
+posterior a la deformación en el punto correspondiente a las cordenadas
+internas $(\sigma^1,\sigma^2)$. Las distancias relativas de los dos puntos
+considerados son: 
+\begin{align}
+dl^2_0&=(d\vec{r_0})^2=g^{(0)}_{ij}d\sigma^id\sigma^j\label{dl0}\\
+dl^2&=(d\vec{r})^2=g_{ij}d\sigma^id\sigma^j
+\end{align}
+
+Donde:
+\begin{align*}
+g^{(0)}_{ij}&=\boldsymbol{\sigma_0}_i\cdot\boldsymbol{\sigma_0}_j\\
+g_{ij}&=\boldsymbol{\sigma}_i\cdot\boldsymbol{\sigma}_j
+\end{align*}
+
+Son las métricas de cada plano tangente. Por otro lado, podemos relacionar
+$dl$ con $dl_0$ a partir de la expresión 
+\eqref{vector_u}:
+
+\begin{equation}\label{dl_vectorial}
+dl^2=(d\vec{r_0}+d\vec{u})^2=dl^2_0+(d\vec{u})^2+2d\vec{r_0}\cdot d\vec{u}
+\end{equation}
+
+
+Si expresamos el vector desplazamiento en función de los vectores de la
+base del plano tangente a $\vec{r_0}$:
+
+\begin{equation*}
+\vec{u}=u^i_0\boldsymbol{\sigma_0}_i+\xi_{0} \boldsymbol{\sigma_0}_1\times \boldsymbol{\sigma_0}_2
+\end{equation*}
+
+Encontramos que: 
+
+\begin{equation}\label{du}
+d\vec{u}=\frac{\partial u_0^i}{\partial\sigma^j}d\sigma^j\boldsymbol{\sigma_0}_i+\frac{\partial\xi_0}{\partial \sigma^j}d\sigma^j \boldsymbol{\sigma_0}_1\times \boldsymbol{\sigma_0}_2
+\end{equation}
+
+Y cuya norma al cuadrado es\footnote{$g^{(0)}=|\boldsymbol{\sigma_0}_1\times \boldsymbol{\sigma_0}_2|^2=\det(g^{(0)}_{ij})$}
+
+\begin{equation}\label{norma2_du}
+(d\vec{u})^2=\left[g_{0kl}
+\frac{\partial u_0^k}{\partial\sigma^i}
+\frac{\partial u_0^l}{\partial\sigma^j}+ 
+g^{(0)}\frac{\partial \xi_0}{\partial \sigma^i}
+\frac{\partial \xi_0}{\partial \sigma^j}\right]
+d\sigma^id\sigma^j 
+\end{equation}
+
+Sustituyendo en \eqref{dl_vectorial} las expresiones \eqref{dr0_vectorial}, \eqref{dl0}, \eqref{du},
+\eqref{norma2_du} y utilizando que
+
+ $$g_{0kj}\frac{\partial u^k_0}{\partial
+   \sigma^i}d\sigma^id\sigma^j=g_{0ki}\frac{\partial u^k_0}{\partial
+   \sigma^j}d\sigma^id\sigma^j,$$
+
+se obtiene la expresión
+
+\begin{equation*}
+dl^2=dl^2_0+2v_{ij}d\sigma^id\sigma^j,
+\end{equation*}
+
+con
+
+\begin{equation*}
+v_{ij}=\frac{1}{2}\left(
+ g_{0kj}\frac{\partial u^k_0}{\partial \sigma^i}+
+  g_{0ki}\frac{\partial u^k_0}{\partial \sigma^j}+
+g_{0kl}\frac{\partial u^k_0}{\partial\sigma^i}
+\frac{\partial u^l_0}{\partial \sigma^j}+
+g_0\frac{\partial \xi_0}{\partial \sigma^i}\frac{\partial \xi_0}{\partial \sigma^j}\right).
+\end{equation*}
+
+Si ahora hacemos un cambio de cordenadas al sistema ortonormal $x^i=M^i_{\
+  j}\sigma^j$, en el cual la métrica $g_{0ij}=\delta_{ij}$ es diagonal y
+unitaria ($g_0=1$), la anterior ecuación queda: 
+
+\begin{equation}\label{ecuacion_deformacion}
+dl=dl_0+2u_{ij}dx^idx^j
+\end{equation}
+
+Siendo
+
+\begin{equation}\label{tensor_deformacion}
+u_{ij}=\frac{1}{2}\left(
+\frac{\partial u_j}{\partial x^i}+
+\frac{\partial u_i}{\partial x^j}+
+\frac{\partial u_k}{\partial x^i}
+\frac{\partial u^k}{\partial x^j}+
+\frac{\partial \xi}{\partial x^i}
+\frac{\partial \xi}{\partial x^j}\right)
+\end{equation} 
+
+Como la métrica en este caso es $\delta_{ij}$ las componentes $u_i$ son:
+
+\begin{equation*}
+u_i=\delta_{ij} u^j=(u^1,u^2)
+\end{equation*}
+
+Y entonces, con permiso de la SICCCSE\footnote{Sociedad Internacional por el Correcto
+  Cumplimiento del Convenio de Sumación de Einstein}, podemos escribir la
+ecuación \eqref{tensor_deformacion}:
+
+\begin{equation*}
+u_{ij}=\frac{1}{2}\left(
+\frac{\partial u^j}{\partial x^i}+
+\frac{\partial u^i}{\partial x^j}+
+\frac{\partial u^k}{\partial x^i}
+\frac{\partial u^k}{\partial x^j}+
+\frac{\partial \xi}{\partial x^i}
+\frac{\partial \xi}{\partial x^j}\right)
+\end{equation*} 
+
+Es el tensor de deformaciones tal y como lo escriben la mayoría de
+autores. Otra forma de expresar este tensor es teniendo en cuenta que en el
+sistema de cordenadas ortonormal:
+\begin{align*}
+dl^2_0&=(d\vec{r_0})^2=\delta_{ij}dx^idx^j\\
+dl^2&=(d\vec{r})^2=(M^{-1})^k_{\ i}(M^{-1})^l_{\ j}g_{kl}dx^idx^j\label{dl0}
+\end{align*}
+
+
+Sustituyendo en \eqref{ecuacion_deformacion}:
+
+\begin{equation*}
+u_{ij}=\frac{1}{2}\left[(M^{-1})^{k}_{\ i}(M^{-1})^l_{\ j}g_{kl}-\delta_{ij}\right]
+\end{equation*}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "TFM"
+%%% End: 
