@@ -1,116 +1,280 @@
 \section{Teoría de Landau de la transición de fase}
 
-Algunos estados de equilibrio tienen menor simetría que la del hamiltoniano
-del sistema, po rlo que se les denomina estados con ruptura de simetría. Las
-diferentes fases pueden por ello clasificarse, por ello, clasificarse en
-función de las simetrías rotas. Así, de una fase simétrica completamente
-desordenada (uniforma e isótropa), se obtienen fases desordenadas (no
-uniformaes y anisótropas), por cada elemento de simetría que se elimina.
-Este método de clasificación se puede también aplicar a la transición entre
-dos fases y por ello, si las fases difieren en alguna simetría, se dice que la
-transición es de ruptura de simetría.
-
-Las transiciones de ruptura de simetría pueden, en general, describirse por
-medio de una parámetro de orden, que es una variable que cuantifica el grado
-de orden de las fases, por lo que es habitual definirlo de forma que sea nulo
-en la fase de mayor simetría.
-
 Vamos a considerar el caso general de una membrana elástica y flexible
-$D$-dimensional fluctuando en un espacio $d$-dimensional Euclídeo. Los puntos
-de la membrana están interconectados y forman una red regular, en este
-sentido, la membrana es cristalina. 
-Las posiciones de los puntos de la red vienen dados por $\vec{r}(\mathbf{x})$,
-donde $\mathbf{x}$ es un vector $D$-dimensional interno que etiqueta cada
-partícula, y $\vec{r}$ es un vector de dimensión $d$ externo, que representa
-la posición en el espacio euclídeo de dimensión $d$. 
+$D$-dimensional alojada en un espacio $d$-dimensional Euclídeo. Los puntos
+de la membrana están conectados y formando una red regular, en este
+sentido, la membrana es cristalina. La posición en el espacio $d$-dimensional
+de un punto de la red viene dada por $\vec{r}(\mathbf{x})$, donde $\mathbf{x}$
+es un vector $D$-dimensional interno que etiqueta cada partícula:
+$$\mathbf{x}\equiv (x^1,x^2 \dots x^D)\in \mathbb{R}^D \quad \vec{r}\equiv (r^1,r^2 \dots r^d)\in \mathbb{R}^d$$
 
-Una descriptión estadística se desarrolla mediante una variable de grano
-grueso, estos serán los vectores $\mathbf{x}$, que serán una variable continua
-que etiquetan los bloques de los puntos de la red. 
+Este sistema presenta dos fases: una fase desordenada, la fase arrugada con
+simetría total y una fase ordenada, fase plana, donde se ha eliminado el
+elemento de simetría rotacional. Este tipo de transiciones de fase que
+difieren en alguna simetría se denominan transiciones de ruptura de simetría y
+pueden, en general, describirse mediante un parámetro de orden, que es una
+variable que cuantifica el grado de orden de las fases, por lo que es habitual
+definirlo de forma que sea nulo en la fase de mayor simetría.
 
-Las simetrías del Hamiltoniano microscópico delimitan la forma del funcional
-de la energía libre para la variable de grano grueso $\vec{r}(\mathbf{x})$. Para una red
-uniforme, la invarianza de traslación global implica que esta funcional debe
-depender de gradientes de los vectores tagentes.
-$\mathbf{t}_{\alpha}=\partial \vec{r}/\partial x^{\alpha} $ , donde
-$\alpha=1,2\dots D$. Inavarianza bajo rotaciones en ambos estados implica que
-la forma de la energía libre debe ser:
+La idea esencial de la teoría de Landau de las transiciones de fase es
+construir un potencial efectivo $L[K_i,\eta(\mathbf{x})]$, la energía libre de
+Landau, que depende de las constantes de acoplamiento $K_i$ y de el parámetro
+de orden $\eta$. Este potencial efectivo debe tener las mismas simetrías del
+sistema y mínimos dan el valor del parámetro de orden cuando el sistema se
+encuentra en equilibrio térmico. Aunque puede parecer que este
+potencial efectivo es la energía libre del sistema, estrictamente no
+lo es pues no es convexo.
 
-\begin{equation}
-F(\vec{r})=\int d^D\mathbf{x}
+La simetría traslacional de la membrana implica que su energía libre de Landau
+sólo puede depender de las derivadas de $\vec{r}$, estos son, los vectores
+tangentes $\vec{t}_{\alpha}=\partial \vec{r}/\partial x^{\alpha} $. En la fase
+plana, los promedios de los vectores tangentes en un punto son no nulos, en
+cambio, en la fase arrugada, su promedio es nulo por isotropía. Por tanto,
+podemos utilizar como  parámetro de orden los vectores tangentes
+$\vec{t}_{\alpha}$.
+
+Las correlaciones espaciales crecen a medida que la temperatura del sistema se
+acerca a la temperatura en donde ocurre la transición, la temperatura
+crítica $T_c$, lo que significa que podemos encontrar regiones de dimensión
+lineal $\Lambda^{-1}\simeq \xi(T) $ donde los vectores tangentes son
+aproximadamente constantes. Esto sugiere que podemos dividir la superficie de
+la membrana en bloques de tamaño lineal $\Lambda^{-1}$, y definir los vectores
+tangentes locales
+$\vec{t}_{\alpha}(\mathbf{x})_{\Lambda}=\langle \partial_{\alpha}\vec{r}\rangle_{\Lambda}$
+en cada bloque centrados en $\mathbf{x}$. Es importante puntualizar que,
+mientras que tratamos a $\mathbf{x}$ como una variable continua, la función
+$\vec{t}_{\alpha}(\mathbf{x})_{\Lambda}$ no presenta variaciones a distancias
+del orden del espaciado microscópico $a$, o equivalentemente, su transformada
+de Fourier tiene vectores de onda con magnitud menor que cierto cut-off
+$\Lambda \sim 1/a$. Está descripción se denomina de ``grano grueso'' y en lo
+que sigue omitiremos el subíndice $\Lambda$ de las variables.
+
+Una energía libre de Landau $L$ de grano grueso de una membrana cristalina
+puede construirse apoyándose en las siguientes propiedades:
+\begin{description}
+\item[Localidad e invarianza traslacional]: Debe depender de los vectores
+  tangentes locales y de las interacciones de corto alcance descritas a través
+  del desarrollo en gradientes:
+  $$ L=\int\! d^D\mathbf{S}\ \mathcal{L}[\vec{t}_{\alpha},\nabla
+  \vec{t}_{\alpha},\dots]$$ 
+\item[Simetría rotacional en $\mathbb{R}^d$]: Está simetría implica que sólo
+  puede depender de productos escalares pares de los vectores tangentes
+  locales y sus gradientes. 
+
+\item[Simetría traslacional y rotacional en $\mathbb{R}^D$]: Lo que implica
+  que los términos del desarrollo deben ser covariantes, invariantes frente a
+  cambios de las coordenadas $\mathbf{x}$. Finalmente, con esta última
+  propiedad podemos proponer la siguiente energía libre de Landau $L$:
+
+  \begin{equation}
+    L=\int d^D\mathbf{S}
+    \left[
+      \frac{t}{2}(\vec{t}_{\alpha})^2+
+      u(\vec{t}_{\alpha}\vec{t}_{\beta})^2+
+      v(\vec{t}_{\alpha}\vec{t}^{\alpha})^2+
+      \frac{\kappa}{2}(\partial_{\alpha}\vec{t}_{\alpha})^2
+    \right]
+  \end{equation}
+\end{description}
+
+%Explicación coeficientes - dependen de la temperatura
+
+Donde no hemos tenido en cuenta los términos de orden superior, al ser
+irrelevantes en el límite de grandes vectores de onda $k\rightarrow \infty$. 
+Esta energía libre de Landau se puede interpretar como un potencial efectivo
+obtenido mediante la integración de los grados de libertad microscópicos
+(grano grueso) sujetos a la condición de que sus promedios sean iguales a los
+vectores tangentes $\vec{t}_{\alpha}(\mathbf{x})$. Su forma funcional
+únicamente se deduce a partir de las simetrías del sistema, el precio que hay
+que pagar por esta aproximación es que en su expresión tenemos los parámetros
+fenomenológicos $t$, $u$, $v$ y $\kappa$ cuya dependencia funcional con los
+parámetros microscópicos originales no es desconocida, así como con las
+ligaduras externas del sistema: Temperatura, fuerzas externas\dots  
+
+En la deducción de $L$ no hemos considerado interacciones entre puntos
+distantes de la superficie, lo que permite la membrana puede cruzarse
+libremente a sí misma, por este motivo las membranas que son descritas
+mediantes esta energía libre son denominadas Membranas fantasma. El siguiente
+potencial si incluye interacciones de largo alcance:
+
+\begin{multline}
+L(\vec{r})=\int d^D\mathbf{x}
 \left[
 \frac{t}{2}(\partial_{\alpha}\vec{r})^2+
 u(\partial_{\alpha}\vec{r}\partial_{\beta}\vec{r})^2+
 v(\partial_{\alpha}\vec{r}\partial^{\alpha}\vec{r})^2+
 \frac{\kappa}{2}(\partial^2\vec{r})^2
-\right]
+\right]\\
 +\frac{b}{2}\int d^D\mathbf{x} d^D\mathbf{x'}
 \delta^{d}(\vec{r}(\mathbf{x})-\vec{r}(\mathbf{x'}))
+\end{multline}
+
+Mediante el último término se controla la posibilidad de que la membrana pueda
+cruzarse a sí misma, penalizando energéticamente este hecho. Si el factor $b$
+es nulo, la superficie puede cruzarse a sí misma sin coste energético y
+recuperamos una membrana fantasma.
+
+\subsection{Aproximación de Campo medio}
+
+A partir del potencial efectivo es posible obtener las variables
+termodinámicas mediante la función de partición $\mathcal{Z}$ que viene dada
+por la siguiente integral funcional:
+
+\begin{equation}
+\mathcal{Z}[T]=\int D[\vec{r}(\mathbf{x})]\; e^{-\beta L[\vec{r}(\mathbf{x})]}
 \end{equation}
 
-Donde los términos de orden superior son irrelevantees en el límite de
-$\lambda\rightarrow 0$. La física de está ecuación depende de el módulo
-elástico $t$, $u$ y $v$, la rígidez de curvatura $\kappa$. El factor $b$
-controla la autointersección , de modo que si es nulo, los puntos puede
-intersectarse a sí mismo sin coste energético.
+En general, evaluar esta integral es muy complicado. Sin embargo podemos
+obtener una aproximación aplicando la aproximación del punto de silla o campo
+medio. Suponemos que podemos despreciar las fluctuaciones en la fase plana, y
+por tanto, es posible entonces expresar las posiciones de los puntos de por
+sus posiciones medias $\vec{\mathbf{x}}\simeq \zeta \mathbf{x}$, donde $\zeta$
+es una parámetro que nos indica el grado de aumento de la extensión de la
+membrana. Los vectores tangentes son iguales en cada punto y sus componentes también
+$\vec{t}_{\alpha}(\mathbf{x})\simeq\zeta$. El potencial efectivo en esta
+aproximación será:
 
-Para $b=0$ es posible la autointersección y la membrana es llamada fantasma.
+\begin{align}
+  L(\zeta)=&\int d^D \mathbf{S} \left[ \frac{t}{2} D\zeta^2 + uD\zeta^4+vD^2\zeta^4\right]\\
+  =&A\mathcal{L}(\zeta)
+\end{align}
 
+donde 
+
+$$A=\int d^D \mathbf{S}$$
+
+Es el área de la membrana y 
+
+\begin{equation}
+\mathcal{L}(\zeta)=\left[ \frac{t}{2} D\zeta^2 + uD\zeta^4+vD^2\zeta^4\right]
+\end{equation}
+
+Es la densidad de energía libre de Landau. Se puede demostrar que:
+
+\begin{equation}
+Z[T]= e^{-\beta F[T]}, \quad \beta F[T]\simeq \beta L(\zeta_0)
+\end{equation}
+
+Donde F es la energía libre de Helmholtz  y $\zeta_0$ es el valor del
+parámetro de orden que minimiza la función. Está aproximación es conocida
+como la teoría de campo medio de Landau. El valor mínimo de $f^{MF}(\zeta)$
+será la solución a la ecuación:
+
+\begin{equation}
+\left(\frac{d\mathcal{L}}{d\zeta}\right)_{\!\zeta=\zeta_0}\!=0 \; \Rightarrow \; \frac{t}{2}+2(u+vD)\zeta_0^2=0
+\end{equation}
+ El comportamiento de f depende del signo del parámetro $t$:
+
+\begin{enumerate}
+\item Para $t>0$ el mínimo de $F$ ocurre en $\zeta_0=0$, esto indica que la
+  simetría es total, la membrana se encuentra en la fase desordenada,
+  arrugada.
+\item Para $t<0$, la función $f^{MF}$ tiene mínimo doblemente
+  degenerado, correspondiente a los valores de $\zeta_0=\mp
+  \sqrt{\frac{-t}{4(u+vD)}}$, ocurre una ruptura espontánea de la simetría indicando
+  una fase ordenada, la fase plana.
+\end{enumerate}
+
+La evaluación del punto mínimo sugiere entonces dos fases diferentes según el
+signo del parámetro $t$. Para encontrar el significado del parámetro $t$
+podemos desarrollar en serie en función de la temperatura centrada en la
+temperatura crítica $T_c$ los parámetros:
+\begin{align}
+t=&\; t_0+t_1\frac{(T-T_c)}{T_c}+O(T-T_c)^2\\
+u=&\; u_0+u_1(T-T_c)+O(T-T_c)^2\\
+v=&\; v_0+v_1(T-T_c)+O(T-T_c)^2
+\end{align}
+
+Podemos tomar a $u$ y $v$ como constantes, ya que su dependencia en la 
+temperatura no contribuye en los primeros órdenes en comportamiento
+termodinámico cerca de $T_c$. Ahora bien,
+para cualquier valor de $t\!<\!0$ tenemos que $\zeta_0\!\neq\! 0$, lo que  
+implica que $t_0=0$, para asegurar que esta última desigualdad se cumpla
+siempre. Por otra parte, siempre podremos escalar el parámetro de orden
+$\zeta$, de manera que $t_1=1$ y tenemos finalmente que
+\begin{equation}
+t=\frac{(T-T_c)}{T_c}+O(T-T_c)^2,
+\end{equation}
+
+el parámetro $t$ es la temperatura reducida.
+
+%Como el parámetro de orden se anula de forma continua en la transición, a este
+%tipo de transiciones de fase con ruptura de simetría se les denomina, de forma
+%genérica, continuas.
+
+%Ehrenfest introdujo una clasificación de la transiciones de fase basandose en
+%la continuidad del potencial termodinámico. Según Ehrenfest una transición dee
+%fase es de orden $n$ si la primera derivada del potencial termodinámico que no
+%es continua es la derivada $n$-ésima. Esta clasificación no siempre es
+%equivalente a la clasificación basada en la ruptura de simetría.
+ 
+\section{Fase plana}
+
+%Explicación estado referencia
 Pequeñas deformaciones desde un estado de referencia se pueden parametrizar
 como:
 
 \begin{equation}
-\vec{r}(\mathbf{x})=(\zeta x^{\gamma}+u^{\gamma},h)
+\vec{r}(\mathbf{x})=(\zeta \mathbf{x}+\mathbf{u(\mathbf{x})},h(\mathbf{x}))
 \end{equation}
 
-Donde $u^{\alpha}$ son los modos fonocnicos internos y h son las fluctuaciones
-fuera del plano.
-
+Donde $\mathbf{u(\mathbf{x})}$ son los modos fonocnicos internos y
+$h(\mathbf{x})$ son las fluctuaciones fuera del plano.
 $\zeta$ no nula describe una membrana plana con pequeñas fluctuaciones.
 
-\subsection{Membrana fantasma}
+\subsection{Tensor de Deformaciones}
 
-Podemos usar el ansatz en campo medio (no hay fluctuaciones) en donde:
+En una membrana plana es natural introducir el tensor de deformaciones:
+\begin{equation}
+u_{\alpha\beta}=\frac{1}{2}(\partial_{\alpha}\vec{r}\cdot\partial_{\beta}\vec{r}-\delta_{\alpha\beta})
+\end{equation}
 
+Los factores del interior del integrando quedan:
 \begin{align}
-(\partial_{\alpha} \vec{r})^2&= \xi^2 \delta_{\alpha}^{\
-  \gamma}\delta_{\gamma}^{\ \alpha}=D\xi^2 \\
-(\partial_{\alpha} \vec{r}\partial_{\beta} \vec{r} )^2&=\xi^4 \delta_{\alpha}^{\
-  \gamma}\delta_{\beta}^{\ \rho}\delta_{\gamma}^{\ \alpha}\delta_{\rho}^{\
-  \beta}=D^2\xi^4\\
-(\partial_{\alpha} \vec{r}\partial^{\alpha} \vec{r} )^2&=D\xi^4 \delta_{\alpha}^{\
-  \gamma}\delta^{\ \alpha}_{\gamma}\delta_{\gamma}^{\
-  \alpha}\delta_{\alpha}^{\ \gamma}=D^3\xi^4\\
-(\partial^2 \vec{r})^2&=0
+(\partial_{\alpha}\vec{r})^2&=2(1+u_{\alpha}^{\ \alpha})\\
+(\partial_{\alpha}\vec{r}\partial^{\alpha}\vec{r})^2&=4(1+2u_{\alpha}^{\
+  \alpha}+(u_{\alpha}^{\ \alpha})^2)\\
+(\partial_{\alpha}\vec{r}\partial_{\alpha}\vec{r})^2&=2+4u_{\alpha}^{\
+  \alpha}+4u_{\alpha\beta}u^{\alpha\beta}
 \end{align}
 
-Sustituyendo:
-\begin{align}
-F^{MF}(\xi)&=\int d^D \mathbf{x} \left[ \frac{t}{2} D\xi^2 + u D\xi^4+vD^4\xi^4\right]\\
-          &=Af^{MF}(\xi)
-\end{align}
+Sustituyendo en la expresión de $F$, y despreciando términos constantes:
+
+\begin{equation}
+F(\vec{r})=\int d^D\mathbf{x}
+\left[\tau u_{\alpha}^{\ \alpha}+
+\mu u_{\alpha\beta}u^{\alpha\beta} +
+\frac{\lambda}{2}(u_{\alpha}^{\ \alpha})^2 +
+\frac{\kappa}{2}(\partial^2\vec{r})^2\right]
+\end{equation}
 
 Donde:
 \begin{align}
-A&=\int d^D\mathbf{x}\\
-f^{MF}(\xi)&=D\xi^2\left[ \frac{t}{2} D\xi^2 + u D^2\xi^4 + v D^2\xi^4\right] \\
+\tau&=t+4u+8v\\
+\mu&=4u\\
+\frac{\lambda}{2}&=4v
 \end{align}
- $A$ es la superficie total de la membrana y $f^{MF}$ la densidad de energia
- libre por unidad de superficie.
 
+%LANDAU
+Consideramos el estado de referencia en ausencia de fuerza externas. Entonces,
+para $u_{\alpha\beta}=0$, los esfuerzos internos deben ser nulos también,
+$\sigma_{\alpha\beta}=0$. Dado que $\sigma_{\alpha\beta}=\partial F / \partial
+u_{\alpha\beta}$, se sigue que no hay término lineal en $u_{\alpha\beta}$ en
+el desarrollo de $F$; esto implica que $\tau=0$ y podemos rescribir las
+anteriores ecuaciones TAL:
 
-El valor mínimo de $f^{MF}(\xi_0)$ es:
+\begin{align}
+-t&=\mu+\lambda\\
+\mu&=4u\\
+\lambda&=8v
+\end{align}   
 
-Como el parámetro de orden se anula de forma continua en la transición, a este
-tipo de transiciones de fase con ruptura de simetría se les denomina, de forma
-genérica, continuas.
+De hecho estamos recuperando la ecuación del campo medio para la temperatura
+con $\zeta_0=1$
 
-Ehrenfest introdujo una clasificación de la transiciones de fase basandose en
-la continuidad del potencial termodinámico. Según Ehrenfest una transición de
-fase es de orden $n$ si la primera derivada del potencial termodinámico que no
-es continua es la derivada $n$-ésima. Esta clasificación no siempre es
-equivalente a la clasificación basada en la ruptura de simetría.
- 
+El término de curvatura:
+
+\subsection{Propiedades elásticas}
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "TFM"
