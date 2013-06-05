@@ -1,4 +1,4 @@
-\section{Teoría de Landau de la transición de fase}
+\chapter{Teoría de Landau de la transición de fase}
 
 Vamos a considerar el caso general de una membrana elástica y flexible
 $D$-dimensional alojada en un espacio $d$-dimensional Euclídeo. Los puntos
@@ -114,7 +114,7 @@ cruzarse a sí misma, penalizando energéticamente este hecho. Si el factor $b$
 es nulo, la superficie puede cruzarse a sí misma sin coste energético y
 recuperamos una membrana fantasma.
 
-\subsection{Aproximación de Campo medio}
+\section{Aproximación de Campo medio}
 
 A partir del potencial efectivo es posible obtener las variables
 termodinámicas mediante la función de partición $\mathcal{Z}$ que viene dada
@@ -128,14 +128,15 @@ En general, evaluar esta integral es muy complicado. Sin embargo podemos
 obtener una aproximación aplicando la aproximación del punto de silla o campo
 medio. Suponemos que podemos despreciar las fluctuaciones en la fase plana, y
 por tanto, es posible entonces expresar las posiciones de los puntos de por
-sus posiciones medias $\vec{\mathbf{x}}\simeq \zeta \mathbf{x}$, donde $\zeta$
-es una parámetro que nos indica el grado de aumento de la extensión de la
-membrana. Los vectores tangentes son iguales en cada punto y sus componentes también
-$\vec{t}_{\alpha}(\mathbf{x})\simeq\zeta$. El potencial efectivo en esta
+sus posiciones medias $\vec{r(\mathbf{x})} \simeq (\zeta \mathbf{x},0)$, donde
+$\zeta$ es una parámetro que nos indica el grado de aumento de la extensión de
+la membrana. Los vectores tangentes son iguales en cada punto y sus
+componentes también $\vec{t}_{\alpha}(\mathbf{x})\simeq (\zeta \, \delta^1_{\
+  \alpha},\zeta\,  \delta^2_{\ \alpha},0)$. El potencial efectivo en esta
 aproximación será:
 
 \begin{align}
-  L(\zeta)=&\int d^D \mathbf{S} \left[ \frac{t}{2} D\zeta^2 + uD\zeta^4+vD^2\zeta^4\right]\\
+  L(\zeta,T)=&\int d^D \mathbf{S} \left[ \frac{t}{2} D\zeta^2 + uD\zeta^4+vD^2\zeta^4\right]\\
   =&A\mathcal{L}(\zeta)
 \end{align}
 
@@ -146,24 +147,27 @@ $$A=\int d^D \mathbf{S}$$
 Es el área de la membrana y 
 
 \begin{equation}
-\mathcal{L}(\zeta)=\left[ \frac{t}{2} D\zeta^2 + uD\zeta^4+vD^2\zeta^4\right]
+\mathcal{L}(\zeta,T)=\left[ \frac{t}{2} D\zeta^2 + uD\zeta^4+vD^2\zeta^4\right]
 \end{equation}
 
 Es la densidad de energía libre de Landau. Se puede demostrar que:
 
 \begin{equation}
-Z[T]= e^{-\beta F[T]}, \quad \beta F[T]\simeq \beta L(\zeta_0)
+Z[T]= e^{-\beta F[T]}, \quad \beta F[T]\simeq \beta L(\zeta_0,T)
 \end{equation}
 
-Donde F es la energía libre de Helmholtz  y $\zeta_0$ es el valor del
-parámetro de orden que minimiza la función. Está aproximación es conocida
-como la teoría de campo medio de Landau. El valor mínimo de $f^{MF}(\zeta)$
-será la solución a la ecuación:
+Donde F es la energía libre de Helmholtz  y $\zeta_0$ es el valor que minimiza
+la función respecto al parámetro de orden. Está aproximación es conocida 
+como la teoría de campo medio de Landau, que supone que el sistema es
+homogéneo, esto es, la densidad de energía $\mathcal{L}(\zeta,T)$ es constante
+en la superficie, por tanto, el valor mínimo de $L(\zeta,T)$ coincide con el de
+$\mathcal{L}(\zeta,T)$: 
 
 \begin{equation}
-\left(\frac{d\mathcal{L}}{d\zeta}\right)_{\!\zeta=\zeta_0}\!=0 \; \Rightarrow \; \frac{t}{2}+2(u+vD)\zeta_0^2=0
+\left(\frac{\partial \mathcal{L}}{\partial \zeta}\right)_{\!\zeta=\zeta_0}\!=0 \; \Rightarrow \; \frac{t}{2}+2(u+vD)\zeta_0^2=0
 \end{equation}
- El comportamiento de f depende del signo del parámetro $t$:
+ 
+El comportamiento de $\mathcal{L}$ depende del signo del parámetro $t$:
 
 \begin{enumerate}
 \item Para $t>0$ el mínimo de $F$ ocurre en $\zeta_0=0$, esto indica que la

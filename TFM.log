@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/TeX Live for SUSE Linux) (format=pdflatex 2013.5.7)  14 MAY 2013 11:14
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/TeX Live for SUSE Linux) (format=pdflatex 2013.5.7)  14 MAY 2013 11:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -174,42 +174,45 @@ LaTeX Info: Redefining \% on input line 1.
 ]
 \openout2 = `teoria.aux'.
 
- (./teoria.tex [2
+ (./teoria.tex
+Cap\'{\i }tulo 1.
+[2
+
 
 ] [3] [4] [5]) [6]
 \openout2 = `Elasticidad.aux'.
 
-
-(./Elasticidad.tex [7
+ (./Elasticidad.tex [7
 
 
 ]) [8] (./TFM.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
- (./teoria.aux) (./Elasticidad.aux)) ) 
+ (./teoria.aux)
+(./Elasticidad.aux)) ) 
 Here is how much of TeX's memory you used:
- 2361 strings out of 493607
- 28285 string characters out of 3149946
- 93446 words of memory out of 3500000
- 5655 multiletter control sequences out of 15000+200000
- 15179 words of font info for 57 fonts, out of 3000000 for 9000
+ 2363 strings out of 493607
+ 28320 string characters out of 3149946
+ 93462 words of memory out of 3500000
+ 5657 multiletter control sequences out of 15000+200000
+ 15785 words of font info for 59 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  27i,10n,27p,337b,585s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf/fonts/type1/public/amsf
-onts/cm/cmbx10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf/fo
-nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf/fonts/type1/public/am
-sfonts/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi7.pfb
-></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf/fonts/type1/public/
-amsfonts/cm/cmr12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr17.pf
-b></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf/f
-onts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf/fonts/type1/public/ams
-fonts/cm/cmr7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
-sr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/font
-s/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/amsfo
-nts/symbols/msbm10.pfb>
-Output written on TFM.pdf (9 pages, 191939 bytes).
+</usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx10.p
+fb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texm
+f/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf/fonts/type1/public
+/amsfonts/cm/cmex10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi10
+.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/tex
+mf/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr1
+2.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/te
+xmf/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf/fonts/type1/publi
+c/amsfonts/cm/cmr6.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr7.pf
+b></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/a
+msfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msbm
+10.pfb>
+Output written on TFM.pdf (9 pages, 192934 bytes).
 PDF statistics:
  102 PDF objects out of 1000 (max. 8388607)
  73 compressed objects within 1 object stream
