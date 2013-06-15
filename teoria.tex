@@ -1,29 +1,59 @@
 \chapter{Teoría de Landau de la transición de fase}
 
 Vamos a considerar el caso general de una membrana elástica y flexible
-$D$-dimensional alojada en un espacio $d$-dimensional Euclídeo. Los puntos
-de la membrana están conectados y formando una red regular, en este
-sentido, la membrana es cristalina. La posición en el espacio $d$-dimensional
+bidimensional alojada en un espacio tridimensional Euclídeo. Los puntos
+de la membrana están conectados, con conectividad constante,formando una red
+regular, en este 
+sentido, la membrana es cristalina. La posición en el espacio tridimensional
 de un punto de la red viene dada por $\vec{r}(\mathbf{x})$, donde $\mathbf{x}$
-es un vector $D$-dimensional interno que etiqueta cada partícula:
-$$\mathbf{x}\equiv (x^1,x^2 \dots x^D)\in \mathbb{R}^D \quad \vec{r}\equiv (r^1,r^2 \dots r^d)\in \mathbb{R}^d$$
+es un vector bidimensional interno que etiqueta cada partícula:
+$$\mathbf{x}\equiv (x^1,x^2 \dots x^D)\in \mathbb{R}^D \qquad \vec{r}\equiv
+(r^1,r^2 \dots r^d)\in \mathbb{R}^d$$
 
-Este sistema presenta dos fases: una fase desordenada, la fase arrugada con
-simetría total y una fase ordenada, fase plana, donde se ha eliminado el
-elemento de simetría rotacional. Este tipo de transiciones de fase que
-difieren en alguna simetría se denominan transiciones de ruptura de simetría y
-pueden, en general, describirse mediante un parámetro de orden, que es una
-variable que cuantifica el grado de orden de las fases, por lo que es habitual
-definirlo de forma que sea nulo en la fase de mayor simetría.
+\begin{figure}[h]
+\centering
+\subfigure[Coordenadas internas]{
+ \resizebox{160bp}{!}{\input{coordenadas_internas-fig}}}
+\quad
+\subfigure[Coordenadas internas]{
+ \resizebox{160bp}{!}{\input{coordenadas_externas-fig}}}
+\end{figure}
+
+Podemos distinguir dos fases en este sistema: una fase desordenada, la fase
+arrugada con simetría total y una fase ordenada, fase plana, donde se ha
+eliminado el elemento de simetría rotacional. La transición de
+fase entre ambas, al diferenciarse en una simetría, corresponde a una
+transición de ruptura de simetría, la cual puede describirse mediante un
+parámetro de orden, que es una variable que cuantifica el grado de orden de
+las fases, por lo que usualmente se define de forma que sea nulo en la fase
+de mayor simetría.
+
+\begin{figure}[h]
+\centering
+\subfigure[Fase plana]{
+ \resizebox{160bp}{!}{\input{fase_plana-fig}}}
+\quad
+\subfigure[Fase arrugada]{
+ \resizebox{160bp}{!}{\input{fase_arrugada-fig}}}
+\end{figure}
+
 
 La idea esencial de la teoría de Landau de las transiciones de fase es
-construir un potencial efectivo $L[K_i,\eta(\mathbf{x})]$, la energía libre de
+, a partir de las simetrías del sistema, construir un potencial efectivo
+$F[K_i,\eta(\mathbf{x})]$, la energía libre de 
 Landau, que depende de las constantes de acoplamiento $K_i$ y de el parámetro
-de orden $\eta$. Este potencial efectivo debe tener las mismas simetrías del
-sistema y mínimos dan el valor del parámetro de orden cuando el sistema se
-encuentra en equilibrio térmico. Aunque puede parecer que este
-potencial efectivo es la energía libre del sistema, estrictamente no
+de orden $\eta(\mathbf{x})$. Este potencial efectivo debe tener las mismas
+simetrías del 
+sistema y su mínimos con respecto al parámetro de orden determina el estado
+del sistema cuando se encuentra en equilibrio térmico. Aunque puede parecer
+que este potencial efectivo es la energía libre del sistema, estrictamente no
 lo es pues no es convexo.
+
+\begin{figure}[h]
+\centering
+ \input{vectores_tangentes-fig}
+\caption{Vectores tangentes en el punto $\mathbf{x}$}
+\end{figure}
 
 La simetría traslacional de la membrana implica que su energía libre de Landau
 sólo puede depender de las derivadas de $\vec{r}$, estos son, los vectores
@@ -49,13 +79,13 @@ de Fourier tiene vectores de onda con magnitud menor que cierto cut-off
 $\Lambda \sim 1/a$. Está descripción se denomina de ``grano grueso'' y en lo
 que sigue omitiremos el subíndice $\Lambda$ de las variables.
 
-Una energía libre de Landau $L$ de grano grueso de una membrana cristalina
+Una energía libre de Landau $F$ de grano grueso de una membrana cristalina
 puede construirse apoyándose en las siguientes propiedades:
 \begin{description}
 \item[Localidad e invarianza traslacional]: Debe depender de los vectores
   tangentes locales y de las interacciones de corto alcance descritas a través
   del desarrollo en gradientes:
-  $$ L=\int\! d^D\mathbf{S}\ \mathcal{L}[\vec{t}_{\alpha},\nabla
+  $$ F=\int\! d^D\mathbf{S}\ f[\vec{t}_{\alpha},\nabla
   \vec{t}_{\alpha},\dots]$$ 
 \item[Simetría rotacional en $\mathbb{R}^d$]: Está simetría implica que sólo
   puede depender de productos escalares pares de los vectores tangentes
@@ -64,10 +94,9 @@ puede construirse apoyándose en las siguientes propiedades:
 \item[Simetría traslacional y rotacional en $\mathbb{R}^D$]: Lo que implica
   que los términos del desarrollo deben ser covariantes, invariantes frente a
   cambios de las coordenadas $\mathbf{x}$. Finalmente, con esta última
-  propiedad podemos proponer la siguiente energía libre de Landau $L$:
-
+  propiedad podemos proponer la siguiente energía libre de Landau $F$:
   \begin{equation}
-    L=\int d^D\mathbf{S}
+    F=\int d^D\mathbf{S}
     \left[
       \frac{t}{2}(\vec{t}_{\alpha})^2+
       u(\vec{t}_{\alpha}\vec{t}_{\beta})^2+
@@ -116,38 +145,83 @@ recuperamos una membrana fantasma.
 
 \section{Aproximación de Campo medio}
 
-A partir del potencial efectivo es posible obtener las variables
-termodinámicas mediante la función de partición $\mathcal{Z}$ que viene dada
-por la siguiente integral funcional:
+%A partir del potencial efectivo es posible obtener las variables
+%termodinámicas mediante la función de partición $\mathcal{Z}$ que viene dada
+%por la siguiente integral funcional:
+
+%\begin{equation}
+%\mathcal{Z}[T]=\int D[\vec{r}(\mathbf{x})]\; e^{-\beta 
+%F[\vec{r}(\mathbf{x})]}
+%\end{equation}
+
+%En general, evaluar esta integral es muy complicado. Sin embargo podemos
+%obtener una aproximación aplicando la aproximación del punto de silla o campo
+%medio. 
+\begin{figure}[h]
+\centering
+ \resizebox{\columnwidth}{!}{\input{campo_medio-fig}}
+\caption{Parametrización usada en la aproximación del campo medio}
+\end{figure}
+
+La energía libre TAL describe una membrana isótropa, las interacciones no
+dependen de la dirección, lo que nos permite afirmar que en la fase
+plana los promedios de las posiciones tridimensionales de las partículas
+formarán una red regular plana:  
 
 \begin{equation}
-\mathcal{Z}[T]=\int D[\vec{r}(\mathbf{x})]\; e^{-\beta L[\vec{r}(\mathbf{x})]}
+ \langle\vec{r}(\mathbf{x})\rangle_{p}=(\zeta x^1,\zeta x^2,0)=(\zeta \mathbf{x},0) 
 \end{equation}
 
-En general, evaluar esta integral es muy complicado. Sin embargo podemos
-obtener una aproximación aplicando la aproximación del punto de silla o campo
-medio. Suponemos que podemos despreciar las fluctuaciones en la fase plana, y
-por tanto, es posible entonces expresar las posiciones de los puntos de por
-sus posiciones medias $\vec{r(\mathbf{x})} \simeq (\zeta \mathbf{x},0)$, donde
-$\zeta$ es una parámetro que nos indica el grado de aumento de la extensión de
-la membrana. Los vectores tangentes son iguales en cada punto y sus
-componentes también $\vec{t}_{\alpha}(\mathbf{x})\simeq (\zeta \, \delta^1_{\
-  \alpha},\zeta\,  \delta^2_{\ \alpha},0)$. El potencial efectivo en esta
-aproximación será:
+El nuevo parámetro introducido $\zeta$ está relacionado con la norma al
+cuadrado del promedio de  vectores tangentes
+
+\begin{equation}
+ \left.\begin{array}{c}
+\langle\vec{t}_{1}(\mathbf{x})\rangle_{p}=\langle\partial_1\vec{r}\rangle_{p}=(\zeta ,0,0)\\
+\langle\vec{t}_{2}(\mathbf{x})\rangle_{p}=\langle\partial_2\vec{r}\rangle_{p}=(0,\zeta ,0)\\
+ \end{array}\right\}\Rightarrow
+\langle\vec{t}_{\alpha}(\mathbf{x})\rangle_{p}\cdot\langle\vec{t}_{\beta}(\mathbf{x})\rangle_{p}=\zeta^2 \delta_{\alpha\beta}
+\end{equation}
+
+de donde deducimos que
+
+\begin{equation}
+|\langle\vec{t}_1(\mathbf{x})\rangle_{p}|=|\langle\vec{t}_2(\mathbf{x})\rangle_{p}|=\zeta
+\end{equation}
+
+La norma de ambos vectores tangentes coincide, consecuencia directa de la
+isotropía de la membrana, y es igual a el parámetro $\zeta$. Puesto que la
+longitud de los vectores tangentes están relacionados la distancia relativa
+entre los puntos de la superficie, $\zeta$ cuantifica entonces el espaciado el
+ entre puntos y da una idea del grado de extensión de la membrana.
+ 
+La aproximación de campo medio asume que se pueden despreciar las
+fluctuaciones, y por tanto, podemos aproximar los radio vectores de las
+partículas y lo vectores tangentes por sus promedios:
 
 \begin{align}
-  L(\zeta,T)=&\int d^D \mathbf{S} \left[ \frac{t}{2} D\zeta^2 + uD\zeta^4+vD^2\zeta^4\right]\\
-  =&A\mathcal{L}(\zeta)
+ \vec{r}(\mathbf{x})&\simeq(\zeta \mathbf{x},0)\\
+ \vec{t}_{1}(\mathbf{x})&\simeq(\zeta ,0,0)\\
+ \vec{t}_{1}(\mathbf{x})&\simeq(0,\zeta,0)
+\end{align}
+
+El parámetro de orden es una variable, todas los estados son homogéneos
+
+El potencial efectivo TAL en esta aproximación será:
+
+\begin{align}
+  F(\zeta,T)=&\int\! d^2 \mathbf{S}\ 2\zeta^2\!\left( \frac{t}{2} + (u+2v)\zeta^2\right)\\
+  =&Af(\zeta)
 \end{align}
 
 donde 
 
-$$A=\int d^D \mathbf{S}$$
+$$A=\int d^2 \mathbf{S}=\zeta^2\int d^2 \mathbf{x}$$
 
 Es el área de la membrana y 
 
 \begin{equation}
-\mathcal{L}(\zeta,T)=\left[ \frac{t}{2} D\zeta^2 + uD\zeta^4+vD^2\zeta^4\right]
+f(\zeta,T)=2\zeta^2\!\left( \frac{t}{2} + (u+2v)\zeta^2\right)
 \end{equation}
 
 Es la densidad de energía libre de Landau. Se puede demostrar que:
@@ -189,13 +263,19 @@ u=&\; u_0+u_1(T-T_c)+O(T-T_c)^2\\
 v=&\; v_0+v_1(T-T_c)+O(T-T_c)^2
 \end{align}
 
+\begin{figure}[h]
+\centering
+ \resizebox{\columnwidth}{!}{\input{energia_libre_CM-fig}}
+\caption{Campo medio}
+\end{figure}
+
 Podemos tomar a $u$ y $v$ como constantes, ya que su dependencia en la 
 temperatura no contribuye en los primeros órdenes en comportamiento
 termodinámico cerca de $T_c$. Ahora bien,
-para cualquier valor de $t\!<\!0$ tenemos que $\zeta_0\!\neq\! 0$, lo que  
-implica que $t_0=0$, para asegurar que esta última desigualdad se cumpla
-siempre. Por otra parte, siempre podremos escalar el parámetro de orden
-$\zeta$, de manera que $t_1=1$ y tenemos finalmente que
+para cualquier valor de $T\!<\!T_c$ sabemos que el parámetro de orden es no
+nulo, esto es, $\zeta_0\!\neq\! 0$, lo que implica que $t_0=0$. Por otra
+parte, siempre podremos escalar el parámetro de orden 
+$\zeta$, de manera que $t_1=1$, con lo que tenemos finalmente que
 \begin{equation}
 t=\frac{(T-T_c)}{T_c}+O(T-T_c)^2,
 \end{equation}
