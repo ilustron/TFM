@@ -1,14 +1,27 @@
-\chapter{Teoría de Landau de la transición de fase}
 
-Vamos a considerar el caso general de una membrana elástica y flexible
-bidimensional alojada en un espacio tridimensional Euclídeo. Los puntos
-de la membrana están conectados, con conectividad constante,formando una red
-regular, en este 
-sentido, la membrana es cristalina. La posición en el espacio tridimensional
-de un punto de la red viene dada por $\vec{r}(\mathbf{x})$, donde $\mathbf{x}$
-es un vector bidimensional interno que etiqueta cada partícula:
-$$\mathbf{x}\equiv (x^1,x^2 \dots x^D)\in \mathbb{R}^D \qquad \vec{r}\equiv
-(r^1,r^2 \dots r^d)\in \mathbb{R}^d$$
+\chapter{Estudio analítico}
+
+\section{Descripción geométrica de la membranas cristalina}
+
+Consideraremos una membrana como una superficie (grosor nulo) elástica y flexible
+bidimensional alojada en un espacio tridimensional Euclídeo. 
+Se pueden interpretar las interacciones de los puntos de la superficie como
+conexiones, es decir, dos puntos que están interaccionando entre sí han
+establecido una conexión entre ambos. Una membrana cristalina corresponde al
+tipo de superficie en la que las conexiones entre sus puntos forman una red
+regular cuya conectividad permanece constante. Esta última afirmación
+significa que si existe una conexión entre dos puntos, está persistirá sea
+cual sea la configuración global de la superficie. Podremos entonces,
+encontrar estados de la membrana en los que puntos que no interaccionan entre
+sí estén mucho menos distanciados que los puntos que sí están interaccionando.
+
+Usaremos una descripción continua de la membrana cristalina en donde la
+posición en el espacio tridimensional de sus puntos estará descrita por sus
+radio vectores $\vec{r}(\mathbf{x})$, siendo $\mathbf{x}$ la parametrización
+de la superficie. Debido al carácter de conectividad constante, podemos
+parametrizar la superficie de forma que $\mathbf{x}$ sea un índice continuo
+que etiquete cada partícula. Por tanto, para la descripción geométrica de la
+membrana cristalina necesitamos dos sistemas de coordenadas:
 
 \begin{figure}[h]
 \centering
@@ -17,14 +30,84 @@ $$\mathbf{x}\equiv (x^1,x^2 \dots x^D)\in \mathbb{R}^D \qquad \vec{r}\equiv
 \quad
 \subfigure[Coordenadas internas]{
  \resizebox{160bp}{!}{\input{coordenadas_externas-fig}}}
+\caption{Coordenadas }
 \end{figure}
 
-Podemos distinguir dos fases en este sistema: una fase desordenada, la fase
-arrugada con simetría total y una fase ordenada, fase plana, donde se ha
-eliminado el elemento de simetría rotacional. La transición de
-fase entre ambas, al diferenciarse en una simetría, corresponde a una
-transición de ruptura de simetría, la cual puede describirse mediante un
-parámetro de orden, que es una variable que cuantifica el grado de orden de
+\begin{description}
+\item[Coordenadas internas:] Etiquetan cada partícula, de modo que, permanecen
+  constante en cada configuración.
+  \begin{equation*}
+  \mathbf{x}\equiv (x^1,x^2)\in \mathbb{R}^2
+  \end{equation*}
+\item[Coordenadas externas:] Describen las posiciones de cada partícula,
+  varían para cada configuración. Utilizaremos el sistema de referencia usual
+  cartesiano ortonormal.
+  \begin{equation*}
+    \vec{r}=x\,\vec{i}+y\,\vec{j}+z\,\vec{k}\equiv (x,y,z)\in \mathbb{R}^3
+  \end{equation*}
+\end{description}
+
+En cada punto $P\equiv\vec{r}(\mathbf{x})$ tenemos un plano tangente $T_PS$ a
+la superficie cuya base son los siguientes vectores tangentes:
+
+\begin{equation*}
+\vec{t}_{\alpha}=\frac{\partial \vec{r}}{\partial
+  x^{\alpha}}=\partial_{\alpha}\vec{r} \qquad \alpha=1,2
+\end{equation*}
+
+\begin{figure}[h]
+\centering
+ \input{vectores_tangentes-fig}
+\caption{Vectores tangentes en el punto $\vec{r}(\mathbf{x})$}
+\end{figure}
+
+Cualquier vector $\vec{V}$ tangente a la superficie en el punto $P$ se podrá
+descomponer como:
+
+\begin{equation*} 
+\vec{V}=\sum^2_{\alpha=1}V^{\alpha}\vec{t}_{\alpha}=V^{\alpha}\vec{t}_{\alpha}
+\end{equation*}
+
+con el convenio de índices repetidos de Einstein. Las dos cantidades
+$V^{\alpha}$ son las componentes del vector $\vec{V}$ en el sistema de
+coordenadas internas $\mathbf{x}$ y dependen de la elección del sistema de
+coordenadas.
+ 
+La distancia $dl$ entre dos puntos de coordenadas internas $\mathbf{x}$ y
+$\mathbf{x}+d\mathbf{x}$ respectivamente es:
+
+\begin{equation*}
+dl^2=(\vec{r}(\mathbf{x}+d\mathbf{x})-\vec{r}(\mathbf{x}))^2=g_{\alpha\beta}dx^{\alpha}dx^{\beta}
+\end{equation*}
+
+Donde $g_{\alpha\beta}=\vec{r}\cdot\partial_{\beta}\vec{r}$ es el tensor
+métrico que nos permite definir el producto escalar entre dos vectores
+tangentes $\vec{V}$ y $\vec{W}$ en el punto $P$:
+\begin{equation*}
+\vec{V}\cdot\vec{W}=g_{\alpha\beta}V^{\alpha}W^{\beta}
+\end{equation*}
+
+%Vectores contravariantes y covariantes
+
+\section{Teoría de Landau de la transición de fase}
+
+En una membrana se pueden encontramos dos fases: La fase plana y la fase
+rugosa. Ambas se distinguen en sus simetrías y se localizan cada lado
+de la temperatura crítica $T_c$, a la cual tiene lugar la transición. 
+Sobre la temperatura crítica la membrana es invariante frente a rotaciones,
+la membrana se encuentra en la fase rugosa. En cambio, bajo la temperatura
+crítica, se encuentra en la fase 
+plana donde el promedio del vector normal a la superficie
+$\langle \vec{n}\rangle$ define una dirección privilegiada en el espacio,
+destruyendo la invariancia frente a rotaciones cuyo eje es perpendicular a
+$\langle \vec{n}\rangle$. Los estados de equilibrio que se encuentran en esta
+última fase, al tener una menor simetría que la del hamiltoniano del sistema,
+se denominan estados con ruptura de simetría.
+ 
+Debido a la reducción de la simetría, es necesario un nuevo parámetro que 
+describa la termodinámica de la fase ordenada. Este parámetro
+extra, denominado parámetro de orden y que denotaremos por $\eta(\mathbf{x})$, es una
+variable que cuantifica el grado de orden de
 las fases, por lo que usualmente se define de forma que sea nulo en la fase
 de mayor simetría.
 
@@ -33,51 +116,74 @@ de mayor simetría.
 \subfigure[Fase plana]{
  \resizebox{160bp}{!}{\input{fase_plana-fig}}}
 \quad
-\subfigure[Fase arrugada]{
+\subfigure[Fase rugosa]{
  \resizebox{160bp}{!}{\input{fase_arrugada-fig}}}
 \end{figure}
 
+%A partir del potencial efectivo es posible obtener las variables
+%termodinámicas mediante la función de partición $\mathcal{Z}$ que viene dada
+%por la siguiente integral funcional:
 
-La idea esencial de la teoría de Landau de las transiciones de fase es
-, a partir de las simetrías del sistema, construir un potencial efectivo
-$F[K_i,\eta(\mathbf{x})]$, la energía libre de 
-Landau, que depende de las constantes de acoplamiento $K_i$ y de el parámetro
-de orden $\eta(\mathbf{x})$. Este potencial efectivo debe tener las mismas
-simetrías del 
-sistema y su mínimos con respecto al parámetro de orden determina el estado
-del sistema cuando se encuentra en equilibrio térmico. Aunque puede parecer
-que este potencial efectivo es la energía libre del sistema, estrictamente no
-lo es pues no es convexo.
+%\begin{equation*}
+%\mathcal{Z}[T]=\int D[\vec{r}(\mathbf{x})]\; e^{-\beta 
+%F[\vec{r}(\mathbf{x})]}
+%\end{equation*}
 
-\begin{figure}[h]
-\centering
- \input{vectores_tangentes-fig}
-\caption{Vectores tangentes en el punto $\mathbf{x}$}
-\end{figure}
+%En general, evaluar esta integral es muy complicado. Sin embargo podemos
+%obtener una aproximación aplicando la aproximación del punto de silla o campo
+%medio. 
+
+La teoría de Landau de la transición de fase consiste en una aproximación fenomenológica
+que evita tratar con la descripción microscópica del sistema. Para ello utiliza una
+descripción de \textit{grano grueso}, que en el caso de una membrana significa
+que $\mathbf{x}_{\Lambda}$ continua siendo un índice continuo excepto que etiqueta
+\textit{bloques} de partículas y no partículas individuales. El
+correspondiente parámetro de orden de grano grueso $\eta(\mathbf{x})$
+corresponderá a un promedio sobre todas las partículas que forman el bloque. 
+La función de partición del sistema será
+
+\begin{equation*}
+\mathcal{Z}[T]=\int D[\eta(\mathbf{x})]\; e^{-F[\eta(\mathbf{x}),T]}
+\end{equation*}
+
+donde $F[\eta(\mathbf{x}),T]$ representa un hamiltoniano efectivo dividido por
+$k_BT$, es una funcional del parámetro de orden $\eta(\mathbf{x})$:
+
+\begin{equation*}
+F[\eta(\mathbf{x}),T]=\int\! d^2\mathbf{s}\ f[\eta(\mathbf{x}),T]
+\end{equation*}
+
+Constituye un potencial efectivo se denomina energía libre de Landau y debe tener las mismas
+simetrías del sistema. Cerca del punto crítico, donde $\eta(\mathbf{x})$ es
+pequeño, se puede desarrollar en potencias de $\eta(\mathbf{x})$ y sus derivadas. 
 
 La simetría traslacional de la membrana implica que su energía libre de Landau
 sólo puede depender de las derivadas de $\vec{r}$, estos son, los vectores
-tangentes $\vec{t}_{\alpha}=\partial \vec{r}/\partial x^{\alpha} $. En la fase
+tangentes $\vec{t}_{\alpha}$. En la fase
 plana, los promedios de los vectores tangentes en un punto son no nulos, en
-cambio, en la fase arrugada, su promedio es nulo por isotropía. Por tanto,
+cambio, en la fase rugosa, su promedio es nulo por isotropía. Por tanto,
 podemos utilizar como  parámetro de orden los vectores tangentes
-$\vec{t}_{\alpha}$.
+$\vec{t}_{\alpha}(\mathbf{x})$. Como observamos, tenemos un parámetro de orden con
+carácter tensorial, con seis grados de libertad en cada punto. La descripción
+de grano grueso la obtenemos la obtenemos a partir de los promedios
+$\vec{t}_{\alpha}(\mathbf{x}_{\Lambda})$, función de las coordenadas internas
+$\mathbf{x}_{\Lambda}$ de las partículas, que corresponden al promedio de los
+vectores tangentes de las partículas en la vecindad $\Lambda$ del punto
+$\vec{r}(\mathbf{x})$.
+ 
 
-Las correlaciones espaciales crecen a medida que la temperatura del sistema se
-acerca a la temperatura en donde ocurre la transición, la temperatura
-crítica $T_c$, lo que significa que podemos encontrar regiones de dimensión
-lineal $\Lambda^{-1}\simeq \xi(T) $ donde los vectores tangentes son
-aproximadamente constantes. Esto sugiere que podemos dividir la superficie de
-la membrana en bloques de tamaño lineal $\Lambda^{-1}$, y definir los vectores
-tangentes locales
-$\vec{t}_{\alpha}(\mathbf{x})_{\Lambda}=\langle \partial_{\alpha}\vec{r}\rangle_{\Lambda}$
-en cada bloque centrados en $\mathbf{x}$. Es importante puntualizar que,
-mientras que tratamos a $\mathbf{x}$ como una variable continua, la función
-$\vec{t}_{\alpha}(\mathbf{x})_{\Lambda}$ no presenta variaciones a distancias
+La justificación de la descripción de grano grueso la encontramos en el
+comportamiento de las correlaciones espaciales, éstas crecen a medida que la
+temperatura del sistema se acerca a la temperatura crítica, lo que significa
+que podemos encontrar regiones de dimensión lineal $\Lambda$ donde los vectores tangentes son
+aproximadamente constantes. Es importante puntualizar que,
+mientras que tratamos a $\mathbf{x}_{\Lambda}$ como una variable continua, la función
+$\vec{t}_{\alpha}(\mathbf{x}_{\Lambda})$ no presenta variaciones a distancias
 del orden del espaciado microscópico $a$, o equivalentemente, su transformada
 de Fourier tiene vectores de onda con magnitud menor que cierto cut-off
-$\Lambda \sim 1/a$. Está descripción se denomina de ``grano grueso'' y en lo
-que sigue omitiremos el subíndice $\Lambda$ de las variables.
+$\Lambda^{-1} \sim 1/a$. En lo que sigue continuaremos con está descripción de
+grano grueso y omitiremos el subíndice $\Lambda$ de las variables para no
+cargar demasiado la notación.
 
 Una energía libre de Landau $F$ de grano grueso de una membrana cristalina
 puede construirse apoyándose en las siguientes propiedades:
@@ -87,23 +193,23 @@ puede construirse apoyándose en las siguientes propiedades:
   del desarrollo en gradientes:
   $$ F=\int\! d^D\mathbf{S}\ f[\vec{t}_{\alpha},\nabla
   \vec{t}_{\alpha},\dots]$$ 
-\item[Simetría rotacional en $\mathbb{R}^d$]: Está simetría implica que sólo
+\item[Simetría rotacional en $\mathbb{R}^3$]: Está simetría implica que sólo
   puede depender de productos escalares pares de los vectores tangentes
   locales y sus gradientes. 
 
-\item[Simetría traslacional y rotacional en $\mathbb{R}^D$]: Lo que implica
+\item[Simetría traslacional y rotacional en $\mathbb{R}^2$]: Lo que implica
   que los términos del desarrollo deben ser covariantes, invariantes frente a
   cambios de las coordenadas $\mathbf{x}$. Finalmente, con esta última
   propiedad podemos proponer la siguiente energía libre de Landau $F$:
-  \begin{equation}
-    F=\int d^D\mathbf{S}
+  \begin{equation*}
+    F[\vec{t}_{\alpha}(\mathbf{x})]=\int d^2\mathbf{S}
     \left[
       \frac{t}{2}(\vec{t}_{\alpha})^2+
       u(\vec{t}_{\alpha}\vec{t}_{\beta})^2+
       v(\vec{t}_{\alpha}\vec{t}^{\alpha})^2+
       \frac{\kappa}{2}(\partial_{\alpha}\vec{t}_{\alpha})^2
     \right]
-  \end{equation}
+  \end{equation*}
 \end{description}
 
 %Explicación coeficientes - dependen de la temperatura
@@ -145,49 +251,37 @@ recuperamos una membrana fantasma.
 
 \section{Aproximación de Campo medio}
 
-%A partir del potencial efectivo es posible obtener las variables
-%termodinámicas mediante la función de partición $\mathcal{Z}$ que viene dada
-%por la siguiente integral funcional:
-
-%\begin{equation}
-%\mathcal{Z}[T]=\int D[\vec{r}(\mathbf{x})]\; e^{-\beta 
-%F[\vec{r}(\mathbf{x})]}
-%\end{equation}
-
-%En general, evaluar esta integral es muy complicado. Sin embargo podemos
-%obtener una aproximación aplicando la aproximación del punto de silla o campo
-%medio. 
 \begin{figure}[h]
 \centering
  \resizebox{\columnwidth}{!}{\input{campo_medio-fig}}
 \caption{Parametrización usada en la aproximación del campo medio}
 \end{figure}
 
-La energía libre TAL describe una membrana isótropa, las interacciones no
+La energía libre TAL  describe una membrana isótropa, las interacciones no
 dependen de la dirección, lo que nos permite afirmar que en la fase
 plana los promedios de las posiciones tridimensionales de las partículas
 formarán una red regular plana:  
 
-\begin{equation}
+\begin{equation*}
  \langle\vec{r}(\mathbf{x})\rangle_{p}=(\zeta x^1,\zeta x^2,0)=(\zeta \mathbf{x},0) 
-\end{equation}
+\end{equation*}
 
 El nuevo parámetro introducido $\zeta$ está relacionado con la norma al
 cuadrado del promedio de  vectores tangentes
 
-\begin{equation}
+\begin{equation*}
  \left.\begin{array}{c}
 \langle\vec{t}_{1}(\mathbf{x})\rangle_{p}=\langle\partial_1\vec{r}\rangle_{p}=(\zeta ,0,0)\\
 \langle\vec{t}_{2}(\mathbf{x})\rangle_{p}=\langle\partial_2\vec{r}\rangle_{p}=(0,\zeta ,0)\\
  \end{array}\right\}\Rightarrow
 \langle\vec{t}_{\alpha}(\mathbf{x})\rangle_{p}\cdot\langle\vec{t}_{\beta}(\mathbf{x})\rangle_{p}=\zeta^2 \delta_{\alpha\beta}
-\end{equation}
+\end{equation*}
 
 de donde deducimos que
 
-\begin{equation}
+\begin{equation*}
 |\langle\vec{t}_1(\mathbf{x})\rangle_{p}|=|\langle\vec{t}_2(\mathbf{x})\rangle_{p}|=\zeta
-\end{equation}
+\end{equation*}
 
 La norma de ambos vectores tangentes coincide, consecuencia directa de la
 isotropía de la membrana, y es igual a el parámetro $\zeta$. Puesto que la
@@ -220,28 +314,54 @@ $$A=\int d^2 \mathbf{S}=\zeta^2\int d^2 \mathbf{x}$$
 
 Es el área de la membrana y 
 
-\begin{equation}
+\begin{equation*}
 f(\zeta,T)=2\zeta^2\!\left( \frac{t}{2} + (u+2v)\zeta^2\right)
-\end{equation}
+\end{equation*}
 
-Es la densidad de energía libre de Landau. Se puede demostrar que:
+Es la densidad de energía libre de Landau. 
 
-\begin{equation}
-Z[T]= e^{-\beta F[T]}, \quad \beta F[T]\simeq \beta L(\zeta_0,T)
-\end{equation}
+\begin{equation*}
+\mathcal{Z}[T]=\int D[\vec{t}_{\alpha}(\mathbf{x})]\;
+e^{-F[\vec{t}_{\alpha}(\mathbf{x})]}\
+\stackrel{\text{C. M.}}{\longrightarrow}\ \mathcal{Z}[T]=\int d\zeta\;e^{-Af_{CM}(\zeta)}
+\end{equation*}
 
-Donde F es la energía libre de Helmholtz  y $\zeta_0$ es el valor que minimiza
-la función respecto al parámetro de orden. Está aproximación es conocida 
-como la teoría de campo medio de Landau, que supone que el sistema es
-homogéneo, esto es, la densidad de energía $\mathcal{L}(\zeta,T)$ es constante
-en la superficie, por tanto, el valor mínimo de $L(\zeta,T)$ coincide con el de
-$\mathcal{L}(\zeta,T)$: 
+Ahora bien, si $A$ es muy grande, únicamente contribuyen los términos de
+$f_{CM}$ pequeños, entonces podemos desarrollar en serie alrededor del mínimo
+$\zeta_0$:
 
-\begin{equation}
-\left(\frac{\partial \mathcal{L}}{\partial \zeta}\right)_{\!\zeta=\zeta_0}\!=0 \; \Rightarrow \; \frac{t}{2}+2(u+vD)\zeta_0^2=0
-\end{equation}
- 
-El comportamiento de $\mathcal{L}$ depende del signo del parámetro $t$:
+\begin{equation*}
+f_{CM}(\zeta)\simeq f_{CM}(\zeta_0)+\frac{1}{2}\ddot{f}_{CM}(\zeta_0)(\zeta-\zeta_0)^2
+\end{equation*}
+
+Encontramos:
+
+\begin{equation*}
+ \mathcal{Z}[T]\simeq\int
+ d\zeta\;e^{-Af_M(\zeta_0)-\frac{A}{2}\ddot{f}_M(\zeta_0)(\zeta-\zeta_0)^2}=
+ \sqrt{\frac{2\pi}{A\ddot{f}_M(\zeta_0)}}\; e^{-Af_M(\zeta_0)}
+\end{equation*}
+
+En el límite termodinámico:
+
+\begin{equation*}
+\lim_{A\rightarrow 0}\; \frac{1}{A} \ln \mathcal{Z}[T]=-f_M(\zeta_0)
+\end{equation*}
+
+Es decir, $f_M(\zeta_0)=\beta \;\text{f}\,(T)$, donde
+$\text{f}\,(T)$ es la energía libre de Hemholtz. 
+
+\begin{equation*}
+\left(\frac{\partial f_M}{\partial \zeta}\right)_{\!\zeta=\zeta_0}\!=0 \; \Rightarrow \; 4\zeta_0\left(\frac{t}{2}+2(u+vD)\zeta_0^2\right)=0
+\end{equation*}
+
+El comportamiento de $f$ depende del signo del parámetro $t$:
+
+\begin{figure}[h]
+\centering
+ \resizebox{\columnwidth}{!}{\input{energia_libre_CM-fig}}
+\caption{Campo medio}
+\end{figure} 
 
 \begin{enumerate}
 \item Para $t>0$ el mínimo de $F$ ocurre en $\zeta_0=0$, esto indica que la
@@ -263,11 +383,7 @@ u=&\; u_0+u_1(T-T_c)+O(T-T_c)^2\\
 v=&\; v_0+v_1(T-T_c)+O(T-T_c)^2
 \end{align}
 
-\begin{figure}[h]
-\centering
- \resizebox{\columnwidth}{!}{\input{energia_libre_CM-fig}}
-\caption{Campo medio}
-\end{figure}
+
 
 Podemos tomar a $u$ y $v$ como constantes, ya que su dependencia en la 
 temperatura no contribuye en los primeros órdenes en comportamiento
@@ -276,9 +392,9 @@ para cualquier valor de $T\!<\!T_c$ sabemos que el parámetro de orden es no
 nulo, esto es, $\zeta_0\!\neq\! 0$, lo que implica que $t_0=0$. Por otra
 parte, siempre podremos escalar el parámetro de orden 
 $\zeta$, de manera que $t_1=1$, con lo que tenemos finalmente que
-\begin{equation}
+\begin{equation*}
 t=\frac{(T-T_c)}{T_c}+O(T-T_c)^2,
-\end{equation}
+\end{equation*}
 
 el parámetro $t$ es la temperatura reducida.
 
@@ -298,9 +414,9 @@ el parámetro $t$ es la temperatura reducida.
 Pequeñas deformaciones desde un estado de referencia se pueden parametrizar
 como:
 
-\begin{equation}
+\begin{equation*}
 \vec{r}(\mathbf{x})=(\zeta \mathbf{x}+\mathbf{u(\mathbf{x})},h(\mathbf{x}))
-\end{equation}
+\end{equation*}
 
 Donde $\mathbf{u(\mathbf{x})}$ son los modos fonocnicos internos y
 $h(\mathbf{x})$ son las fluctuaciones fuera del plano.
@@ -309,9 +425,9 @@ $\zeta$ no nula describe una membrana plana con pequeñas fluctuaciones.
 \subsection{Tensor de Deformaciones}
 
 En una membrana plana es natural introducir el tensor de deformaciones:
-\begin{equation}
+\begin{equation*}
 u_{\alpha\beta}=\frac{1}{2}(\partial_{\alpha}\vec{r}\cdot\partial_{\beta}\vec{r}-\delta_{\alpha\beta})
-\end{equation}
+\end{equation*}
 
 Los factores del interior del integrando quedan:
 \begin{align}
@@ -324,13 +440,13 @@ Los factores del interior del integrando quedan:
 
 Sustituyendo en la expresión de $F$, y despreciando términos constantes:
 
-\begin{equation}
+\begin{equation*}
 F(\vec{r})=\int d^D\mathbf{x}
 \left[\tau u_{\alpha}^{\ \alpha}+
 \mu u_{\alpha\beta}u^{\alpha\beta} +
 \frac{\lambda}{2}(u_{\alpha}^{\ \alpha})^2 +
 \frac{\kappa}{2}(\partial^2\vec{r})^2\right]
-\end{equation}
+\end{equation*}
 
 Donde:
 \begin{align}

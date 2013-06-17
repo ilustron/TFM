@@ -16,12 +16,18 @@ set isosamples 9
 
 set style arrow 1 head size 0.1,30,90 filled
 
-set arrow arrowstyle 1 from 0,0,0 to 1,0,0 front
-set arrow arrowstyle 1 from 0,0,0 to 0,-1,0 front
+set arrow 5 arrowstyle 1 from 0,0,0 to 0.8,0,0 front
+set arrow 6 arrowstyle 1 from 0,0,0 to 0,-0.8,0 front
+
+set arrow 1 from 1,1,0 to -1,1,0 nohead 
+set arrow 2 from -1,1,0 to -1,-1,0 nohead 
+set arrow 3 from -1,-1,0 to 1,-1,0 nohead 
+set arrow 4 from 1,-1,0 to 1,1,0 nohead 
 
 set label '$\vec{t}_1$' at 0.5,0,0.8 center front
 set label '$\vec{t}_2$' at  0,-0.5,0.8 center front
-set label '$\mathbf{x}$' at  0,0,0 center front point pt 7 ps 1 offset 0,0.3,0
+set label '$P$' at  0,0,0 center front point pt 7 ps 1 offset 0,0.3,0
+set label '$T_P S$' at  1,1,0.8 center front
 
 splot [-1.2:1.2][-1.2:1.2] -x**2-y**2 w l lc rgb 'gray50'
 
@@ -44,14 +50,16 @@ set hidden3d
 
 set style arrow 1 head size 0.05,30,90 filled
 
-set arrow arrowstyle 1 from 0,0,0 to 1,0,0 front
-set arrow arrowstyle 1 from 0,0,0 to 0,1,0 front
+set arrow arrowstyle 1 from 0,0,0 to 0.16,0,0 front
+set arrow arrowstyle 1 from 0,0,0 to 0,0.16,0 front
+set arrow arrowstyle 1 from 0,0,0 to 0.5,0.5,0 front
+
+set label '{\Large $\mathbf{x}_1$}' at -0.04,0.08,0 center front
+set label '{\Large $\mathbf{x}_2$}' at  0.08,-0.04,0 center front
+set label '{\Large $\mathbf{x}$}' at  0.30,0.25,0 center front
 
 
-#set label '$\vec{t}_1$' at 0,0,0.8 center front
-#set label '$\vec{t}_2$' at  0,-0.5,0.8 center front
-
-splot [0:1][0:1][-1:1] 0 w l lc rgb 'gray50'
+splot [0:1][0:1][-0.1:0.1] 0 w l lc rgb 'gray50'
 
 reset
 
@@ -65,7 +73,7 @@ unset border
 unset tics
 
 set view equal xy
-set view 45,45,1.4,1
+set view 45,45,1.5,1
 set isosamples 7
 set hidden3d
 
@@ -75,6 +83,11 @@ set arrow arrowstyle 1 from 0,-0.25,0.25 to 0.2,-0.25,0.25 front
 set arrow arrowstyle 1 from 0,-0.25,0.25 to 0,-0.05,0.25 front
 set arrow arrowstyle 1 from 0,-0.25,0.25 to 0,-0.25,0.35 front
 set arrow arrowstyle 1 from 0,-0.25,0.25 to 0.5,0.5,0 front
+
+set label '{\Large $\vec{i}$}' at 0.1,-0.3,0.25 center front
+set label '{\Large $\vec{j}$}' at -0.05,-0.15,0.25 center front
+set label '{\Large $\vec{k}$}' at  0,-0.3,0.32 center front
+set label '{\Large $\vec{r}(\mathbf{x})$}' at  0.25,0.125,0.150 center front
 
 splot [0:1][0:1] (x-0.5)**2-(y-0.5)**2 w l lc rgb 'gray50'
 
