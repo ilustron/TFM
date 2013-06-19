@@ -231,3 +231,55 @@ splot [0:1][0:1] h(x,y) with l lc rgb 'gray50',0 with l lc rgb 'gray10'
 
 set output
 reset
+
+#RESULTADOS
+
+#resultados energía de curvatura
+
+set terminal epslatex mono 
+set output "Se_plot.tex"
+
+set xlabel '$\kappa$'
+set ylabel '$s_c$'
+plot "./source_plots/Medidas_Se_L16.dat" u 1:2:3 title 'L=16' w yerrorlines,\
+     "./source_plots/Medidas_Se_L24.dat" u 1:2:3 title 'L=24' w yerrorlines,\
+     "./source_plots/Medidas_Se_L32.dat" u 1:2:3 title 'L=32' w yerrorlines 
+
+reset
+
+#resultados calor específico
+
+set terminal epslatex mono 
+set output "Cv_plot.tex"
+
+set xlabel '$\kappa$'
+set ylabel '$C_v$'
+plot "./source_plots/Medidas_Cv_L16.dat" u 1:2:3 title 'L=16' w yerrorlines,\
+     "./source_plots/Medidas_Cv_L24.dat" u 1:2:3 title 'L=24' w yerrorlines,\
+     "./source_plots/Medidas_Cv_L32.dat" u 1:2:3 title 'L=32' w yerrorlines
+reset
+
+#resultados radio de giro
+
+set terminal epslatex mono 
+set output "Rg2_plot.tex"
+
+set xlabel '$\kappa$'
+set ylabel '$R_g^2$'
+plot "./source_plots/Medidas_Rg2_L16.dat" u 1:2:3 title 'L=16' w yerrorlines,\
+     "./source_plots/Medidas_Rg2_L24.dat" u 1:2:3 title 'L=24' w yerrorlines,\
+     "./source_plots/Medidas_Rg2_L32.dat" u 1:2:3 title 'L=32' w yerrorlines
+
+reset
+
+#resultados radio de giro conexo
+
+set terminal epslatex mono 
+set output "Drg2_plot.tex"
+
+set xlabel '$\kappa$'
+set ylabel '$\langle R_g^2 s_c \rangle$'
+plot "./source_plots/Medidas_Drg2_L16.dat" u 1:2:3 title 'L=16' w yerrorlines,\
+     "./source_plots/Medidas_Drg2_L24.dat" u 1:2:3 title 'L=24' w yerrorlines,\
+     "./source_plots/Medidas_Drg2_L32.dat" u 1:2:3 title 'L=32' w yerrorlines 
+reset
