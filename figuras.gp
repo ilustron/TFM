@@ -196,3 +196,38 @@ unset border
 unset tics
 splot "./source_plots/snapshot_x_L64_K0.5-999.dat" with l lc rgb 'gray50'
 reset
+
+#FASE ARRUGADA
+
+set terminal epslatex mono 
+set output "deformacion-fig.tex"
+
+set view 65,45,1.2,1
+set xyplane at 0
+set hidden3d
+
+unset key
+unset border
+unset tics
+
+h(x,y)=-0.5*x**2+0.5*y**2+3
+dhx(x)=-x
+dhy(y)=y
+
+set style arrow 1 head size 0.02,30,90 filled
+
+set arrow arrowstyle 1 from 0,0,0 to 0.2,0,0
+set arrow arrowstyle 1 from 0,0,0 to 0,0.2,0
+set arrow arrowstyle 1 from 0,0,0 to 0,0,1
+
+set arrow arrowstyle 1 from 0,0,0 to 0.5,0.5,h(0.5,0.5)
+set arrow arrowstyle 1 from 0,0,0 to 0.4,0.4,0
+set arrow arrowstyle 1 from 0.4,0.4,0 to 0.5,0.5,h(0.5,0.5)
+
+set arrow arrowstyle 1 from 0.5,0.5,h(0.5,0.5) to 0.65,0.5,h(0.65,0.5)
+set arrow arrowstyle 1 from 0.4,0.4,0 to 0.55,0.4,0
+
+splot [0:1][0:1] h(x,y) with l lc rgb 'gray50',0 with l lc rgb 'gray10'
+
+set output
+reset
