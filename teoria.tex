@@ -4,16 +4,17 @@
 \section{Descripción geométrica de la membranas cristalina}
 
 Consideraremos una membrana como una superficie elástica y flexible 
-bidimensional alojada en un espacio tridimensional Euclídeo. 
+bidimensional alojada en un espacio tridimensional euclídeo. 
 Se pueden interpretar las interacciones de los puntos de la superficie como
 conexiones, es decir, dos puntos que están interaccionando entre sí han
 establecido una conexión entre ambos. Una membrana cristalina corresponde al
 tipo de superficie en la que las conexiones entre sus puntos forman una red
 regular cuya conectividad permanece constante. Esta última afirmación
 significa que si existe una conexión entre dos puntos, está persistirá sea
-cual sea la configuración global de la superficie. Podremos entonces,
-encontrar estados de la membrana en los que puntos que no interaccionan entre
-sí estén mucho menos distanciados que los puntos que sí están interaccionando.
+cual sea la configuración global de la superficie.
+% Podremos entonces,encontrar estados de la membrana en los que puntos que no
+% interaccionan entre sí estén mucho menos distanciados que los puntos que sí
+% están interaccionando. 
 
 Usaremos una descripción continua de la membrana cristalina en donde la
 posición en el espacio tridimensional de sus puntos estará descrita por sus
@@ -34,8 +35,11 @@ membrana cristalina necesitamos dos sistemas de coordenadas:
 \end{figure}
 
 \begin{description}
-\item[Coordenadas internas:] Etiquetan cada partícula, de modo que, permanecen
-  constante en cada configuración.
+\item[Coordenadas internas:] Etiquetan cada partícula, de modo que, si la
+  membrana sufre una deformación modificándose las posiciones de las
+  partículas estas coordenadas permanecen constantes, es decir, las
+  coordenadas internas de un punto de la membrana serán las mismas antes y
+  después de la deformación. 
   \begin{equation*}
   \mathbf{x}\equiv (x^1,x^2)\in \mathbb{R}^2
   \end{equation*}
@@ -46,6 +50,8 @@ membrana cristalina necesitamos dos sistemas de coordenadas:
     \vec{r}=x\,\vec{i}+y\,\vec{j}+z\,\vec{k}\equiv (x,y,z)\in \mathbb{R}^3
   \end{equation*}
 \end{description}
+
+\subsection{Vectores tangentes}
 
 En cada punto $P\equiv\vec{r}(\mathbf{x})$ tenemos un plano tangente $T_PS$ a
 la superficie cuya base son los siguientes vectores tangentes:
@@ -63,50 +69,128 @@ la superficie cuya base son los siguientes vectores tangentes:
 
 Cualquier vector $\vec{V}$ tangente a la superficie en el punto $P$ se podrá
 descomponer como:
-
-\begin{equation*} 
-\vec{V}=\sum^2_{\alpha=1}V^{\alpha}\vec{t}_{\alpha}=V^{\alpha}\vec{t}_{\alpha}
-\end{equation*}
-
+\begin{equation}\label{ejemplo_vector} 
+  \vec{V}=\sum^2_{\alpha=1}V^{\alpha}\vec{t}_{\alpha}=V^{\alpha}\vec{t}_{\alpha}
+\end{equation}
 con el convenio de índices repetidos de Einstein. Las dos cantidades
 $V^{\alpha}$ son las componentes del vector $\vec{V}$ en el sistema de
 coordenadas internas $\mathbf{x}$ y dependen de la elección del sistema de
-coordenadas.
+coordenadas, esto es, de la parametrización de la superficie. Si consideramos
+un nuevo sistema de coordenadas  
+\begin{equation*}
+ \mathbf{x}'=\{x'^{\alpha}(\mathbf{x}); \alpha=1,2\}
+\end{equation*}
+La base de los vectores tangentes en $\mathbf{x}'$ es
+\begin{equation*}
+\vec{t}_{\alpha}^{\ '}=\frac{\partial \vec{r}}{\partial x'^{\alpha}}=
+\frac{\partial x^{\beta}}{\partial x'^{\alpha}}\frac{\partial \vec{r}}{\partial x^{\beta}}=\frac{\partial x^{\beta}}{\partial x'^{\alpha}}\vec{t}_{\alpha}
+\end{equation*}
+Y las componentes $V'^{\alpha}$ del vector \eqref{ejemplo_vector}
+\begin{equation} 
+  \vec{V}=V'^{\alpha}\vec{t}_{\alpha}^{\
+    '}=V^{\alpha}\vec{t}_{\alpha}\Rightarrow V'^{\alpha}=\frac{\partial x'^{\alpha}}{\partial x^{\beta}}V^{\beta}
+\end{equation}
+
+Tanto $\vec{t}_{\alpha}$ como $V^{\alpha}$ son casos particulares de objetos
+más generales, los tensores. Definimos un tensor $T$ de rango $m$
+contravariante y rango $n$ covariante como un objeto cuyas $2^{m+n}$ componentes
+bajo un cambio de coordenadas $\mathbf{x}\rightarrow\mathbf{x'}$ transforman
+como 
+\begin{equation*}
+T'^{\alpha_1,\dots,\alpha_m}_{\beta_1,\dots,\beta_m}=
+\frac{\partial x'^{\alpha_1}}{\partial x^{\beta_1}}\dots \frac{\partial
+  x'^{\alpha_m}}{\partial x^{\beta_m}}
+\frac{\partial x^{\beta_1}}{\partial x'^{\alpha_1}}\dots \frac{\partial
+  x^{\beta_n}}{\partial x'^{\alpha_n}}T^{\alpha_1,\dots,\alpha_n}_{\beta_1,\dots,\beta_m}
+\end{equation*}
+
+Entonces $V^{\alpha}$ son las componentes de un tensor de rango $1$
+contravariante, que llamaremos vector contravariante. Análogamente, a un tensor
+de rango $1$ covariante llamaremos vector covariante.
  
-La distancia $dl$ entre dos puntos de coordenadas internas $\mathbf{x}$ y
-$\mathbf{x}+d\mathbf{x}$ respectivamente es:
+\subsection{Métrica inducida}
+
+La distancia euclídea $dl$ entre dos puntos de coordenadas internas
+$\mathbf{x}$ y $\mathbf{x}+d\mathbf{x}$ respectivamente es:
 
 \begin{equation}\label{elemento_linea}
 dl^2=(\vec{r}(\mathbf{x}+d\mathbf{x})-\vec{r}(\mathbf{x}))^2=g_{\alpha\beta}dx^{\alpha}dx^{\beta}
 \end{equation}
 
-Donde $g_{\alpha\beta}=\vec{r}\cdot\partial_{\beta}\vec{r}$ es el tensor
-métrico que nos permite definir el producto escalar entre dos vectores
-tangentes $\vec{V}$ y $\vec{W}$ en el punto $P$:
-\begin{equation*}
+Donde $g_{\alpha\beta}=\vec{t}_{\alpha}\cdot\vec{t}_{\beta}$ es un tensor, que
+denominaremos métrica inducida, que nos permite definir el producto escalar
+entre dos vectores tangentes $\vec{V}$ y $\vec{W}$ en el punto $P$:
+\begin{equation}\label{producto_escalar}
 \vec{V}\cdot\vec{W}=g_{\alpha\beta}V^{\alpha}W^{\beta}
+\end{equation}
+Diremos que la base $\{ \vec{t}_{\alpha}, \alpha=1,2\}$ es ortogonal y
+normalizada (en coordenadas cartesianas corresponde a una base ortonormal) si
+\begin{equation*}
+\vec{t}_{\alpha}\cdot\vec{t}_{\beta}=\delta_{\alpha\beta}
 \end{equation*}
+donde es la métrica euclídea
+\begin{equation*}
+\delta_{\alpha\beta}\equiv\left(\begin{array}{cc}
+1&0\\
+0&1\\
+\end{array}\right)
+\end{equation*}
+La métrica inducida inversa $g^{\alpha\beta}$ se define como
+\begin{equation}\label{expresion_metrica}
+g_{\alpha\gamma}g^{\gamma\beta}=\delta_{\alpha}^{\ \beta}=\begin{cases}
+1&\text{si $\alpha=\beta$}\\
+0&\text{si $\alpha\neq\beta$}.
+\end{cases}
+\end{equation}
 
-%Vectores contravariantes y covariantes
+Gracias a esta última expresión \eqref{expresion_metrica} podemos hacer
+corresponder los vectores contravariantes con los covariantes, que en la
+notación usada equivale a subir o bajar índices:
+\begin{equation*}
+V_{\alpha}=g_{\alpha\beta}V^{\beta}\rightarrow V^{\alpha}=g^{\alpha\beta}V_{\beta} 
+\end{equation*}
+Y podemos expresar el producto escalar de los vectores
+\eqref{producto_escalar} 
+\begin{equation*}
+\vec{V}\cdot\vec{W}=V_{\alpha}W^{\beta}=V^{\alpha}W_{\beta}
+\end{equation*}
+El elemento de infinitesimal de área $d^2\mathbf{s}$ se relaciona con el
+determinante $g$ de la métrica inducida por
+
+\begin{equation}\label{elemento_area}
+d^2\mathbf{s}=\sqrt{g}\;d^2\mathbf{x}
+\end{equation}
+donde $d^2\mathbf{x}=dx^1dx^2$. Se puede demostrar esta expresión
+\eqref{elemento_area} teniendo en cuenta que
+\begin{equation*}
+d^2\mathbf{s}=|\vec{t}_1\cdot\vec{t}_2|\;d^2\mathbf{x}
+\end{equation*}
+y
+\begin{multline*}
+|\vec{t}_1\cdot\vec{t}_2|^2=|\vec{t}_1|^2|\vec{t}_2|^2\sen^2
+\theta=g_{11}g_{22}(1-\cos^2 \theta)=\\
+g_{11}g_{22}-(\vec{t}_1\cdot\vec{t}_2)^2=g_{11}g_{22}-g_{12}g_{21}=g
+\end{multline*}
 
 \section{Teoría de Landau de la transición de fase}
 
-En una membrana se pueden encontramos dos fases: La fase plana y la fase
-rugosa. Ambas se distinguen en sus simetrías y se localizan cada lado
-de la temperatura crítica $T_c$, a la cual tiene lugar la transición. 
-Sobre la temperatura crítica la membrana es invariante frente a rotaciones,
+En una membrana se pueden encontrar dos fases: La fase plana y la fase
+rugosa, que se distinguen por sus simetrías. A la temperatura crítica $T_c$ se
+produce la transición entre estas dos fases. Sobre la temperatura crítica la
+membrana es invariante frente a rotaciones, 
 la membrana se encuentra en la fase rugosa. En cambio, bajo la temperatura
-crítica, se encuentra en la fase 
-plana donde el promedio del vector normal a la superficie
-$\langle \vec{n}\rangle$ define una dirección privilegiada en el espacio,
-destruyendo la invariancia frente a rotaciones cuyo eje es perpendicular a
-$\langle \vec{n}\rangle$. Los estados de equilibrio que se encuentran en esta
-última fase, al tener una menor simetría que la del hamiltoniano del sistema,
-se denominan estados con ruptura de simetría.
+crítica, se encuentra en la fase plana donde el promedio del vector normal a
+la superficie $\langle \vec{n}\rangle$ define una dirección privilegiada en el
+espacio, destruyendo la invariancia frente a rotaciones cuyo eje es
+perpendicular a $\langle \vec{n}\rangle$. Los estados de equilibrio que se
+encuentran en esta última fase, al tener una menor simetría que la del
+hamiltoniano del sistema, se denominan estados con ruptura espontánea de la
+simetría. 
  
 Debido a la reducción de la simetría, es necesario un nuevo parámetro que 
 describa la termodinámica de la fase ordenada. Este parámetro
-extra, denominado parámetro de orden y que denotaremos por $\eta(\mathbf{x})$, es una
+extra, denominado parámetro de orden y que denotaremos por $\eta(\mathbf{x})$,
+es una 
 variable que cuantifica el grado de orden de
 las fases, por lo que usualmente se define de forma que sea nulo en la fase
 de mayor simetría.
@@ -119,19 +203,6 @@ de mayor simetría.
 \subfigure[Fase rugosa]{
  \resizebox{160bp}{!}{\input{fase_arrugada-fig}}}
 \end{figure}
-
-%A partir del potencial efectivo es posible obtener las variables
-%termodinámicas mediante la función de partición $\mathcal{Z}$ que viene dada
-%por la siguiente integral funcional:
-
-%\begin{equation*}
-%\mathcal{Z}[T]=\int D[\vec{r}(\mathbf{x})]\; e^{-\beta 
-%F[\vec{r}(\mathbf{x})]}
-%\end{equation*}
-
-%En general, evaluar esta integral es muy complicado. Sin embargo podemos
-%obtener una aproximación aplicando la aproximación del punto de silla o campo
-%medio. 
 
 La teoría de Landau de la transición de fase es una aproximación
 fenomenológica que evita tratar con la descripción microscópica del sistema
@@ -148,21 +219,20 @@ En una descripción microscópica y continua, la función de partición
 $\mathcal{Z}[T]$ de la membrana cristalina vendrá dada por
 
 \begin{equation}\label{Zmicroscopica}
-\mathcal{Z}[T]=\int D[\eta(\mathbf{x})]\; e^{-\beta H[\eta(\mathbf{x})]}
+\mathcal{Z}[T]=\int D[\eta(\mathbf{x})]\; e^{-\beta H[\eta(\mathbf{x})]},
 \end{equation}
-
-
-Donde con $\int D[\eta(\mathbf{x})]$ se denota la integral funcional,
-$H[\eta(\mathbf{x})]$ es el hamiltoniano microscópico y $\beta=\frac{1}{k_B}$
-es el factor de Boltzmann. Se define la energía libre de Landau
+donde con $\int D[\eta(\mathbf{x})]$ se denota la integral funcional sobre
+todas las configuraciones posibles, $H[\eta(\mathbf{x})]$ es el hamiltoniano
+microscópico y $\beta=\frac{1}{k_BT}$ es el factor de Boltzmann. Se define la
+energía libre de Landau 
 $F[\bar{\eta}(\mathbf{x}_{\Lambda}),T]$ como 
 \begin{equation*}
 e^{-F[\bar{\eta}(\mathbf{x}_{\Lambda}),T]}=\int D[\eta(\mathbf{x})]\; e^{-\beta
   H[\eta(\mathbf{x}),T]}
-  \;\delta^{(K)}\left[\frac{1}{A_{\Lambda}}\int_{\Lambda} d^2\mathbf{x}\; \eta(\mathbf{x})-\bar{\eta}(\mathbf{x}_{\Lambda})\right]
+  \;\delta\left[\frac{1}{A_{\Lambda}}\int_{\Lambda} d^2\mathbf{x}\; \eta(\mathbf{x})-\bar{\eta}(\mathbf{x}_{\Lambda})\right]
 \end{equation*}
 
-Siendo $\delta^{(K)}$ la función delta de Kronecker y $A_{\Lambda}$ es el área
+Siendo $\delta$ la función delta de Dirac y $A_{\Lambda}$ es el área
 formada por las partículas del bloque. Esta energía libre de Landau se puede
 interpretar como un potencial efectivo, resultado de la integración de los
 grados de libertad microscópicos sujetos a la condición de que sus promedios
@@ -241,14 +311,13 @@ apoyándonos en las siguientes propiedades:
   las coordenadas $\mathbf{x}$. Finalmente, con esta última
   propiedad podemos proponer la siguiente energía libre de Landau $F$:
   \begin{multline}\label{ELandau}
-    F[\vec{t}_{\alpha}(\mathbf{x}),T]=
+    F[\vec{t}_{\alpha}(\mathbf{x}),T]=\\
 \int d^2\mathbf{s}
     \left[
-      \frac{t}{2}\vec{t}_{\alpha}\vec{t}^{\alpha}+
-      u\vec{t}_{\alpha}\vec{t}_{\beta}\vec{t}^{\alpha}\vec{t}^{\beta}+
-      v\vec{t}_{\alpha}\vec{t}^{\alpha}\vec{t}^{\alpha}\vec{t}_{\alpha}+
-      \frac{\kappa}{2}\partial_{\alpha}\vec{t}_{\alpha}\partial^{\alpha}\vec{t}^{\alpha}
-    \right]\\
+      \frac{t}{2}\vec{t}_{\alpha}\cdot\vec{t}^{\alpha}+
+      u(\vec{t}_{\alpha}\cdot\vec{t}_{\beta})(\vec{t}^{\alpha}\cdot\vec{t}^{\beta})+
+      v(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})(\vec{t}^{\alpha}\cdot\vec{t}_{\alpha})+
+      \frac{\kappa}{2}(\partial_{\alpha}\vec{t}_{\alpha})\cdot(\partial^{\alpha}\vec{t}^{\alpha}) \right]\\
 =\int d^2\mathbf{s}
     \left[
       \frac{t}{2}(\vec{t}_{\alpha})^2+
@@ -268,12 +337,12 @@ desconocida, así como con la temperatura.
 
 La energía libre \eqref{ELandau}, al no haber considerado
 interacciones de largo alcance en su deducción, permite la membrana puede
-cruzarse libremente a sí misma. Para evitar que el sistema pueda acceder a
-configuraciones sin realidad física, se puede incluir el siguiente término de
-exclusión de volumen
+cruzarse libremente a sí misma. Para evitar que el sistema acceda
+configuraciones incompatibles con la estructura cristalina subyacente, se
+puede incluir el siguiente término de exclusión de volumen
 
 \begin{equation*}
-\frac{b}{2}\int d^2\mathbf{x} d^D\mathbf{x'}
+\frac{b}{2}\int d^2\mathbf{x} d^2\mathbf{x'}
 \delta^2(\vec{r}(\mathbf{x})-\vec{r}(\mathbf{x'}))
 \end{equation*}
 
@@ -282,8 +351,8 @@ puede cruzarse a sí misma sin coste energético. Las membranas con $b=0$ se
 denominan \textit{membranas fantasmas}, el tratamiento matemático de éstas es
  más sencillo, y serán el objeto de estudio de este presente
 trabajo, puesto que únicamente estamos interesados en las propiedades de la
-fase plana y la transición de fase, en donde no influye de forma acusada este
-efecto indeseable.
+fase plana y la transición de fase, en donde no influye de forma apreciable
+este efecto indeseable. 
 
 \section{Aproximación de Campo medio}
 
@@ -298,26 +367,22 @@ que cumpla, describe una membrana isótropa, en la que las interacciones no
 dependen de la dirección. En consecuencia, podemos afirmar que en la fase
 plana los promedios de las posiciones tridimensionales de las partículas
 $\langle\vec{r}(\mathbf{x})\rangle_{p}$ formarán una red regular plana:  
-
 \begin{equation*}
- \langle\vec{r}(\mathbf{x})\rangle_{p}=(\zeta x^1,\zeta x^2,0)=(\zeta \mathbf{x},0) 
+ \langle\vec{r}(\mathbf{x})\rangle_{p}=(\zeta x^1,\zeta x^2,0)=(\zeta \mathbf{x},0), 
 \end{equation*}
-
-En donde hemos orientado y situado el sistema de referencia de las coordenadas
+en donde hemos orientado y situado el sistema de referencia de las coordenadas
 externas, de forma que, el plano $xy$ coincida con el de las
 posiciones promedio. Las coordenadas internas utilizadas son 
 proporcionales a la proyección en el plano $xy$ de las posiciones. El factor
 de proporcionalidad $\zeta$, es un nuevo parámetro, cuya magnitud coincide con
 la norma del promedio de  vectores tangentes 
-
 \begin{equation}
  \left.\begin{array}{c}
 \langle\vec{t}_{1}(\mathbf{x})\rangle_{p}=\langle\partial_1\vec{r}\rangle_{p}=(\zeta ,0,0)\\
 \langle\vec{t}_{2}(\mathbf{x})\rangle_{p}=\langle\partial_2\vec{r}\rangle_{p}=(0,\zeta ,0)\\
  \end{array}\right\}\Rightarrow
-\langle\vec{t}_{\alpha}(\mathbf{x})\rangle_{p}\cdot\langle\vec{t}_{\beta}(\mathbf{x})\rangle_{p}=\zeta^2 \delta_{\alpha\beta}
+\langle\vec{t}_{\alpha}(\mathbf{x})\rangle_{p}\cdot\langle\vec{t}_{\beta}(\mathbf{x})\rangle_{p}=\zeta^2 \delta_{\alpha\beta},
 \end{equation}
-
 de donde, en efecto, deducimos que
 
 \begin{equation*}
@@ -333,86 +398,66 @@ puntos y nos da una idea del grado de extensión de la membrana.
 La aproximación de campo medio asume que se pueden despreciar las
 fluctuaciones, y por tanto, podemos aproximar los radio vectores de las
 partículas y lo vectores tangentes por sus promedios
-
 \begin{align*}
  \vec{r}(\mathbf{x})&\simeq(\zeta \mathbf{x},0)\\
  \vec{t}_1(\mathbf{x})&\simeq(\zeta ,0,0)\\
  \vec{t}_2(\mathbf{x})&\simeq(0,\zeta,0)
 \end{align*}
-
-La dependencia espacial de los vectores tangentes es eliminada, la
+y dependencia espacial de los vectores tangentes es eliminada. La
 aproximación del campo medio sólo considera estados homogéneos, además, que
 el carácter tensorial del parámetro de orden, sus seis grados de libertad, se
-reducen a uno parámetro $\zeta$, que es el parámetro de orden en esta
-aproximación. 
+reducen a un solo parámetro $\zeta$, que será el parámetro de orden en esta
+aproximación.
 
 La expresión del potencial efectivo \eqref{ELandau} en este caso será:
-
 \begin{align}
   F_C(\zeta,T)=&\int\! d^2 \mathbf{s}\ 2\zeta^2\!\left( \frac{t}{2} + (u+2v)\zeta^2\right)\\
   =&Af_C(\zeta)
 \end{align}
-
 donde 
-
-$$A=\int d^2 \mathbf{S}=\zeta^2\int d^2 \mathbf{x}$$
-
-Es el área total de la membrana y 
-
+$$A=\int d^2 \mathbf{s}=\zeta^2\int d^2 \mathbf{x}$$
+es el área total de la membrana y 
 \begin{equation}\label{densidadELandau}
 f_C(\zeta,T)=2\zeta^2\!\left( \frac{t}{2} + (u+2v)\zeta^2\right)
 \end{equation}
-
-Es la densidad de energía libre de Landau en la aproximación del campo medio. 
+es la densidad de energía libre de Landau en la aproximación del campo medio. 
 La función de partición corresponde a la siguiente integral
-
 \begin{equation}\label{Zcm}
- \mathcal{Z}[T]=\int d\zeta\;e^{-Af_{CM}(\zeta,T)}
+ \mathcal{Z}[T]=\int d\zeta\;e^{-Af_C(\zeta,T)}
 \end{equation}
-
 Ahora bien, si $A$ es muy grande, únicamente contribuyen los valores menores de
 $f_C(\zeta)$, y si además, posee un mínimo con respecto a $\zeta$ en
 $\zeta_0$, la exponencial del integrando de \eqref{Zcm} tendrá un máximo,
 tanto más acusado cuanto mayor sea el área $A$. Desarrollando $f_C(\zeta)$ en
 serie alrededor del mínimo $\zeta_0$
-
 \begin{equation*}
 f_C(\zeta)\simeq f_C(\zeta_0)+\frac{1}{2}\left(\frac{\partial f_C}{\partial \zeta}\right)_{\!\zeta_0}(\zeta-\zeta_0)^2
 \end{equation*}
-
-Y sustituyendo en la expresión anterior \eqref{Zcm} de $\mathcal{Z}[T]$ 
-
+y sustituyendo en la expresión anterior \eqref{Zcm} de $\mathcal{Z}[T]$ 
 \begin{equation}\label{Zcm2}
  \mathcal{Z}[T]\simeq\int
- d\zeta\;e^{-Af_M(\zeta_0)-\frac{A}{2}\ddot{f}_M(\zeta_0)(\zeta-\zeta_0)^2}=
- \sqrt{\frac{2\pi}{A\ddot{f}_M(\zeta_0)}}\; e^{-Af_M(\zeta_0)}
+ d\zeta\;e^{-Af_C(\zeta_0)-\frac{A}{2}\ddot{f}_C(\zeta_0)(\zeta-\zeta_0)^2}=
+ \sqrt{\frac{2\pi}{A\ddot{f}_C(\zeta_0)}}\; e^{-Af_C(\zeta_0)}
 \end{equation}
 
 La energía libre de Hemholtz intensiva $f_H(T)$ en el límite termodinámico
 viene dada por el siguiente límite
-
 \begin{equation*}
-\lim_{A\rightarrow \infty}\; \frac{-1}{A} \ln \mathcal{Z}[T]=\beta f_H(T)
+\lim_{A\rightarrow \infty}\; \frac{1}{A} \ln \mathcal{Z}[T]=-\beta f_H(T).
 \end{equation*}
-
 Si tomamos este límite en la expresión \eqref{Zcm2} de $\mathcal{Z}[T]$
 encontramos
-
 \begin{equation*}
-\lim_{A\rightarrow \infty}\; \frac{-1}{A} \ln \mathcal{Z}[T]=f_C(\zeta_0)
+\lim_{A\rightarrow \infty}\; \frac{1}{A} \ln \mathcal{Z}[T]=-f_C(\zeta_0),
 \end{equation*}
-
-Es decir, $f_M(\zeta_0)=\beta f_H(T)$, lo que significa que los estados de
+es decir, $f_C(\zeta_0)=\beta f_H(T)$, lo que significa que los estados de
 equilibrio del sistema vienen determinados por el mínimo de la energía libre
 de Landau. Hallando el mínimo de \eqref{densidadELandau} 
-
 \begin{equation*}
-\left(\frac{\partial f_M}{\partial \zeta}\right)_{\!\zeta=\zeta_0}\!=0 \;
+\left(\frac{\partial f_C}{\partial \zeta}\right)_{\!\zeta=\zeta_0}\!=0 \;
 \Rightarrow \; 4\zeta_0\left(\frac{t}{2}+2(u+2v)\zeta_0^2\right)=0
 \end{equation*}
-
 encontramos que el comportamiento de $f$ depende del signo del parámetro $t$:
-
 \begin{figure}[h]
 \centering
  \resizebox{\columnwidth}{!}{\input{energia_libre_CM-fig}}
@@ -423,10 +468,10 @@ encontramos que el comportamiento de $f$ depende del signo del parámetro $t$:
 \item Para $t>0$ el mínimo de $F$ ocurre en $\zeta_0=0$, esto indica que la
   simetría es total, la membrana se encuentra en la fase desordenada,
   arrugada.
-\item Para $t<0$, la función $f^{MF}$ tiene mínimo doblemente
+\item Para $t<0$, la función $f_C$ tiene mínimo doblemente
   degenerado, correspondiente a los valores de $\zeta_0=\mp
-  \sqrt{\frac{-t}{4(u+vD)}}$, ocurre una ruptura espontánea de la simetría indicando
-  una fase ordenada, la fase plana.
+  \sqrt{\frac{-t}{4(u+vD)}}$, ocurre una ruptura espontánea de la simetría
+  indicando una fase ordenada, la fase plana.
 \end{enumerate}
 
 La evaluación del punto mínimo sugiere entonces que el
@@ -437,11 +482,10 @@ temperatura crítica $T_c$, de los parámetros que intervienen en la densidad
 de energía libre:
 
 \begin{align*}
-t=&\; t_0+t_1\frac{(T-T_c)}{T_c}+O(T-T_c)^2\\
-u=&\; u_0+u_1(T-T_c)+O(T-T_c)^2\\
-v=&\; v_0+v_1(T-T_c)+O(T-T_c)^2
+t=&\; t_0+t_1\frac{(T-T_c)}{T_c}+O(T-T_c)^2,\\
+u=&\; u_0+u_1\frac{(T-T_c)}{T_c}+O(T-T_c)^2,\\
+v=&\; v_0+v_1\frac{(T-T_c)}{T_c}+O(T-T_c)^2.
 \end{align*}
-
 Podemos tomar a $u$ y $v$ como constantes, ya que su dependencia en la 
 temperatura no contribuye en los primeros órdenes en comportamiento
 termodinámico cerca de $T_c$. Ahora bien,
@@ -449,11 +493,9 @@ para cualquier valor de $T\!<\!T_c$ sabemos que el parámetro de orden es no
 nulo, esto es, $\zeta_0\!\neq\! 0$, lo que implica que $t_0=0$. Por otra
 parte, siempre podremos escalar el parámetro de orden 
 $\zeta$, de manera que $t_1=1$, con lo que tenemos finalmente que
-
 \begin{equation*}
 t=\frac{(T-T_c)}{T_c}+O(T-T_c)^2,
 \end{equation*}
-
 el parámetro $t$ es la temperatura reducida adimensional.
 
 %Como el parámetro de orden se anula de forma continua en la transición, a este
