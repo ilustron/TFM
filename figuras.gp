@@ -243,8 +243,9 @@ set xlabel '$\kappa$'
 set ylabel '$s_c$'
 plot "./source_plots/Medidas_Se_L16.dat" u 1:2:3 title 'L=16' w yerrorlines,\
      "./source_plots/Medidas_Se_L24.dat" u 1:2:3 title 'L=24' w yerrorlines,\
-     "./source_plots/Medidas_Se_L32.dat" u 1:2:3 title 'L=32' w yerrorlines 
-
+     "./source_plots/Medidas_Se_L32.dat" u 1:2:3 title 'L=32' w yerrorlines,\
+     "./source_plots/Medidas_Se_L46.dat" u 1:2:3 title 'L=46' w yerrorlines,\
+     "./source_plots/Medidas_Se_L64.dat" u 1:2:3 title 'L=64' w yerrorlines
 reset
 
 #resultados calor específico
@@ -256,7 +257,9 @@ set xlabel '$\kappa$'
 set ylabel '$C_v$'
 plot "./source_plots/Medidas_Cv_L16.dat" u 1:2:3 title 'L=16' w yerrorlines,\
      "./source_plots/Medidas_Cv_L24.dat" u 1:2:3 title 'L=24' w yerrorlines,\
-     "./source_plots/Medidas_Cv_L32.dat" u 1:2:3 title 'L=32' w yerrorlines
+     "./source_plots/Medidas_Cv_L32.dat" u 1:2:3 title 'L=32' w yerrorlines,\
+     "./source_plots/Medidas_Cv_L46.dat" u 1:2:3 title 'L=46' w yerrorlines,\
+     "./source_plots/Medidas_Cv_L64.dat" u 1:2:3 title 'L=64' w yerrorlines
 reset
 
 #resultados radio de giro
@@ -268,7 +271,9 @@ set xlabel '$\kappa$'
 set ylabel '$R_g^2$'
 plot "./source_plots/Medidas_Rg2_L16.dat" u 1:2:3 title 'L=16' w yerrorlines,\
      "./source_plots/Medidas_Rg2_L24.dat" u 1:2:3 title 'L=24' w yerrorlines,\
-     "./source_plots/Medidas_Rg2_L32.dat" u 1:2:3 title 'L=32' w yerrorlines
+     "./source_plots/Medidas_Rg2_L32.dat" u 1:2:3 title 'L=32' w yerrorlines,\
+     "./source_plots/Medidas_Rg2_L46.dat" u 1:2:3 title 'L=46' w yerrorlines,\
+     "./source_plots/Medidas_Rg2_L64.dat" u 1:2:3 title 'L=64' w yerrorlines
 
 reset
 
@@ -281,5 +286,7 @@ set xlabel '$\kappa$'
 set ylabel '$\langle R_g^2 s_c \rangle$'
 plot "./source_plots/Medidas_Drg2_L16.dat" u 1:2:3 title 'L=16' w yerrorlines,\
      "./source_plots/Medidas_Drg2_L24.dat" u 1:2:3 title 'L=24' w yerrorlines,\
-     "./source_plots/Medidas_Drg2_L32.dat" u 1:2:3 title 'L=32' w yerrorlines 
+     "./source_plots/Medidas_Drg2_L32.dat" u 1:2:3 title 'L=32' w yerrorlines,\
+     "./source_plots/Medidas_Drg2_L46.dat" u 1:2:3 title 'L=46' w yerrorlines,\
+     "./source_plots/Medidas_Drg2_L64.dat" u 1:2:3 title 'L=64' w yerrorlines
 reset
