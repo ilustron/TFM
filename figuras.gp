@@ -1,5 +1,11 @@
 #!/usr/bin/gnuplot
 
+set terminal epslatex mono
+set output "test.tex"
+test
+set output
+reset
+
 #VECTORES TANGENTES
 
 set terminal epslatex size 2.5,1.75 mono 
@@ -232,20 +238,21 @@ splot [0:1][0:1] h(x,y) with l lc rgb 'gray50',0 with l lc rgb 'gray10'
 set output
 reset
 
-#RESULTADOS
+#RESULTADOS:
 
-#resultados energía de curvatura
+#ENERGÍA DE CURVATURA
 
 set terminal epslatex mono 
 set output "Se_plot.tex"
 
 set xlabel '$\kappa$'
-set ylabel '$s_c$'
-plot "./source_plots/Medidas_Se_L16.dat" u 1:2:3 title 'L=16' w yerrorlines,\
-     "./source_plots/Medidas_Se_L24.dat" u 1:2:3 title 'L=24' w yerrorlines,\
-     "./source_plots/Medidas_Se_L32.dat" u 1:2:3 title 'L=32' w yerrorlines,\
-     "./source_plots/Medidas_Se_L46.dat" u 1:2:3 title 'L=46' w yerrorlines,\
-     "./source_plots/Medidas_Se_L64.dat" u 1:2:3 title 'L=64' w yerrorlines
+set ylabel '$E_c$'
+set key right bottom
+plot "./source_plots/Medidas_Se_L64.dat" u 1:2:3 title 'L=64' w yerrorlines pt 6 lt 1,\
+     "./source_plots/Medidas_Se_L46.dat" u 1:2:3 title 'L=46' w yerrorlines pt 7 lt 0,\
+     "./source_plots/Medidas_Se_L32.dat" u 1:2:3 title 'L=32' w yerrorlines pt 4 lt 2,\
+     "./source_plots/Medidas_Se_L24.dat" u 1:2:3 title 'L=24' w yerrorlines pt 5 lt 5,\
+     "./source_plots/Medidas_Se_L16.dat" u 1:2:3 title 'L=16' w yerrorlines pt 8 lt 14
 reset
 
 #resultados calor específico
@@ -255,13 +262,63 @@ set output "Cv_plot.tex"
 
 set xlabel '$\kappa$'
 set ylabel '$C_v$'
-plot "./source_plots/Medidas_Cv_L16.dat" u 1:2:3 title 'L=16' w yerrorlines,\
-     "./source_plots/Medidas_Cv_L24.dat" u 1:2:3 title 'L=24' w yerrorlines,\
-     "./source_plots/Medidas_Cv_L32.dat" u 1:2:3 title 'L=32' w yerrorlines,\
-     "./source_plots/Medidas_Cv_L46.dat" u 1:2:3 title 'L=46' w yerrorlines,\
-     "./source_plots/Medidas_Cv_L64.dat" u 1:2:3 title 'L=64' w yerrorlines
+plot [0.5:1.2][0:3.7] "./source_plots/Medidas_Cv_L64.dat" u 1:2:3 title 'L=64' w yerrorlines pt 6 lt 1,\
+     	       	      "./source_plots/Medidas_Cv_L46.dat" u 1:2:3 title 'L=46' w yerrorlines pt 7 lt 0,\
+     	       	      "./source_plots/Medidas_Cv_L32.dat" u 1:2:3 title 'L=32' w yerrorlines pt 4 lt 2,\
+     	       	      "./source_plots/Medidas_Cv_L24.dat" u 1:2:3 title 'L=24' w yerrorlines pt 5 lt 5,\
+     	       	      "./source_plots/Medidas_Cv_L16.dat" u 1:2:3 title 'L=16' w yerrorlines pt 8 lt 14
 reset
 
+#resultados maximo calor específico
+
+set terminal epslatex mono 
+set output "max_Cv_plot.tex"
+
+set xlabel '$\kappa$'
+set ylabel '$C_v$'
+plot [0.77:0.89][1:3.7] "./source_plots/Medidas_Cv_L64_zoom.dat" u 1:2:3 title '' w yerrorbars pt 10 lt 2,\
+     	       		"./source_plots/extrapolacion_Cv_L64_K0.79.dat" title '' w l lt 0,\
+	       		"./source_plots/maximo_Cv_L64_K0.79.dat" u 2:4:3:5 title 'L=64' w xyerrorlines pt 11 lt 1,\
+			"./source_plots/Medidas_Cv_L46_zoom.dat" u 1:2:3 title '' w yerrorbars pt 6 lt 2,\
+     	       		"./source_plots/extrapolacion_Cv_L46_K0.8.dat" title '' w l lt 0,\
+	       		"./source_plots/maximo_Cv_L46_K0.8.dat" u 2:4:3:5 title 'L=46' w xyerrorlines pt 7 lt 1,\
+	       		"./source_plots/Medidas_Cv_L32_zoom.dat" u 1:2:3 title '' w yerrorbars pt 12 lt 2,\
+     	       		"./source_plots/extrapolacion_Cv_L32_K0.78.dat" title '' w l lt 0,\
+	       		"./source_plots/maximo_Cv_L32_K0.78.dat" u 2:4:3:5 title 'L=32' w xyerrorlines pt 13 lt 1,\
+			"./source_plots/Medidas_Cv_L16.dat" u 1:2:3 title '' w yerrorbars pt 4 lt 2,\
+     	       		"./source_plots/extrapolacion_Cv_L16_K0.82.dat" title '' w l lt 0,\
+	       		"./source_plots/maximo_Cv_L16_K0.82.dat" u 2:4:3:5 title 'L=16' w xyerrorlines pt 5 lt 1,\
+	       		"./source_plots/Medidas_Cv_L24.dat" u 1:2:3 title '' w yerrorbars pt 8 lt 2,\
+     	       		"./source_plots/extrapolacion_Cv_L24_K0.83.dat" title '' w l lt 0,\
+	       		"./source_plots/maximo_Cv_L24_K0.83.dat" u 2:4:3:5 title 'L=24' w xyerrorlines pt 9 lt 1
+set output
+reset
+
+#resultados calor específico vs L
+
+set terminal epslatex mono 
+set output "Cv_L_plot.tex"
+
+set xlabel '$L$'
+set ylabel '$C_v$'
+a= 0.102904
+b= 0.773719
+c= 0.79573 
+f(x)=a*x**b+c
+
+plot "./source_plots/maximos_Cv.dat" u 1:4:5 title '$C_v(T_c)$' w yerrorbars,f(x) title '$f(\kappa)=a\,\kappa^b+c$'
+
+reset   
+  	       
+#resultados Tc (CV) vs L
+
+set terminal epslatex mono 
+set output "Cv_T_L_plot.tex"
+set xlabel '$L$'
+set ylabel '$\kappa_c$'
+plot "./source_plots/maximos_Cv.dat" u 1:2:3 title '$\kappa_c$' w yerrorbars
+reset
+  
 #resultados radio de giro
 
 set terminal epslatex mono 
@@ -284,9 +341,62 @@ set output "Drg2_plot.tex"
 
 set xlabel '$\kappa$'
 set ylabel '$\langle R_g^2 s_c \rangle$'
-plot "./source_plots/Medidas_Drg2_L16.dat" u 1:2:3 title 'L=16' w yerrorlines,\
+plot [0.5:1.2] "./source_plots/Medidas_Drg2_L16.dat" u 1:2:3 title 'L=16' w yerrorlines,\
      "./source_plots/Medidas_Drg2_L24.dat" u 1:2:3 title 'L=24' w yerrorlines,\
      "./source_plots/Medidas_Drg2_L32.dat" u 1:2:3 title 'L=32' w yerrorlines,\
      "./source_plots/Medidas_Drg2_L46.dat" u 1:2:3 title 'L=46' w yerrorlines,\
      "./source_plots/Medidas_Drg2_L64.dat" u 1:2:3 title 'L=64' w yerrorlines
 reset
+#resultados maximo calor específico
+
+set terminal epslatex mono 
+set output "max_Drg2_plot.tex"
+
+set xlabel '$\kappa$'
+set ylabel '$\langle R_g^2 E_c\rangle$'
+plot [0.75:0.9] "./source_plots/Medidas_Drg2_L16.dat" u 1:2:3 title '' w yerrorbars pt 4 lt 2,\
+     	       "./source_plots/extrapolacion_Drg2_L16_K0.84.dat" title '' w l lt 0,\
+     	       "./source_plots/maximo_Drg2_L16_K0.84.dat" u 2:4:3:5 title '$16^2$' w xyerrorlines pt 5 lt 1,\
+     	       "./source_plots/Medidas_Drg2_L24_zoom.dat" u 1:2:3 title '' w yerrorbars pt 8 lt 2,\
+     	       "./source_plots/extrapolacion_Drg2_L24_K0.84.dat" title '' w l lt 0,\
+     	       "./source_plots/maximo_Drg2_L24_K0.84.dat" u 2:4:3:5 title '$24^2$' w xyerrorlines pt 9 lt 1,\
+     	       "./source_plots/Medidas_Drg2_L32_zoom.dat" u 1:2:3 title '' w yerrorbars pt 12 lt 2,\
+     	       "./source_plots/extrapolacion_Drg2_L32_K0.82.dat" title '' w l lt 0,\
+     	       "./source_plots/maximo_Drg2_L32_K0.82.dat" u 2:4:3:5 title '$32^2$' w xyerrorlines pt 13 lt 1,\
+     	       "./source_plots/Medidas_Drg2_L46_zoom.dat" u 1:2:3 title '' w yerrorbars pt 6 lt 2,\
+     	       "./source_plots/extrapolacion_Drg2_L46_K0.82.dat" title '' w l lt 0,\
+     	       "./source_plots/maximo_Drg2_L46_K0.82.dat" u 2:4:3:5 title '$46^2$' w xyerrorlines pt 7 lt 1,\
+     	       "./source_plots/Medidas_Drg2_L64_zoom.dat" u 1:2:3 title '' w yerrorbars pt 10 lt 2,\
+     	       "./source_plots/extrapolacion_Drg2_L64_K0.79.dat" title '' w l lt 0,\
+     	       "./source_plots/maximo_Drg2_L64_K0.79.dat" u 2:4:3:5 title '$64^2$' w xyerrorlines pt 11 lt 1
+set output
+reset
+
+#resultados radio giro conexo vs L
+
+set terminal epslatex mono 
+set output "Drg2_L_plot.tex"
+
+set xlabel '$L$'
+set ylabel '$\langle R_g^2 E_c\rangle_{max}$'
+
+a= 0.00221621
+b= 0.883242     
+f(x)=a*x**b
+
+plot "./source_plots/maximos_Drg2.dat" u 1:4:5 title '$(T_c)$' w yerrorbars,f(x) title '$f(L)=a\,L^b$'
+
+reset   
+
+#resultados Temperatura crítica
+
+set terminal epslatex mono 
+set output "kappac_plot.tex"
+
+set xlabel '$L$'
+set ylabel '$\kappa_c$'
+
+plot "./source_plots/maximos_Cv.dat" u 1:2:3 title 'Estimación $C_v$' w yerrorbars pt 5 lt 1,\
+     "./source_plots/maximos_Drg2.dat" u 1:2:3 title 'Estimación $\langle R_g^2 E_c\rangle_{max}$' w yerrorbars pt 7 lt 0
+
+reset   
