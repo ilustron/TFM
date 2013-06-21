@@ -248,11 +248,11 @@ set output "Se_plot.tex"
 set xlabel '$\kappa$'
 set ylabel '$E_c$'
 set key right bottom
-plot "./source_plots/Medidas_Se_L64.dat" u 1:2:3 title 'L=64' w yerrorlines pt 6 lt 1,\
-     "./source_plots/Medidas_Se_L46.dat" u 1:2:3 title 'L=46' w yerrorlines pt 7 lt 0,\
-     "./source_plots/Medidas_Se_L32.dat" u 1:2:3 title 'L=32' w yerrorlines pt 4 lt 2,\
-     "./source_plots/Medidas_Se_L24.dat" u 1:2:3 title 'L=24' w yerrorlines pt 5 lt 5,\
-     "./source_plots/Medidas_Se_L16.dat" u 1:2:3 title 'L=16' w yerrorlines pt 8 lt 14
+plot "./source_plots/Medidas_Se_L64.dat" u 1:2:3 title '$64^2$' w yerrorlines pt 6 lt 1,\
+     "./source_plots/Medidas_Se_L46.dat" u 1:2:3 title '$46^2$' w yerrorlines pt 7 lt 0,\
+     "./source_plots/Medidas_Se_L32.dat" u 1:2:3 title '$32^2$' w yerrorlines pt 4 lt 2,\
+     "./source_plots/Medidas_Se_L24.dat" u 1:2:3 title '$24^2$' w yerrorlines pt 5 lt 5,\
+     "./source_plots/Medidas_Se_L16.dat" u 1:2:3 title '$16^2$' w yerrorlines pt 8 lt 14
 reset
 
 #resultados calor específico
@@ -261,12 +261,12 @@ set terminal epslatex mono
 set output "Cv_plot.tex"
 
 set xlabel '$\kappa$'
-set ylabel '$C_v$'
-plot [0.5:1.2][0:3.7] "./source_plots/Medidas_Cv_L64.dat" u 1:2:3 title 'L=64' w yerrorlines pt 6 lt 1,\
-     	       	      "./source_plots/Medidas_Cv_L46.dat" u 1:2:3 title 'L=46' w yerrorlines pt 7 lt 0,\
-     	       	      "./source_plots/Medidas_Cv_L32.dat" u 1:2:3 title 'L=32' w yerrorlines pt 4 lt 2,\
-     	       	      "./source_plots/Medidas_Cv_L24.dat" u 1:2:3 title 'L=24' w yerrorlines pt 5 lt 5,\
-     	       	      "./source_plots/Medidas_Cv_L16.dat" u 1:2:3 title 'L=16' w yerrorlines pt 8 lt 14
+set ylabel '$C_V$'
+plot [0.5:1.2][0:3.7] "./source_plots/Medidas_Cv_L64.dat" u 1:2:3 title '$64^2$' w yerrorlines pt 6 lt 1,\
+     	       	      "./source_plots/Medidas_Cv_L46.dat" u 1:2:3 title '$46^2$' w yerrorlines pt 7 lt 0,\
+     	       	      "./source_plots/Medidas_Cv_L32.dat" u 1:2:3 title '$32^2$' w yerrorlines pt 4 lt 2,\
+     	       	      "./source_plots/Medidas_Cv_L24.dat" u 1:2:3 title '$24^2$' w yerrorlines pt 5 lt 5,\
+     	       	      "./source_plots/Medidas_Cv_L16.dat" u 1:2:3 title '$16^2$' w yerrorlines pt 8 lt 14
 reset
 
 #resultados maximo calor específico
@@ -275,22 +275,22 @@ set terminal epslatex mono
 set output "max_Cv_plot.tex"
 
 set xlabel '$\kappa$'
-set ylabel '$C_v$'
+set ylabel '$C_V$'
 plot [0.77:0.89][1:3.7] "./source_plots/Medidas_Cv_L64_zoom.dat" u 1:2:3 title '' w yerrorbars pt 10 lt 2,\
      	       		"./source_plots/extrapolacion_Cv_L64_K0.79.dat" title '' w l lt 0,\
-	       		"./source_plots/maximo_Cv_L64_K0.79.dat" u 2:4:3:5 title 'L=64' w xyerrorlines pt 11 lt 1,\
+	       		"./source_plots/maximo_Cv_L64_K0.79.dat" u 2:4:3:5 title '$64^2$'  w xyerrorlines pt 11 lt 1,\
 			"./source_plots/Medidas_Cv_L46_zoom.dat" u 1:2:3 title '' w yerrorbars pt 6 lt 2,\
      	       		"./source_plots/extrapolacion_Cv_L46_K0.8.dat" title '' w l lt 0,\
-	       		"./source_plots/maximo_Cv_L46_K0.8.dat" u 2:4:3:5 title 'L=46' w xyerrorlines pt 7 lt 1,\
+	       		"./source_plots/maximo_Cv_L46_K0.8.dat" u 2:4:3:5 title '$46^2$' w xyerrorlines pt 7 lt 1,\
 	       		"./source_plots/Medidas_Cv_L32_zoom.dat" u 1:2:3 title '' w yerrorbars pt 12 lt 2,\
      	       		"./source_plots/extrapolacion_Cv_L32_K0.78.dat" title '' w l lt 0,\
-	       		"./source_plots/maximo_Cv_L32_K0.78.dat" u 2:4:3:5 title 'L=32' w xyerrorlines pt 13 lt 1,\
+	       		"./source_plots/maximo_Cv_L32_K0.78.dat" u 2:4:3:5 title '$32^2$' w xyerrorlines pt 13 lt 1,\
 			"./source_plots/Medidas_Cv_L16.dat" u 1:2:3 title '' w yerrorbars pt 4 lt 2,\
      	       		"./source_plots/extrapolacion_Cv_L16_K0.82.dat" title '' w l lt 0,\
-	       		"./source_plots/maximo_Cv_L16_K0.82.dat" u 2:4:3:5 title 'L=16' w xyerrorlines pt 5 lt 1,\
+	       		"./source_plots/maximo_Cv_L16_K0.82.dat" u 2:4:3:5 title '$16^2$' w xyerrorlines pt 5 lt 1,\
 	       		"./source_plots/Medidas_Cv_L24.dat" u 1:2:3 title '' w yerrorbars pt 8 lt 2,\
      	       		"./source_plots/extrapolacion_Cv_L24_K0.83.dat" title '' w l lt 0,\
-	       		"./source_plots/maximo_Cv_L24_K0.83.dat" u 2:4:3:5 title 'L=24' w xyerrorlines pt 9 lt 1
+	       		"./source_plots/maximo_Cv_L24_K0.83.dat" u 2:4:3:5 title '$24^2$' w xyerrorlines pt 9 lt 1
 set output
 reset
 
@@ -300,13 +300,14 @@ set terminal epslatex mono
 set output "Cv_L_plot.tex"
 
 set xlabel '$L$'
-set ylabel '$C_v$'
+set ylabel '$C_V$'
+set key left top
 a= 0.102904
 b= 0.773719
 c= 0.79573 
 f(x)=a*x**b+c
 
-plot "./source_plots/maximos_Cv.dat" u 1:4:5 title '$C_v(T_c)$' w yerrorbars,f(x) title '$f(\kappa)=a\,\kappa^b+c$'
+plot "./source_plots/maximos_Cv.dat" u 1:4:5 title '$C_V(\kappa_c)$' w yerrorbars pt 7,f(x) title '$c_0+c_1\,L^{\omega}$'
 
 reset   
   	       
@@ -316,7 +317,10 @@ set terminal epslatex mono
 set output "Cv_T_L_plot.tex"
 set xlabel '$L$'
 set ylabel '$\kappa_c$'
-plot "./source_plots/maximos_Cv.dat" u 1:2:3 title '$\kappa_c$' w yerrorbars
+g(x)=kc+x**(-1/nu)
+kc=0.772556 
+nu=1.03685
+plot "./source_plots/maximos_Cv.dat" u 1:2:3 title '$\kappa_c(L)$' w yerrorbars pt 7,g(x) title '$c_0+L^{-1/\nu}$'
 reset
   
 #resultados radio de giro
@@ -326,14 +330,43 @@ set output "Rg2_plot.tex"
 
 set xlabel '$\kappa$'
 set ylabel '$R_g^2$'
-plot "./source_plots/Medidas_Rg2_L16.dat" u 1:2:3 title 'L=16' w yerrorlines,\
-     "./source_plots/Medidas_Rg2_L24.dat" u 1:2:3 title 'L=24' w yerrorlines,\
-     "./source_plots/Medidas_Rg2_L32.dat" u 1:2:3 title 'L=32' w yerrorlines,\
-     "./source_plots/Medidas_Rg2_L46.dat" u 1:2:3 title 'L=46' w yerrorlines,\
-     "./source_plots/Medidas_Rg2_L64.dat" u 1:2:3 title 'L=64' w yerrorlines
+set key left top
 
+plot "./source_plots/Medidas_Rg2_L64.dat" u 1:2:3 title '$64^2$'  w yerrorlines pt 6 lt 1,\
+     "./source_plots/Medidas_Rg2_L46.dat" u 1:2:3 title '$46^2$' w yerrorlines pt 7 lt 0,\
+     "./source_plots/Medidas_Rg2_L32.dat" u 1:2:3 title '$32^2$' w yerrorlines pt 4 lt 2,\
+     "./source_plots/Medidas_Rg2_L24.dat" u 1:2:3 title '$24^2$' w yerrorlines pt 5 lt 5,\
+     "./source_plots/Medidas_Rg2_L16.dat" u 1:2:3 title '$16^2$' w yerrorlines pt 8 lt 14
 reset
 
+
+#escala radiod e giro
+set terminal epslatex mono 
+set output "rg2_plano_plot.tex"
+
+set xlabel '$L$'
+set ylabel '$R_g^2$'
+set logscale x
+set logscale y
+set key left top
+a=0.0177104 
+b=1.96973
+f(x)=a*x**b
+plot "./source_plots/rg2_escala.dat" u 1:6:7  title '$\kappa=2.0$' w yerrorbars pt 5 lt 1,f(x) title '$a\;L^b$'
+reset
+
+#escala radio de giro rugosa
+set terminal epslatex mono 
+set output "rg2_rugosa_plot.tex"
+
+set xlabel '$L$'
+set ylabel '$R_g^2$'
+set key left top
+a=-0.175
+b=0.247
+f(x)=a+b*log(x)
+plot "./source_plots/rg2_escala.dat" u 1:3:4  title '$\kappa=0.5$' w yerrorbars pt 5 lt 1,f(x) title '$a+b\; \log L$'
+reset
 #resultados radio de giro conexo
 
 set terminal epslatex mono 
@@ -341,11 +374,11 @@ set output "Drg2_plot.tex"
 
 set xlabel '$\kappa$'
 set ylabel '$\langle R_g^2 s_c \rangle$'
-plot [0.5:1.2] "./source_plots/Medidas_Drg2_L16.dat" u 1:2:3 title 'L=16' w yerrorlines,\
-     "./source_plots/Medidas_Drg2_L24.dat" u 1:2:3 title 'L=24' w yerrorlines,\
-     "./source_plots/Medidas_Drg2_L32.dat" u 1:2:3 title 'L=32' w yerrorlines,\
-     "./source_plots/Medidas_Drg2_L46.dat" u 1:2:3 title 'L=46' w yerrorlines,\
-     "./source_plots/Medidas_Drg2_L64.dat" u 1:2:3 title 'L=64' w yerrorlines
+plot [0.5:1.2] "./source_plots/Medidas_Drg2_L64.dat" u 1:2:3 title '$64^2$' w yerrorlines pt 6 lt 1,\
+     	       "./source_plots/Medidas_Drg2_L46.dat" u 1:2:3 title '$46^2$' w yerrorlines pt 7 lt 0,\
+     	       "./source_plots/Medidas_Drg2_L32.dat" u 1:2:3 title '$32^2$' w yerrorlines pt 4 lt 2,\
+     	       "./source_plots/Medidas_Drg2_L24.dat" u 1:2:3 title '$24^2$' w yerrorlines pt 5 lt 5,\
+     	       "./source_plots/Medidas_Drg2_L16.dat" u 1:2:3 title '$16^2$'  w yerrorlines pt 8 lt 14
 reset
 #resultados maximo calor específico
 
@@ -384,7 +417,7 @@ a= 0.00221621
 b= 0.883242     
 f(x)=a*x**b
 
-plot "./source_plots/maximos_Drg2.dat" u 1:4:5 title '$(T_c)$' w yerrorbars,f(x) title '$f(L)=a\,L^b$'
+plot "./source_plots/maximos_Drg2.dat" u 1:4:5 title '$(T_c)$' w yerrorbars pt 5 lt 1,f(x) title '$f(L)=a\,L^b$'
 
 reset   
 
@@ -394,9 +427,10 @@ set terminal epslatex mono
 set output "kappac_plot.tex"
 
 set xlabel '$L$'
-set ylabel '$\kappa_c$'
-
-plot "./source_plots/maximos_Cv.dat" u 1:2:3 title 'Estimación $C_v$' w yerrorbars pt 5 lt 1,\
-     "./source_plots/maximos_Drg2.dat" u 1:2:3 title 'Estimación $\langle R_g^2 E_c\rangle_{max}$' w yerrorbars pt 7 lt 0
+set ylabel '$\kappa$'
+a= 0.778
+b=1.1255     
+f(x)=a+x**(-1/b)
+plot "./source_plots/maximos_Drg2.dat" u 1:2:3 title '$\kappa_c$' w yerrorbars pt 5 lt 1,f(x) title '$c_0+L^{-1/\nu}$'
 
 reset   
