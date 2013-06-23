@@ -1,4 +1,3 @@
-
 \chapter{Estudio analítico}
 
 \section{Descripción geométrica de la membranas cristalina}
@@ -105,8 +104,8 @@ T'^{\alpha_1,\dots,\alpha_m}_{\beta_1,\dots,\beta_m}=
 \end{equation*}
 
 Entonces $V^{\alpha}$ son las componentes de un tensor de rango $1$
-contravariante, que llamaremos vector contravariante. Análogamente, a un tensor
-de rango $1$ covariante llamaremos vector covariante.
+contravariante, que llamaremos vector contravariante. Análogamente,
+llamaremos a un tensor de rango $1$ covariante vector covariante.
  
 \subsection{Métrica inducida}
 
@@ -163,11 +162,11 @@ d^2\mathbf{s}=\sqrt{g}\;d^2\mathbf{x}
 donde $d^2\mathbf{x}=dx^1dx^2$. Se puede demostrar esta expresión
 \eqref{elemento_area} teniendo en cuenta que
 \begin{equation*}
-d^2\mathbf{s}=|\vec{t}_1\cdot\vec{t}_2|\;d^2\mathbf{x}
+d^2\mathbf{s}=|\vec{t}_1\times\vec{t}_2|\;d^2\mathbf{x}
 \end{equation*}
 y
 \begin{multline*}
-|\vec{t}_1\cdot\vec{t}_2|^2=|\vec{t}_1|^2|\vec{t}_2|^2\sen^2
+|\vec{t}_1\times\vec{t}_2|^2=|\vec{t}_1|^2|\vec{t}_2|^2\sen^2
 \theta=g_{11}g_{22}(1-\cos^2 \theta)=\\
 g_{11}g_{22}-(\vec{t}_1\cdot\vec{t}_2)^2=g_{11}g_{22}-g_{12}g_{21}=g
 \end{multline*}
@@ -308,25 +307,20 @@ apoyándonos en las siguientes propiedades:
   que los productos escalares serán con la métrica inducida $g_{\alpha\beta}$,
   de está forma, $F[\vec{t}_{\alpha}(\mathbf{x}),T]$ serà invariante frente a
   reparametrizaciones de la superficie, esto es, frente a cambios de 
-  las coordenadas $\mathbf{x}$. Finalmente, con esta última
-  propiedad podemos proponer la siguiente energía libre de Landau $F$:
+  las coordenadas $\mathbf{x}$.
+\end{description}
+
+ Finalmente, con esta última propiedad podemos proponer la siguiente energía libre de Landau $F$:
   \begin{multline}\label{ELandau}
     F[\vec{t}_{\alpha}(\mathbf{x}),T]=\\
 \int d^2\mathbf{s}
     \left[
-      \frac{t}{2}\vec{t}_{\alpha}\cdot\vec{t}^{\alpha}+
+      \frac{t}{2}(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})+
       u(\vec{t}_{\alpha}\cdot\vec{t}_{\beta})(\vec{t}^{\alpha}\cdot\vec{t}^{\beta})+
-      v(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})(\vec{t}^{\alpha}\cdot\vec{t}_{\alpha})+
-      \frac{\kappa}{2}(\partial_{\alpha}\vec{t}_{\alpha})\cdot(\partial^{\alpha}\vec{t}^{\alpha}) \right]\\
-=\int d^2\mathbf{s}
-    \left[
-      \frac{t}{2}(\vec{t}_{\alpha})^2+
-      u(\vec{t}_{\alpha}\vec{t}_{\beta})^2+
-      v(\vec{t}_{\alpha}\vec{t}^{\alpha})^2+
-      \frac{\kappa}{2}(\partial_{\alpha}\vec{t}_{\alpha})^2
-    \right]
+      v(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})+
+      \frac{\kappa}{2}(\partial_{\alpha}\vec{t}_{\alpha})\cdot(\partial^{\alpha}\vec{t}^{\alpha}) \right]
   \end{multline}
-\end{description}
+
 
 Esta forma funcional únicamente se ha deducido a partir de las simetrías del
 sistema, el precio que hay que pagar por esta aproximación es que en su
@@ -469,9 +463,12 @@ encontramos que el comportamiento de $f$ depende del signo del parámetro $t$:
   simetría es total, la membrana se encuentra en la fase desordenada,
   arrugada.
 \item Para $t<0$, la función $f_C$ tiene mínimo doblemente
-  degenerado, correspondiente a los valores de $\zeta_0=\mp
-  \sqrt{\frac{-t}{4(u+vD)}}$, ocurre una ruptura espontánea de la simetría
-  indicando una fase ordenada, la fase plana.
+  degenerado, correspondiente a los valores
+  \begin{equation}\label{zeta_0}
+    \zeta_0=\mp \sqrt{\frac{-t}{4(u+2v)}}
+  \end{equation}
+  que muestra que la membrana se encuentra en un estado con ruptura espontánea
+  de la simetría indicando una fase ordenada, la fase plana. 
 \end{enumerate}
 
 La evaluación del punto mínimo sugiere entonces que el
@@ -540,7 +537,6 @@ que estamos estudiando una membrana isótropa, tenemos que
 $\langle\vec{u}(\mathbf{x}) \rangle=(0,0,0)$, es nulo el valor medio del
 vector desplazamiento.
 
-
 Atendiendo a las propiedades que caracteriza, la energía libre de Landau
 \eqref{ELandau} se puede expresar como la suma de dos términos:
 
@@ -551,19 +547,18 @@ Atendiendo a las propiedades que caracteriza, la energía libre de Landau
 Donde:
 \begin{description}
 \item[ $F_E\rightarrow $ Energía libre elástica:] Caracteriza las propiedades elásticas de la membrana.
-  \begin{equation}
-    F_E[\vec{t}_{\alpha}(\mathbf{x}),T]=\int d^2\mathbf{s}
+  \begin{multline}
+    F_E[\vec{t}_{\alpha}(\mathbf{x}),T]=\\\int d^2\mathbf{s}
     \left[
-      \frac{t}{2}(\vec{t}_{\alpha})^2+
-      u(\vec{t}_{\alpha}\vec{t}_{\beta})^2+
-      v(\vec{t}_{\alpha}\vec{t}^{\alpha})^2
-    \right]
-  \end{equation}
+      \frac{t}{2}(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})+
+      u(\vec{t}_{\alpha}\cdot\vec{t}_{\beta})(\vec{t}^{\alpha}\cdot\vec{t}^{\beta})+
+      v(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})\right]
+  \end{multline}
 \item[ $F_C\rightarrow $ Energía libre de curvatura:] Caracteriza la curvatura
   de la membrana. 
   \begin{equation}
        F_C[\vec{t}_{\alpha}(\mathbf{x}),T]=\int d^2\mathbf{s}\; 
-      \frac{\kappa}{2}(\partial_{\alpha}\vec{t}_{\alpha})^2
+      \frac{\kappa}{2}(\partial_{\alpha}\vec{t}_{\alpha})\cdot(\partial^{\alpha}\vec{t}^{\alpha})
   \end{equation}
 \end{description}
 
@@ -578,57 +573,105 @@ $\vec{r}(\mathbf{x})$ de la fase plana. En vista de la expresión
 resultado de una deformación de la membrana a partir de la configuración
 $\vec{r}_0(\mathbf{x})$ completamente plana. Las distancias relativas de los
 puntos, en general, cambiarán al producirse la deformación. Si
-consideramos dos puntos muy próximos de coordenadas internas
-$\mathbf{x}$ y $\mathbf{x}+d\mathbf{x}$ el vector tridimensional que los une
+consideramos dos puntos muy próximos $P$ y $Q$ de coordenadas internas
+$\mathbf{x}$ y $\mathbf{x}+d\mathbf{x}$, respectivamente. El vector tridimensional que los une
 después de la deformación será
-
-\begin{equation*}\label{dr}
-d\vec{r}= \vec{r}(\mathbf{x})+\vec{r}(\mathbf{x}+d\mathbf{x})
-\end{equation*}
-
+\begin{equation}\label{dr}
+d\vec{r}= \vec{r}(\mathbf{x}+d\mathbf{x})-\vec{r}(\mathbf{x})
+\end{equation}
 De igual forma podemos encontrar el vector correspondiente a la configuración
 completamente plana, o equivalentemente, anterior a la deformación
-
 \begin{equation}\label{dr0}
-d\vec{r}_0= \vec{r}_0(\mathbf{x})+\vec{r}_0(\mathbf{x}+d\mathbf{x})
+d\vec{r}_0= \vec{r}_0(\mathbf{x}+d\mathbf{x})-\vec{r}_0(\mathbf{x})
 \end{equation}
 
-La variación de las distancia relativa debido a la deformación estará
-relacionada con la diferencia entre la norma al cuadrado de estos dos vectores
-\eqref{dr}\eqref{dr0}
-
-\begin{equation}
-(d\vec{r})^2-(d\vec{r}_0)^2=\delta U^2\Rightarrow (d\vec{r})^2=(d\vec{r}_0)^2+\delta U^2
-\end{equation}
- 
-donde hemos supuesto que el resultado es una determinada función $\delta U^2$,
-que en principio, dependerá de las coordenadas internas. Es razonable suponer
-que este término será bilineal en los diferenciales de $dx^{\alpha}$ de las
-coordenadas internas 
-
+Una forma de caracterizar la deformación consiste en especificar la variación
+de las distancias relativas entre puntos próximos. Estas distancias se
+corresponden con la diferencia entre la norma al cuadrado de estos dos vectores
+\eqref{dr}\eqref{dr0}. Es razonable suponer que esta diferencia será bilineal
+en los diferenciales de $dx^{\alpha}$ de las coordenadas internas 
 \begin{equation}\label{drU}
 (d\vec{r})^2=(d\vec{r}_0)^2+2u_{\alpha\beta}dx^{\alpha}dx^{\beta}
 \end{equation}
- 
-$u_{\alpha\beta}$ es un tensor, denominado tensor de deformaciones, que mide
-la variación de las distancias (al cuadrado) entre puntos, respecto a su valor
+donde $u_{\alpha\beta}$ es un tensor, denominado tensor de deformaciones, que justamente mide
+la variación de las distancias relativas (al cuadrado) entre puntos, respecto a su valor
 inicial en una determinada dirección. En virtud de \eqref{elemento_linea} y
 teniendo en cuenta que las coordenadas en la configuración completamente plana
 son ortonormales, podemos expresar las normas al cuadrado de los vectores
 \eqref{dr}\eqref{dr0} en función de la métricas inducidas como
-
-\begin{align*}
-(d\vec{r_0})^2&=\delta_{\alpha\beta}dx^{\alpha}dx^{\beta}\\
+\begin{align}
+(d\vec{r_0})^2&=\delta_{\alpha\beta}dx^{\alpha}dx^{\beta}\label{Meuclidea}\\
 (d\vec{r})^2&=g_{\alpha\beta}dx^{\alpha}dx^{\beta}
-\end{align*}
-
-con las que obtenemos a partir \label{drU} la siguiente expresión para el
+\end{align}
+con las que obtenemos a partir \eqref{drU} la siguiente expresión para el
 tensor de deformaciones:
-
-\begin{equation}
+\begin{equation}\label{tensor_metrica}
 u_{\alpha\beta}=\frac{1}{2}\left(g_{\alpha\beta} - \delta_{\alpha\beta}\right)
 \end{equation}
+ Supongamos que los $P$ y $Q$ se encuentran
+inicialmente sobre la dirección $x^1$, esto es, $(d\vec{r}_0)^2=(dx^1)^2$, y
+la distancia entre ambos es $dl_{(x^1)}=dx^1$. A
+partir de \eqref{drU} podemos obtener la distancia $dL_{(x^1)}$ entre estos
+dos puntos después de la deformación:
+\begin{equation*}
+dL_{(x^1)}=\sqrt{1+2u_{11}}\;dl_{(x^1)}
+\end{equation*}
+Y si la deformación es pequeña $u_{11}\simeq 0$
+\begin{equation*}
+dL_{(x^1)}\simeq (1+u_{11}) dl_{(x^1)} \Rightarrow u_{11}=\frac{dL_{(x^1)}-dl_{(x^1)}}{dl_{(x^1)}}
+\end{equation*}
+De igual forma podemos obtener una expresión análoga para $u_{22}$. Entonces,
+los elementos diagonales de $u_{\alpha\beta}$ determinan las elonganciones
+relativas en las direcciones marcadas por los vectores de la base de las
+coordenadas internas. Consideremos otro punto $Q$, de forma que la linea $PR$
+es perpendicular a $PQ$. El ángulo $\theta$ que forman estos dos vectores
+después de la deformación podemos obtenerlo a partir de
+\eqref{tensor_metrica}:
+\begin{equation}
+u_{12}=u_{21}\simeq \frac{1}{2}\cos \theta \Rightarrow 2u_{12}\simeq\sen \left(\frac{\pi}{2}-\theta\right)\simeq \frac{\pi}{2}-\theta
+\end{equation}
+Por tanto, $u_{\alpha\beta}$ con $\alpha\neq\beta$, los elementos no
+diagonales del tensor de deformaciones están directamente relacionados con la
+variación del ángulo que forman los vectores tangentes de la base antes y
+después de la deformación.
 
+La expresión \eqref{tensor_metrica} muestra claramente que $u_{\alpha\beta}$
+es un tensor simétrico, de manera que, siempre 
+podremos encontrar para un punto dado un sistema de coordenadas $\mathbf{x}$ en donde
+$u_{\alpha\beta}$ sea diagonal, es decir, con las únicas componentes no nulas
+$u_{11}$ y $u_{22}$. Estas dos componentes son los valores
+principales del tensor de deformaciones, que denotaremos por $u_{(1)}$ y
+$u_{(2)}$. Supongamos que un punto dado, encontramos unas coordenadas internas
+$\{\mathbf{x}_d\}$, donde $u_{\alpha\beta}$ es diagonal, entonces \eqref{drU},
+teniendo en cuenta \eqref{Meuclidea}, es 
+\begin{equation}
+(d\vec{r})^2=(1+2u_{(1)})(dx_d^{1})^2+(1+2u_{(2)})(dx_d^{2})^2
+\end{equation}
+Esto significa que la deformación en cualquier elemento de superficie puede
+descomponerse como deformaciones independientes en dos direcciones
+perpendiculares, los ejes principales del tensor de deformación. Cada una de
+estas deformaciones será a una extensión o compresión en la correspondiente
+dirección: la longitud $dx^1$ en el primer eje principal será
+\begin{equation}
+dx^1=\sqrt{1+2u_{(1)}}\; dx^1_d\simeq (1+u_{(1)})\; dx^1_d
+\end{equation}
+donde hemos considerado pequeñas deformaciones. La expresión para el otro eje
+principal se obtiene de forma similar. Consideremos ahora un elemento
+de área infinitesimal $d^2\mathbf{s}_d$, en las coordenadas $\{\mathbf{x}_d\}$
+corresponde a $dx_d^1dx_d^2$. Después de la deformación, este elemento de área
+cambiará a $d^2\mathbf{s}=dx^1dx^2$ y estará relacionado con el volumen inicial por
+\begin{equation*}
+d^2\mathbf{s}=(1+u_{(1)})(1+u_{(2)})d^2\mathbf{s}_d\simeq (1+u_{(1)}+u_{(2)})d^2\mathbf{s}_d
+\end{equation*}
+donde hemos despreciado ordenes superiores. Dado que
+$u_{\alpha}^{\alpha}=u_{(1)}+u_{(2)}$ es la traza del tensor de deformaciones, la
+suma de sus elementos diagonales, cuyo valor es independiente del sistema de
+coordenadas, tenemos la siguiente expresión general:
+\begin{equation}\label{deformacion_area}
+d^2\mathbf{s}=(1+u_{\alpha}^{\beta})d^2\mathbf{s}_0
+\end{equation}
+siendo $d^2\mathbf{s}_0$, $d^2\mathbf{s}$ los elementos de área anterior y
+posterior a la deformación respectivamente.
 
 \begin{figure}[h]
 \centering
@@ -639,30 +682,25 @@ u_{\alpha\beta}=\frac{1}{2}\left(g_{\alpha\beta} - \delta_{\alpha\beta}\right)
 Podemos encontrar otra expresión para el tensor $u_{\alpha\beta}$ si
 relacionamos $(d\vec{r})^2$ con $(d\vec{r}_0)^2$ a partir de
 la expresión \eqref{deformacion}:
-
 \begin{equation}\label{dl_vectorial}
 (d\vec{r})^2=(d\vec{r_0}+d\vec{u})^2=(d\vec{r})^2_0+(d\vec{u})^2+2d\vec{r}_0\cdot d\vec{u}
 \end{equation}
-
-Comparando está expresión con \eqref{drU} tenemos que
-
+Al comparar está expresión con \eqref{drU}
 \begin{equation}\label{2udxdx}
 2u_{\alpha\beta}dx^{\alpha}dx^{\beta}=(d\vec{u})^2+2d\vec{r}_0\cdot d\vec{u}
 \end{equation}
-
-Podemos expresar el vector desplazamiento en función de
+Ahora bien, podemos expresar el vector desplazamiento $\vec{u}(\mathbf{x})$ en función de
 $\vec{t}^{(0)}_{\alpha}$, los vectores de la base del plano tangente a $\vec{r_0}$:
-
 \begin{equation*}
   \vec{u}=u^{\alpha}\vec{t}^{\ (0)}_{\alpha}+h\vec{n}
 \end{equation*}
-
-Donde el vector $\vec{n}$ es el vector normal a la superficie
-$\vec{n}=\frac{\vec{t}^{\ (0)}_1\times \vec{t}_2^{\ (0)}}{|\vec{t}^{\
-    (0)}_1\times \vec{t}_2^{\ (0)}|}$. Las componentes del vector
-desplazamiento dependen las cordenadas internas, por lo que su elemento
+donde el vector $\vec{n}$ es el vector normal a la superficie
+\begin{equation}
+\vec{n}=\frac{\vec{t}^{\ (0)}_1\times \vec{t}_2^{\ (0)}}{|\vec{t}^{\
+    (0)}_1\times \vec{t}_2^{\ (0)}|}
+\end{equation}
+Las componentes del vector desplazamiento dependen las cordenadas internas, por lo que su elemento
 diferencial $d\vec{u}$ y su cuadrado $(d\vec{u})^2$ vendrán dados por: 
-
 \begin{equation}\label{du2}
 d\vec{u}=\left[\frac{\partial
   u^{\alpha}}{\partial x^{\beta}}\vec{t}^{\ (0)}_{\alpha}+\frac{\partial
@@ -674,82 +712,187 @@ d\vec{u}=\left[\frac{\partial
 \frac{\partial h}{\partial x^{\beta}}\right]
 dx^{\alpha}dx^{\beta} 
 \end{equation}
-
-Por otro lado tenemos
-
+Por otro lado tenemos también
 \begin{equation}\label{drdu}
 d\vec{r}_0\cdot d\vec{u}=\frac{\partial u^{\alpha}}{\partial x^{\beta}}dx^{\alpha}dx^{\beta}=\frac{1}{2}\left[\frac{\partial u_{\beta}}{\partial x^{\alpha}}+ \frac{\partial u_{\alpha}}{\partial x^{\beta}}\right]dx^{\alpha}dx^{\beta} 
 \end{equation}
-
-Donde hemos usado que
-
+donde hemos usado que
  $$\frac{\partial u_{\beta}}{\partial
    x^{\alpha}}dx^{\alpha}dx^{\beta}=\frac{\partial u_{\alpha}}{\partial
    x^{\beta}}dx^{\alpha}dx^{\beta}$$
-
 Finalmente, sustituyendo \eqref{du2} y \eqref{drdu} en \eqref{2udxdx}
 obtenemos otra expresión equivalente para el tensor de deformaciones:
-
-\begin{equation*}
+\begin{equation}\label{tensor_deformacion}
 u_{\alpha\beta}=\frac{1}{2}\left(
  \frac{\partial u_{\beta}}{\partial x^{\alpha}}+
  \frac{\partial u_{\alpha}}{\partial x^{\beta}}+
  \frac{\partial u_{\gamma}}{\partial x^{\alpha}}
 \frac{\partial u^{\gamma}}{\partial x^{\beta}}+
 \frac{\partial h}{\partial  x^{\alpha}}\frac{\partial h}{\partial x^{\beta}}\right).
-\end{equation*}
+\end{equation}
+
+Si la deformación es pequeña, lo que significa que las distancias
+, en cualquier dirección, entre puntos próximos no se modifican demasiado comparadas con
+su valor inicial. Esto implica que, bajo pequeñas deformaciones, podemos
+despreciar los términos cuadráticos en las derivadas de $u_{\alpha}$ en
+\eqref{tensor_deformacion}; no podemos hacer lo mismo con $h$, dado que no hay
+términos en primer orden: 
+
+\begin{equation}
+u_{\alpha\beta}\simeq\frac{1}{2}\left(
+ \frac{\partial u_{\beta}}{\partial x^{\alpha}}+
+ \frac{\partial u_{\alpha}}{\partial x^{\beta}}+
+\frac{\partial h}{\partial  x^{\alpha}}\frac{\partial h}{\partial x^{\beta}}\right).
+\end{equation}
 
 \subsection{Propiedades elásticas}
 
 En una membrana plana es natural introducir el tensor de deformaciones:
 \begin{equation*}
-u_{\alpha\beta}=\frac{1}{2}(\partial_{\alpha}\vec{r}\cdot\partial_{\beta}\vec{r}-\delta_{\alpha\beta})
+u_{\alpha\beta}=\frac{1}{2}(\vec{t}_{\alpha}\cdot\vec{t}_{\beta}-\delta_{\alpha\beta})\
+\Rightarrow \
+\vec{t}_{\alpha}\cdot\vec{t}_{\beta}=\delta_{\alpha\beta}+2u_{\alpha\beta}
 \end{equation*}
 
 Los factores del interior del integrando quedan:
 \begin{align}
-(\partial_{\alpha}\vec{r})^2&=2(1+u_{\alpha}^{\ \alpha})\\
-(\partial_{\alpha}\vec{r}\partial^{\alpha}\vec{r})^2&=4(1+2u_{\alpha}^{\
-  \alpha}+(u_{\alpha}^{\ \alpha})^2)\\
-(\partial_{\alpha}\vec{r}\partial_{\alpha}\vec{r})^2&=2+4u_{\alpha}^{\
+\vec{t}_{\alpha}\cdot\vec{t}^{\alpha} &=2(1+u_{\alpha}^{\ \alpha})\\
+(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})&=4(1+2u_{\alpha}^{\
+  \alpha}+u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha})\\
+(\vec{t}_{\alpha}\cdot\vec{t}_{\beta})(\vec{t}^{\alpha}\cdot\vec{t}^{\beta})&=2+4u_{\alpha}^{\
   \alpha}+4u_{\alpha\beta}u^{\alpha\beta}
 \end{align}
 
-Sustituyendo en la expresión de $F$, y despreciando términos constantes:
+Sustituyendo en la expresión de $F_E$, y despreciando términos constantes:
 
-\begin{equation*}
-F(\vec{r})=\int d^D\mathbf{x}
+\begin{equation}\label{Elibre_elastica}
+F_E[u_{\alpha\beta},T]=\int d^2\mathbf{x}
 \left[\tau u_{\alpha}^{\ \alpha}+
 \mu u_{\alpha\beta}u^{\alpha\beta} +
-\frac{\lambda}{2}(u_{\alpha}^{\ \alpha})^2 +
-\frac{\kappa}{2}(\partial^2\vec{r})^2\right]
-\end{equation*}
+\frac{\lambda}{2}u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}\right]
+\end{equation}
 
 Donde:
 \begin{align}
-\tau&=t+4u+8v\\
+\tau&=t+4u+8v\label{tau}\\
 \mu&=4u\\
 \frac{\lambda}{2}&=4v
 \end{align}
 
 %LANDAU
-Consideramos el estado de referencia en ausencia de fuerza externas. Entonces,
-para $u_{\alpha\beta}=0$, los esfuerzos internos deben ser nulos también,
-$\sigma_{\alpha\beta}=0$. Dado que $\sigma_{\alpha\beta}=\partial F / \partial
-u_{\alpha\beta}$, se sigue que no hay término lineal en $u_{\alpha\beta}$ en
-el desarrollo de $F$; esto implica que $\tau=0$ y podemos rescribir las
-anteriores ecuaciones TAL:
+El tensor de esfuerzos $\sigma_{\alpha\beta}$, representa las tensiones
+internas debido a variaciones en la extensión de la membrana. Al igual que
+$u_{\alpha\beta}$ es simétrico y podemos obtenerlo a partir de $f_E$, la densidad de
+la energía libre \eqref{Elibre_elastica}
+\begin{equation}
+f_E[u_{\alpha\beta},T]=\tau u_{\alpha}^{\ \alpha}+
+\mu u_{\alpha\beta}u^{\alpha\beta} +
+\frac{\lambda}{2}u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}
+\end{equation}
+ya que corresponde a la variable conjugada de $u_{\alpha\beta}$
+\begin{equation}\label{tensor_esfuerzos}
+\sigma_{\alpha\beta}=\frac{\partial f_E}{ \partial u_{\alpha\beta}}
+\end{equation}
 
+Cuando $u_{\alpha\beta}=0 \ \alpha,\beta=1,2$ la membrana se encuentra en
+la situación completamente plana con todos sus puntos equidistante. En esta
+configuración las tensiones internas se encontraran equilibradas, lo que
+implica que también $\sigma_{\alpha\beta}=0 \ \alpha,\beta=1,2$. Por tanto, no puede haber
+un término lineal en $u_{\alpha\beta}$ en el desarrollo de $f_E$, de forma que,
+ $\tau=0$ y podemos reescribir la expresión \eqref{tau}
+\begin{equation}\label{tau=0}
+-t=4(u+2v)
+\end{equation}   
+y la densidad de energía libre elástica
+\begin{equation}\label{densidad_Fe}
+f_E[u_{\alpha\beta},T]=
+\mu u_{\alpha\beta}u^{\alpha\beta} +
+\frac{\lambda}{2}u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}
+\end{equation} 
+De hecho, con la expresión \eqref{tau=0} estamos recuperando la ecuación del
+campo medio para la temperatura reducida \eqref{zeta_0} con $\zeta_0=1$, que
+coincide con el valor que hemos tomado en este caso para el parámetro $\zeta=1$.
+La expresión \eqref{densidad_Fe} coincide con la referencia REF, los
+coeficientes $\mu$ y $\lambda$ son los coeficientes de Lamé. 
+
+Según la expresión \eqref{deformacion_area} el cambio relativo en el área infinitesimal
+viene dada por la suma $u_{\alpha}^{\ \alpha}$ . Si esta suma es nula, el área
+de la membrana no se altera tras la deformación. Este tipo de deformaciones se
+denominan de cizalladura pura. Por otro lado, tenemos las deformaciones que
+mantienen la forma pero producen un cambio en el área, este tipo de denominan
+compresiones puras. Cualquier deformación puede descomponerse como una suma de
+los dos tipos anteriores. Para ello, usamos la siguiente identidad
+\begin{equation}\label{identidad_u}
+u_{\alpha\beta}=(u_{\alpha\beta}-\frac{1}{2}\delta_{\alpha\beta}u_{\gamma}^{\
+  \gamma})+\delta_{\alpha\beta}u_{\gamma}^{\ \gamma}
+\end{equation}
+El primer término del miembro de la derecha es una cizalladura pura, dado que
+su traza es nula ($\delta_{\alpha}^{\ \beta}=0$), y el segundo término es una
+compresión pura. Sustituyendo esta identidad \eqref{identidad_u} en la expresión de la densidad de
+energía elástica \eqref{densidad_Fe}
+\begin{equation}\label{densidad_Fe_K}
+f_E[u_{\alpha\beta},T]=
+\mu \left(u_{\alpha\beta}-\frac{1}{2}\delta_{\alpha\beta}u_{\gamma}^{\ \gamma}\right)^2+
+\frac{1}{2}K(u_{\gamma}^{\ \gamma})^2
+\end{equation}
+Las constantes $K$ y $\mu$ son el módulo de compresión y de
+cizalladura\footnote{El módulo de cizalladura $\mu$ coincide con uno de los
+  coeficientes de Lamé, no es un nuevo coeficiente con igual símbolo}. $K$
+está relacionado con los coeficientes de Lamé por:
+\begin{equation}
+K=\lambda+\mu
+\end{equation}
+El estado termodinámico de equilibrio del sistema viene dado por el mínimo de
+$F_E$. Si no hay fuerzas externas aplicadas a la membrana, entonces $f_E$ como
+función de $u_{\alpha\beta}$ deberá tener un mínimo en $u_{\alpha\beta}$. Esto
+significa que la forma cuadrática \eqref{densidad_Fe_K} debe ser positiva, y por
+tanto, como condición necesaria y suficiente, los coeficientes $K$ y $\mu$ deben ser positivos
+\begin{equation}
+K>0\, ,\ \mu>0
+\end{equation}
+Si no podríamos encontrar que la energía libre disminuyera debido a una
+comprensión pura ($K<0$) o una cizalladura pura ($\mu<0$).
+
+El tensor de esfuerzos $\sigma_{\alpha\beta}$, según \eqref{tensor_esfuerzos}
+podemos obtenerlo tomando la derivada de $f_E$ \eqref{densidad_Fe_K} respecto
+a $u_{\alpha\beta}$
+\begin{equation}\label{tensor_esfuerzos_K}
+\sigma_{\alpha\beta}=K\delta_{\alpha\beta}u_{\gamma}^{\ \gamma}+2\mu\left(u_{\alpha\beta}-\frac{1}{2}\delta_{\alpha\beta}u_{\gamma}^{\ \gamma}\right)
+\end{equation}
+Está expresión muestra que si la deformación es una compresión pura o una
+cizalladura pura, la relación entre $\sigma_{\alpha\beta}$ y $u_{\alpha\beta}$
+estará determinada únicamente por el módulo de compresión o por el módulo de
+cizalladura respectivamente. Es posible invertir la última igualdad
+\eqref{tensor_esfuerzos_K} teniendo en cuenta que
+\begin{equation}
+\sigma_{\gamma}^{\ \gamma}=2 K u_{\gamma}^{\ \gamma}
+\end{equation}
+con lo resulta
+\begin{equation}\label{hooke}
+u_{\alpha\beta}=\frac{1}{4K}\delta_{\alpha\beta}\sigma_{\gamma}^{\ \gamma}+\frac{1}{2\mu}\left(\sigma_{\alpha\beta}-\frac{1}{2}\delta_{\alpha\beta}\sigma_{\gamma}^{\gamma}\right)
+\end{equation}
+
+%hooke
+
+El módulo de Poisson $\sigma$ es el cociente entre la deformación transversal
+a una tensión aplicada y la deformación longitudinal paralela a la tensión
+aplicada. Si la tensión, es aplicada por ejemplo, en el eje $x^1$
+\begin{equation}
+\sigma=-\frac{\delta x^2 / x^2}{\delta x^1 / x^1}=-\frac{u_{22}}{u_{11}}
+\end{equation}
+como la tensión es aplicada en la dirección $x^1$, la única componente no nula
+del tensor de esfuerzo es $\sigma_{11}$, y las componentes $u_{11}$ $u_{22}$
+se obtienen a partir de \eqref{hooke}
 \begin{align}
--t&=\mu+\lambda\\
-\mu&=4u\\
-\lambda&=8v
-\end{align}   
+u_{11}&=\frac{1}{4K}\sigma_1^1+\frac{1}{2\mu}\left(\sigma_{11}-\frac{1}{2}\sigma_1^1\right)=\left(\frac{1}{4K}+\frac{1}{4\mu}\right)\sigma_1^1\\
+u_{11}&=\frac{1}{4K}\sigma_1^1-\frac{1}{2\mu}\left(\frac{1}{2}\sigma_1^1\right)=\left(\frac{1}{4K}-\frac{1}{4\mu}\right)\sigma_1^1
+\end{align}
+Con lo que el módulo de Poisson resulta
+\begin{equation}
+\sigma=\frac{K+\mu}{K-\mu}
+\end{equation}
 
-De hecho estamos recuperando la ecuación del campo medio para la temperatura
-con $\zeta_0=1$
-
-
+%RElacion con la estadística -> correlaciones conexas MODULO DE POISSON
 
 
 %%% Local Variables: 
