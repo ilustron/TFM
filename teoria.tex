@@ -1,6 +1,6 @@
 \chapter{Estudio analítico}
 
-\section{Descripción geométrica de la membranas cristalina}
+\section{Descripción geométrica}
 
 Consideraremos una membrana como una superficie elástica y flexible 
 bidimensional alojada en un espacio tridimensional euclídeo. 
@@ -171,7 +171,113 @@ y
 g_{11}g_{22}-(\vec{t}_1\cdot\vec{t}_2)^2=g_{11}g_{22}-g_{12}g_{21}=g
 \end{multline*}
 
-\section{Teoría de Landau de la transición de fase}
+\subsection{Curvatura extrínseca}
+
+Para medir la curvatura de la membrana, se generaliza la noción de curvatura
+de una curva (unidimensional), definiendo el tensor de curvatura extrínseca:
+\begin{equation}
+\vec{K}_{\alpha\beta}=D_{\alpha}\vec{t}_{\beta}.
+\end{equation}
+Es un tensor simétrico covariante, cuyas componentes son vectores
+tridimensionales. Puesto que estamos comparando vectores en planos tangentes
+diferentes (si compararemos vectores en el mismo plano encontraríamos
+curvatura nula). $D_{\alpha}$ es el operador correspondiente a la derivada
+covariante, que se define para las componentes covariantes de un vector $\vec{V}$ como
+\begin{equation}
+D_{\alpha}V^{\beta}=\frac{\partial V_{\beta}}{\partial x^{\alpha}}-\Gamma^{\gamma}_{\alpha\beta}V_{\gamma}
+\end{equation}
+Donde $\Gamma^{\beta}_{\alpha\nu}$ es la conexión, no es un tensor, y
+determina que vectores son paralelos en puntos diferentes, el transporte
+paralelo. Utilizaremos la conexión de Levi Civita, donde dos vectores
+tangentes de planos tangentes diferentes serán paralelos, si son tangentes a la
+misma curva geodésica, curva entre los puntos $P$ y $Q$ cuya longitud es
+estacionaria. Por tanto, la conexión de Levi Civita está directamente
+relacionada con la métrica inducida, de hecho, cumple las siguientes dos condiciones
+con las que queda completamente determinada:
+\begin{enumerate}
+\item Es simétrica $\Rightarrow
+  \Gamma^{\gamma}_{\alpha\beta}=\Gamma^{\gamma}_{\beta\alpha}$.
+\item El producto escalar de dos vectores es invariante bajo transporte
+  paralelo, lo que implica que la derivada covariante de la métrica inducida
+  es nula: 
+  \begin{equation}
+    D_{\gamma}g_{\alpha\beta}=0
+  \end{equation}
+\end{enumerate}
+
+Las componentes del tensor de curvatura TAL son normales a la superficie
+\begin{equation}\label{K_normal}
+\vec{K}_{\alpha\beta}\cdot \vec{t}_{\gamma}=(D_{\alpha}\vec{t}_{\beta})\cdot\vec{t}_{\gamma}=D_{\alpha}g_{\beta\gamma}-\vec{t}_{\beta}\cdot(D_{\alpha}\vec{t}_{\gamma})=-\vec{K}_{\gamma\alpha}\cdot \vec{t}_{\beta}.
+\end{equation}
+Repitiendo estas operaciones dos veces más, encontramos que
+$\vec{K}_{\alpha\beta}\cdot \vec{t}_{\gamma}=0$. Sustituyendo de la definición de
+derivada covariante en la expresión del tensor de curvatura
+\begin{equation}\label{parcial_t}
+\frac{\partial \vec{t}_{\alpha}}{\partial x^{\beta}}=\Gamma^{\gamma}_{\alpha\beta}\vec{t}_{\gamma}+\vec{K}_{\alpha\beta}
+\end{equation}
+Entonces, $\Gamma^{\gamma}_{\alpha\beta}$ son las componentes tangenciales de
+$(\partial \vec{t}_{\alpha}/\partial x^{\beta})$ y $\vec{K}_{\alpha\beta}$ y 
+$\vec{K}_{\alpha\beta}$ es la componente normal de $(\partial
+\vec{t}_{\alpha}/\partial x^{\beta})$, que mide la rotación de los vectores
+tangentes al ser transportados paralelamente a la superficie. Por tanto,
+ $\vec{K}_{\alpha\beta}$ será proporcional al vector normal a la superficie
+\begin{equation*}
+ \vec{K}_{\alpha\beta}=K_{\alpha\beta}\vec{n}\, ,
+\end{equation*}
+donde $K_{\alpha\beta}$ es un tensor simétrico. Utilizando esta última
+expresión junto a \eqref{parcial_t} llegamos a una expresión para
+$K_{\alpha\beta}$
+\begin{equation}\label{K_alfa_beta}
+K_{\alpha\beta}=\frac{\partial \vec{t}_{\alpha}}{\partial x^{\beta}}\cdot\vec{n} 
+\end{equation}
+Por otro lado, si derivamos con respecto a $x^{\beta}$ el producto $\vec{t}_{\alpha}\cdot\vec{n}=0$
+\begin{equation*}
+\frac{\partial \vec{t}_{\alpha}}{\partial x^{\beta}}\cdot\vec{n}+
+\vec{t}_{\alpha}\cdot\frac{\partial \vec{n}}{\partial x^{\beta}}=
+K_{\alpha\beta}+\vec{t}_{\alpha}\cdot\frac{\partial \vec{n}}{\partial x^{\beta}}=0
+\Rightarrow \vec{t}_{\alpha}\cdot\frac{\partial \vec{n}}{\partial x^{\beta}}=-K_{\alpha\beta}
+\end{equation*}
+Multiplicando a ambos lados por $\vec{t}_{\gamma}$
+\begin{equation}
+\vec{t}_{\gamma}\left(\vec{t}_{\alpha}\cdot\frac{\partial \vec{n}}{\partial
+    x^{\beta}}\right)=-K_{\alpha\beta}\vec{t}_{\gamma}\Rightarrow 
+g_{\gamma\alpha}\frac{\partial \vec{n}}{\partial x^{\beta}}=-K_{\alpha\beta}\vec{t}_{\gamma}\Rightarrow\frac{\partial \vec{n}}{\partial x^{\beta}}=-K_{\alpha\beta}\vec{t}^{\alpha}
+\end{equation}
+Haciendo uso de \eqref{K_normal} llegamos finalmente a 
+\begin{equation}
+\frac{\partial \vec{n}}{\partial x^{\beta}}=K_{\beta\alpha}\vec{t}^{\alpha}=K_{\alpha\alpha}\vec{t}^{\alpha}.
+\end{equation}
+
+\begin{figure}[h]
+\centering
+ \resizebox{\columnwidth}{!}{\input{curvatura-fig}}
+\caption{Radios principales de curvatura}
+\end{figure}
+
+Al ser $K_{\alpha\beta}$ un tensor simétrico, podemos encontrar para cualquier
+punto dado un sistema de coordenadas $\mathbf{x}$ donde sea diagonal
+
+\begin{equation*}
+K_{\alpha\beta}\equiv\left(\begin{array}{cc}
+\mathcal{K}_1 & 0\\
+0 & \mathcal{K}_2\\
+\end{array}\right)\, ,
+\end{equation*} 
+donde $\mathcal{K}_1$ y $\mathcal{K}_2$ son los autovalores, llamados
+curvaturas principales y están relacionados con los radios principales
+ de curvatura $\mathcal{R}_{\alpha}$ por
+\begin{equation*}
+\mathcal{R}_{\alpha}=\frac{1}{\mathcal{K}_{\alpha}} \, , \qquad \alpha=1,2.
+\end{equation*}
+Estas curvaturas principales nos permiten definir dos importantes escalares:
+La curvatura media $H$ y la curvatura Gaussiana $K$, definidos como el
+promedio y el producto de las curvaturas principales
+\begin{align}
+H&=\frac{K_1+K_2}{2}\equiv \frac{1}{2}K_{\alpha}^{\ \alpha}\\
+K&=K_1K_2\equiv \det(K_{\alpha\beta})=\frac{1}{2}(K_{\alpha}^{\ \beta}K_{\alpha}^{\ \beta}-K_{\alpha}^{\ \alpha}K_{\beta}^{\ \beta})
+\end{align}
+
+\section{Estudio de la transición de fase}
 
 En una membrana se pueden encontrar dos fases: La fase plana y la fase
 rugosa, que se distinguen por sus simetrías. A la temperatura crítica $T_c$ se
@@ -348,7 +454,7 @@ trabajo, puesto que únicamente estamos interesados en las propiedades de la
 fase plana y la transición de fase, en donde no influye de forma apreciable
 este efecto indeseable. 
 
-\section{Aproximación de Campo medio}
+\subsection{Aproximación de Campo medio}
 
 \begin{figure}[h]
 \centering
@@ -504,7 +610,7 @@ el parámetro $t$ es la temperatura reducida adimensional.
 %fase es de orden $n$ si la primera derivada del potencial termodinámico que no
 %es continua es la derivada $n$-ésima. Esta clasificación no siempre es
 %equivalente a la clasificación basada en la ruptura de simetría.
- 
+
 \section{Estudio de la fase plana}
 
 Hemos visto que en la fase plana las posiciones medias de la partículas forman
@@ -522,7 +628,7 @@ plano de referencia, de esta forma, conseguimos que la métrica inducida en
 este plano sea diagonal y unitaria
 $g^{(0)}_{\alpha\beta}=\delta_{\alpha\beta}$. Los términos
 $\mathbf{u(\mathbf{x})}$ y $h(\mathbf{x})$ 
-representa las fluctuaciones paralelas y transversales respecto al plano de
+representan las fluctuaciones paralelas y transversales respecto al plano de
 referencia respectivamente. La expresión \eqref{r_fase_plana} se puede
 expresar de la siguiente forma equivalente
 \begin{equation}\label{deformacion}
@@ -738,11 +844,11 @@ despreciar los términos cuadráticos en las derivadas de $u_{\alpha}$ en
 \eqref{tensor_deformacion}; no podemos hacer lo mismo con $h$, dado que no hay
 términos en primer orden: 
 
-\begin{equation}
-u_{\alpha\beta}\simeq\frac{1}{2}\left(
- \frac{\partial u_{\beta}}{\partial x^{\alpha}}+
- \frac{\partial u_{\alpha}}{\partial x^{\beta}}+
-\frac{\partial h}{\partial  x^{\alpha}}\frac{\partial h}{\partial x^{\beta}}\right).
+ \begin{equation}\label{u_aprox}
+ u_{\alpha\beta}\simeq\frac{1}{2}\left(
+  \frac{\partial u_{\beta}}{\partial x^{\alpha}}+
+  \frac{\partial u_{\alpha}}{\partial x^{\beta}}+
+ \frac{\partial h}{\partial  x^{\alpha}}\frac{\partial h}{\partial x^{\beta}}\right).
 \end{equation}
 
 \subsection{Propiedades elásticas}
@@ -803,17 +909,20 @@ un término lineal en $u_{\alpha\beta}$ en el desarrollo de $f_E$, de forma que,
 \begin{equation}\label{tau=0}
 -t=4(u+2v)
 \end{equation}   
-y la densidad de energía libre elástica
-\begin{equation}\label{densidad_Fe}
+que coincide con la ecuación del campo medio para la temperatura reducida
+\eqref{zeta_0} con $\zeta_0=1$, en acuerdo con el valor el parámetro $\zeta=1$
+que hemos fijado. Finalmente la energía libre elástica de Landau 
+\begin{equation}
+F_E[u_{\alpha\beta},T]=\int d^2\mathbf{x}\, f_E[u_{\alpha\beta},T]\quad \text{con}\quad
 f_E[u_{\alpha\beta},T]=
 \mu u_{\alpha\beta}u^{\alpha\beta} +
-\frac{\lambda}{2}u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}
+\frac{\lambda}{2}u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}\label{densidad_Fe}.
 \end{equation} 
-De hecho, con la expresión \eqref{tau=0} estamos recuperando la ecuación del
-campo medio para la temperatura reducida \eqref{zeta_0} con $\zeta_0=1$, que
-coincide con el valor que hemos tomado en este caso para el parámetro $\zeta=1$.
-La expresión \eqref{densidad_Fe} coincide con la referencia REF, los
-coeficientes $\mu$ y $\lambda$ son los coeficientes de Lamé. 
+Bajo pequeñas deformaciones podemos usar \eqref{u_aprox} 
+como expresión de $u_{\alpha\beta}$, lo que equivale a retener términos hasta
+$O[(\partial u)^3]$ y $O[(\partial u)^2(\partial h)^2]$. La expresión
+\eqref{densidad_Fe} coincide con la referencia REF, los coeficientes $\mu$ y
+$\lambda$ son los coeficientes de Lamé.  
 
 Según la expresión \eqref{deformacion_area} el cambio relativo en el área infinitesimal
 viene dada por la suma $u_{\alpha}^{\ \alpha}$ . Si esta suma es nula, el área
@@ -892,8 +1001,68 @@ Con lo que el módulo de Poisson resulta
 \sigma=\frac{K+\mu}{K-\mu}
 \end{equation}
 
+\begin{figure}[h]
+\centering
+ \resizebox{\columnwidth}{!}{\input{Poisson-fig}}
+\caption{Comportamiento del módulo de Poisson}
+\end{figure} 
+\clearpage
 %RElacion con la estadística -> correlaciones conexas MODULO DE POISSON
 
+\subsection{Curvatura}
+
+El término de curvatura TAL, podemos escribirlo en el sistema de coordenadas
+elegido para fase plana como
+\begin{equation}
+F_C[\mathbf{x},T]\simeq\int d^2\mathbf{x} \left(\frac{\partial h}{\partial
+  x^{\alpha} \partial x^{\beta}}\right)^2
+\end{equation}
+donde hemos supuesto deformaciones pequeñas, pudiendo entonces, despreciar
+$\partial_{\alpha}\partial_{\alpha} \mathbf{u}$ frente a
+$\partial_{\alpha}\partial_{\alpha} h$, puesto que en el desarrollo
+$\mathbf{u}$ es de un orden menor que $h$. Ahora vamos a hacer un cambio de
+coordenadas, vamos a utilizar como coordenadas internas nuevas $\mathbf{y}$ la proyección
+en el plano de referencia de la posición tridimensional de los puntos
+\begin{equation}
+\vec{r}(\mathbf{x})=(\mathbf{x}+\mathbf{u(\mathbf{x})},h(\mathbf{x}))\quad
+\rightarrow \quad \vec{r}(\mathbf{y})=(\mathbf{y},h(\mathbf{y}))
+\end{equation}
+está parametrización es denominada la parametrización de Monge, y es
+importante puntualizar que con ella las coordenadas internas de los puntos no
+permanecen invariantes después de la deformación, puesto, puede suceder que su
+proyección en el plano sea diferente antes y después de la deformación. En
+estas coordenadas los vectores tangentes son
+\begin{align}
+ \vec{t}_1(\mathbf{y})&\simeq\left(1,0,\frac{\partial h}{\partial y^1}\right)\\
+ \vec{t}_2(\mathbf{y})&\simeq\left(0,1,\frac{\partial h}{\partial y^2}\right)
+\end{align}
+y la métrica inducida
+\begin{equation}
+g_{\alpha\beta}=\delta_{\alpha\beta}+\frac{\partial h}{\partial
+  y^{\alpha} \partial y^{\beta}}\Rightarrow g=\det
+(g_{\alpha\beta})=1+\left(\nabla_{\|} h\right)^2\, ,
+\end{equation}
+donde hemos definido el operador gradiente 
+\begin{equation*}
+\nabla_{\|}\equiv \left(\frac{\partial }{\partial y^1},\frac{\partial }{\partial y^2}\right).
+\end{equation*}
+Siguiendo en la aproximación de deformaciones pequeñas, los gradientes
+$\nabla_{\|} h\simeq 0$ también serán pequeños, y tenemos entonces
+\begin{align}
+g&\simeq 1\\
+\left(\frac{\partial h}{\partial
+  x^{\alpha} \partial x^{\beta}}\right)^2&\simeq \left(\frac{\partial h}{\partial
+  y^{\alpha} \partial y^{\beta}}\right)^2\, ,
+\end{align}
+y podemos aproximar TAL
+\begin{equation}
+F_C[\mathbf{y},T]\simeq\int d^2\mathbf{y} \left(\frac{\partial h}{\partial
+  y^{\alpha} \partial y^{\beta}}\right)^2
+\end{equation}
+Resulta que estas coordenadas, dado que la expresión del vector normal es
+\begin{equation}
+
+\end{equation}
 
 %%% Local Variables: 
 %%% mode: latex

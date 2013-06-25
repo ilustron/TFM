@@ -100,7 +100,7 @@ splot [0:1][0:1] (x-0.5)**2-(y-0.5)**2 w l lc rgb 'gray50'
 set output
 reset
 
-#CAMPO MEDIO = MONGE
+#CAMPO MEDIO = PARAMETRIZACIÓN
 
 set terminal epslatex mono 
 set output "campo_medio-fig.tex"
@@ -203,7 +203,7 @@ unset tics
 splot "./source_plots/snapshot_x_L64_K0.5-999.dat" with l lc rgb 'gray50'
 reset
 
-#FASE ARRUGADA
+#VECTORES DEFORMACIÓN
 
 set terminal epslatex mono 
 set output "deformacion-fig.tex"
@@ -237,6 +237,120 @@ splot [0:1][0:1] h(x,y) with l lc rgb 'gray50',0 with l lc rgb 'gray10'
 
 set output
 reset
+
+#ESQUEMA POISSON
+
+set terminal epslatex mono 
+set output "Poisson-fig.tex"
+
+poisson(x)=(1-x)/(1+x)
+
+set multiplot
+
+set logscale x
+set xlabel '$\mu / K$'
+set ylabel '$\sigma$'
+plot [0.001:1000] poisson(x) notitle w l lw 3
+
+unset tics
+unset xtics
+unset ytics
+unset key
+unset border
+unset logscale x
+unset xlabel
+unset ylabel
+
+set tmargin 0; set bmargin 0; set rmargin 0; set lmargin 0
+
+set size 0.2,0.5
+set origin 0.25,0.3
+set title '$\sigma>0$'
+clear
+set arrow 1 heads from 1,0.3 to 1.2,0.3 #dx
+set arrow 2 heads from 0.5,1 to 0.5,0.8 #dy
+set arrow 3 from 1.2,0.5 to 1.5,0.5     #+Tx
+set arrow 4 from -0.2,0.5 to -0.5,0.5   #-Tx
+
+set label 1 '$\delta x^1$' at 1.06,0.35 center front
+set label 2 '$\delta x^2$' at 0.7,0.9 center front
+set label 3 '$\vec{T}$' at 1.275,0.55 front
+set label 4 '$\vec{T}$' at -0.375,0.55 front
+plot [-0.2:1.2][-0.2:1.2] "./source_plots/esquema_Poisson.dat" u 1:2 w l lt 3,\
+                          "" u 3:4 w l lt 1
+
+set origin 0.675,0.3
+set title '$\sigma<0$'
+ 
+clear
+set arrow 2 heads from 0.5,1 to 0.5,1.2
+set label 2 '$\delta x^2$' at 0.7,1.1 front
+plot [-0.2:1.2][-0.2:1.2] "./source_plots/esquema_Poisson.dat" w l lt 3,\
+     			  "" u 5:6 w l lt 1
+unset multiplot
+set output
+reset
+
+#CURVATURA
+
+set terminal epslatex mono 
+set output "curvatura-fig.tex"
+
+f(x,y)=exp(-0.5*(x**2+2*y**2))
+set size 1,1
+set multiplot
+
+unset tics
+unset xtics
+unset ytics
+unset key
+unset border
+
+
+set view 60,315,1,1
+#set hidden3d
+set xyplane at 0
+set view equal xyz
+set isosamples 13
+
+#VECTORES
+set style arrow 1 head filled
+
+set arrow 1 arrowstyle 1 from 0,0,f(0,0) to 1,0,f(0,0) front
+set arrow 2 arrowstyle 1  from 0,0,f(0,0) to 0,-1,f(0,0) front
+set arrow 3 arrowstyle 1  from 0,0,f(0,0) to 0,0,f(0,0)+0.9 front
+
+set label 1 '$\vec{t}_1$' at 0.65,0.2,f(0,0) center front
+set label 2 '$\vec{t}_2$' at 0.2,-0.4,f(0,0) center front
+set label 3 '$\vec{n}$' at 0,-0.15,f(0,0)+0.6 center front
+
+splot [-1.5:1.5][-1.5:1.5] f(x,y) with l lc rgb 'gray50'
+
+set tmargin 0; set bmargin 0; set rmargin 0; set lmargin 0
+
+set size 1,1
+
+set origin -0.27,0.17 
+
+unset arrow 2
+unset label 2
+set arrow 4  arrowstyle 1 from 0,0,0 to 0.3,0,f(0.3,0) front
+set label 4 '$\mathcal{R}_1$' at -0.12,0,f(0.3,0)/2 center front
+splot [-1.5:1.5][0:1.5] f(x,y) with l lc rgb 'gray50' #x
+
+set origin 0.3,0.17
+unset arrow 1
+unset label 1
+set label 2 '$\vec{t}_2$' at 0.2,-0.4,f(0,0) center front
+set arrow 2  arrowstyle 1 from 0,0,f(0,0) to 0,-1,f(0,0) front
+set arrow 4  arrowstyle 1 from 0,0,0.5 to 0,0.3,f(0,0.3) front
+set label 4 '$\mathcal{R}_2$' at 0,0.4,0.5 center front
+splot [0:1.5][-1.5:1.5] f(x,y) with l lc rgb 'gray50' #y
+
+unset multiplot
+set output
+reset
+
 
 #RESULTADOS:
 
