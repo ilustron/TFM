@@ -274,7 +274,7 @@ La curvatura media $H$ y la curvatura Gaussiana $K$, definidos como el
 promedio y el producto de las curvaturas principales
 \begin{align}
 H&=\frac{K_1+K_2}{2}\equiv \frac{1}{2}K_{\alpha}^{\ \alpha}\\
-K&=K_1K_2\equiv \det(K_{\alpha\beta})=\frac{1}{2}(K_{\alpha}^{\ \beta}K_{\alpha}^{\ \beta}-K_{\alpha}^{\ \alpha}K_{\beta}^{\ \beta})
+K&=K_1K_2\equiv \det(K_{\alpha\beta})=\frac{1}{2}(K_{\alpha}^{\ \alpha}K_{\beta}^{\ \beta}-K_{\alpha}^{\ \beta}K_{\alpha}^{\ \beta})
 \end{align}
 
 \section{Estudio de la transición de fase}
@@ -1049,7 +1049,7 @@ donde hemos definido el operador gradiente
 Siguiendo en la aproximación de deformaciones pequeñas, los gradientes
 $\nabla_{\|} h\simeq 0$ también serán pequeños, y tenemos entonces
 \begin{align}
-g&\simeq 1\\
+g&\simeq 1\quad\Rightarrow\quad d^2\mathbf{x}\simeq d^2\mathbf{y}\\
 \left(\frac{\partial h}{\partial
   x^{\alpha} \partial x^{\beta}}\right)^2&\simeq \left(\frac{\partial h}{\partial
   y^{\alpha} \partial y^{\beta}}\right)^2\, ,
@@ -1061,9 +1061,34 @@ F_C[\mathbf{y},T]\simeq\int d^2\mathbf{y} \left(\frac{\partial h}{\partial
 \end{equation}
 Resulta que estas coordenadas, dado que la expresión del vector normal es
 \begin{equation}
-
+\vec{n}=\frac{\vec{t}_1(\mathbf{y})\times\vec{t}_2(\mathbf{y})}{\sqrt{g}}=\frac{1}{\sqrt{1+\left(\nabla_{\|} h\right)^2}} \left( -\frac{\partial h}{\partial y^1},-\frac{\partial h}{\partial y^2},0\right)
 \end{equation}
-
+y usando TAL llegamos a que el tensor de curvatura extrínseca
+\begin{equation}
+K_{\alpha\beta}=\frac{1}{\sqrt{1+\left(\nabla_{\|} h\right)^2}}\frac{\partial h}{\partial
+  y^{\alpha} \partial y^{\beta}}\simeq \frac{\partial h}{\partial
+  y^{\alpha} \partial y^{\beta}}
+\end{equation}
+donde hemos aplicado la aproximación de pequeños gradientes. Entonces TAL
+\begin{equation}
+F_C[\mathbf{y},T]\simeq\int d^2\mathbf{y} K_{\alpha\beta}K^{\alpha\beta}
+\end{equation} 
+Ahora bien, sumando y restando $K_{\alpha}^{\ \alpha}$ la traza al cuadrado en el
+integrando
+\begin{equation}
+K_{\alpha\beta}K^{\alpha\beta}=K_{\alpha}^{\ \beta}K_{\alpha}^{\
+  \beta}=K_{\alpha}^{\ \alpha}K_{\beta}^{\ \beta}+K_{\alpha}^{\ \beta}K_{\alpha}^{\ \beta}-K_{\alpha}^{\ \alpha}K_{\beta}^{\ \beta}
+\end{equation}
+Usando las definiciones TAL
+\begin{equation}
+K_{\alpha\beta}K^{\alpha\beta}=4H^2-2K
+\end{equation} 
+donde, esta aproximación
+\begin{align}
+H&=\frac{1}{2}\frac{\partial h}{\partial y^{\alpha} \partial y_{\alpha}}+O\left[\left(\nabla_{\|} h\right)^2\right]\\
+K&=\det \left(\frac{\partial h}{\partial y^{\alpha} \partial y_{\beta}}\right)+O\left[\left(\nabla_{\|} h\right)^2\right]
+\end{align}
+La integral de la curvatura gaussiana es constante, no tenemos en cuenta
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "TFM"
