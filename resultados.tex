@@ -1,10 +1,109 @@
 \chapter{Resultados}
+
+ \begin{figure}[h]
+ \centering
+  \input{test.tex}
+ \caption{Test}
+ \end{figure}
+
+\section{Ley de escala Radio de giro}
+
 \begin{figure}[h]
-\centering
- \input{test.tex}
-\caption{Test}
+  \centering
+  \input{Rg2_plot.tex}
+  \caption{Radio de giro}
 \end{figure}
+
+\begin{figure}[h]
+  \centering
+  \input{rg2_plano_plot.tex}
+  \caption{$R^2_g$ en función de $L$ para $\kappa=2.0$. Resultados del ajuste
+    $c_0=0.134\pm 0.025$, $c_1=0.0160\pm 0.0003$, $2\nu=1.9955 \pm
+    0.005$. $\chi^2/gl=2.063/2$ , $P(\chi^2>\chi_C^2)=0.356$}
+
+  % degrees of freedom    (FIT_NDF)                        : 2
+  % rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.0157
+  % variance of residuals (reduced chisquare) = WSSR/ndf   : 1.03166
+
+  % Final set of parameters            Asymptotic Standard Error
+  % =======================            ==========================
+
+  % c0              = 0.134326         +/- 0.02509      (18.68%)
+  % c1              = 0.0160099        +/- 0.0003187    (1.991%)
+  % nu              = 1.9955           +/- 0.005172     (0.2592%)
+
+
+  % correlation matrix of the fit parameters:
+
+  % c0     c1     nu     
+  % c0              1.000 
+  % c1             -0.955  1.000 
+  % nu              0.934 -0.997  1.000 
+
+\end{figure}
+
+
+
+\begin{figure}[h]
+  \centering
+  \input{rg2_rugosa_plot.tex}
+   \caption{$R_g$ en función de $L$ para $\kappa=0.5$. Resultados del ajuste
+     $c_0=0.2929 \pm 0.004$ y $c_1=0.152853\pm 0.001$.$\chi^2/gl=28.94688/3$ ,
+     $P(\chi>\chi^2)=2.29\ 10^{-6}$}
+
+% degrees of freedom    (FIT_NDF)                        : 3
+% rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 3.10628
+% variance of residuals (reduced chisquare) = WSSR/ndf   : 9.64896
+
+% Final set of parameters            Asymptotic Standard Error
+% =======================            ==========================
+
+% c0              = 0.292904         +/- 0.01212      (4.138%)
+% c1              = 0.152853         +/- 0.003676     (2.405%)
+
+
+% correlation matrix of the fit parameters:
+
+%                c0     c1     
+% c0              1.000 
+% c1             -0.990  1.000 
+
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \input{rg2_transicion_plot.tex}
+  \caption{$R_g$ en función de $L$ para $\kappa_c(L)$. Resultados del ajuste
+    $c_0=-0.535 \pm 0.089$, $c_1=0.047\pm 0.006$ y $2\nu=1.38\pm
+    0.03$. $\chi^2/gl=73.6932/2$, $P(\chi^2>\chi_c^2)=9.94 \ 10^{-17}$}
+
+% degrees of freedom    (FIT_NDF)                        : 2
+% rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 6.07014
+% variance of residuals (reduced chisquare) = WSSR/ndf   : 36.8466
+
+% Final set of parameters            Asymptotic Standard Error
+% =======================            ==========================
+
+% c0              = -0.535325        +/- 0.5422       (101.3%)
+% c1              = 0.0471556        +/- 0.037        (78.47%)
+% nu              = 1.38315          +/- 0.1964       (14.2%)
+
+
+% correlation matrix of the fit parameters:
+
+%                c0     c1     nu     
+% c0              1.000 
+% c1             -0.985  1.000 
+% nu              0.975 -0.998  1.000 
+
+\end{figure}
+
+\clearpage
+
+\section{Transición de fase}
+
 \subsection{Calor específico}
+
 \begin{figure}[h]
 \centering
  \input{Se_plot.tex}
@@ -27,36 +126,61 @@
   \centering
   \input{Cv_L_plot.tex}
   \caption{$C_v$ frente a $L$ en la transición de fase. Resultados del ajuste
-    $c_0=0.8\pm 0.4$ $c_1=0.1\pm 0.1$,  $\omega=0.8\pm 0.2$ }
+    $c_0=0.76\pm 0.36$ $c_1=0.11\pm 0.09$,  $\omega=0.76\pm
+    0.17$. $\chi^2/gl=0.349/2$ , $P(\chi>\chi_c^2)=0.83987691$}
+
+% degrees of freedom    (FIT_NDF)                        : 2
+% rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.417849
+% variance of residuals (reduced chisquare) = WSSR/ndf   : 0.174598
+
+% Final set of parameters            Asymptotic Standard Error
+% =======================            ==========================
+
+% c0              = 0.767979         +/- 0.1513       (19.7%)
+% c1              = 0.110299         +/- 0.03993      (36.21%)
+% omega           = 0.759527         +/- 0.07476      (9.843%)
+
+
+% correlation matrix of the fit parameters:
+
+%                c0     c1     omega  
+% c0              1.000 
+% c1             -0.993  1.000 
+% omega           0.986 -0.999  1.000 
+
 \end{figure}
 
 \begin{figure}[h]
   \centering
   \input{Cv_T_L_plot.tex}
-  \caption{$\kappa_c$ estimada frente a $L$. Resultados del ajuste $c_0=0.773\pm 0.007$ y $\nu=1.04\pm 0.08$ } 
+  \caption{$\kappa_c(L)$ frente a $L$. Resultados del ajuste $c_0=0.74\pm
+    0.06$ ,$c_1=0.6\pm 0.7 $ $\nu=1.628 \pm 1.508703$. $\chi^2/gl=1.254754 \
+    10^{-7}/2$ , $P(\chi^2>\chi_c^2)=0.5339906$ }
+
+% degrees of freedom    (FIT_NDF)                        : 2
+% rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.792071
+% variance of residuals (reduced chisquare) = WSSR/ndf   : 0.627377
+
+% Final set of parameters            Asymptotic Standard Error
+% =======================            ==========================
+
+% c0              = 0.739158         +/- 0.05025      (6.798%)
+% c1              = 0.647846         +/- 0.5901       (91.09%)
+% nu              = 1.62843          +/- 1.195        (73.36%)
+
+
+% correlation matrix of the fit parameters:
+
+%                c0     c1     nu     
+% c0              1.000 
+% c1              0.969  1.000 
+% nu             -0.991 -0.993  1.000 
+
 \end{figure}
 \clearpage
-\subsection{Radio de giro}
-\begin{figure}[h]
-  \centering
-  \input{Rg2_plot.tex}
-  \caption{Radio de giro}
-\end{figure}
 
-\begin{figure}[h]
-  \centering
-  \input{rg2_plano_plot.tex}
-  \caption{$R^2_g$ en función de $L$ para $\kappa=2.0$. Resultados del ajuste
-    $a=0.0177\pm 0.0004$ y $a=1.969\pm 0.002$}
-\end{figure}
+\subsection{Variación del radio de giro}
 
-\begin{figure}[h]
-  \centering
-  \input{rg2_rugosa_plot.tex}
-  \caption{$R^2_g$ en función de $L$ para $\kappa=0.5$. Resultados del ajuste
-    $a=0.175\pm 0.005$ y $b=0.247\pm 0.002$}
-\end{figure}
-\subsection{Radio de giro conexo}
 \begin{figure}[h]
   \centering
   \input{Drg2_plot.tex}
@@ -72,16 +196,61 @@
 \begin{figure}[h]
   \centering
   \input{Drg2_L_plot.tex}
-  \caption{Resultados del ajuste $a=0.0022\pm 2\cdot 10^{-4}$ y $b=0.88\pm 0.04$ }
+  \caption{$\langle R_g^2 E_c\rangle_{max}$ frente a $L$. Resultados del
+    ajuste $c_0=0.001\pm 0.008$ ,$c_1=0.002\pm 0.001 $ $\omega=0.9 \pm
+    0.2$. $\chi^2/gl=0.088/2$ , $P(\chi^2>\chi_c^2)=0.96$ }
+
+% degrees of freedom    (FIT_NDF)                        : 2
+% rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.210417
+% variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0442754
+
+% Final set of parameters            Asymptotic Standard Error
+% =======================            ==========================
+
+% c0              = 0.000996481      +/- 0.001798     (180.5%)
+% c1              = 0.00200217       +/- 0.0003781    (18.89%)
+% omega           = 0.906011         +/- 0.04271      (4.714%)
+
+
+% correlation matrix of the fit parameters:
+
+%                c0     c1     omega  
+% c0              1.000 
+% c1             -0.991  1.000 
+% omega           0.983 -0.998  1.000 
+% gnuplot> plot "maximos_Drg2.dat" u 1:4:5 w yerrorbars,g(x)
 \end{figure}
 
 \begin{figure}[h]
   \centering
   \input{kappac_plot.tex}
-  \caption{Temperatura crítica, resultados del ajuste $c_0=0.778\pm 0.007$ y $\nu=1.125\pm 0.0599$ }
+  \caption{$\kappa_c(L)\rightarrow\langle R_g^2 E_c\rangle_{max}$ frente a $L$. Resultados del ajuste $c_0=0.8\pm 0.1$ ,$c_1=0.4\pm 0.8 $ $\omega=1.6 \pm
+    1.18$. $\chi^2/gl=1.81924/2$ , $P(\chi^2>\chi_c^2)=0.1774038$. (Debido a falta de convergencia se elimina el L=64)}
+
+%Debido a falta de convergencia se elimina el L=64
+% degrees of freedom    (FIT_NDF)                        : 1
+% rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.34879
+% variance of residuals (reduced chisquare) = WSSR/ndf   : 1.81924
+
+% Final set of parameters            Asymptotic Standard Error
+% =======================            ==========================
+
+% c0              = 0.779059         +/- 0.146        (18.74%)
+% c1              = 0.441665         +/- 1.137        (257.4%)
+% nu              = 1.60002          +/- 4.048        (253%)
+
+
+% correlation matrix of the fit parameters:
+
+%                c0     c1     nu     
+% c0              1.000 
+% c1              0.980  1.000 
+% nu             -0.995 -0.995  1.000 
+
 \end{figure}
 \clearpage
-\subsection{Módulo de Poisson}
+
+%\subsection{Módulo de Poisson}
 
 %%% Local Variables: 
 %%% mode: latex

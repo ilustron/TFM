@@ -2,14 +2,259 @@
 
 \section{Modelo discreto}
 
-\section{Algoritmo de Metropolis}
+Para la realización de simulaciones numéricas es necesario discretizar la
+membrana cristalina. Para ello, vamos a considerar una red 
+discreta de $N$ nodos (figura~\ref{red_rombo}), cuyas conexiones o enlaces
+forman una red regular triangular. El contorno de esta red es un rombo de lado
+$L=\sqrt{N}$, en este sentido podemos calificar la red como cuadrada. 
+Las condiciones en la frontera son libres, lo que significa que el índice de
+coordinación, el número de primeros vecinos\footnote{Entendemos por primeros
+  vecinos de un nodo, aquellos nodos que tienen un sólo enlace con él.} de un
+determinado nodo, es menor en el contorno. Esta falta de homogeneidad,
+son los llamados efectos de borde, que producen que los valores 
+de los observables en el interior son diferentes que en el contorno. Puesto
+que la cantidad de nodos interiores de la membrana es proporcional a $L^2$, y
+el número de nodos del contorno a $L$, es de esperar que los efectos de borde
+disminuyan a medida que aumenta el tamaño del sistema hasta hacerse
+despreciables. Aún así, la forma óptima del contorno de una
+membrana para minimizar los efectos de borde es el hexágono, donde por
+ejemplo, ningún nodo tiene un nodo tiene un índice de coordinación menor que
+3, en nuestro caso, con el contorno romboidal el menor número de coordinación
+es 2. Aunque el contorno romboidal tenga el inconveniente de mayores efectos
+de borde, lo hemos elegido principalmente por poder comparar nuestras medidas
+con trabajos anteriores, y si en algún caso influyen
+demasiado en las medidas, podremos minimizarlos no teniendo en cuenta
+aquellos nodos cercanos al contorno.
 
-\subsection{errores}
+\begin{figure}[h]\label{red_rombo}
+\centering
+\resizebox{275bp}{!}{\input{red_triangular-fig}}
+\caption{Conectividad intrínseca de la red}
+\end{figure}
+
+Cada nodo es etiquetado mediante dos índices discretos $P=(i,j)\ i,j=1,L$
+como se indica en la figura~\ref{red_rombo}. La posición en el espacio
+tridimensional vendrá dada por el vector $\vec{r}_P$. Como energía libre discreta del sistema usamos
+\begin{equation}
+\mathcal{F}=\sum_{\langle PQ \rangle}
+|\vec{r}_P-\vec{r}_Q|^2+\kappa\sum_{\langle ab \rangle}
+|\vec{n}_a-\vec{n}_b|^2 
+\end{equation}
+donde con $\langle\rangle$ indicamos que la suma es sobre primeros vecinos,
+nodos adyacentes. Estamos considerando únicamente interacciones de corto
+alcance,  no inlcuimos ningún término de exclusión, ya que, es irrelevante en
+la fase plana. Los  índices en letra minúscula representan las plaquetas, 
+los triángulos de la red, y $\vec{n}_{a}$ el vector normal a la plaqueta. La
+constante $\kappa$ es el módulo de rigidez y hemos escalado las posiciones de
+forma que la constante elástica es unitaria.
+
+%Colapso punto
+
+\subsection{límite continuo}
+\begin{figure}[h]
+\centering
+ \resizebox{\columnwidth}{!}{\input{base-hexagonal-fig}}
+\caption{Base hexagono}
+\end{figure}   
+Consideramos un sistema de coordenadas ortogonal $\{ \vec{e}_1,\vec{e}_2\}$, son los vectores de la base del plano base. La expresión TAL podemos discretizarla
+\begin{equation}
+(\vec{r}_P-\vec{r}_Q)=a^2+2u_{\alpha\beta}x{\scriptstyle [q]}^{\alpha}x{\scriptstyle [q]}^{\beta}
+\end{equation}
+donde $u_{\alpha\beta}$ es la versión discretizada del tensor de
+deformaciones. En este  sistema de coordenadas la métrica es
+\begin{equation}
+g_{\alpha\beta}=\vec{e}_{\alpha}\cdot\vec{e}_{\beta}=a^2\delta_{\alpha\beta}
+\end{equation}
+Podemos aproximar
+\begin{equation}
+|\vec{r}_P-\vec{r}_Q|=\sqrt{a^2+2u_{\alpha\beta}e^{\alpha}e^{\beta}}\simeq a + \frac{u_{\alpha\beta}}{a}e^{\alpha}e^{\beta}
+\end{equation}
+
+
+
+Sustituyendo en la parte elástica de la energía libre
+\begin{equation}
+\mathcal{F}_E\simeq \frac{1}{2}\sum_{P} \sum^6_{j=1} \left(\frac{u_{\alpha\beta}}{a}e^{\alpha}e^{\beta}\right)^2=\frac{1}{2a^2}\sum_{P} \sum^6_{j=1} u_{\alpha\beta}u^{\mu\nu}e^{\alpha}e^{\beta}e_{\mu}e_{\nu}
+\end{equation}
+Siendo el primer sumatorio sobre todos los nodos y el segundo sobre los
+primeros vecinos. Teniendo en cuenta las relaciones
+\begin{equation}
+1=\frac{\delta^{\alpha\beta}\delta_{\alpha\beta}}{2}=\frac{\delta^{\mu\nu}\delta_{\mu\nu}}{2}
+\end{equation}
+Podemos escribir el término
+\begin{equation}
+e^{\alpha}e^{\beta}e_{\mu}e_{\nu}=\frac{1}{4}\delta^{\alpha\beta}\delta_{\mu\nu}\delta_{\alpha\beta}e^{\alpha}e^{\beta}\delta^{\mu\nu}e_{\mu}e_{\nu}=\frac{a^2}{4}\delta^{\alpha\beta}\delta_{\mu\nu}
+\end{equation}
+Y de forma análoga también podemos obtener
+\begin{align}
+e^{\alpha}e^{\beta}e_{\mu}e_{\nu}&=\frac{a^2}{4}\delta^{\alpha}_{\ \mu}\delta_{\beta}^{\
+  \nu}\\
+e^{\alpha}e^{\beta}e_{\mu}e_{\nu}&=\frac{a^2}{4}\delta^{\alpha}_{\ \nu}\delta_{\beta}^{\
+  \mu}
+\end{align}
+Tomando la media de las últimas tres expresiones TAL
+\begin{equation}
+e^{\alpha}e^{\beta}e_{\mu}e_{\nu}=\frac{a^4}{12}(\delta^{\alpha\beta}\delta_{\mu\nu}+
+\delta^{\alpha}_{\ \mu}\delta_{\beta}^{\ \nu}+
+\delta^{\alpha}_{\ \nu}\delta_{\beta}^{\ \mu})
+\end{equation}
+Sustituyendo en TAL
+\begin{equation}
+\mathcal{F}_E\simeq\frac{a^2}{24}\sum_{P} \sum^6_{j=1}(\delta^{\alpha\beta}\delta_{\mu\nu}+\delta^{\alpha}_{\ \mu}\delta_{\beta}^{\ \nu}+
+\delta^{\alpha}_{\ \nu}\delta_{\beta}^{\ \mu})
+u_{\alpha\beta}u^{\mu\nu}=\frac{a^2}{4}\sum_{P}u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}+2u_{\alpha\beta}u^{\alpha\beta}
+\end{equation}
+Donde en  la última igualdad hemos efectuado la suma sobre todos los vecinos.
+Pasamos al límite continuo:
+\begin{equation}
+\frac{a^2}{4}\sum_{i=1}^L\sum_{j=1}^L\frac{\Delta i\Delta j}{\xi^2\frac{\sqrt{3}}{2}}\xi^2\,\frac{\sqrt{3}}{2}(u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}+2u_{\alpha\beta}u^{\alpha\beta})
+\end{equation}
+Tomando el límite $N\rightarrow \infty$
+elástica 
+\begin{equation}
+\mathcal{F}\simeq\int d^2\mathbf{x}\, \frac{\sqrt{3}}{4}\frac{a^2}{\xi^2}\left(\frac{1}{2}u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}+u_{\alpha\beta}u^{\alpha\beta}\right)
+\end{equation}
+recuperamos la energía libre elástica con 
+\begin{equation}
+\lambda=\mu=\frac{\sqrt{3}}{4}\frac{a^2}{\xi^2}
+\end{equation}
+Nuestro modelo corresponde al límite $a\rightarrow 0$ y $\xi$ fijo.
+
+Respecto al término de curvatura, podemos desarrollar $\vec{n}_{b}$ desde $a$
+\begin{equation}
+\vec{n}_b\simeq\vec{n}_a+\frac{\partial \vec{n_b}}{\partial x^{\alpha}}(x_b^{\alpha}-x_a^{\alpha})
+\end{equation}
+Sustituyendo en la energía libre
+\begin{equation}
+\mathcal{F}_C=\frac{1}{2}\kappa\sum_{\langle ab\rangle}\frac{\partial
+  \vec{n_b}}{\partial x^{\alpha}}\cdot\frac{\partial \vec{n_b}}{\partial x^{\beta}} (x_b^{\alpha}-x_a^{\alpha})(x_b^{\beta}-x_a^{\beta})
+\end{equation}
+Podemos considerar que son triángulos equiláteros
+\begin{equation}
+g^{\alpha\beta}=(x_b^{\alpha}-x_a^{\alpha})(x_b^{\beta}-x_a^{\beta})\simeq
+\sqrt{3} \delta^{\alpha\beta}
+\end{equation}
+Entonces
+\begin{equation}
+\mathcal{F}_C=\frac{\sqrt{3}}{2}\kappa\sum_{\langle ab\rangle}\frac{\partial
+  \vec{n_b}}{\partial x_{\alpha}}\cdot\frac{\partial \vec{n_b}}{\partial x^{\alpha}}
+\end{equation}
+En el límite continuo, para $N\rightarrow \infty$
+\begin{equation}
+\mathcal{F}_C=\frac{1}{2}\hat{\kappa}\int d^2\mathbf{x}\ \frac{\partial
+  \vec{n_b}}{\partial x_{\alpha}}\cdot\frac{\partial \vec{n_b}}{\partial x^{\alpha}}
+\end{equation}
+A partir de la expresión TAL
+\begin{equation}
+\frac{\partial \vec{n_b}}{\partial x_{\alpha}}\cdot\frac{\partial
+  \vec{n_b}}{\partial x^{\alpha}}=(K_{\alpha\beta}\vec{t}^{\beta})\cdot(K_{\nu}^{\
+  \alpha}\vec{t}^{\nu})=K_{\alpha\beta}g^{\beta\nu}K_{\nu}^{\ \alpha}=K_{\alpha\beta}K^{\alpha\beta}
+\end{equation}
+Entonces 
+\begin{equation}
+\mathcal{F}_C\simeq\frac{1}{2}\hat{\kappa}\int d^2\mathbf{x}\ K_{\alpha\beta}K^{\alpha\beta}
+\end{equation}
+Y recuperamos la ecuación TAL de la energía libre de Landua.
+
+\section{Algoritmo de Metropolis}
+Para especificar una determinada configuración $\mathcal{R}$ de la membrana
+cristalina discreta corresponde a una lista de $N$ posiciones
+tridimensionales:
+\begin{equation}
+\mathcal{R}=\{ \vec{r}_1,\vec{r}_2,\dots \vec{r}_N\}\,.
+\end{equation}
+Si tenemos $M$ configuraciones independientes que siguen una distribución
+proporcional al factor $e^{-\mathcal{F}(\kappa)}$, A partir de las medidas
+$A_1,A_2,\dots A_N$ en cada configuración de un observable $A$, podemos
+estimar su valor medio para ese $\kappa$
+\begin{equation}
+\langle A \rangle_{\kappa}\simeq \frac{1}{M}\sum^M_{i=1} A_i\,.
+\end{equation}
+Para encontrar estas configuraciones empleamos un método de Monte Carlo, que
+consiste en un camino aleatorio en el espacio de configuraciones, en donde, en
+cada uno de los pasos al menos se modifica la posición de un nodo. Este camino
+aleatorio no necesita estar relacionado con ningún proceso físico, la eficacia
+en la estimación de $\langle A \rangle_{\kappa}$ es la única premisa. Este
+camino aleatorio debe, a partir de una configuración inicial y tras un número
+de pasos (termzalización), alcanzar la región de interés donde
+$P(\mathcal{R})\propto e^{-\mathcal{F}(\kappa)}$. En esta región, se debe
+recoger una muestra representativa de $M$ configuraciones, el problema es que
+las configuraciones sucesivas no son independientes, pues no se
+diferencian lo suficiente entre sí, esto implica que el error de $\langle A
+\rangle_{\kappa}$ no será del orden de $O(\sqrt{M})$ sino de $O(\sqrt{M_I})$,
+donde $M_I$ es el número de configuraciones independientes. 
+
+% El cociente
+% $\tau=M/M_I$ corresponderá entonces, al número pasos necesarios para obtener una
+% configuración independiente a una de partida, se denomina tiempo de
+% decorrelación. 
+
+El camino aleatorio será una cadena de Markov, esto es, la configuración futura
+depende solamente de la configuración actual, o dicho de otro modo, nuestro
+\textit{caminante} decide a donde ir en base a su posición actual. Entonces,
+el proceso está completamente descrito mediante un operador 
+de transición $W(\mathcal{R},\mathcal{S})$, que determina la probabilidad
+alcanzar una configuración $\mathcal{S}$ en el tiempo $t_0+1$ desde una
+configuración $\mathcal{R}$ en el tiempo $t_0$. Algunas propiedades de este
+operador son 
+\begin{itemize}
+\item $W(\mathcal{R},\mathcal{S})\geq 0$ para todas las configuraciones
+  $\mathcal{R}$ y $\mathcal{S}$. Además $1=\int
+  d\mathcal{S}\,W(\mathcal{R},\mathcal{S}) $, ya que es una probabilidad.
+\item La probabilidad de alcanzar la configuración $\mathcal{U}$ desde
+  $\mathcal{R}$ en $l$ pasos es:
+  \begin{multline}
+    P(\mathcal{U}_{l+s}|\mathcal{R}_s)=\int
+  d\mathcal{R}_{l+s-1}\dots d\mathcal{R}_{s+2}
+  d\mathcal{R}_{s+1}\\W(\mathcal{U},\mathcal{R}_{l+s-1})\dots
+  W(\mathcal{R}_{s+2},\mathcal{R}_{s+1}) W(\mathcal{R}_{s+1},\mathcal{R}_{s})=W_l(\mathcal{U},\mathcal{R})
+  \end{multline}
+  también $W_l(\mathcal{U},\mathcal{R}) \geq 0$ y $1=\int
+  d\mathcal{S}\, W_l(\mathcal{U},\mathcal{R})$.
+\item Si en el tiempo $s$ la probabilidad de para la posición de nuestros
+  caminantes es $\rho_s(\mathcal{R})$, en el tiempo $t+s$ será
+\begin{equation}
+\rho_{s+t}(\mathcal{S})=\int
+  d\mathcal{R}\, W_l(\mathcal{R},\mathcal{S})\rho_s(\mathcal{R})
+\end{equation}
+\end{itemize}
+Estas propiedades son generales para cualquier cadena de Markov. Todavía
+tenemos dos propiedades cruciales para construir un método válido de Monte
+Carlo:
+\begin{itemize}
+\item La condición de balance:
+  \begin{equation}
+    \frac{e^{-\mathcal{H}(R,\kappa)}}{\mathcal{Z}}=\int
+    dS\, W(R,S)\frac{e^{-\mathcal{H}(S,\kappa)}}{\mathcal{Z}}
+  \end{equation}
+  Si la posición de un conjunto de caminantes está distribuida, en un tiempo
+  $t_0$, de acuerdo a $\frac{e^{-\mathcal{H}(S,\kappa)}}{\mathcal{Z}}$,en el
+  tiempo $t_0+1$, las posiciones cambiarán pero seguirán distribuyéndose de
+  acuerdo al factor de Boltzmann.
+\item Existe un entero $m_t$ tal que $W_l(R,S)>0$ para toda configuración $R$ y
+  $S$ y todo $t>m_t$. 
+\end{itemize}
+
+El teorema que apoya el método de Monte Carlo dinámico es:
+
+Para un operador que satisfaga la ecuación de balance TAL, tenemos que
+\begin{equation}
+\lim_{t\rightarrow \infty}W_t(R,S)=\frac{e^{-\mathcal{H}(R,\kappa)}}{\mathcal{Z}}
+\end{equation}
+Este teorema significa que no importa donde comience nuestro camino aleatorio,
+siempre se alcanzará la región donde las configuraciones siguen una
+distribución  de acuerdo al factor de Boltzamann. 
+
+\subsubsection{construcción del camino}
+\subsection{Método de Jacknife}
 
 \section{Observables}
+
+\subsection{Densidad esectral}
 \subsection{Calor Específico}
 \subsection{Radio de giro}
 \subsection{Módulo de Poisson}
+
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "TFM"

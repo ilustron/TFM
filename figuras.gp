@@ -220,20 +220,31 @@ h(x,y)=-0.5*x**2+0.5*y**2+3
 dhx(x)=-x
 dhy(y)=y
 
-set style arrow 1 head size 0.02,30,90 filled
+set style arrow 1 head filled
 
-set arrow arrowstyle 1 from 0,0,0 to 0.2,0,0
-set arrow arrowstyle 1 from 0,0,0 to 0,0.2,0
-set arrow arrowstyle 1 from 0,0,0 to 0,0,1
+set arrow 1 arrowstyle 1 from 0,0,0 to 0.2,0,0
+set arrow 2 arrowstyle 1 from 0,0,0 to 0,0.2,0
+set arrow 3 arrowstyle 1 from 0,0,0 to 0,0,1
 
-set arrow arrowstyle 1 from 0,0,0 to 0.5,0.5,h(0.5,0.5)
-set arrow arrowstyle 1 from 0,0,0 to 0.4,0.4,0
-set arrow arrowstyle 1 from 0.4,0.4,0 to 0.5,0.5,h(0.5,0.5)
+set arrow 4 arrowstyle 1 from 0,0,0 to 0.5,0.5,h(0.5,0.5)
+set arrow 5 arrowstyle 1 from 0,0,0 to 0.4,0.4,0
+set arrow 6 arrowstyle 1 from 0.4,0.4,0 to 0.5,0.5,h(0.5,0.5)
 
-set arrow arrowstyle 1 from 0.5,0.5,h(0.5,0.5) to 0.65,0.5,h(0.65,0.5)
-set arrow arrowstyle 1 from 0.4,0.4,0 to 0.55,0.4,0
+set arrow 7 arrowstyle 1 from 0.5,0.5,h(0.5,0.5) to 0.65,0.5,h(0.65,0.5)
+set arrow 8 arrowstyle 1 from 0.4,0.4,0 to 0.55,0.4,0
 
-splot [0:1][0:1] h(x,y) with l lc rgb 'gray50',0 with l lc rgb 'gray10'
+set label 1 '$x$' at 0.05,0,-0.2
+set label 2 '$y$' at 0,0.2,0.15
+set label 3 '$z$' at 0,0.01,0.5
+
+set label 4 '$\vec{r}(\mathbf{x})$' at 0.2,0.2,h(0.25,0.25)/2+0.25
+set label 5 '$\vec{r}_0(\mathbf{x})$' at 0.2,0.2,0.25
+set label 6 '$\vec{u}$' at 0.375,0.45,h(0.45,0.45)/2-0.2
+
+set label 7 '$d\vec{r}$' at 0.57,0.5,h(0.5,0.5)+0.1
+set label 8 '$d\vec{r}_0$' at 0.45,0.4,0.1
+
+splot [0:1][0:1] h(x,y) with l lc rgb 'gray',0 with l lt 2 lc rgb 'gray'
 
 set output
 reset
@@ -351,7 +362,66 @@ unset multiplot
 set output
 reset
 
+#MODELO DISCRETO
 
+set terminal epslatex mono 
+set output "red_triangular-fig.tex"
+
+set view equal xyz
+set view 0,0,2.5,1
+
+unset key
+unset border
+unset tics
+
+set style arrow 1 head filled
+set arrow 1 arrowstyle 1 from 0,0,0 to 0.5,0.866025,0.0 front
+set arrow 2 arrowstyle 1 from 0,0,0 to 1,0,0 front
+set arrow 3 heads from 0,-0.3,0 to 7,-0.3,0 front
+
+set label 1 '$j$' at 0,0.4,0.0 front
+set label 2 '$i$' at 0.5,0.15,0 front
+set label '$L$' at 3.5,-1,0
+splot [-1.5:][:][-1:1] "./source_plots/flat_L8_triangular.dat" w lp lc rgb 'gray' pt 7 ps 3
+set output
+reset
+
+#BASE HEXAGONAL
+
+set terminal epslatex mono 
+set output "base-hexagonal-fig.tex"
+
+
+unset key
+unset border
+unset tics
+
+set view equal xyz
+set view 0,0,2.3,1
+
+set style arrow 1 head filled
+set style arrow 2 nohead filled lt 2
+set arrow 1 arrowstyle 1 from 0,0,0 to 1,0,0 front
+set arrow 2 arrowstyle 1  from 0,0,0 to 0,1,0 front
+
+set arrow 3  arrowstyle 2  from 0,0.6*0.866,0 to 0.6*0.5,0.6*0.866,0 front
+set arrow 4  arrowstyle 2  from 0.6*0.5,0,0 to 0.6*0.5,0.6*0.866,0 front
+set arrow 5 heads from 0,0,0 to 0.6*0.5,-0.6*0.866,0 front
+
+set label 1 '$a$' at 0.15,-0.21
+set label 2 '$\vec{e}_1$' at 0.5,-0.1,0
+
+set label 3 '$x{\scriptstyle [q]}^2$' at 0.6*0.5+0.02,(0.6*0.866)/2,0
+set label 4 '$x{\scriptstyle [q]}^1$' at (0.6*0.5)/2-0.08,0.6*0.866+0.05,0
+
+set label 6 '$\vec{e}_2$' at -0.1,0.5,0
+set label 7 '$P$' at -0.09,-0.09,0 front
+set label 8 '$Q$' at 0.6*0.5+0.06,0.6*0.866+0.06,0 front
+
+splot  [-1:1.1][-0.9:1.1][-1:1]"./source_plots/hexagono.dat" u (0.6*($1)):(0.6*($2)):3 w lp lc rgb 'gray' pt 7 ps 3
+
+set output
+reset
 #RESULTADOS:
 
 #ENERGÍA DE CURVATURA
@@ -397,8 +467,8 @@ plot [0.77:0.89][1:3.7] "./source_plots/Medidas_Cv_L64_zoom.dat" u 1:2:3 title '
      	       		"./source_plots/extrapolacion_Cv_L46_K0.8.dat" title '' w l lt 0,\
 	       		"./source_plots/maximo_Cv_L46_K0.8.dat" u 2:4:3:5 title '$46^2$' w xyerrorlines pt 7 lt 1,\
 	       		"./source_plots/Medidas_Cv_L32_zoom.dat" u 1:2:3 title '' w yerrorbars pt 12 lt 2,\
-     	       		"./source_plots/extrapolacion_Cv_L32_K0.78.dat" title '' w l lt 0,\
-	       		"./source_plots/maximo_Cv_L32_K0.78.dat" u 2:4:3:5 title '$32^2$' w xyerrorlines pt 13 lt 1,\
+     	       		"./source_plots/extrapolacion_Cv_L32_K0.81.dat" title '' w l lt 0,\
+	       		"./source_plots/maximo_Cv_L32_K0.81.dat" u 2:4:3:5 title '$32^2$' w xyerrorlines pt 13 lt 1,\
 			"./source_plots/Medidas_Cv_L16.dat" u 1:2:3 title '' w yerrorbars pt 4 lt 2,\
      	       		"./source_plots/extrapolacion_Cv_L16_K0.82.dat" title '' w l lt 0,\
 	       		"./source_plots/maximo_Cv_L16_K0.82.dat" u 2:4:3:5 title '$16^2$' w xyerrorlines pt 5 lt 1,\
@@ -416,12 +486,12 @@ set output "Cv_L_plot.tex"
 set xlabel '$L$'
 set ylabel '$C_V$'
 set key left top
-a= 0.102904
-b= 0.773719
-c= 0.79573 
-f(x)=a*x**b+c
+c0=0.767979 
+c1=0.110299 
+nu=0.759527
+g(x)=c0+c1*(x**nu)
 
-plot "./source_plots/maximos_Cv.dat" u 1:4:5 title '$C_V(\kappa_c)$' w yerrorbars pt 7,f(x) title '$c_0+c_1\,L^{\omega}$'
+plot "./source_plots/maximos_Cv.dat" u 1:4:5 title '$\kappa_c(L)$' w yerrorbars pt 7,g(x) title '$c_0+c_1\,L^{\omega}$'
 
 reset   
   	       
@@ -430,11 +500,11 @@ reset
 set terminal epslatex mono 
 set output "Cv_T_L_plot.tex"
 set xlabel '$L$'
-set ylabel '$\kappa_c$'
-g(x)=kc+x**(-1/nu)
-kc=0.772556 
-nu=1.03685
-plot "./source_plots/maximos_Cv.dat" u 1:2:3 title '$\kappa_c(L)$' w yerrorbars pt 7,g(x) title '$c_0+L^{-1/\nu}$'
+c0=0.739157
+c1=0.647822
+nu=1.62845
+g(x)=c0+c1*(x**(-1/nu))
+plot "./source_plots/maximos_Cv.dat" u 1:2:3 title '$C_v \rightarrow \kappa_c(L)$' w yerrorbars pt 7,g(x) title '$c_0+c_1\,L^{-1/\nu}$'
 reset
   
 #resultados radio de giro
@@ -460,13 +530,31 @@ set output "rg2_plano_plot.tex"
 
 set xlabel '$L$'
 set ylabel '$R_g^2$'
-set logscale x
-set logscale y
+#set logscale x
+#set logscale y
 set key left top
-a=0.0177104 
-b=1.96973
-f(x)=a*x**b
-plot "./source_plots/rg2_escala.dat" u 1:6:7  title '$\kappa=2.0$' w yerrorbars pt 5 lt 1,f(x) title '$a\;L^b$'
+
+c0=0.134326
+c1=0.0160099
+nu=1.9955
+f(x)=c0+c1*(x**nu)
+plot "./source_plots/rg2_escala.dat" u 1:6:7  title '$\kappa=2.0$' w yerrorbars pt 5 lt 1,f(x) title '$c_0+c_1\;L^{2\nu}$'
+reset
+
+#escala radio de giro transicion
+set terminal epslatex mono 
+set output "rg2_transicion_plot.tex"
+
+set xlabel '$L$'
+set ylabel '$R_g^2$'
+
+set key left top
+
+c0=-0.535325  
+c1=0.0471556  
+nu=1.38315    
+f(x)=c0+c1*(x**nu)
+plot "./source_plots/Rg2_critico.dat" u 1:4:5  title '$\kappa_c(L)$' w yerrorbars pt 5 lt 1,f(x) title '$c_0+c_1\;L^{2\nu}$'
 reset
 
 #escala radio de giro rugosa
@@ -474,12 +562,12 @@ set terminal epslatex mono
 set output "rg2_rugosa_plot.tex"
 
 set xlabel '$L$'
-set ylabel '$R_g^2$'
+set ylabel '$R_g$'
 set key left top
-a=-0.175
-b=0.247
-f(x)=a+b*log(x)
-plot "./source_plots/rg2_escala.dat" u 1:3:4  title '$\kappa=0.5$' w yerrorbars pt 5 lt 1,f(x) title '$a+b\; \log L$'
+c0=0.292904
+c1=0.152853
+f(x)=c0+c1*log(x)
+plot "./source_plots/rg2_escala.dat" u 1:(sqrt($3)):((sqrt(0.5)*($3)**(3/4))*($4))  title '$\kappa=0.5$' w yerrorbars pt 5 lt 1,f(x) title '$c_0+c_1\; \log L$'
 reset
 #resultados radio de giro conexo
 
@@ -494,7 +582,7 @@ plot [0.5:1.2] "./source_plots/Medidas_Drg2_L64.dat" u 1:2:3 title '$64^2$' w ye
      	       "./source_plots/Medidas_Drg2_L24.dat" u 1:2:3 title '$24^2$' w yerrorlines pt 5 lt 5,\
      	       "./source_plots/Medidas_Drg2_L16.dat" u 1:2:3 title '$16^2$'  w yerrorlines pt 8 lt 14
 reset
-#resultados maximo calor específico
+#resultados maximo radio de giro conexo
 
 set terminal epslatex mono 
 set output "max_Drg2_plot.tex"
@@ -508,8 +596,8 @@ plot [0.75:0.9] "./source_plots/Medidas_Drg2_L16.dat" u 1:2:3 title '' w yerrorb
      	       "./source_plots/extrapolacion_Drg2_L24_K0.84.dat" title '' w l lt 0,\
      	       "./source_plots/maximo_Drg2_L24_K0.84.dat" u 2:4:3:5 title '$24^2$' w xyerrorlines pt 9 lt 1,\
      	       "./source_plots/Medidas_Drg2_L32_zoom.dat" u 1:2:3 title '' w yerrorbars pt 12 lt 2,\
-     	       "./source_plots/extrapolacion_Drg2_L32_K0.82.dat" title '' w l lt 0,\
-     	       "./source_plots/maximo_Drg2_L32_K0.82.dat" u 2:4:3:5 title '$32^2$' w xyerrorlines pt 13 lt 1,\
+     	       "./source_plots/extrapolacion_Drg2_L32_K0.83.dat" title '' w l lt 0,\
+     	       "./source_plots/maximo_Drg2_L32_K0.83.dat" u 2:4:3:5 title '$32^2$' w xyerrorlines pt 13 lt 1,\
      	       "./source_plots/Medidas_Drg2_L46_zoom.dat" u 1:2:3 title '' w yerrorbars pt 6 lt 2,\
      	       "./source_plots/extrapolacion_Drg2_L46_K0.82.dat" title '' w l lt 0,\
      	       "./source_plots/maximo_Drg2_L46_K0.82.dat" u 2:4:3:5 title '$46^2$' w xyerrorlines pt 7 lt 1,\
@@ -526,12 +614,13 @@ set output "Drg2_L_plot.tex"
 
 set xlabel '$L$'
 set ylabel '$\langle R_g^2 E_c\rangle_{max}$'
+set key left
+c0=0.000996481
+c1=0.00200217
+omega= 0.906011
+g(x)=c0+c1*(x**omega)
 
-a= 0.00221621
-b= 0.883242     
-f(x)=a*x**b
-
-plot "./source_plots/maximos_Drg2.dat" u 1:4:5 title '$(T_c)$' w yerrorbars pt 5 lt 1,f(x) title '$f(L)=a\,L^b$'
+plot "./source_plots/maximos_Drg2.dat" u 1:4:5 title '$\langle R_g^2 E_c\rangle_{max}(\kappa_c(L))$' w yerrorbars pt 5 lt 1,g(x) title '$c_0+c_1\,L^{\omega}$'
 
 reset   
 
@@ -542,9 +631,11 @@ set output "kappac_plot.tex"
 
 set xlabel '$L$'
 set ylabel '$\kappa$'
-a= 0.778
-b=1.1255     
-f(x)=a+x**(-1/b)
-plot "./source_plots/maximos_Drg2.dat" u 1:2:3 title '$\kappa_c$' w yerrorbars pt 5 lt 1,f(x) title '$c_0+L^{-1/\nu}$'
+
+c0= 0.779059
+c1= 0.441665
+nu= 1.60002
+g(x)=c0+c1/(x**(1/nu))
+plot "./source_plots/maximos_Drg2.dat" u 1:2:3 title '$\langle R_g^2 E_c\rangle_{max}\rightarrow\kappa_c(L)$' w yerrorbars pt 5 lt 1,g(x) title '$c_0+c1\ L^{-1/\nu}$'
 
 reset   

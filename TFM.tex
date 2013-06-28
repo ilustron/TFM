@@ -1,4 +1,4 @@
-\documentclass[a4paper]{report}
+\documentclass[a4paper,twoside,titlepage,openright]{report}
 \usepackage[utf8x]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{amsmath}
@@ -7,17 +7,18 @@
 \usepackage{subfigure}
 \usepackage{color}
 
-\author{Pedro Monroy Pérez}
-\title{Transición de fase en membrana cristalina}
+% \author{Pedro Monroy Pérez \\ Director: Juan Jesús Ruiz Lorenzo}
+% \title{Transición de fase en membranas cristalinas}
 
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \DeclareGraphicsExtensions{.pdf}
 
 \begin{document}
+\decimalpoint
+%\maketitle
 
-\maketitle
-
+\include{portada}
 \tableofcontents
-
 \include{introduccion}
 \include{teoria}
 \include{metodo}

@@ -171,7 +171,7 @@ y
 g_{11}g_{22}-(\vec{t}_1\cdot\vec{t}_2)^2=g_{11}g_{22}-g_{12}g_{21}=g
 \end{multline*}
 
-\subsection{Curvatura extrínseca}
+\subsection{Curvatura}
 
 Para medir la curvatura de la membrana, se generaliza la noción de curvatura
 de una curva (unidimensional), definiendo el tensor de curvatura extrínseca:
@@ -1009,7 +1009,7 @@ Con lo que el módulo de Poisson resulta
 \clearpage
 %RElacion con la estadística -> correlaciones conexas MODULO DE POISSON
 
-\subsection{Curvatura}
+\subsection{Curvatura extrínseca}
 
 El término de curvatura TAL, podemos escribirlo en el sistema de coordenadas
 elegido para fase plana como
@@ -1088,7 +1088,33 @@ donde, esta aproximación
 H&=\frac{1}{2}\frac{\partial h}{\partial y^{\alpha} \partial y_{\alpha}}+O\left[\left(\nabla_{\|} h\right)^2\right]\\
 K&=\det \left(\frac{\partial h}{\partial y^{\alpha} \partial y_{\beta}}\right)+O\left[\left(\nabla_{\|} h\right)^2\right]
 \end{align}
-La integral de la curvatura gaussiana es constante, no tenemos en cuenta
+
+La curvatura Gaussiana es una ...
+
+\begin{equation}
+2\det(\partial_{\alpha}\partial^{\beta}h)=
+-\epsilon^{\alpha\mu}\epsilon_{\beta\nu}\partial_{\mu}\partial^{\nu}[(\partial_{\alpha}h)(\partial^{\beta}h)]
+\end{equation}
+donde hemos usado la notación $\partial_{\alpha}\equiv\frac{\partial}{\partial
+  y^{\alpha}}$ y $\epsilon_{\alpha\beta}$ son el símbolo de Levi-Civita
+\begin{equation}
+\epsilon_{\alpha\beta}=\left(\begin{array}{cc}
+0 & -1\\
+1 & 0
+\end{array}\right)
+\end{equation}
+De hecho, el teorema de Gauss-Bonet demuestra que la integral de la curvatura
+Gaussiana sobre la superficie es constante bajo cualquier deformación, si la
+topología de la superficie es constante. Por tanto, podemos despreciar este
+término de superficie, con lo que obtenemos finalmente 
+
+\begin{equation}
+F_C[\mathbf{y},T]\simeq\frac{1}{2}\hat{\kappa}\int d^2\mathbf{y}\, H^2
+\end{equation} 
+Siendo $\hat{\kappa}=4\kappa$. 
+
+%Explicación superficies de curvatura constante
+
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "TFM"
