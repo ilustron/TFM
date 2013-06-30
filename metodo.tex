@@ -36,7 +36,7 @@ Cada nodo es etiquetado mediante dos índices discretos $P=(i,j)\ i,j=1,L$
 como se indica en la figura~\ref{red_rombo}. La posición en el espacio
 tridimensional vendrá dada por el vector $\vec{r}_P$. Como energía libre discreta del sistema usamos
 \begin{equation}
-\mathcal{F}=\sum_{\langle PQ \rangle}
+\mathcal{H}=\sum_{\langle PQ \rangle}
 |\vec{r}_P-\vec{r}_Q|^2+\kappa\sum_{\langle ab \rangle}
 |\vec{n}_a-\vec{n}_b|^2 
 \end{equation}
@@ -74,7 +74,7 @@ Podemos aproximar
 
 Sustituyendo en la parte elástica de la energía libre
 \begin{equation}
-\mathcal{F}_E\simeq \frac{1}{2}\sum_{P} \sum^6_{j=1} \left(\frac{u_{\alpha\beta}}{a}e^{\alpha}e^{\beta}\right)^2=\frac{1}{2a^2}\sum_{P} \sum^6_{j=1} u_{\alpha\beta}u^{\mu\nu}e^{\alpha}e^{\beta}e_{\mu}e_{\nu}
+\mathcal{H}_E\simeq \frac{1}{2}\sum_{P} \sum^6_{j=1} \left(\frac{u_{\alpha\beta}}{a}e^{\alpha}e^{\beta}\right)^2=\frac{1}{2a^2}\sum_{P} \sum^6_{j=1} u_{\alpha\beta}u^{\mu\nu}e^{\alpha}e^{\beta}e_{\mu}e_{\nu}
 \end{equation}
 Siendo el primer sumatorio sobre todos los nodos y el segundo sobre los
 primeros vecinos. Teniendo en cuenta las relaciones
@@ -100,7 +100,7 @@ e^{\alpha}e^{\beta}e_{\mu}e_{\nu}=\frac{a^4}{12}(\delta^{\alpha\beta}\delta_{\mu
 \end{equation}
 Sustituyendo en TAL
 \begin{equation}
-\mathcal{F}_E\simeq\frac{a^2}{24}\sum_{P} \sum^6_{j=1}(\delta^{\alpha\beta}\delta_{\mu\nu}+\delta^{\alpha}_{\ \mu}\delta_{\beta}^{\ \nu}+
+\mathcal{H}_E\simeq\frac{a^2}{24}\sum_{P} \sum^6_{j=1}(\delta^{\alpha\beta}\delta_{\mu\nu}+\delta^{\alpha}_{\ \mu}\delta_{\beta}^{\ \nu}+
 \delta^{\alpha}_{\ \nu}\delta_{\beta}^{\ \mu})
 u_{\alpha\beta}u^{\mu\nu}=\frac{a^2}{4}\sum_{P}u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}+2u_{\alpha\beta}u^{\alpha\beta}
 \end{equation}
@@ -112,7 +112,7 @@ Pasamos al límite continuo:
 Tomando el límite $N\rightarrow \infty$
 elástica 
 \begin{equation}
-\mathcal{F}\simeq\int d^2\mathbf{x}\, \frac{\sqrt{3}}{4}\frac{a^2}{\xi^2}\left(\frac{1}{2}u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}+u_{\alpha\beta}u^{\alpha\beta}\right)
+\mathcal{H}\simeq\int d^2\mathbf{x}\, \frac{\sqrt{3}}{4}\frac{a^2}{\xi^2}\left(\frac{1}{2}u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}+u_{\alpha\beta}u^{\alpha\beta}\right)
 \end{equation}
 recuperamos la energía libre elástica con 
 \begin{equation}
@@ -126,7 +126,7 @@ Respecto al término de curvatura, podemos desarrollar $\vec{n}_{b}$ desde $a$
 \end{equation}
 Sustituyendo en la energía libre
 \begin{equation}
-\mathcal{F}_C=\frac{1}{2}\kappa\sum_{\langle ab\rangle}\frac{\partial
+\mathcal{H}_C=\frac{1}{2}\kappa\sum_{\langle ab\rangle}\frac{\partial
   \vec{n_b}}{\partial x^{\alpha}}\cdot\frac{\partial \vec{n_b}}{\partial x^{\beta}} (x_b^{\alpha}-x_a^{\alpha})(x_b^{\beta}-x_a^{\beta})
 \end{equation}
 Podemos considerar que son triángulos equiláteros
@@ -136,12 +136,12 @@ g^{\alpha\beta}=(x_b^{\alpha}-x_a^{\alpha})(x_b^{\beta}-x_a^{\beta})\simeq
 \end{equation}
 Entonces
 \begin{equation}
-\mathcal{F}_C=\frac{\sqrt{3}}{2}\kappa\sum_{\langle ab\rangle}\frac{\partial
+\mathcal{H}_C=\frac{\sqrt{3}}{2}\kappa\sum_{\langle ab\rangle}\frac{\partial
   \vec{n_b}}{\partial x_{\alpha}}\cdot\frac{\partial \vec{n_b}}{\partial x^{\alpha}}
 \end{equation}
 En el límite continuo, para $N\rightarrow \infty$
 \begin{equation}
-\mathcal{F}_C=\frac{1}{2}\hat{\kappa}\int d^2\mathbf{x}\ \frac{\partial
+\mathcal{H}_C=\frac{1}{2}\hat{\kappa}\int d^2\mathbf{x}\ \frac{\partial
   \vec{n_b}}{\partial x_{\alpha}}\cdot\frac{\partial \vec{n_b}}{\partial x^{\alpha}}
 \end{equation}
 A partir de la expresión TAL
@@ -152,19 +152,18 @@ A partir de la expresión TAL
 \end{equation}
 Entonces 
 \begin{equation}
-\mathcal{F}_C\simeq\frac{1}{2}\hat{\kappa}\int d^2\mathbf{x}\ K_{\alpha\beta}K^{\alpha\beta}
+\mathcal{H}_C\simeq\frac{1}{2}\hat{\kappa}\int d^2\mathbf{x}\ K_{\alpha\beta}K^{\alpha\beta}
 \end{equation}
 Y recuperamos la ecuación TAL de la energía libre de Landua.
 
 \section{Algoritmo de Metropolis}
-Para especificar una determinada configuración $\mathcal{R}$ de la membrana
-cristalina discreta corresponde a una lista de $N$ posiciones
-tridimensionales:
+Una determinada configuración $R$ de la membrana cristalina discreta 
+corresponde a una lista de $N$ posiciones tridimensionales:
 \begin{equation}
-\mathcal{R}=\{ \vec{r}_1,\vec{r}_2,\dots \vec{r}_N\}\,.
+R=\{ \vec{r}_1,\vec{r}_2,\dots \vec{r}_N\}\,.
 \end{equation}
 Si tenemos $M$ configuraciones independientes que siguen una distribución
-proporcional al factor $e^{-\mathcal{F}(\kappa)}$, A partir de las medidas
+proporcional al factor $e^{-\mathcal{H}(\kappa)}$, A partir de las medidas
 $A_1,A_2,\dots A_N$ en cada configuración de un observable $A$, podemos
 estimar su valor medio para ese $\kappa$
 \begin{equation}
@@ -172,88 +171,176 @@ estimar su valor medio para ese $\kappa$
 \end{equation}
 Para encontrar estas configuraciones empleamos un método de Monte Carlo, que
 consiste en un camino aleatorio en el espacio de configuraciones, en donde, en
-cada uno de los pasos al menos se modifica la posición de un nodo. Este camino
+cada uno de los pasos al menos se modifica en la posición de un nodo. Este camino
 aleatorio no necesita estar relacionado con ningún proceso físico, la eficacia
 en la estimación de $\langle A \rangle_{\kappa}$ es la única premisa. Este
 camino aleatorio debe, a partir de una configuración inicial y tras un número
-de pasos (termzalización), alcanzar la región de interés donde
-$P(\mathcal{R})\propto e^{-\mathcal{F}(\kappa)}$. En esta región, se debe
-recoger una muestra representativa de $M$ configuraciones, el problema es que
-las configuraciones sucesivas no son independientes, pues no se
-diferencian lo suficiente entre sí, esto implica que el error de $\langle A
-\rangle_{\kappa}$ no será del orden de $O(\sqrt{M})$ sino de $O(\sqrt{M_I})$,
-donde $M_I$ es el número de configuraciones independientes. 
+de pasos (termalización), alcanzar la región de interés donde
+las configuraciones son proporcionales a el factor $
+e^{-\mathcal{H}(\kappa)}$. El inconveniente de este método es que $M$
+configuraciones sucesivas en esta región de interés no son independientes, pues no se
+diferencian lo suficiente entre sí, están correlacionadas, lo que implica que el
+error de la estimación de $\langle A \rangle_{\kappa}$ con estas $M$
+configuraciones no será del orden de $O(\sqrt{M})$ sino de $O(\sqrt{M_I})$,
+donde $M_I$ es el número de configuraciones independientes.  
 
-% El cociente
-% $\tau=M/M_I$ corresponderá entonces, al número pasos necesarios para obtener una
-% configuración independiente a una de partida, se denomina tiempo de
-% decorrelación. 
-
-El camino aleatorio será una cadena de Markov, esto es, la configuración futura
+El camino aleatorio será una cadena de Markov: La configuración futura
 depende solamente de la configuración actual, o dicho de otro modo, nuestro
 \textit{caminante} decide a donde ir en base a su posición actual. Entonces,
 el proceso está completamente descrito mediante un operador 
-de transición $W(\mathcal{R},\mathcal{S})$, que determina la probabilidad
-alcanzar una configuración $\mathcal{S}$ en el tiempo $t_0+1$ desde una
-configuración $\mathcal{R}$ en el tiempo $t_0$. Algunas propiedades de este
+de transición $W(R,S)$, que determina la probabilidad
+alcanzar una configuración $S$ en el tiempo $t_0+1$ desde una
+configuración $R$ en el tiempo $t_0$. Algunas propiedades de este
 operador son 
 \begin{itemize}
-\item $W(\mathcal{R},\mathcal{S})\geq 0$ para todas las configuraciones
-  $\mathcal{R}$ y $\mathcal{S}$. Además $1=\int
-  d\mathcal{S}\,W(\mathcal{R},\mathcal{S}) $, ya que es una probabilidad.
-\item La probabilidad de alcanzar la configuración $\mathcal{U}$ desde
-  $\mathcal{R}$ en $l$ pasos es:
+\item $W(R,S)\geq 0$ para todas las configuraciones
+  $R$ y $S$. Además $1=\int
+  dS\,W(R,S) $, ya que es una probabilidad.
+\item La probabilidad de alcanzar la configuración $U$ desde
+  $R$ en $l$ pasos es el producto de los operadores intermedios para cada paso 
   \begin{multline}
-    P(\mathcal{U}_{l+s}|\mathcal{R}_s)=\int
-  d\mathcal{R}_{l+s-1}\dots d\mathcal{R}_{s+2}
-  d\mathcal{R}_{s+1}\\W(\mathcal{U},\mathcal{R}_{l+s-1})\dots
-  W(\mathcal{R}_{s+2},\mathcal{R}_{s+1}) W(\mathcal{R}_{s+1},\mathcal{R}_{s})=W_l(\mathcal{U},\mathcal{R})
+    P(U_{l+m}|R_m)=\int
+  dR_{l+m-1}\dots dR_{m+2}
+  dR_{m+1}\\W(U,R_{l+m-1})\dots
+  W(R_{m+2},R_{m+1}) W(R_{m+1},R_{m})=W_l(\mathcal{U},R)
   \end{multline}
-  también $W_l(\mathcal{U},\mathcal{R}) \geq 0$ y $1=\int
-  d\mathcal{S}\, W_l(\mathcal{U},\mathcal{R})$.
-\item Si en el tiempo $s$ la probabilidad de para la posición de nuestros
-  caminantes es $\rho_s(\mathcal{R})$, en el tiempo $t+s$ será
+  también $W_l(\mathcal{U},R) \geq 0$ y $1=\int
+  dS\, W_l(\mathcal{U},R)$.
+\item Si en el tiempo $t_0$ la probabilidad densidad de probabilidad de
+  encontrar a nuestro caminante en una región $dR$ es $\rho_{t_0}(R)dR$, en el tiempo $t_0+t$ será
 \begin{equation}
-\rho_{s+t}(\mathcal{S})=\int
-  d\mathcal{R}\, W_l(\mathcal{R},\mathcal{S})\rho_s(\mathcal{R})
+\rho_{t_0+t}(S)=\int
+  dR\, W_l(R,S)\rho_s(R)
 \end{equation}
 \end{itemize}
-Estas propiedades son generales para cualquier cadena de Markov. Todavía
-tenemos dos propiedades cruciales para construir un método válido de Monte
+Estas propiedades son generales para cualquier cadena de Markov. Las
+siguientes propiedades son necesarias para construir nuestro método de Monte
 Carlo:
 \begin{itemize}
 \item La condición de balance:
-  \begin{equation}
+  \begin{equation}\label{ecuacion_balance}
     \frac{e^{-\mathcal{H}(R,\kappa)}}{\mathcal{Z}}=\int
     dS\, W(R,S)\frac{e^{-\mathcal{H}(S,\kappa)}}{\mathcal{Z}}
   \end{equation}
   Si la posición de un conjunto de caminantes está distribuida, en un tiempo
   $t_0$, de acuerdo a $\frac{e^{-\mathcal{H}(S,\kappa)}}{\mathcal{Z}}$,en el
-  tiempo $t_0+1$, las posiciones cambiarán pero seguirán distribuyéndose de
-  acuerdo al factor de Boltzmann.
-\item Existe un entero $m_t$ tal que $W_l(R,S)>0$ para toda configuración $R$ y
-  $S$ y todo $t>m_t$. 
+  tiempo $t_0+1$, las posiciones cambiarán, resultando una nueva configuración
+  $S$, pero seguirán distribuyéndose de acuerdo al factor de Boltzmann $e^{-\mathcal{H}(R,\kappa)}$.
+\item Todas las configuraciones son accesibles: Existe un entero $m_t$ tal que
+  $W_{m_t}(R,S)>0$ para toda configuración $R$ y $S$ y todo $t>m_t$. 
 \end{itemize}
 
-El teorema que apoya el método de Monte Carlo dinámico es:
-
-Para un operador que satisfaga la ecuación de balance TAL, tenemos que
+Es posible demostrar que un operador de transición que satisfaga las dos
+últimas propiedades cumplirá que
 \begin{equation}
 \lim_{t\rightarrow \infty}W_t(R,S)=\frac{e^{-\mathcal{H}(R,\kappa)}}{\mathcal{Z}}
 \end{equation}
-Este teorema significa que no importa donde comience nuestro camino aleatorio,
-siempre se alcanzará la región donde las configuraciones siguen una
-distribución  de acuerdo al factor de Boltzamann. 
+Este teorema nos asegura que nuestro caminante siempre alcanzará la región de
+interés, no importa donde comience siempre se alcanzará la región donde las configuraciones siguen una
+distribución de acuerdo al factor de Boltzamann. 
 
-\subsubsection{construcción del camino}
+Podemos descomponer el operador de transición $W(R,S)$ en operadores
+individuales $w^i(R,S)$, en los que sólo varía la posición $\vec{r}_i$. El
+operador de transición total corresponderá a aplicar sucesivamente los $N$
+operadores individuales. Si el orden de aplicación es siempre el mismo tenemos
+\begin{equation*}
+w(R,S)=\Pi^{N}_{i=1}w^i(R,S)
+\end{equation*}
+Si los operadores de transición cumplen la condición de
+balance \label{ecuacion_balance}, el operador total también la cumplirá, dado
+que es un producto de operadores. Esto lo podemos conseguir exigiendo que los operadores
+$w^i(R,S)$ cumplan
+\begin{equation}\label{balance_detallado}
+w^i(R,S)\frac{e^{-\mathcal{H}(R,\kappa)}}{\mathcal{Z}}=w^i(S,R)\frac{e^{-\mathcal{H}(S,\kappa)}}{\mathcal{Z}}\Rightarrow \frac{w^i(R,S)}{w^i(S,R)}=e^{-[\mathcal{H}(S,\kappa)+\mathcal{H}(R,\kappa)]}
+\end{equation}
+dado que $1=\int dS w^i(R,S)$. Una forma de construir estos operadores de
+transición individuales es el algoritmo de Metropolis, que consiste en
+descomponer el operador de transición individual en 
+ \begin{equation*}
+ w^i(R,S)=A_{RS}\omega^i(R,S)
+\end{equation*}
+donde $A_{RS}$ es un factor simétrico, la probabilidad de alcanzar la
+configuración $S$ desde $R$, es la misma que alcanzar $R$ desde $S$; y
+$\omega^i(R,S)$ es un peso elegido como función del cociente entre los
+facotres de Boltzmann
+\begin{equation*}
+\omega^i(R,S)=g(e^{-[\mathcal{H}(S,\kappa)+\mathcal{H}(R,\kappa)]}).
+\end{equation*}
+La condición \label{balance_detallado} será satisfecha si la función $g$
+cumple
+\begin{equation}
+\frac{g(z)}{g(1/z)}=z.
+\end{equation}
+El algoritmo de Metropolis utiliza $g_M(z)=min\{1,z\}$ y lo hemos implementado de
+ la siguiente forma:
+\begin{itemize}
+\item A partir de la configuración $R$ de la membrana proponemos como
+  siguiente configuración $S_i$, que únicamente se diferencia de $R$ en la
+  posición de un punto que ha sido modificada en un vector $\vec{\epsilon}$,
+  elegido aleatoriamente y uniformemente en un cubo de volumen 
+  $(2\varepsilon)^3$. Estamos proponiendo un cambio de forma simétrica, a
+  partir de $S$ también es posible proponer $S$ como siguiente configuración
+  con la misma probabilidad.
+\item Calculamos la diferencia de energía entre las dos configuraciones
+  $\Delta\mathcal{H}=\mathcal{H}_S-\mathcal{H}_S$:
+  \begin{itemize}
+    \item Si es negativa aceptamos la configuración $S$.
+    \item Si es positiva, aceptamos la configuración con una probabilidad $e^{-\Delta\mathcal{H}}$.
+  \end{itemize}
+\end{itemize}
+
+Un barrido de corresponde a aplicar los pasos anteriores de forma secuencial a
+todos los $N$ puntos de la membrana. El valor de $\varepsilon$ se ajusta de
+modo que en cada barrido el número de cambios aceptados sea la mitad del total
+de puntos que componen la superficie. 
+ 
 \subsection{Método de Jacknife}
+
+Para el cálculo de los errores, en las estimaciones de los observables,
+utilizamos el método del jacknife \cite{Juan:tesis}, que tiene en cuenta la
+falta de independencia de las medidas. Consideremos los valores
+${Q_i;i=1,\dots M}$ que un observable $Q$ toma en una evolución de Monte
+Carlo. La estimación del valor medio será
+\begin{equation}
+\bar{Q}=\frac{1}{M}\sum^M_{i=1}Q_i.
+\end{equation}
+Para estimar el error se divide el conjunto de $M$ valores en $K$ bloques
+iguales, tendrán $m=M/K$ datos cada uno. Definimos $\bar{Q}^m_k \, \{k=1,\dots
+M\}$ como el promedio de los datos después de eliminar el bloque $k$-ésimo
+\begin{equation}
+\bar{Q}_k^m=\frac{1}{M-m}\left(\sum^{m(k-1)}_{i=1}Q_i+\sum^{M}_{i=mk+1}Q_i\right).
+\end{equation}
+La estimación del error para el tamaño de bloque $m$ es
+\begin{equation}
+\delta\bar{Q}_m=\sqrt{\frac{K-1}{K}\sum^K_{k=1}(\bar{Q}^m_k-\bar{Q})}.
+\end{equation}
+Esta última expresión da una estimación no sesgada del error, para comprobarlo
+basta con tomar la esperanza $\langle \rangle$ a ambos lados de la ecuación
+\begin{equation}
+\langle (\delta\bar{Q}_n)^2\rangle=\sigma^2(Q)\frac{1}{N} 
+\end{equation}
+Si el tamaño del bloque, $m$, es muy pequeño comparada con la longitud de
+correlación entre medidas, el estimador $\delta\bar{Q}_m$ aumentará en un
+factor $\sqrt{2}$ cada vez que doblamos el tamaño del bloque. Este crecimiento
+cesará cuando el tamaño del bloque sea mayor que la correlación entre
+medidas. A partir de aquí, el valor del error se mantiene constante hasta que
+el número de bloques es demasiado pequeño (2 o 3), que vuelve a crecer con un
+factor $\sqrt{2}$.
 
 \section{Observables}
 
-\subsection{Densidad esectral}
-\subsection{Calor Específico}
-\subsection{Radio de giro}
-\subsection{Módulo de Poisson}
+\subsection{Valores críticos: Densidad espectral}
+
+\begin{itemize}
+\item El máximo del observable, que ocurre a una temperatura crítica
+  $\kappa_c(T)$, la cual es modificada respecto al tamaño infinito del sistema
+
+$$ T_cL -T_c= L^{-1/\nu}$$
+\item El máximo del observable de estado finito es dado por la relación de
+  escala
+$$ C_v(T_c(L),L^-1)=L^{\alpha/nu}$$
+\end{itemize}
+
 
 %%% Local Variables: 
 %%% mode: latex

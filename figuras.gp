@@ -54,18 +54,18 @@ set view 0,0,2,1
 set isosamples 7
 set hidden3d
 
-set style arrow 1 head size 0.05,30,90 filled
+set style arrow 1 head filled
 
-set arrow arrowstyle 1 from 0,0,0 to 0.16,0,0 front
-set arrow arrowstyle 1 from 0,0,0 to 0,0.16,0 front
-set arrow arrowstyle 1 from 0,0,0 to 0.5,0.5,0 front
+set arrow 1 from -0.08,0,0 to 1,0,0 front
+set arrow 2 from 0,-0.08,0 to 0,1,0 front
+set arrow 3 arrowstyle 1 from 0,0,0 to 0.5,0.5,0 front
 
-set label '{\Large $\mathbf{x}_1$}' at -0.04,0.08,0 center front
-set label '{\Large $\mathbf{x}_2$}' at  0.08,-0.04,0 center front
-set label '{\Large $\mathbf{x}$}' at  0.30,0.25,0 center front
+set label 1 '{\Large $x^2$}' at -0.04,0.5,0 center front
+set label 2 '{\Large $x^1$}' at  0.5,-0.04,0 center front
+set label 3 '{\Large $\mathbf{x}$}' at  0.30,0.25,0 center front
+set label 4 '{\Large $P$}' at  0.55,0.55,0 center front
 
-
-splot [0:1][0:1][-0.1:0.1] 0 w l lc rgb 'gray50'
+splot [0:1][0:1][-0.1:0.1] 0 w l lc rgb 'gray'
 
 reset
 
@@ -84,18 +84,19 @@ set isosamples 7
 set hidden3d
 
 set style arrow 1 head size 0.02,30,90 filled
+set style arrow 2 head filled
 
-set arrow arrowstyle 1 from 0,-0.25,0.25 to 0.2,-0.25,0.25 front
-set arrow arrowstyle 1 from 0,-0.25,0.25 to 0,-0.05,0.25 front
-set arrow arrowstyle 1 from 0,-0.25,0.25 to 0,-0.25,0.35 front
+set arrow arrowstyle 2 from 0,-0.25,0.25 to 0.2,-0.25,0.25 front
+set arrow arrowstyle 2 from 0,-0.25,0.25 to 0,-0.05,0.25 front
+set arrow arrowstyle 2 from 0,-0.25,0.25 to 0,-0.25,0.35 front
 set arrow arrowstyle 1 from 0,-0.25,0.25 to 0.5,0.5,0 front
 
 set label '{\Large $\vec{i}$}' at 0.1,-0.3,0.25 center front
 set label '{\Large $\vec{j}$}' at -0.05,-0.15,0.25 center front
 set label '{\Large $\vec{k}$}' at  0,-0.3,0.32 center front
 set label '{\Large $\vec{r}(\mathbf{x})$}' at  0.25,0.125,0.150 center front
-
-splot [0:1][0:1] (x-0.5)**2-(y-0.5)**2 w l lc rgb 'gray50'
+set label '{\Large $P$}' at  0.55,0.55,0 center front
+splot [0:1][0:1] (x-0.5)**2-(y-0.5)**2 w l lc rgb 'gray'
 
 set output
 reset
