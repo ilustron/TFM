@@ -423,6 +423,42 @@ splot  [-1:1.1][-0.9:1.1][-1:1]"./source_plots/hexagono.dat" u (0.6*($1)):(0.6*(
 
 set output
 reset
+#METODOS
+set terminal epslatex mono 
+set output "ejemplo_error-fig.tex"
+
+set xlabel 'tamaño del bloque'
+set ylabel '$\langle R_G^2\rangle$'
+set nokey
+set title '$L=64$ $\kappa=0.7$'
+set logscale x
+plot "./source_plots/error_Rg2_L64_K0.7.dat" u 1:2 w lp pt 7 lt 1 
+set output
+reset
+
+set terminal epslatex mono 
+set output "ejemplo_termal-fig.tex"
+
+set xlabel 'n\textdegree barridos/$\tau_0$'
+set ylabel '$\langle R_G^2\rangle$'
+set title '$L=64$ $\kappa=0.7$'
+set nokey
+set logscale x
+plot "./source_plots/Rg2_L64_K0.7.dat" u 1 w lp pt 7 lt 1 
+set output
+reset
+
+set terminal epslatex mono 
+set output "ejemplo_logtermal-fig.tex"
+
+set xlabel '$\tau_0$/barridos conservados'
+set ylabel '$\langle R_G^2\rangle$'
+set nokey
+set title '$L=64$ $\kappa=0.7$'
+set logscale x
+plot "./source_plots/logtermal_Rg2_L64_K0.7.dat" u 1:2 w lp pt 7 lt 1 
+set output
+reset
 #RESULTADOS:
 
 #ENERGÍA DE CURVATURA
@@ -568,7 +604,7 @@ set key left top
 c0=0.292904
 c1=0.152853
 f(x)=c0+c1*log(x)
-plot "./source_plots/rg2_escala.dat" u 1:(sqrt($3)):((sqrt(0.5)*($3)**(3/4))*($4))  title '$\kappa=0.5$' w yerrorbars pt 5 lt 1,f(x) title '$c_0+c_1\; \log L$'
+plot "./source_plots/rg2_escala.dat" u 1:(sqrt($3)):((sqrt(0.5)*($3)**(3/4))*($4))  title '$\kappa=0.5$' w yerrorbars pt 5 lt 1,f(x) title '$c_0+c_1\; (\log L)^{1/2}$'
 reset
 #resultados radio de giro conexo
 

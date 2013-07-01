@@ -1,54 +1,87 @@
 \chapter{Introducción}
 
-Las membranas cristalinas son redes regulares bidimensionales cuyos nodos se
-encuentran en un espacio tridimensional, se pueden considerar como la
-generalización a una dimensión más de los polímeros, cadenas unidimensionales
+Una de las más importantes ideas en la física moderna es el concepto de
+universalidad: Ciertas propiedades no dependen de los
+detalles microscópicos, y además son equivalentes para sistemas
+físicos que aparentemente no tienen relación alguna (clase de universalidad). Son un ejemplo de universalidad los sistemas que sufren una transición de fase debido a una ruptura
+espontánea de la simetría. El comportamiento crítico de estos sistemas, cerca
+de la temperatura crítica a la que sucede la transición, está descrito por una
+serie de exponentes que están determinados por la dimensión y simetrías del
+sistema. La universalidad está asegurada dado que los grados de libertad
+microscópicos están promediados y no afectan a las fluctuaciones de larga
+escala \cite{Kay:Polimerized_Membranes}. 
+
+En las membranas flexibles \cite{Bowick_flat_phase}, superficies bidimensionales que fluctúan en un
+espacio de tres dimensiones, se pueden distinguir principalmente dos clases de
+universalidad: Las membranas fluidas y cristalinas. El primer tipo posee, además de poder
+deformarse en el espacio tridimensional, la cualidad de variar su topología o
+su geometría interna. Como ejemplo biológico de este tipo encontramos las
+membranas lipídicas. Por otro lado, las clase cristalina, cuya estructura
+interna es una red regular sin defectos topológicos, dislocaciones ni disclinaciones.  
+. La principal característica de este tipo de membranas es que la conectividad
+de su red interna es fija, de ahí que también reciban el nombre de supeficies
+conectadas o de conectividad fija (\textit{fixed-connectivity/thetered surface}).  
+
+Las membranas cristalinas se pueden considerar como la
+generalización bidimensional de los polímeros, cadenas unidimensionales
 de moléculas (monómeros), de ahí que también reciban el nombre de
-\textit{membranas polimerizadas}. La principal característica que las
-diferencia de otros tipos de membranas, es que los enlaces, o conexiones,
-entre los nodos, permanecen inalterados bajo cualquier deformación. Esta
-cualidad de nuevo es motivo para encontrar otra denominación: superficies
-conectadas o membranas de conectividad fija (\textit{conected,thetered surface}).  
-
-Si la membrana es isótropa, su estructura interna no depende de la dirección,
-y existen dos modos de deformación elástica: Compresión, que preserva
-los ángulos bajo un escalamiento uniforme de su dimensión lineal, y
-cizalladura, que no altera el área total. La resistencia de la membrana a
-estos dos tipos de deformación se especifica por dos parámetros, el módulo
-elástico de compresión y de cizalladura; de manera que, si una membrana
-presenta valores altos de estos módulos elásticos, no sufre grandes
-deformaciones comparada, para una misma tensión o fuerza aplicada, con otra que tenga
-unos valores menores. El efecto de una tensión aplicada en una
-dirección dada, será una deformación paralela y transversal en la dirección de
-la tensión. La razón entre estas deformaciones está caracterizada por el
-módulo de Poisson. Las membranas cristalinas presentan un valor
-negativo para el módulo de Poisson, comportamiento contrario al de la mayoría
-de materiales, pues se expanden transversalmente al ser estiradas. 
-Si la distancia entre nodos es constante durante la deformación, la membrana
-únicamente puede curvarse, este tipo de deformación, al igual que las
-deformaciones elásticas, tiene asociado un parámetro que caracteriza la
-resistencia de la membrana a ser deformada, la resistencia o rigidez de
-curvatura. Para caracterizar la extensión de la membrana, se puede utilizar el
-radio de giro $R^2_g$, la desviación cuadrática media de los puntos de la
-membrana respecto al centro de masas, que representa el tamaño de una membrana cuadrada
-de $L^2$ puntos. Si la membrana está completamente plana, correspondiente a
-$T\rightarrow 0$, el radio de giro sigue la ley de escala $R^2_g\simeq L^2$. En cambio,
-para $T>0$, debido a las fluctuaciones térmicas, tenemos que para una \textit{membrana
+\textit{membranas polimerizadas}. Los polímeros en un solvente forman
+estructuras de dimensión fractal $5/3$. En cambio, las membranas tienen un
+comportamiento más rico, en particular, tienen una fase ordenada a baja
+temperatura. Está fase ordenada, o plana, está caracterizada por interacciones
+de largo alcance en las orientaciones de las normales. A alta temperatura,
+encontramos una fase desordenada o rugosa, con alta simetría. Separando ambas fases debe haber
+una transición de ruptura espontánea de la simetría. Evidencias de esta
+transición de fase, las encontramos en el comportamiento del radio de giro
+$R^2_g$, la desviación cuadrática media de los puntos de la membrana respecto
+al centro de masas, que es una medida del tamaño de la membrana. En la fase
+plana, el radio de giro sigue la ley de escala $R^2_g\simeq L^2$. En cambio,
+en la fase rugosa, debido a las fluctuaciones térmicas, tenemos que para una \textit{membrana
 fantasma} (puede cruzarse a sí misma sin coste energético) el radio de giro
-obedece $R^2_g\simeq \ln L$. Este cambio drástico en la extensión significa
-que entre ambos comportamientos hay una transición de fase, entre la fase
-plana y la rugosa. Simulaciones numéricas muestran que está transición de fase
-es de segundo orden.
+obedece $R^2_g\simeq \ln L$. Simulaciones numéricas \cite{Bowick_flat_phase}\cite{Espriu:MCRG}
+y predicciones teóricas \cite{Doussal:nu} muestran que está transición de fase es de segundo orden.
 
-Como ejemplo de membranas cristalinas encontramos el citoesqueleto de los
-eritrocitos (glóbulos rojos), una red de proteínas que se encuentra entre
-la bicapa lipídica de la membrana celular. Gracias a las propiedades de está
-membrana cristalina los erotrocitos son capaces de recorrer delgados capilares
-y después recuperar su forma original. Como ejemplos inorgánico es el grafeno,
-con prometedoras en el campo de la electrónica, que consiste en una red
-bidimensional hexagonal de átomos de carbono.
+Otra cualidad destacada de las membranas cristalinas es que el valor de su módulo Poisson,
+la razón entre la deformación paralela y transversal a la dirección de 
+la fuerza aplicad, es negativo \cite{Bowick_poisson_ratio}, comportamiento
+contrario al de la mayoría de materiales, pues se expanden transversalmente al
+ser estiradas. La explicación de este comportamiento es que al aplicar la
+tensión se suprimen las fluctuaciones transversales al plano, forzando
+entrópicamente a que se expanda en las direcciones del plano. 
 
-En el presente trabajo ...
+Como ejemplos de experimentos realizados más destacados encontramos:
+\begin{itemize}
+\item El citoesqueleto de los glóbulos rojos forma una membrana cristalina
+  natural \cite{Boal_MCell}, una red de proteínas que se encuentra entre la
+  bicapa  lipídica de la membrana celular. Todavía no se han
+  realizado experimentos que muestren una transición de fase, probablemente
+  debido a que su módulo de curvatura es demasiado alto. La mejor estimación experimental de su
+  módulo de Poisson encuentra un valor de $\simeq 1/3$ \cite{Discher:Molecular}, a partir de las
+  medidas del módulo de cizalladura y de compresión.
+\item Óxido de grafito, es un material formado por capas, y solamente existen
+  fuerzas débiles (Van der Waals) entre las diferentes capas. Es posible
+  obtener capas individuales de grafito con átomos de oxígeno en sus
+  contornos. El módulo de curvatura de esta capa será pequeño. Experimentos
+  realizados \cite{Hwa:Conformation} muestran una transición de fase con una dimensión fractal de
+  $2.5$, que separa la fase plana y la rugosa.
+\end{itemize}
+
+El presente trabajo tiene como objetivo estudio del comportamiento crítico de
+las membranas cristalinas mediante simulaciones numéricas utilizando el
+algoritmo de Metropolis. Las únicas simulaciones numéricas datan de 1996 (casi
+dos décadas) \cite{Bowick_flat_phase} y la red más grande que se simuló fue
+128x128. Nuestra meta es mejorar sustancialmente estas simulaciones usando
+ordenadores muchísimo más potentes, así como el uso de técnicas 
+numéricas más avanzadas. Pretendemos caracterizar con mucha más precisión la
+transición de fase plana-rugosa y caracterizar de una manera más precisa la
+fase plana. 
+
+El segundo capítulo está dedicado a un estudio analítico general, basado en
+aproximaciones de campo medio, de las membranas
+cristalinas. En el tercero se describen las técnicas de simulación
+empleadas. Los capítulos cuarto y quinto se muestran los resultados obtenidos
+y las conclusiones respectivamente.
+
 
 
 

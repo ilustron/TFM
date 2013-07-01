@@ -5,19 +5,15 @@
 Consideraremos una membrana como una superficie elástica y flexible 
 bidimensional alojada en un espacio tridimensional euclídeo. 
 Se pueden interpretar las interacciones de los puntos de la superficie como
-conexiones, es decir, dos puntos que están interaccionando entre sí han
+conexiones, es decir, dos puntos que están interaccionando entre sí, han
 establecido una conexión entre ambos. Una membrana cristalina corresponde al
 tipo de superficie en la que las conexiones entre sus puntos forman una red
 regular de conectividad fija, lo que significa que si existe
  una conexión entre dos puntos, está persistirá sea
 cual sea el estado tridimensional de la superficie.
 
-% Podremos entonces,encontrar estados de la membrana en los que puntos que no
-% interaccionan entre sí estén mucho menos distanciados que los puntos que sí
-% están interaccionando. 
-
 Usaremos una descripción continua de la membrana cristalina \cite{David:geometria} en donde la
-posición en el espacio tridimensional de sus puntos estará descrita por sus
+posición, en el espacio tridimensional, de los nodos de la red vendrá dada por los
 radio vectores $\vec{r}(\mathbf{x})$, siendo $\mathbf{x}$ la parametrización
 continua de la superficie. Debido al carácter de conectividad fija, podemos
 elegir la parametrización de forma que $\mathbf{x}$ sea un índice continuo
@@ -35,12 +31,11 @@ membrana cristalina necesitamos especificar dos sistemas de coordenadas:
 \end{figure}
 
 \begin{description}
-\item[Coordenadas internas:] Dos índices continuos que especifican cada punto
-  de la superficie formada por la membrana, esto es, la parametrización.  En
-  principio, nos limitaremos a usar como parametrizaciones, aquellas 
-  que además etiquetan cada partícula, lo que quiere decir que las coordenadas internas
-  de un nodo de la red interna de la membrana serán
-  las mismas antes y después de una deformación tridimensional (externa) de la membrana.
+\item[Coordenadas internas:] Es la parametrización, dos índices continuos que
+  especifican cada punto de la superficie formada por la membrana. Estos
+  índices además etiquetarán los nodos de la red interna, lo que significa que las
+  coordenadas internas de un punto, serán los mismos antes y después de una
+  deformación tridimensional (externa) de la membrana. 
   \begin{equation*}
   \mathbf{x}\equiv (x^1,x^2)\in \mathbb{R}^2
   \end{equation*}
@@ -302,8 +297,8 @@ decir, no depende de como este sumergida la superficie en el espacio euclídeo,
 sino que únicamente depende de la geometría propia de la superficie. La
 expresión de ambas magnitudes en un sistema de coordenadas cualquiera es
 \begin{align}
-H&= \frac{1}{2}K_{\alpha}^{\ \alpha}\\
-K&= \det(K_{\alpha\beta})=\frac{1}{2}(K_{\alpha}^{\ \alpha}K_{\beta}^{\ \beta}-K_{\alpha}^{\ \beta}K_{\alpha}^{\ \beta})
+H&= \frac{1}{2}K_{\alpha}^{\ \alpha}\label{curvatura_media}\\
+K&= \det(K_{\alpha\beta})=\frac{1}{2}(K_{\alpha}^{\ \alpha}K_{\beta}^{\ \beta}-K_{\alpha}^{\ \beta}K_{\alpha}^{\ \beta})\label{curvatura_gaussiana}
 \end{align}
 \section{Estudio de la transición de fase}
 
@@ -482,7 +477,7 @@ trabajo, puesto que únicamente estamos interesados en las propiedades de la
 fase plana y la transición de fase, en donde no influye de forma apreciable
 este efecto indeseable. 
 
-\subsection{Aproximación de Campo medio}
+\subsection{Aproximación de Campo medio}\label{campo_medio}
 
 \begin{figure}[h]
 \centering
@@ -640,7 +635,7 @@ el parámetro $t$ es la temperatura reducida adimensional.
 %equivalente a la clasificación basada en la ruptura de simetría.
 
 \subsection{Exponentes críticos}
-
+\label{exponentes_criticos}
 La teoría de Landau no teniendo en cuenta las fluctuaciones del parámetro de
 orden (relevantes en la vecindad de la transición de fase) expresa la energía
 libre como una función analítica del parámetro de orden. A partir de la teoría
@@ -764,7 +759,7 @@ deformaciones desde este plano, que utilizaremos como estado de referencia:
 \vec{r}(\mathbf{x})=(\mathbf{x}+\mathbf{u(\mathbf{x})},h(\mathbf{x}))
 \end{equation}
 
-Donde estamos utilizando las mismas coordenadas que en TAL , excepto que en
+Donde estamos utilizando las mismas coordenadas que en \ref{campo_medio} , excepto que en
 este caso tomamos $\zeta=1$, esto es, las coordenadas internas coinciden con
 la proyección en el plano $xy$ de las posiciones promedios, que llamaremos
 plano de referencia, de esta forma, conseguimos que la métrica inducida en
@@ -796,7 +791,7 @@ Atendiendo a las propiedades que caracteriza, la energía libre de Landau
 Donde:
 \begin{description}
 \item[ $F_E\rightarrow $ Energía libre elástica:] Caracteriza las propiedades elásticas de la membrana.
-  \begin{multline}
+  \begin{multline}\label{ELandau_elastica}
     F_E[\vec{t}_{\alpha}(\mathbf{x}),T]=\\\int d^2\mathbf{s}
     \left[
       \frac{t}{2}(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})+
@@ -805,7 +800,7 @@ Donde:
   \end{multline}
 \item[ $F_C\rightarrow $ Energía libre de curvatura:] Caracteriza la curvatura
   de la membrana. 
-  \begin{equation}
+  \begin{equation}\label{ELandau_curvatura}
        F_C[\vec{t}_{\alpha}(\mathbf{x}),T]=\int d^2\mathbf{s}\; 
       \frac{\kappa}{2}(\partial_{\alpha}\vec{t}_{\alpha})\cdot(\partial^{\alpha}\vec{t}^{\alpha})
   \end{equation}
@@ -823,7 +818,7 @@ resultado de una deformación de la membrana a partir de la configuración
 $\vec{r}_0(\mathbf{x})$ completamente plana. Las distancias relativas de los
 puntos, en general, cambiarán al producirse la deformación. Si
 consideramos dos puntos muy próximos $P$ y $Q$ de coordenadas internas
-$\mathbf{x}$ y $\mathbf{x}+d\mathbf{x}$, respectivamente. El vector tridimensional que los une
+$\mathbf{x}$ y $\mathbf{x}+d\mathbf{x}$, respectivamente \cite{Landau_Elasticidad}. El vector tridimensional que los une
 después de la deformación será
 \begin{equation}\label{dr}
 d\vec{r}= \vec{r}(\mathbf{x}+d\mathbf{x})-\vec{r}(\mathbf{x})
@@ -1121,14 +1116,16 @@ cizalladura respectivamente. Es posible invertir la última igualdad
 \end{equation}
 con lo resulta
 \begin{equation}\label{hooke}
-u_{\alpha\beta}=\frac{1}{4K}\delta_{\alpha\beta}\sigma_{\gamma}^{\ \gamma}+\frac{1}{2\mu}\left(\sigma_{\alpha\beta}-\frac{1}{2}\delta_{\alpha\beta}\sigma_{\gamma}^{\gamma}\right)
+u_{\alpha\beta}=\frac{1}{4K}\delta_{\alpha\beta}\sigma_{\gamma}^{\
+  \gamma}+\frac{1}{2\mu}\left(\sigma_{\alpha\beta}-\frac{1}{2}\delta_{\alpha\beta}\sigma_{\gamma}^{\
+    \gamma}\right)
 \end{equation}
 
 %hooke
 
 El módulo de Poisson $\sigma$ es el cociente entre la deformación transversal
 a una tensión aplicada y la deformación longitudinal paralela a la tensión
-aplicada. Si la tensión, es aplicada por ejemplo, en el eje $x^1$
+aplicada \cite{Bowick:Libro_superficies}. Si la tensión, es aplicada por ejemplo, en el eje $x^1$
 \begin{equation}
 \sigma=-\frac{\delta x^2 / x^2}{\delta x^1 / x^1}=-\frac{u_{22}}{u_{11}}
 \end{equation}
@@ -1136,27 +1133,38 @@ como la tensión es aplicada en la dirección $x^1$, la única componente no nul
 del tensor de esfuerzo es $\sigma_{11}$, y las componentes $u_{11}$ $u_{22}$
 se obtienen a partir de \eqref{hooke}
 \begin{align}
-u_{11}&=\frac{1}{4K}\sigma_1^1+\frac{1}{2\mu}\left(\sigma_{11}-\frac{1}{2}\sigma_1^1\right)=\left(\frac{1}{4K}+\frac{1}{4\mu}\right)\sigma_1^1\\
-u_{11}&=\frac{1}{4K}\sigma_1^1-\frac{1}{2\mu}\left(\frac{1}{2}\sigma_1^1\right)=\left(\frac{1}{4K}-\frac{1}{4\mu}\right)\sigma_1^1
+u_{11}&=\frac{1}{4K}\sigma_1^{\
+  1}+\frac{1}{2\mu}\left(\sigma_{11}-\frac{1}{2}\sigma_1^{\
+    1}\right)=\left(\frac{1}{4K}+\frac{1}{4\mu}\right)\sigma_1^{\ 1}\\
+u_{22}&=\frac{1}{4K}\sigma_1^{\ 1}-\frac{1}{2\mu}\left(\frac{1}{2}\sigma_1^{\
+    1}\right)=\left(\frac{1}{4K}-\frac{1}{4\mu}\right)\sigma_1^{\ 1}
 \end{align}
 Con lo que el módulo de Poisson resulta
 \begin{equation}
-\sigma=\frac{K+\mu}{K-\mu}
+\sigma=\frac{K-\mu}{K+\mu}
 \end{equation}
-
 \begin{figure}[h]
 \centering
  \resizebox{\columnwidth}{!}{\input{Poisson-fig}}
-\caption{Comportamiento del módulo de Poisson}
+\caption{Comportamiento del módulo de Poisson en función de $\mu/K$}\label{esquema_Poisson}
 \end{figure} 
+Dado los valores que pueden tomar $\mu$ y $K$ para asegurar la estabilidad
+termodinámica, el módulo de Poisson tomará valores entre $-1\leq \sigma \leq
+1$. Hacia el límite superior ($\sigma\rightarrow 1$) se aproximan los materiales que tienen un módulo
+de cizalladura mucho menor que el de compresión y hacia el límite inferior ($\sigma\rightarrow -1$)
+aquellos que tiene un módulo de compresión despreciable frente al de
+cizalladura (figura \ref{esquema_Poisson}). Claramente el módulo de Poisson
+será negativo si $K<\mu$, y corresponderá a membranas que se expanden
+transversalmente al ser estiradas. 
+
 \clearpage
 %RElacion con la estadística -> correlaciones conexas MODULO DE POISSON
 
 \subsection{Curvatura extrínseca}
 
-El término de curvatura TAL, podemos escribirlo en el sistema de coordenadas
+El término de curvatura \eqref{ELandau_curvatura}, podemos escribirlo en el sistema de coordenadas
 elegido para fase plana como
-\begin{equation}
+\begin{equation}\label{ELandau_curvatura_aprox}
 F_C[\mathbf{x},T]\simeq\int d^2\mathbf{x} \left(\frac{\partial h}{\partial
   x^{\alpha} \partial x^{\beta}}\right)^2
 \end{equation}
@@ -1197,7 +1205,7 @@ g&\simeq 1\quad\Rightarrow\quad d^2\mathbf{x}\simeq d^2\mathbf{y}\\
   x^{\alpha} \partial x^{\beta}}\right)^2&\simeq \left(\frac{\partial h}{\partial
   y^{\alpha} \partial y^{\beta}}\right)^2\, ,
 \end{align}
-y podemos aproximar TAL
+y podemos aproximar \eqref{ELandau_curvatura_aprox}
 \begin{equation}
 F_C[\mathbf{y},T]\simeq\int d^2\mathbf{y} \left(\frac{\partial h}{\partial
   y^{\alpha} \partial y^{\beta}}\right)^2
@@ -1206,14 +1214,15 @@ Resulta que estas coordenadas, dado que la expresión del vector normal es
 \begin{equation}
 \vec{n}=\frac{\vec{t}_1(\mathbf{y})\times\vec{t}_2(\mathbf{y})}{\sqrt{g}}=\frac{1}{\sqrt{1+\left(\nabla_{\|} h\right)^2}} \left( -\frac{\partial h}{\partial y^1},-\frac{\partial h}{\partial y^2},0\right)
 \end{equation}
-y usando TAL llegamos a que el tensor de curvatura extrínseca
+y usando  \eqref{K_alfa_beta} llegamos a que el tensor de curvatura extrínseca
 \begin{equation}
 K_{\alpha\beta}=\frac{1}{\sqrt{1+\left(\nabla_{\|} h\right)^2}}\frac{\partial h}{\partial
   y^{\alpha} \partial y^{\beta}}\simeq \frac{\partial h}{\partial
   y^{\alpha} \partial y^{\beta}}
 \end{equation}
-donde hemos aplicado la aproximación de pequeños gradientes. Entonces TAL
-\begin{equation}
+donde hemos aplicado la aproximación de pequeños gradientes. Entonces la
+energía libre de curvatura
+\begin{equation}\label{ELandau_curvatura1}
 F_C[\mathbf{y},T]\simeq\int d^2\mathbf{y} K_{\alpha\beta}K^{\alpha\beta}
 \end{equation} 
 Ahora bien, sumando y restando $K_{\alpha}^{\ \alpha}$ la traza al cuadrado en el
@@ -1222,7 +1231,8 @@ integrando
 K_{\alpha\beta}K^{\alpha\beta}=K_{\alpha}^{\ \beta}K_{\alpha}^{\
   \beta}=K_{\alpha}^{\ \alpha}K_{\beta}^{\ \beta}+K_{\alpha}^{\ \beta}K_{\alpha}^{\ \beta}-K_{\alpha}^{\ \alpha}K_{\beta}^{\ \beta}
 \end{equation}
-Usando las definiciones TAL
+Usando las definiciones de curvatura media \eqref{curvatura_media} y
+gaussiana \eqref{curvatura_gaussiana}
 \begin{equation}
 K_{\alpha\beta}K^{\alpha\beta}=4H^2-2K
 \end{equation} 
@@ -1232,7 +1242,7 @@ H&=\frac{1}{2}\frac{\partial h}{\partial y^{\alpha} \partial y_{\alpha}}+O\left[
 K&=\det \left(\frac{\partial h}{\partial y^{\alpha} \partial y_{\beta}}\right)+O\left[\left(\nabla_{\|} h\right)^2\right]
 \end{align}
 
-La curvatura Gaussiana es una ...
+La curvatura Gaussiana se puede expresar como una derivada perfecta
 
 \begin{equation}
 2\det(\partial_{\alpha}\partial^{\beta}h)=
@@ -1249,9 +1259,9 @@ donde hemos usado la notación $\partial_{\alpha}\equiv\frac{\partial}{\partial
 De hecho, el teorema de Gauss-Bonet demuestra que la integral de la curvatura
 Gaussiana sobre la superficie es constante bajo cualquier deformación, si la
 topología de la superficie es constante. Por tanto, podemos despreciar este
-término de superficie, con lo que obtenemos finalmente 
+término de contorno constante, con lo que obtenemos finalmente 
 
-\begin{equation}
+\begin{equation}\label{ELandau_curvatura2}
 F_C[\mathbf{y},T]\simeq\frac{1}{2}\hat{\kappa}\int d^2\mathbf{y}\, H^2
 \end{equation} 
 Siendo $\hat{\kappa}=4\kappa$. 

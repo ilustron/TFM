@@ -1,29 +1,41 @@
 \chapter{Resultados}
 
-
+La siguiente tabla muestra el número de barridos totales realizados para los
+diferentes tamaños de la membrana, se realizaron el mismo número de barridos
+para todos $\kappa$. No se almacenaban todas las configuraciones sucesivas, en
+la última fila de la tabla se muestra el número de configuraciones almacenadas
+para cada tamaño. 
 
 \begin{table}[h]
-\begin{tabular}{|c|c|c|c|c|c|c|}
-Tamaño & $16^2$ & $24^2$ & $32^2$ & $46^2$ & $64^2$ & $128^2$ \\ \hline 
+\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+Tamaño & $16^2$ & $24^2$ & $32^2$ & $46^2$ & $64^2$ & $128^2$ \\ \hline\hline 
 barridos totales & $1.68\cdot 10^8$& $3.02\cdot 10^9$ & $7.41\cdot 10^8$ &
-$6.51\cdot 10^8$&$7.212\cdot 10^8$ &$1.01\cdot10^9$\\
-periodo correlación & 
+$6.51\cdot 10^8$&$7.212\cdot 10^8$ &$1.01\cdot10^9$\\\hline
+n\textdegree configuraciones& $10^4$ & $10^4$ & $1.2\cdot 10^4$ & $7\cdot
+10^3$ & $6\cdot 10^4$ & $2.5\cdot 10^3$\\ \hline
 \end{tabular}
 \end{table}
 
 
- \begin{figure}[h]
- \centering
-  \input{test.tex}
- \caption{Test}
- \end{figure}
+ % \begin{figure}[h]
+ % \centering
+ %  \input{test.tex}
+ % \caption{Test}
+ % \end{figure}
 
 \section{Relaciones de escala Radio de giro}
+
+Como se aprecia en la figura \ref{radio-giro-fig} el radio de giro sufre un
+cambio drástico aproximadamente en $\kappa\simeq 0.8$, que separa las dos
+fases: plana para $\kappa> 0.8$ y rugosa  para $\kappa< 0.8$. Para estudiar la
+relación de escala en ambas fases, tomamos En la fase
+rugosa sigue la relación de escala $R_G\sim (\log L)^{1/2}$ (figura
+\ref{rg2_rugosa}), y la fase plana $R_G\sim L$
 
 \begin{figure}[h]
   \centering
   \input{Rg2_plot.tex}
-  \caption{Radio de giro}
+  \caption{Radio de giro}\label{radio-giro-fig}
 \end{figure}
 
 \begin{figure}[h]
@@ -31,7 +43,7 @@ periodo correlación &
   \input{rg2_plano_plot.tex}
   \caption{$R^2_g$ en función de $L$ para $\kappa=2.0$. Resultados del ajuste
     $c_0=0.134\pm 0.025$, $c_1=0.0160\pm 0.0003$, $2\nu=1.9955 \pm
-    0.005$. $\chi^2/gl=2.063/2$ , $P(\chi^2>\chi_C^2)=0.356$}
+    0.005$. $\chi^2/gl=2.063/2$ , $P(\chi^2>\chi_C^2)=0.356$}\label{Rg2_plana}
 
   % degrees of freedom    (FIT_NDF)                        : 2
   % rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.0157
@@ -61,7 +73,7 @@ periodo correlación &
   \input{rg2_rugosa_plot.tex}
    \caption{$R_g$ en función de $L$ para $\kappa=0.5$. Resultados del ajuste
      $c_0=0.2929 \pm 0.004$ y $c_1=0.152853\pm 0.001$.$\chi^2/gl=28.94688/3$ ,
-     $P(\chi>\chi^2)=2.29\ 10^{-6}$}
+     $P(\chi>\chi^2)=2.29\ 10^{-6}$}\label{rg2_rugosa}
 
 % degrees of freedom    (FIT_NDF)                        : 3
 % rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 3.10628
@@ -87,7 +99,7 @@ periodo correlación &
   \input{rg2_transicion_plot.tex}
   \caption{$R_g$ en función de $L$ para $\kappa_c(L)$. Resultados del ajuste
     $c_0=-0.535 \pm 0.089$, $c_1=0.047\pm 0.006$ y $2\nu=1.38\pm
-    0.03$. $\chi^2/gl=73.6932/2$, $P(\chi^2>\chi_c^2)=9.94 \ 10^{-17}$}
+    0.03$. $\chi^2/gl=73.6932/2$, $P(\chi^2>\chi_c^2)=9.94 \ 10^{-17}$}\label{Rg2_transicion}
 
 % degrees of freedom    (FIT_NDF)                        : 2
 % rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 6.07014

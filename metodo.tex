@@ -56,9 +56,9 @@ forma que la constante elástica es unitaria.
  \resizebox{\columnwidth}{!}{\input{base-hexagonal-fig}}
 \caption{Base hexagono}
 \end{figure}   
-Consideramos un sistema de coordenadas ortogonal $\{ \vec{e}_1,\vec{e}_2\}$, son los vectores de la base del plano base. La expresión TAL podemos discretizarla
+Consideramos un sistema de coordenadas ortogonal $\{ \vec{e}_1,\vec{e}_2\}$, son los vectores de la base del plano base. La expresión \eqref{drU} podemos discretizarla
 \begin{equation}
-(\vec{r}_P-\vec{r}_Q)=a^2+2u_{\alpha\beta}x{\scriptstyle [q]}^{\alpha}x{\scriptstyle [q]}^{\beta}
+(\vec{r}_P-\vec{r}_Q)^2=a^2+2u_{\alpha\beta}x{\scriptstyle [q]}^{\alpha}x{\scriptstyle [q]}^{\beta}
 \end{equation}
 donde $u_{\alpha\beta}$ es la versión discretizada del tensor de
 deformaciones. En este  sistema de coordenadas la métrica es
@@ -73,7 +73,7 @@ Podemos aproximar
 
 
 Sustituyendo en la parte elástica de la energía libre
-\begin{equation}
+\begin{equation}\label{He}
 \mathcal{H}_E\simeq \frac{1}{2}\sum_{P} \sum^6_{j=1} \left(\frac{u_{\alpha\beta}}{a}e^{\alpha}e^{\beta}\right)^2=\frac{1}{2a^2}\sum_{P} \sum^6_{j=1} u_{\alpha\beta}u^{\mu\nu}e^{\alpha}e^{\beta}e_{\mu}e_{\nu}
 \end{equation}
 Siendo el primer sumatorio sobre todos los nodos y el segundo sobre los
@@ -92,13 +92,13 @@ e^{\alpha}e^{\beta}e_{\mu}e_{\nu}&=\frac{a^2}{4}\delta^{\alpha}_{\ \mu}\delta_{\
 e^{\alpha}e^{\beta}e_{\mu}e_{\nu}&=\frac{a^2}{4}\delta^{\alpha}_{\ \nu}\delta_{\beta}^{\
   \mu}
 \end{align}
-Tomando la media de las últimas tres expresiones TAL
+Tomando la media de las últimas tres expresiones
 \begin{equation}
 e^{\alpha}e^{\beta}e_{\mu}e_{\nu}=\frac{a^4}{12}(\delta^{\alpha\beta}\delta_{\mu\nu}+
 \delta^{\alpha}_{\ \mu}\delta_{\beta}^{\ \nu}+
 \delta^{\alpha}_{\ \nu}\delta_{\beta}^{\ \mu})
 \end{equation}
-Sustituyendo en TAL
+Sustituyendo en \eqref{He}
 \begin{equation}
 \mathcal{H}_E\simeq\frac{a^2}{24}\sum_{P} \sum^6_{j=1}(\delta^{\alpha\beta}\delta_{\mu\nu}+\delta^{\alpha}_{\ \mu}\delta_{\beta}^{\ \nu}+
 \delta^{\alpha}_{\ \nu}\delta_{\beta}^{\ \mu})
@@ -154,7 +154,7 @@ Entonces
 \begin{equation}
 \mathcal{H}_C\simeq\frac{1}{2}\hat{\kappa}\int d^2\mathbf{x}\ K_{\alpha\beta}K^{\alpha\beta}
 \end{equation}
-Y recuperamos la ecuación TAL de la energía libre de Landua.
+Y recuperamos la ecuación \eqref{ELandau_curvatura1} de la energía libre de Landua.
 
 \section{Algoritmo de Metropolis}
 Una determinada configuración $R$ de la membrana cristalina discreta 
@@ -244,7 +244,7 @@ individuales $w^i(R,S)$, en los que sólo varía la posición $\vec{r}_i$. El
 operador de transición total corresponderá a aplicar sucesivamente los $N$
 operadores individuales. Si el orden de aplicación es siempre el mismo tenemos
 \begin{equation*}
-w(R,S)=\Pi^{N}_{i=1}w^i(R,S)
+w(R,S)=\prod^{N}_{i=1}w^i(R,S)
 \end{equation*}
 Si los operadores de transición cumplen la condición de
 balance \label{ecuacion_balance}, el operador total también la cumplirá, dado
@@ -294,12 +294,46 @@ todos los $N$ puntos de la membrana. El valor de $\varepsilon$ se ajusta de
 modo que en cada barrido el número de cambios aceptados sea la mitad del total
 de puntos que componen la superficie. 
  
-\subsection{Método de Jacknife}
+\subsection{Tratamiento de los datos}
 
-Para el cálculo de los errores, en las estimaciones de los observables,
+Puesto que las sucesivas configuraciones de una evolución de Monte Carlo están
+correlacionadas, en las simulaciones numéricas se guardaban las configuraciones cada $\tau_0$
+barridos y partir de un cierto valor $t_{termal}$, ambos son propuestas
+iniciales del valor del periodo de correlación entre medidas y de la
+termalización. Estos valores iniciales se estiman a partir de los resultados de las
+simulaciones realizadas en el trabajo anterior \cite{Bowick_flat_phase}, ya 
+que utilizaron el mismo algoritmo que nosotros. Posteriormente, para comprobar
+si efectivamente las medidas de un observable efectivamente han termalizado, se
+gráfica el valor que toma el observable en las
+configuraciones sucesivas en escala logarítmica, el gráfico histórico (figura
+\ref{grafico_historico}). También se gráfica el promedio del observable,
+resultado de eliminar configuraciones iniciales, en función del inverso del
+número de configuraciones conservadas (figura \ref{grafico_logtermal}). De
+esta forma, en ambos gráficas, se comprueba si hay una tendencia inicial en
+los valores medidos. Como se observa, la primera gráfica constituye un método
+para encontrar el valor de la termalización más fino que la segunda,
+en la que incluso se pueden dar resultados falsos debido a
+fluctuaciones. Posteriormente veremos que la utilidad de esta última gráfica
+es doble. 
+
+\begin{figure}[h]
+\centering
+ \resizebox{\columnwidth}{!}{\input{ejemplo_termal-fig}}\label{grafico_historico}
+\caption{Gráfico histórico de medidas para $\langle R_G^2\rangle$}\label{grafico_historico}
+\end{figure}    
+
+\begin{figure}[h]
+\centering
+ \resizebox{\columnwidth}{!}{\input{ejemplo_logtermal-fig}}\label{grafico_logtermal}
+\caption{Gráfico del promedio del radio de giro, resultado de eliminar
+  configuraciones iniciales, en función del inverso del número de configuraciones conservadas}
+\end{figure}
+
+Tanto para estimar el periodo de correlación de las medidas, como para el
+cálculo de los errores, en las estimaciones de los observables, 
 utilizamos el método del jacknife \cite{Juan:tesis}, que tiene en cuenta la
 falta de independencia de las medidas. Consideremos los valores
-${Q_i;i=1,\dots M}$ que un observable $Q$ toma en una evolución de Monte
+$\{Q_i\,;\, i=1,\dots M\}$ que un observable $Q$ toma en una evolución de Monte
 Carlo. La estimación del valor medio será
 \begin{equation}
 \bar{Q}=\frac{1}{M}\sum^M_{i=1}Q_i.
@@ -319,28 +353,243 @@ basta con tomar la esperanza $\langle \rangle$ a ambos lados de la ecuación
 \begin{equation}
 \langle (\delta\bar{Q}_n)^2\rangle=\sigma^2(Q)\frac{1}{N} 
 \end{equation}
+
+\begin{figure}[h]
+\centering
+ \resizebox{\columnwidth}{!}{\input{ejemplo_error-fig}}
+\caption{Estimación del error para $\langle R_G^2\rangle$ en función del tamaño del bloque}\label{figura_ejemplo_error}
+\end{figure} 
+
 Si el tamaño del bloque, $m$, es muy pequeño comparada con la longitud de
 correlación entre medidas, el estimador $\delta\bar{Q}_m$ aumentará en un
-factor $\sqrt{2}$ cada vez que doblamos el tamaño del bloque. Este crecimiento
-cesará cuando el tamaño del bloque sea mayor que la correlación entre
-medidas. A partir de aquí, el valor del error se mantiene constante hasta que
-el número de bloques es demasiado pequeño (2 o 3), que vuelve a crecer con un
-factor $\sqrt{2}$.
+factor $\sqrt{2}$ cada vez que doblamos el tamaño del bloque(figura
+\ref{figura_ejemplo_error}). Este crecimiento cesará cuando el tamaño del
+bloque sea mayor que la correlación entre medidas. A partir de aquí, el valor
+del error se mantiene constante hasta que el número de bloques es demasiado
+pequeño (2 o 3), que vuelve a crecer con un factor $\sqrt{2}$. En la gráfica
+mostrada en la figura \ref{figura_ejemplo_error} la estimación del error es
+$\simeq 0.015$. Para comprobar esta estimación se utiliza la gráfica de la
+figura \ref{grafico_logtermal}, según la cual la
+dispersión máxima de la media del radio de giro (la diferencia del valor máximo y el
+mínimo) es $0.04$, que se corresponde aproximadamente con el doble de la
+estimación del error, por tanto, la estimación es correcta.
 
 \section{Observables}
 
-\subsection{Valores críticos: Densidad espectral}
+Para estudio de la transición de fase se miden los siguientes observables en
+un rango de valores $\kappa$ centrado en $0.8$, ya que anteriores estudios \cite{Bowick_flat_phase}
+estiman que la transición de fase ocurre en $\simeq 0.79$:
+\begin{description}
+\item[Calor específico:] Utilizamos la expresión \cite{Harnish:CV}
+\begin{equation}\label{CV_discreto}
+ C_V=\frac{3(N-1)}{2}+\frac{\kappa^2}{N}(\langle E_C^2 \rangle-\langle E_C
+\rangle^2),
+\end{equation}
+donde
+\begin{equation}
+E_C=\sum_{\langle ab \rangle}\vec{n}_a\cdot\vec{n}_b, 
+\end{equation}
+es la energía de curvatura.
+\item[Radio de giro:] Cuya expresión discreta es 
+\begin{equation} R_g^{2}=\frac{1}{3N}\left\langle \sum_{i}
+  \vec{R}_i\cdot\vec{R}_i\right\rangle=\frac{1}{3N}(\langle\vec{R}^2 \rangle
+-\langle\vec{R} \rangle^2),
+\end{equation}
+donde $\vec{R}_i=\vec{r}_{CM}-\vec{r}_i $ el es vector de posición del nodo
+$i$ relativo al centro de masas $\vec{r}_{CM}$ de la membrana.
 
+\item[Variación del radio de giro:] A partir del teorema de la respuesta
+  lineal \cite{Binney:critical_phenomema}, podemos calcular la derivada del
+  radio de giro respecto a $\kappa$ (temperatura) 
+\begin{equation}
+  \frac{\partial R_g^2}{\partial \kappa}=\langle R_g^2E_C \rangle_c=\langle
+  R_g^2E_C \rangle_c=\langle R_g^2 E_C \rangle-\langle R_G^2\rangle\langle E_C\rangle,
+\end{equation}
+donde $\langle R_g^2E_C \rangle_c$ es la correlación conexa del radio de giro
+y la energía de curvatura.
+\end{description}
+
+\subsection{Estimación de los exponentes críticos}
+
+Puesto que la transición de fase plana-rugosa de la membrana cristalina es de
+segundo orden, tanto $C_V$ como $\frac{\partial R_g^2}{\partial \kappa}$  con
+$L\rightarrow \infty$ tendrán un comportamiento divergente en las proximidades
+de la transición. Puesto en las simulaciones numéricas, nuestro sistema
+discreto es finito, es imposible obtener magnitudes divergentes, todas las
+magnitudes que podemos obtener serán funciones analíticas de los parámetros de
+la teoría (sumas de funciones analíticas). Aunque, podemos inferir sobre el
+comportamiento de los parámetros en el límite termodinámico observando como
+crecen los observables del sistema finito en función del tamaño $L$ \cite{Juan:tesis}. 
+Para ello, consideramos que nuestro sistema presenta una transición de fase de
+segundo orden en $\kappa_c=\kappa_c(L=\infty)$. Según nos vamos acercando a
+$\kappa_c$ la longitud de correlación $\xi$ va creciendo hasta que satura el
+tamaño del sistema y comienzan a aparecer los efectos de tamaño
+finito. Diremos que hemos alcanzado la temperatura crítica aparente
+$\kappa_c(L)$ cuando $L\simeq \xi$. Asumiendo la anterior afirmación podemos
+deducir como escala $\kappa_c(L)$ con $L$ ya que
+\begin{equation}
+\xi(\kappa_c(L))\propto L \sim (\kappa_c(L)-\kappa_c)
+\end{equation}
+entonces
+\begin{equation}
+\kappa_c(L)-\kappa_c\sim L^{-\frac{1}{\nu}}
+\end{equation}
+En las proximidades de la transición de fase, donde la longitud de correlación
+es del orden del tamaño del sistema, es razonable suponer que la dinámica está
+gobernada por una sola variable $L/\xi\sim L \kappa_L^{\nu}$, donde $\kappa_L$
+es la \textit{temperatura reducida}
+\begin{equation}
+\kappa_L\equiv \frac{\kappa_c-\kappa_c(L)}{\kappa_c(L)}
+\end{equation}
+
+Esto implica que el comportamiento, para un observable genérico $\mathcal{O}$, del tipo
+\begin{equation}
+\mathcal{O}_L\sim L^{\omega}f(L \kappa_L^{\nu}),
+\end{equation}
+donde $f$ es una función ``universal'' en el sentido que es independiente de
+$L$ pero dependiente del observable $\mathcal{O}$. Cuando $L\rightarrow \infty$
+debemos recuperar el comportamiento descrito en \ref{exponentes_criticos} 
+\begin{equation}
+\mathcal{O}(\kappa)\sim t^{O}
+\end{equation}
+cuando $t\rightarrow 0$ Esto nos impone una condición sobre la función de
+escala $f(x)$
+\begin{equation}
+f(x)\sim x^{\frac{O}{\nu}}\quad x\rightarrow \infty ,
+\end{equation}
+y otra sobre $\omega$
+\begin{equation}
+\omega=-\frac{o}{\nu}
+\end{equation}
+Por lo que
+\begin{equation}
+\mathcal{O}_L\sim L^{-\frac{o}{\nu}}f(L \kappa^{\nu}).
+\end{equation}
+Si particularizamos en el punto crítico aparente tendremos el valor máximo de
+$\mathcal{O}_L$
+\begin{equation}
+\mathcal{O}^{max}_L\sim L^{-\frac{o}{\nu}}
+\end{equation}
+Resumiendo, tenemos por ejemplo para el calor específico \eqref{CV_discreto}
 \begin{itemize}
-\item El máximo del observable, que ocurre a una temperatura crítica
-  $\kappa_c(T)$, la cual es modificada respecto al tamaño infinito del sistema
-
-$$ T_cL -T_c= L^{-1/\nu}$$
-\item El máximo del observable de estado finito es dado por la relación de
+\item El máximo del calor específico $C_V$, ocurre a una temperatura crítica
+  $\kappa_c(L)$, la cual está relacionada con la temperatura $\kappa_c$,
+  respecto al tamaño infinito del sistema, por
+\begin{equation}
+\kappa_c(L) -\kappa_c= L^{-1/\nu}
+\end{equation}
+\item El máximo $C_V$ del sistema finito está dado por la relación de
   escala
-$$ C_v(T_c(L),L^-1)=L^{\alpha/nu}$$
+\begin{equation}
+C^{\max}_v(L)=L^{\alpha/nu}
+\end{equation}
 \end{itemize}
 
+Para encontrar el valor máximo de un observable a partir de los resultados de
+las simulaciones numéricas utilizamos el método de la densidad espectral que
+se describe a continuación.
+
+\subsubsection{Método de la densidad espectral}
+
+Consideremos una evolución de Monte Carlo, cada una de las configuraciones
+generadas tiene una energía $E$, y denotamos por $\bar{N}(E)$ a la frecuencia
+relativa de la energía $E$, el cociente del número de configuraciones con
+energía $E$ entre el número total de configuraciones. Cuando el número de
+configuraciones generadas tiende a infinito, la frecuencia relativa de la
+energía $E$ tiende a la probabilidad $P(E)$ de que el sistema tenga una
+energía $E$. De la mecánica estadística clásica sabemos que esta probabilidad
+viene dada por
+\begin{equation}
+P(E)=\frac{1}{\mathcal{Z}}W(E)e^{-\beta E},  
+\end{equation}
+donde $W(E)$ es la densidad de estados de energía $E$. Si definimos $f\equiv
+\beta F$, donde $F$ es la energía libre extensiva tenemos
+\begin{equation}
+f=-\log \mathcal{Z}.
+\end{equation}
+Y en el límite en el cual el número de configuraciones es infinito encontramos
+que
+\begin{equation}
+P(E)\equiv p_{\beta}=W(E)e^{-\beta E+f} ,
+\end{equation}
+lo que significa que podemos estimar numéricamente la densidad de estados
+salvo el factor $e^{-f}$ \cite{Juan:tesis}. Con esta estimación ya podemos calcular la
+probabilidad de la energía a otra $\beta$ y relacionarla con la ya calculada
+\begin{equation}
+p_{\beta'}(E)=\frac{p_{\beta}(E)e^{-(\beta'-\beta)E}}{\sum_E e^{-(\beta'-\beta)E}},
+\end{equation}
+también podemos estimar el valor esperado de un observable $\langle
+O_{\beta'}\rangle$  para una $\beta'$ partir del valor $\langle
+O_{\beta}\rangle$ a otra beta
+\begin{equation}
+\langle O_{\beta'}\rangle=\frac{\langle
+O_{\beta}\rangle e^{-(\beta'-\beta)E}}{\sum_E e^{-(\beta'-\beta)E}},
+\end{equation}
+
+Las ecuaciones son exactas cuando el número de configuraciones es infinito,
+mientras que para una simulación de Monte Carlo serán aproximadas. Dada una
+simulación en $\beta$ podremos calcular $P_{\beta'}(E)$ siempre y cuando la
+diferencia $\beta'-\beta$ sea pequeña. Podemos cuantificar lo anterior de la
+siguiente manera: Todas las energías mayores o menores que $E\pm A \sigma(E)$,
+con $A\sim 1$, deben estar suprimidas en la nueva $P_{\beta'}$ ya que la
+estimación de $P_{\beta}$ apenas nos da información sobre estas energías al
+estar a más de una desviación típica de la media. Podremos exigir, por ejemplo
+que  
+\begin{equation}\label{beta_sigma}
+|\beta-\beta'|\sigma(E)=A.
+\end{equation}
+Con $A=3$ la nueva probabilidad tendrá un factor $e^{-3}$ respecto a la
+probabilidad máxima en esos puntos, es decir, prácticamente no contribuirá.
+Además es interesante realizar la simulación lo más cerca posible de la
+transición. Aunque cerca de la transición, las fluctuaciones serán máximas y ,según
+ la ecuación anterior \eqref{beta_sigma}, nos podremos mover muy poco de la
+ temperatura de la simulación. A pesar de este inconveniente, el método de la
+ densidad espectral se ha revelado muy útil para localizar la transición.
+
+\subsection{Módulo de Poisson}
+
+A partir del teorema de la respuesta lineal \cite{Binney:critical_phenomema}
+tenemos que
+\begin{equation}
+\langle u_{\alpha\beta}u_{\gamma\delta} \rangle_c
+=\frac{1}{\beta A}\left(\frac{\partial u_{\alpha\beta}}{\partial \sigma^{\gamma\delta}}\right),
+\end{equation}
+donde $A$ es área de la membrana. Por otro lado, derivando la expresión
+\eqref{hooke} respecto a $\sigma^{\gamma\delta}$
+\begin{equation}\frac{\partial u_{\alpha\beta}}{\partial
+  \sigma^{\gamma\delta}}=-\frac{K-\mu}{4\mu K}\delta_{\alpha\beta}\delta_{\gamma\delta}+\frac{1}{4\mu}(\delta_{\alpha\gamma}\delta_{\beta\delta}+\delta_{\alpha\delta}\delta_{\beta\gamma})
+\end{equation}
+Usando estas dos últimas expresiones encontramos que 
+\begin{align}
+\langle u_{11}u_{22} \rangle_c&=-\frac{1}{\beta A}\frac{K-\mu}{4\mu K}\\
+\langle u_{12}u_{12} \rangle_c&=\frac{1}{\beta A}\frac{1}{4\mu}\\
+\langle u_{11}u_{22} \rangle_c&=\langle u_{22}u_{11} \rangle_c=\frac{1}{\beta
+  A}\frac{K-\mu}{4\mu K}\\
+\end{align}
+A partir de estas expresiones podemos encontrar una definición alternativa
+para el módulo de Poisson \cite{Zang_Dmolecular}\cite{Parrinello_Crystal} en
+función de las correlaciones conexas del tensor 
+de deformaciones
+\begin{equation}
+\sigma=\frac{K-\mu}{K+\mu}=-\frac{\langle u_{11}u_{22}
+  \rangle_c}{\langle u_{22}^2 \rangle_c}
+\end{equation}
+Teniendo en cuenta \eqref{tensor_metrica} podemos expresar la anterior
+expresión en función de la métrica inducida 
+\begin{equation}
+\sigma=\frac{K-\mu}{K+\mu}=-\frac{\langle g_{11}g_{22}
+  \rangle_c}{\langle g_{22}^2 \rangle_c}
+\end{equation}
+Para nuestra superficie discreta podemos estimar la métrica inducida
+aproximando los vectores tangentes por enlaces entre nodos en la diferentes
+direcciones. Ahora bien, al ser nuestra red triangular únicamente tenemos acceso a
+$\partial_i \vec{r}$, con $i=1,2,3$ las direcciones naturales de la red
+triangular, las cuales no son ortogonales y en la definición de $\sigma$ se
+asume implícitamente que lo son. Por tanto, debemos hacer un cambio de coordenadas, si
+$\vec{e}_1,\vec{e}_2,\vec{e}_3$ son la base natural de vectores de la red
+triangular elegimos la dirección $\vec{x}_1$ en la dirección $\vec{e}_1$ y
+para $\vec{x}_2$ usamos $(\vec{e}_2+\vec{e}_3)/\sqrt{3}$, obteniendo así una
+base ortonormal con la que poder calcular $\sigma$ \cite{Bowick_poisson_ratio}.
 
 %%% Local Variables: 
 %%% mode: latex
