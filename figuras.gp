@@ -466,14 +466,18 @@ reset
 set terminal epslatex mono 
 set output "Se_plot.tex"
 
+set logscale x 2 
+set mxtics 10
+
+#set xtics add (0.5,0.6,0.7,0.8,0.9,1,1.2,1.4,1.6,1.8,2.0)
 set xlabel '$\kappa$'
-set ylabel '$E_c$'
+set ylabel '$\langle e_c \rangle / \langle e_c \rangle_{max} $'
 set key right bottom
-plot "./source_plots/Medidas_Se_L64.dat" u 1:2:3 title '$64^2$' w yerrorlines pt 6 lt 1,\
-     "./source_plots/Medidas_Se_L46.dat" u 1:2:3 title '$46^2$' w yerrorlines pt 7 lt 0,\
-     "./source_plots/Medidas_Se_L32.dat" u 1:2:3 title '$32^2$' w yerrorlines pt 4 lt 2,\
-     "./source_plots/Medidas_Se_L24.dat" u 1:2:3 title '$24^2$' w yerrorlines pt 5 lt 5,\
-     "./source_plots/Medidas_Se_L16.dat" u 1:2:3 title '$16^2$' w yerrorlines pt 8 lt 14
+plot [0.4:2.2][0.2:1] "./source_plots/Medidas_Se_L64.dat" u 1:(($2)/2.8762):(($3)/sqrt(2.8762)) title '$64^2$' w yerrorlines pt 6 lt 1,\
+     "./source_plots/Medidas_Se_L46.dat" u 1:(($2)/2.8284):(($3)/sqrt(2.8284)) title '$46^2$' w yerrorlines pt 7 lt 0,\
+     "./source_plots/Medidas_Se_L32.dat" u 1:(($2)/2.7549):(($3)/sqrt(2.7549)) title '$32^2$' w yerrorlines pt 4 lt 2,\
+     "./source_plots/Medidas_Se_L24.dat" u 1:(($2)/2.6753):(($3)/sqrt(2.6753)) title '$24^2$' w yerrorlines pt 5 lt 5,\
+     "./source_plots/Medidas_Se_L16.dat" u 1:(($2)/2.5195):(($3)/sqrt(2.5195)) title '$16^2$' w yerrorlines pt 8 lt 14
 reset
 
 #resultados calor específico
@@ -498,19 +502,19 @@ set output "max_Cv_plot.tex"
 set xlabel '$\kappa$'
 set ylabel '$C_V$'
 plot [0.77:0.89][1:3.7] "./source_plots/Medidas_Cv_L64_zoom.dat" u 1:2:3 title '' w yerrorbars pt 10 lt 2,\
-     	       		"./source_plots/extrapolacion_Cv_L64_K0.79.dat" title '' w l lt 0,\
+     	       		"./source_plots/extrapolacion_Cv_L64_K0.79.dat" title '' w l lt 1 lc rgb 'gray',\
 	       		"./source_plots/maximo_Cv_L64_K0.79.dat" u 2:4:3:5 title '$64^2$'  w xyerrorlines pt 11 lt 1,\
 			"./source_plots/Medidas_Cv_L46_zoom.dat" u 1:2:3 title '' w yerrorbars pt 6 lt 2,\
-     	       		"./source_plots/extrapolacion_Cv_L46_K0.8.dat" title '' w l lt 0,\
+     	       		"./source_plots/extrapolacion_Cv_L46_K0.8.dat" title '' w l lt 1 lc rgb 'gray',\
 	       		"./source_plots/maximo_Cv_L46_K0.8.dat" u 2:4:3:5 title '$46^2$' w xyerrorlines pt 7 lt 1,\
 	       		"./source_plots/Medidas_Cv_L32_zoom.dat" u 1:2:3 title '' w yerrorbars pt 12 lt 2,\
-     	       		"./source_plots/extrapolacion_Cv_L32_K0.81.dat" title '' w l lt 0,\
+     	       		"./source_plots/extrapolacion_Cv_L32_K0.81.dat" title '' w l lt 1  lc rgb 'gray',\
 	       		"./source_plots/maximo_Cv_L32_K0.81.dat" u 2:4:3:5 title '$32^2$' w xyerrorlines pt 13 lt 1,\
 			"./source_plots/Medidas_Cv_L16.dat" u 1:2:3 title '' w yerrorbars pt 4 lt 2,\
-     	       		"./source_plots/extrapolacion_Cv_L16_K0.82.dat" title '' w l lt 0,\
+     	       		"./source_plots/extrapolacion_Cv_L16_K0.82.dat" title '' w l lt 1 lc rgb 'gray',\
 	       		"./source_plots/maximo_Cv_L16_K0.82.dat" u 2:4:3:5 title '$16^2$' w xyerrorlines pt 5 lt 1,\
 	       		"./source_plots/Medidas_Cv_L24.dat" u 1:2:3 title '' w yerrorbars pt 8 lt 2,\
-     	       		"./source_plots/extrapolacion_Cv_L24_K0.83.dat" title '' w l lt 0,\
+     	       		"./source_plots/extrapolacion_Cv_L24_K0.83.dat" title '' w l lt 1  lc rgb 'gray',\
 	       		"./source_plots/maximo_Cv_L24_K0.83.dat" u 2:4:3:5 title '$24^2$' w xyerrorlines pt 9 lt 1
 set output
 reset
@@ -522,13 +526,34 @@ set output "Cv_L_plot.tex"
 
 set xlabel '$L$'
 set ylabel '$C_V$'
-set key left top
-c0=0.767979 
-c1=0.110299 
-nu=0.759527
-g(x)=c0+c1*(x**nu)
+set key right bottom 
 
-plot "./source_plots/maximos_Cv.dat" u 1:4:5 title '$\kappa_c(L)$' w yerrorbars pt 7,g(x) title '$c_0+c_1\,L^{\omega}$'
+set logscale x 2
+set logscale y 2
+
+set mxtics 10
+set mytics 10
+
+
+a0= 0.7702
+a1=0.1098
+omega= 0.7602
+
+Cv(x)=a0+a1*x**omega
+
+
+b0=0.4759
+b1= 0.21471
+omega2= 0.6180 
+Cv2(x)=b0+b1*x**omega2
+
+
+c1=0.40324 
+omega3=0.505716 
+
+Cv3(x)=c1*x**omega3
+
+plot [8:128] "./source_plots/maximos_Cv.dat" u 1:4:5 title '$\kappa_c(L)$' w yerrorbars pt 7,Cv(x) title '$c0+c_1L^{\omega}$',Cv2(x) title '$c0+c_1L^{\omega}$ sin $L=64$',Cv3(x) title '$c_1L^{\omega}$'
 
 reset   
   	       
@@ -537,9 +562,9 @@ reset
 set terminal epslatex mono 
 set output "Cv_T_L_plot.tex"
 set xlabel '$L$'
-c0=0.739157
-c1=0.647822
-nu=1.62845
+c0=0.7455
+c1=0.746
+nu=1.46
 g(x)=c0+c1*(x**(-1/nu))
 plot "./source_plots/maximos_Cv.dat" u 1:2:3 title '$C_v \rightarrow \kappa_c(L)$' w yerrorbars pt 7,g(x) title '$c_0+c_1\,L^{-1/\nu}$'
 reset
@@ -627,19 +652,19 @@ set output "max_Drg2_plot.tex"
 set xlabel '$\kappa$'
 set ylabel '$\langle R_g^2 E_c\rangle$'
 plot [0.75:0.9] "./source_plots/Medidas_Drg2_L16.dat" u 1:2:3 title '' w yerrorbars pt 4 lt 2,\
-     	       "./source_plots/extrapolacion_Drg2_L16_K0.84.dat" title '' w l lt 0,\
+     	       "./source_plots/extrapolacion_Drg2_L16_K0.84.dat" title '' w l lt 1 lc rgb 'gray',\
      	       "./source_plots/maximo_Drg2_L16_K0.84.dat" u 2:4:3:5 title '$16^2$' w xyerrorlines pt 5 lt 1,\
      	       "./source_plots/Medidas_Drg2_L24_zoom.dat" u 1:2:3 title '' w yerrorbars pt 8 lt 2,\
-     	       "./source_plots/extrapolacion_Drg2_L24_K0.84.dat" title '' w l lt 0,\
+     	       "./source_plots/extrapolacion_Drg2_L24_K0.84.dat" title '' w l lt 1 lc rgb 'gray',\
      	       "./source_plots/maximo_Drg2_L24_K0.84.dat" u 2:4:3:5 title '$24^2$' w xyerrorlines pt 9 lt 1,\
      	       "./source_plots/Medidas_Drg2_L32_zoom.dat" u 1:2:3 title '' w yerrorbars pt 12 lt 2,\
-     	       "./source_plots/extrapolacion_Drg2_L32_K0.83.dat" title '' w l lt 0,\
+     	       "./source_plots/extrapolacion_Drg2_L32_K0.83.dat" title '' w l lt 1 lc rgb 'gray',\
      	       "./source_plots/maximo_Drg2_L32_K0.83.dat" u 2:4:3:5 title '$32^2$' w xyerrorlines pt 13 lt 1,\
      	       "./source_plots/Medidas_Drg2_L46_zoom.dat" u 1:2:3 title '' w yerrorbars pt 6 lt 2,\
-     	       "./source_plots/extrapolacion_Drg2_L46_K0.82.dat" title '' w l lt 0,\
+     	       "./source_plots/extrapolacion_Drg2_L46_K0.82.dat" title '' w l lt 1 lc rgb 'gray',\
      	       "./source_plots/maximo_Drg2_L46_K0.82.dat" u 2:4:3:5 title '$46^2$' w xyerrorlines pt 7 lt 1,\
      	       "./source_plots/Medidas_Drg2_L64_zoom.dat" u 1:2:3 title '' w yerrorbars pt 10 lt 2,\
-     	       "./source_plots/extrapolacion_Drg2_L64_K0.79.dat" title '' w l lt 0,\
+     	       "./source_plots/extrapolacion_Drg2_L64_K0.79.dat" title '' w l lt 1  lc rgb 'gray',\
      	       "./source_plots/maximo_Drg2_L64_K0.79.dat" u 2:4:3:5 title '$64^2$' w xyerrorlines pt 11 lt 1
 set output
 reset
@@ -674,5 +699,17 @@ c1= 0.441665
 nu= 1.60002
 g(x)=c0+c1/(x**(1/nu))
 plot "./source_plots/maximos_Drg2.dat" u 1:2:3 title '$\langle R_g^2 E_c\rangle_{max}\rightarrow\kappa_c(L)$' w yerrorbars pt 5 lt 1,g(x) title '$c_0+c1\ L^{-1/\nu}$'
+
+reset
+   
+#resultados medida del M poisson
+
+set terminal epslatex mono 
+set output "poisson_plot.tex"
+
+set xlabel '$L$'
+set ylabel '$\sigma$'
+
+plot "./source_plots/sigma_K2.0.dat" u 1:2:3 title '' w yerrorbars pt 5 lt 1
 
 reset   

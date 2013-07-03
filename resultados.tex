@@ -17,20 +17,28 @@ n\textdegree configuraciones& $10^4$ & $10^4$ & $1.2\cdot 10^4$ & $7\cdot
 \end{table}
 
 
- % \begin{figure}[h]
- % \centering
- %  \input{test.tex}
- % \caption{Test}
- % \end{figure}
+  \begin{figure}[h]
+ \centering
+   \input{test.tex}
+  \caption{Test}
+  \end{figure}
 
 \section{Relaciones de escala Radio de giro}
 
 Como se aprecia en la figura \ref{radio-giro-fig} el radio de giro sufre un
 cambio drástico aproximadamente en $\kappa\simeq 0.8$, que separa las dos
 fases: plana para $\kappa> 0.8$ y rugosa  para $\kappa< 0.8$. Para estudiar la
-relación de escala en ambas fases, tomamos En la fase
-rugosa sigue la relación de escala $R_G\sim (\log L)^{1/2}$ (figura
-\ref{rg2_rugosa}), y la fase plana $R_G\sim L$
+relación de escala en ambas fases tomamos los valores de $\kappa$ que tenemos
+más alejados de $0.8$, que son $\kappa=0.5$ para la fase rugosa y $\kappa=2.0$
+para la fase plana. En la fase rugosa observamos efectivamente sigue la
+relación de escala $R_G\sim (\log L)^{1/2}$ (figura \ref{rg2_rugosa}), y la
+fase plana $R_G^2\sim L^{2\nu}$ (figura \ref{Rg2_plana}) con $2\nu=1.9955 \pm
+0.005$. Respecto a la transición de fase encontramos un valor de $2\nu=1.38\pm
+0.03\rightarrow \nu=0.69\pm 0.02$, el valor teórico predicho es de $\nu=0.76$,
+y simulaciones anteriores mediante simulaciones de Monte-Carlo del grupo de
+renormalización Monte-Carlo es $\nu=0.76\pm 0.01$,  nuestro valor es
+ligeramente menor, y aunque más preciso, no es muy fiable, pues el ajuste no
+ es muy bueno como indica el valor alto de $\chi^2$. 
 
 \begin{figure}[h]
   \centering
@@ -128,78 +136,86 @@ rugosa sigue la relación de escala $R_G\sim (\log L)^{1/2}$ (figura
 
 \subsection{Calor específico}
 
+Puesto que la energía de curvatura está acotada, tiene una valor nulo
+en la fase completamente desordenada y tiene un valor máximo 
+\begin{equation}\label{max_ecurvatura}
+e^{max}_c = \frac{(L-1)(3L-5)}{L^2}
+\end{equation}
+en la fase completamente plana. Definiendo la energía de
+curvatura intensiva normalizada $e_c^{norm}$  como el cociente
+$e_c/ e_c^{max}$ . Los resultados obtenidos para
+esta cantidad en figura \eqref{Ec_fig}, donde se
+representan frente a $\kappa$ y en función del tamaño de
+la red. En todos los tamaños, $\langle e_c\rangle_{norm}$ tiende a la unidad para
+$\kappa\rightarrow \infty$, completamente plana, y a cero para
+$\kappa\rightarrow 0$, completamente rugosa. El comportamiento alrededor de ambos
+límites es igual para todos los tamaños es similar, con una tendencia de aumento o
+disminución de la pendiente según nos acercamos al valor asintótico nulo, fase
+rugosa, o a uno, fase plana. Únicamente encontramos
+diferencias significativas entre los diferentes tamaños del sistema en la
+región intermedia, donde se da el valor 
+máximo de la pendiente, que marca la frontera entre los dos
+comportamientos. Este valor máximo es mayor cuanto mayor es el tamaño del
+sistema, por tanto, para un tamaño infinito del sistema tendremos un valor
+infinito, que caracteriza las transiciones de segundo orden. La finitud de
+esta pendiente es debido a los efectos de tamaño finito del sistema. 
+
+
+\begin{table}
+\begin{tabular}{|c|c|c|c|}\hline
+ Ajuste   & Todos los puntos   & Eliminando $L=64$    & fijando $c_0=0$\\ \hline
+ $c_0$    & $0.7702\pm 0.069 $ &  $0.4759\pm 0.0083 $ & $0.0$ \\ \hline
+ $c_1$    & $0.1098 \pm 0.018$ &  $0.21471\pm 0.0032$ & $0.4032\pm 0.0219$ \\ \hline
+ $\omega$ & $0.7602\pm 0.034$  &  $ 0.618\pm0.003$    & $0.506\pm 0.015$ \\ \hline
+ $\chi_c^2/gl$ &  $0.383/2$ & $0.02102/2$ &  $1.597/3$ \\ \hline
+ $P(\chi^2>\chi_c^2)$&  $0.8257$& $0.8847$ &  $0.660$ \\ \hline
+\end{tabular}
+\caption{Resultados del ajuste para $C_V^{max}(L)$, figura \ref{max_Cv_L_fig}}
+\end{table}
+
+
+\begin{table}
+\begin{tabular}{|c|c|c|c|}\hline
+ Ajuste   & Todos los puntos   \\ \hline
+ $\kappa(\infty)$    & $0.7455\pm 0.045 $ \\ \hline
+ $c_1$    & $0.745 \pm 0.799$ \\ \hline
+ $\nu$ & $1.46\pm 1.137$  & \\ \hline
+ $\chi_c^2/gl$ &  $1.7745/2$ & \\ \hline
+ $P(\chi^2>\chi_c^2)$&  $0.4127$\\ \hline
+\end{tabular}
+\caption{Resultados del ajuste para $\kappa_c(L)$ obtenida a partir de los
+  máximos de $C_V(L,\kappa)$, figura \ref{kappa_Cv_fig}}
+\end{table}
+
 \begin{figure}[h]
 \centering
  \input{Se_plot.tex}
-\caption{Energía de curvatura $E_C$}
+\caption{Energía de curvatura $\langle e_c\rangle_{norm}$}\label{Ec_fig}
 \end{figure}
 
 \begin{figure}[h]
   \centering
   \input{Cv_plot.tex}
-  \caption{Calor específico}
+  \caption{Calor específico}\label{Cv_fig}
 \end{figure}
 
 \begin{figure}[h]
   \centering
   \input{max_Cv_plot.tex}
-  \caption{Máximo calor específico}
+  \caption{Máximo calor específico}\label{max_Cv_fig}
 \end{figure}
 
 \begin{figure}[h]
   \centering
   \input{Cv_L_plot.tex}
-  \caption{$C_v$ frente a $L$ en la transición de fase. Resultados del ajuste
-    $c_0=0.76\pm 0.36$ $c_1=0.11\pm 0.09$,  $\omega=0.76\pm
-    0.17$. $\chi^2/gl=0.349/2$ , $P(\chi>\chi_c^2)=0.83987691$}
-
-% degrees of freedom    (FIT_NDF)                        : 2
-% rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.417849
-% variance of residuals (reduced chisquare) = WSSR/ndf   : 0.174598
-
-% Final set of parameters            Asymptotic Standard Error
-% =======================            ==========================
-
-% c0              = 0.767979         +/- 0.1513       (19.7%)
-% c1              = 0.110299         +/- 0.03993      (36.21%)
-% omega           = 0.759527         +/- 0.07476      (9.843%)
-
-
-% correlation matrix of the fit parameters:
-
-%                c0     c1     omega  
-% c0              1.000 
-% c1             -0.993  1.000 
-% omega           0.986 -0.999  1.000 
-
+  \caption{Resultados del ajuste para $C_V^{max}(L)$}\label{max_Cv_L_fig}
 \end{figure}
 
 \begin{figure}[h]
   \centering
   \input{Cv_T_L_plot.tex}
-  \caption{$\kappa_c(L)$ frente a $L$. Resultados del ajuste $c_0=0.74\pm
-    0.06$ ,$c_1=0.6\pm 0.7 $ $\nu=1.628 \pm 1.508703$. $\chi^2/gl=1.254754 \
-    10^{-7}/2$ , $P(\chi^2>\chi_c^2)=0.5339906$ }
-
-% degrees of freedom    (FIT_NDF)                        : 2
-% rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.792071
-% variance of residuals (reduced chisquare) = WSSR/ndf   : 0.627377
-
-% Final set of parameters            Asymptotic Standard Error
-% =======================            ==========================
-
-% c0              = 0.739158         +/- 0.05025      (6.798%)
-% c1              = 0.647846         +/- 0.5901       (91.09%)
-% nu              = 1.62843          +/- 1.195        (73.36%)
-
-
-% correlation matrix of the fit parameters:
-
-%                c0     c1     nu     
-% c0              1.000 
-% c1              0.969  1.000 
-% nu             -0.991 -0.993  1.000 
-
+  \caption{Resultados del ajuste para $\kappa_c(L)$ obtenida a partir de los
+  máximos de $C_V(L,\kappa)$}\label{kappa_Cv_fig}
 \end{figure}
 \clearpage
 
@@ -274,8 +290,15 @@ rugosa sigue la relación de escala $R_G\sim (\log L)^{1/2}$ (figura
 \end{figure}
 \clearpage
 
-%\subsection{Módulo de Poisson}
+\subsection{Módulo de Poisson}
 
+La siguiente figura \ref{poisson-fig} muestra como la tendencia asintótica del
+módulo de Poisson 
+\begin{figure}[h]
+  \centering
+  \input{poisson_plot.tex}
+  \caption{Módulo de Poisson}\label{poisson-fig}
+\end{figure}
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "TFM"
