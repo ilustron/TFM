@@ -8,9 +8,9 @@ Se pueden interpretar las interacciones de los puntos de la superficie como
 conexiones, es decir, dos puntos que están interaccionando entre sí, han
 establecido una conexión entre ambos. Una membrana cristalina corresponde al
 tipo de superficie en la que las conexiones entre sus puntos forman una red
-regular de conectividad fija, lo que significa que si existe
- una conexión entre dos puntos, está persistirá sea
-cual sea el estado tridimensional de la superficie.
+regular de conectividad fija, lo que significa que si existe una conexión
+entre dos puntos, está persistirá sea cual sea la forma tridimensional de la
+superficie.
 
 Usaremos una descripción continua de la membrana cristalina \cite{David:geometria} en donde la
 posición, en el espacio tridimensional, de los nodos de la red vendrá dada por los
@@ -62,29 +62,32 @@ membrana tenemos un plano tangente $T_PS$ a la superficie (figura
 
 \begin{equation*}
 \vec{t}_{\alpha}=\frac{\partial \vec{r}}{\partial
-  x^{\alpha}}=\partial_{\alpha}\vec{r} \qquad \alpha=1,2;
+  x^{\alpha}}=\partial_{\alpha}\vec{r} \qquad \alpha=1,2.
 \end{equation*}
-con los que podemos escribir cualquier vector $\vec{V}$ tangente a la superficie en el punto $P$ como:
+Con los que podemos escribir cualquier vector $\vec{V}$ tangente a la superficie en el punto $P$ como:
 \begin{equation}\label{ejemplo_vector} 
-  \vec{V}=\sum^2_{\alpha=1}V^{\alpha}\vec{t}_{\alpha}=V^{\alpha}\vec{t}_{\alpha}
+  \vec{V}=\sum^2_{\alpha=1}V^{\alpha}\vec{t}_{\alpha}=V^{\alpha}\vec{t}_{\alpha},
 \end{equation}
-con el convenio de índices repetidos de Einstein. Las dos cantidades
+con el convenio de índices repetidos de Einstein\footnote{Mientras no se
+  indique lo contrario, usaremos el convenio de índices repetidos de
+  Einstein y los índices griegos tomarán valores de 1 a 2.}. Las dos cantidades
 $V^{\alpha}$ son las componentes del vector $\vec{V}$ en el sistema de
 coordenadas internas $\mathbf{x}$ y dependen de la elección del sistema de
 coordenadas, esto es, de la parametrización de la superficie. Si consideramos
 un nuevo sistema de coordenadas  
 \begin{equation*}
- \mathbf{x}'=\{x'^{\alpha}(\mathbf{x}); \alpha=1,2\}
+ \mathbf{x}'=\{x'^{\alpha}(\mathbf{x});\; \alpha=1,2\},
 \end{equation*}
-La base de los vectores tangentes en $\mathbf{x}'$ es
+podemos relacionar la base de los vectores tangentes a $\mathbf{x}'$ con la
+asociada a $\mathbf{x}$
 \begin{equation*}
 \vec{t}_{\alpha}^{\ '}=\frac{\partial \vec{r}}{\partial x'^{\alpha}}=
-\frac{\partial x^{\beta}}{\partial x'^{\alpha}}\frac{\partial \vec{r}}{\partial x^{\beta}}=\frac{\partial x^{\beta}}{\partial x'^{\alpha}}\vec{t}_{\alpha}
+\frac{\partial x^{\beta}}{\partial x'^{\alpha}}\frac{\partial \vec{r}}{\partial x^{\beta}}=\frac{\partial x^{\beta}}{\partial x'^{\alpha}}\vec{t}_{\alpha},
 \end{equation*}
-Y las componentes $V'^{\alpha}$ del vector \eqref{ejemplo_vector}
+También las componentes $V'^{\alpha}$ del vector \eqref{ejemplo_vector}
 \begin{equation} 
   \vec{V}=V'^{\alpha}\vec{t}_{\alpha}^{\
-    '}=V^{\alpha}\vec{t}_{\alpha}\Rightarrow V'^{\alpha}=\frac{\partial x'^{\alpha}}{\partial x^{\beta}}V^{\beta}
+    '}=V^{\alpha}\vec{t}_{\alpha}\Rightarrow V'^{\alpha}=\frac{\partial x'^{\alpha}}{\partial x^{\beta}}V^{\beta}.
 \end{equation}
 
 Tanto $\vec{t}_{\alpha}$ como $V^{\alpha}$ son casos particulares de objetos
@@ -97,7 +100,7 @@ T'^{\alpha_1,\dots,\alpha_m}_{\beta_1,\dots,\beta_m}=
 \frac{\partial x'^{\alpha_1}}{\partial x^{\beta_1}}\dots \frac{\partial
   x'^{\alpha_m}}{\partial x^{\beta_m}}
 \frac{\partial x^{\beta_1}}{\partial x'^{\alpha_1}}\dots \frac{\partial
-  x^{\beta_n}}{\partial x'^{\alpha_n}}T^{\alpha_1,\dots,\alpha_n}_{\beta_1,\dots,\beta_m}
+  x^{\beta_n}}{\partial x'^{\alpha_n}}T^{\alpha_1,\dots,\alpha_n}_{\beta_1,\dots,\beta_m}.
 \end{equation*}
 
 Entonces $V^{\alpha}$ son las componentes de un tensor de rango $1$
@@ -108,35 +111,31 @@ llamaremos a un tensor de rango $1$ covariante vector covariante.
 
 La distancia tridimensional $dl$ entre dos puntos de coordenadas internas
 $\mathbf{x}$ y $\mathbf{x}+d\mathbf{x}$ respectivamente es:
-
 \begin{equation}\label{elemento_linea}
-dl^2=(\vec{r}(\mathbf{x}+d\mathbf{x})-\vec{r}(\mathbf{x}))^2=g_{\alpha\beta}dx^{\alpha}dx^{\beta}
+dl^2=(\vec{r}(\mathbf{x}+d\mathbf{x})-\vec{r}(\mathbf{x}))^2=g_{\alpha\beta}dx^{\alpha}dx^{\beta},
 \end{equation}
-
-Donde $g_{\alpha\beta}=\vec{t}_{\alpha}\cdot\vec{t}_{\beta}$ es un tensor, que
+siendo $g_{\alpha\beta}=\vec{t}_{\alpha}\cdot\vec{t}_{\beta}$ un tensor, que
 denominaremos métrica inducida, que nos permite definir el producto escalar
 entre dos vectores tangentes $\vec{V}$ y $\vec{W}$ en el punto $P$:
 \begin{equation}\label{producto_escalar}
-\vec{V}\cdot\vec{W}=g_{\alpha\beta}V^{\alpha}W^{\beta}
+\vec{V}\cdot\vec{W}=g_{\alpha\beta}V^{\alpha}W^{\beta}.
 \end{equation}
-Diremos que la base $\{ \vec{t}_{\alpha}, \alpha=1,2\}$ es ortonormal si
+Diremos que la base $\{ \vec{t}_{\alpha},\; \alpha=1,2\}$ es ortonormal si
 \begin{equation*}
-\vec{t}_{\alpha}\cdot\vec{t}_{\beta}=\delta_{\alpha\beta}
+\vec{t}_{\alpha}\cdot\vec{t}_{\beta}=\delta_{\alpha\beta},
 \end{equation*}
-donde $\delta_{\alpha\beta}$ es la métrica euclídea. 
-
+donde $\delta_{\alpha\beta}$ es la métrica euclídea 
 % Encontrar un sistema de coordenadas internas cuya
 % base de vectores tangentes sea ortonormal en un punto, equivale a
 % diagonalizar $g_{\alpha\beta}$ en dicho punto. Esto siempre es posible gracias a que la
 % métrica inducida es simétrica $g_{\alpha\beta}=g_{\beta\alpha}$. Como vemos La
 % ortogonalidad depende del punto, es local; únicamente un sistema de cordenadas
-% internas gnerará 
-
+% internas generará 
 \begin{equation*}
 \delta_{\alpha\beta}\equiv\left(\begin{array}{cc}
 1&0\\
 0&1\\
-\end{array}\right)
+\end{array}\right).
 \end{equation*}
 La métrica inducida inversa $g^{\alpha\beta}$ se define como
 \begin{equation}\label{expresion_metrica}
@@ -148,23 +147,23 @@ g_{\alpha\gamma}g^{\gamma\beta}=\delta_{\alpha}^{\ \beta}=\begin{cases}
 
 Gracias a esta última expresión \eqref{expresion_metrica} podemos hacer
 corresponder los vectores contravariantes con los covariantes, que en la
-notación usada equivale a subir o bajar índices:
+notación usada equivale a subir o bajar índices
 \begin{equation*}
-V_{\alpha}=g_{\alpha\beta}V^{\beta}\rightarrow V^{\alpha}=g^{\alpha\beta}V_{\beta} 
+V_{\alpha}=g_{\alpha\beta}V^{\beta}\rightarrow V^{\alpha}=g^{\alpha\beta}V_{\beta}, 
 \end{equation*}
-Y podemos expresar el producto escalar de los vectores
+y podemos expresar el producto escalar de los vectores
 \eqref{producto_escalar} 
 \begin{equation*}
-\vec{V}\cdot\vec{W}=V_{\alpha}W^{\beta}=V^{\alpha}W_{\beta}
+\vec{V}\cdot\vec{W}=V_{\alpha}W^{\alpha}=V^{\alpha}W_{\alpha}.
 \end{equation*}
-El elemento de infinitesimal de área $d^2\mathbf{s}$ se relaciona con el
-determinante $g$ de la métrica inducida por
 
+El elemento de infinitesimal de área $d^2\mathbf{s}$ se relaciona con el
+determinante $g\equiv\det(g_{\alpha\beta})$ de la métrica inducida a través de
 \begin{equation}\label{elemento_area}
-d^2\mathbf{s}=\sqrt{g}\;d^2\mathbf{x}
+d^2\mathbf{s}=\sqrt{g}\;d^2\mathbf{x},
 \end{equation}
-donde $d^2\mathbf{x}=dx^1dx^2$. Se puede demostrar esta expresión
-\eqref{elemento_area} teniendo en cuenta que
+donde $d^2\mathbf{x}\equiv dx^1dx^2$. La demostración de esta expresión
+\eqref{elemento_area} es evidente teniendo en cuenta que
 \begin{equation*}
 d^2\mathbf{s}=|\vec{t}_1\times\vec{t}_2|\;d^2\mathbf{x}
 \end{equation*}
@@ -180,21 +179,23 @@ g_{11}g_{22}-(\vec{t}_1\cdot\vec{t}_2)^2=g_{11}g_{22}-g_{12}g_{21}=g
 Para medir la curvatura de la membrana, se generaliza la noción de curvatura
 de una curva (unidimensional), definiendo el tensor de curvatura extrínseca:
 \begin{equation}\label{tensor_curvatura}
-\vec{K}_{\alpha\beta}=D_{\alpha}\vec{t}_{\beta}.
+\vec{K}_{\alpha\beta}=D_{\alpha}\vec{t}_{\beta},
 \end{equation}
-Es un tensor simétrico covariante, cuyas componentes son vectores
-tridimensionales. Puesto que estamos comparando vectores en planos tangentes
+que es un tensor covariante, cuyas componentes son vectores
+tridimensionales, mide la variación de los vectores tangentes. Puesto que
+estamos interesados en comparar vectores en planos tangentes
 diferentes (si compararemos vectores en el mismo plano encontraríamos
-curvatura nula). $D_{\alpha}$ es el operador correspondiente a la derivada
-covariante, que se define para las componentes covariantes de un vector $\vec{V}$ como
+curvatura nula), se usa en \eqref{tensor_curvatura} para derivar $D_{\alpha}$,
+el operador correspondiente a la derivada covariante, que se define para las
+componentes covariantes de un vector $\vec{V}$ como
 \begin{equation}\label{derivada_covariante}
-D_{\alpha}V^{\beta}=\frac{\partial V_{\beta}}{\partial x^{\alpha}}-\Gamma^{\gamma}_{\alpha\beta}V_{\gamma}
+D_{\alpha}V^{\beta}=\frac{\partial V_{\beta}}{\partial x^{\alpha}}-\Gamma^{\gamma}_{\alpha\beta}V_{\gamma},
 \end{equation}
-Donde $\Gamma^{\beta}_{\alpha\nu}$ es la conexión, no es un tensor, y
-determina que vectores son paralelos en puntos diferentes, el transporte
+siendo $\Gamma^{\beta}_{\alpha\nu}$ la conexión afín, que no es un tensor, y
+determina qué vectores son paralelos en puntos diferentes usando la noción del transporte
 paralelo. Utilizaremos la conexión de Levi Civita, donde dos vectores
 tangentes de planos tangentes diferentes serán paralelos, si son tangentes a la
-misma curva geodésica, curva entre los puntos $P$ y $Q$ cuya longitud es
+misma curva geodésica: La curva entre los puntos $P$ y $Q$ cuya longitud es
 estacionaria. Por tanto, la conexión de Levi Civita está directamente
 relacionada con la métrica inducida, de hecho, cumple las siguientes dos condiciones
 con las que queda completamente determinada:
@@ -204,9 +205,9 @@ con las que queda completamente determinada:
 \item El producto escalar de dos vectores es invariante bajo transporte
   paralelo, lo que implica que la derivada covariante de la métrica inducida
   es nula: 
-  \begin{equation}
-    D_{\gamma}g_{\alpha\beta}=0
-  \end{equation}
+  \begin{equation*}
+    D_{\gamma}g_{\alpha\beta}=0.
+  \end{equation*}
 \end{enumerate}
 
 Apoyándonos en estas dos últimas condiciones de la conexión podemos encontrar que
@@ -216,27 +217,33 @@ a la superficie, pues
 \vec{K}_{\alpha\beta}\cdot \vec{t}_{\gamma}=(D_{\alpha}\vec{t}_{\beta})\cdot\vec{t}_{\gamma}=D_{\alpha}g_{\beta\gamma}-\vec{t}_{\beta}\cdot(D_{\alpha}\vec{t}_{\gamma})=-\vec{K}_{\gamma\alpha}\cdot \vec{t}_{\beta},
 \end{equation}
 y repitiendo estas operaciones de nuevo dos veces más, encontramos que
-$\vec{K}_{\alpha\beta}\cdot \vec{t}_{\gamma}=0$. 
-
-Si se sustituye la definición de derivada covariante \eqref{derivada_covariante} en la expresión
-\eqref{tensor_curvatura}del tensor de curvatura 
-\begin{equation}\label{parcial_t}
-\frac{\partial \vec{t}_{\alpha}}{\partial x^{\beta}}=\Gamma^{\gamma}_{\alpha\beta}\vec{t}_{\gamma}+\vec{K}_{\alpha\beta},
-\end{equation}
-lo que indica que $\Gamma^{\gamma}_{\alpha\beta}$ son las componentes tangenciales de
-$(\partial \vec{t}_{\alpha}/\partial x^{\beta})$ y $\vec{K}_{\alpha\beta}$ y 
-$\vec{K}_{\alpha\beta}$ es la componente normal de $(\partial
-\vec{t}_{\alpha}/\partial x^{\beta})$, mide la rotación de los vectores
-tangentes al ser transportados paralelamente a la superficie. Por tanto,
- $\vec{K}_{\alpha\beta}$ será proporcional al vector normal a la superficie
 \begin{equation*}
- \vec{K}_{\alpha\beta}=K_{\alpha\beta}\vec{n}\, ,
+\vec{K}_{\alpha\beta}\cdot \vec{t}_{\gamma}=0.
 \end{equation*}
-donde $K_{\alpha\beta}$ es un tensor simétrico. Utilizando esta última
-expresión junto a \eqref{parcial_t} llegamos a una expresión para
-$K_{\alpha\beta}$
+Si se sustituye la definición de derivada covariante \eqref{derivada_covariante} en la expresión
+\eqref{tensor_curvatura} del tensor de curvatura 
+\begin{equation}\label{parcial_t}
+\frac{\partial \vec{t}_{\alpha}}{\partial x^{\beta}}=\Gamma^{\gamma}_{\alpha\beta}\vec{t}_{\gamma}+\vec{K}_{\alpha\beta}.
+\end{equation}
+Teniendo en cuenta que $\partial_{\beta} \vec{t}_{\alpha}=\partial_{\alpha}
+\vec{t}_{\beta}$  y la simetría de
+$\Gamma^{\gamma}_{\alpha\beta}=\Gamma^{\gamma}_{\beta\alpha}$, deducimos a
+partir de está última igualdad \eqref{parcial_t}, que el tensor de curvatura es simétrico 
+\begin{equation*}
+\vec{K}_{\alpha\beta}=\vec{K}_{\beta\alpha}.
+\end{equation*}
+También la expresión \eqref{parcial_t} nos muestra que las componentes
+tangencial y normal de
+$(\partial \vec{t}_{\alpha}/\partial x^{\beta})$ son $\Gamma^{\gamma}_{\alpha\beta}$  y 
+$\vec{K}_{\alpha\beta}$, respectivamente. Por tanto, el tensor de curvatura
+mide la rotación de los vectores tangentes al ser transportados paralelamente
+a la superficie, y será proporcional a la normal $\vec{n}$ a la superficie
+\begin{equation*}
+ \vec{K}_{\alpha\beta}=K_{\alpha\beta}\vec{n},
+\end{equation*}
+donde $K_{\alpha\beta}$ es un tensor simétrico que vendrá dado por
 \begin{equation}\label{K_alfa_beta}
-K_{\alpha\beta}=\frac{\partial \vec{t}_{\alpha}}{\partial x^{\beta}}\cdot\vec{n} 
+K_{\alpha\beta}=\frac{\partial \vec{t}_{\alpha}}{\partial x^{\beta}}\cdot\vec{n}. 
 \end{equation}
 
 Si derivamos con respecto a $x^{\beta}$ el producto $\vec{t}^{\alpha}\cdot\vec{n}=0$
@@ -268,7 +275,7 @@ Multiplicando a ambos lados por $\vec{t}^{\gamma}$ y teniendo en cuenta
 \end{figure}
 
 Al ser $K_{\alpha\beta}$ un tensor simétrico, podemos encontrar para cualquier
-punto $P$ dado un sistema de coordenadas $\mathbf{x}$ donde sea diagonal
+punto $P$ dado un sistema de coordenadas $\{\mathbf{x}\}$ donde sea diagonal
 \begin{equation*}
 K_{\alpha\beta}\equiv\left(\begin{array}{cc}
 \mathcal{K}_1 & 0\\
@@ -280,18 +287,18 @@ curvaturas principales y están relacionados con los radios principales
 de curvatura $\mathcal{R}_{\alpha}$ por
 \begin{equation*}
 \mathcal{R}_{\alpha}=\frac{1}{\mathcal{K}_{\alpha}} \, , \qquad \alpha=1,2.
-\end{equation*}.
+\end{equation*}
 que corresponden a los radios de la mayor y menor circunferencia osculatriz en
 el punto $P$ (figura \ref{radios_curvatura-fig}).
 Estas curvaturas principales nos permiten definir dos importantes nuevas magnitudes:
 La curvatura media $H$ y la curvatura Gaussiana $K$, definidos como el
 promedio y el producto de las curvaturas principales:
-\begin{align}
-H&=\frac{K_1+K_2}{2},\\
-K&=K_1K_2.
-\end{align}
+\begin{align*}
+H&=\frac{\mathcal{K}_1+\mathcal{K}_2}{2},\\
+K&=\mathcal{K}_1\mathcal{K}_2.
+\end{align*}
 La curvatura media $H$ es una cantidad geométrica extrínseca \cite{LuisLinares}, en el sentido de
-que su valor depende de la deformación tridimensional de la superficie. En
+que su valor depende de la forma tridimensional de la superficie. En
 contraste, la curvatura de Gauss es una cantidad geométrica intrínseca, es
 decir, no depende de como este sumergida la superficie en el espacio euclídeo,
 sino que únicamente depende de la geometría propia de la superficie. La
@@ -300,6 +307,7 @@ expresión de ambas magnitudes en un sistema de coordenadas cualquiera es
 H&= \frac{1}{2}K_{\alpha}^{\ \alpha}\label{curvatura_media}\\
 K&= \det(K_{\alpha\beta})=\frac{1}{2}(K_{\alpha}^{\ \alpha}K_{\beta}^{\ \beta}-K_{\alpha}^{\ \beta}K_{\alpha}^{\ \beta})\label{curvatura_gaussiana}
 \end{align}
+
 \section{Estudio de la transición de fase}
 
 En una membrana se pueden encontrar dos fases: La fase plana y la fase
@@ -345,43 +353,37 @@ todas las partículas que forman el bloque.
 
 En una descripción microscópica y continua, la función de partición
 $\mathcal{Z}[T]$ de la membrana cristalina vendrá dada por
-
 \begin{equation}\label{Zmicroscopica}
 \mathcal{Z}[T]=\int D[\eta(\mathbf{x})]\; e^{-\beta H[\eta(\mathbf{x})]},
 \end{equation}
 donde con $\int D[\eta(\mathbf{x})]$ se denota la integral funcional sobre
 todas las configuraciones posibles, $H[\eta(\mathbf{x})]$ es el hamiltoniano
 microscópico y $\beta=\frac{1}{k_BT}$ es el factor de Boltzmann. Se define la
-energía libre de Landau 
-$F[\bar{\eta}(\mathbf{x}_{\Lambda}),T]$ como 
+energía libre de Landau $F[\bar{\eta}(\mathbf{x}_{\Lambda}),T]$ como 
 \begin{equation*}
 e^{-F[\bar{\eta}(\mathbf{x}_{\Lambda}),T]}=\int D[\eta(\mathbf{x})]\; e^{-\beta
   H[\eta(\mathbf{x}),T]}
-  \;\delta\left[\frac{1}{A_{\Lambda}}\int_{\Lambda} d^2\mathbf{x}\; \eta(\mathbf{x})-\bar{\eta}(\mathbf{x}_{\Lambda})\right]
+  \;\delta\left[\frac{1}{A_{\Lambda}}\int_{\Lambda} d^2\mathbf{x}\; \eta(\mathbf{x})-\bar{\eta}(\mathbf{x}_{\Lambda})\right],
 \end{equation*}
 
-Siendo $\delta$ la función delta de Dirac y $A_{\Lambda}$ es el área
+siendo $\delta$ la función delta de Dirac y $A_{\Lambda}$ es el área
 formada por las partículas del bloque. Esta energía libre de Landau se puede
 interpretar como un potencial efectivo, resultado de la integración de los
 grados de libertad microscópicos sujetos a la condición de que sus promedios
 en los  bloques coincida con el parámetro de orden
 $\eta(\mathbf{x}_{\Lambda})$ de grano grueso. La función de partición
 \eqref{Zmicroscopica} se puede expresar en función de la energía libre de
-Landau
-
+Landau como
 \begin{equation*}
-\mathcal{Z}[T]=\int D[\bar{\eta}(\mathbf{x}_{\Lambda})]\; e^{-F[\bar{\eta}(\mathbf{x}_{\Lambda}),T]}
+\mathcal{Z}[T]=\int D[\bar{\eta}(\mathbf{x}_{\Lambda})]\; e^{-F[\bar{\eta}(\mathbf{x}_{\Lambda}),T]}.
 \end{equation*}
-
 Esta expresión nos muestra que $F[\bar{\eta}(\mathbf{x}),T]$ es una funcional
 que representa un hamiltoniano efectivo dividido por $k_BT$. A su vez, podemos
 escribir 
-
 \begin{equation*}
-F[\bar{\eta}(\mathbf{x}),T]=\int\! d^2\mathbf{s}\ f[\bar{\eta}(\mathbf{x}),T]
+F[\bar{\eta}(\mathbf{x}),T]=\int\! d^2\mathbf{s}\ f[\bar{\eta}(\mathbf{x}),T],
 \end{equation*}
-
-Siendo $d^2\mathbf{x}$ el elemento de área y $f[\bar{\eta}(\mathbf{x}),T]$ la
+siendo $d^2\mathbf{s}$ el elemento de área y $f[\bar{\eta}(\mathbf{x}),T]$ la
 densidad de energía libre de Landau. Puesto que cerca de la transición de fase
 el parámetro de orden $\bar{\eta}(\mathbf{x})$ toma valores pequeño, podemos
 desarrollar $f[\bar{\eta}(\mathbf{x}),T]$ en potencias de
@@ -423,11 +425,11 @@ Vamos a proponer una expresión de energía libre de Landau
 $F[\vec{t}_{\alpha}(\mathbf{x}),T]$ para una membrana cristalina
 apoyándonos en las siguientes propiedades:
 \begin{description}
-\item[Localidad e invarianza traslacional]: Dependerá de los vectores
+\item[Localidad e invariancia traslacional]: Dependerá de los vectores
   tangentes locales $\vec{t}_{\alpha}(\mathbf{x})$ y de las
   interacciones de corto alcance descritas a través del desarrollo en gradientes
   $$ F[\vec{t}_{\alpha}(\mathbf{x}),T]=\int\! d^2\mathbf{s}\ f[\vec{t}_{\alpha},\nabla
-  \vec{t}_{\alpha},\dots]$$ 
+  \vec{t}_{\alpha},\dots].$$ 
 \item[Simetría rotacional en $\mathbb{R}^3$]: Está simetría implica que sólo
   puede depender de productos escalares entre los vectores tangentes
   locales y sus gradientes con un número par de términos. 
@@ -446,8 +448,8 @@ apoyándonos en las siguientes propiedades:
     \left[
       \frac{t}{2}(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})+
       u(\vec{t}_{\alpha}\cdot\vec{t}_{\beta})(\vec{t}^{\alpha}\cdot\vec{t}^{\beta})+
-      v(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})+
-      \frac{\kappa}{2}(\partial_{\alpha}\vec{t}_{\alpha})\cdot(\partial^{\alpha}\vec{t}^{\alpha}) \right]
+      v(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})(\vec{t}_{\beta}\cdot\vec{t}^{\beta})+
+      \frac{\kappa}{2}(\partial_{\alpha}\vec{t}^{\alpha})\cdot(\partial^{\beta}\vec{t}_{\beta}) \right]
   \end{multline}
 
 

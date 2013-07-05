@@ -402,8 +402,7 @@ $i$ relativo al centro de masas $\vec{r}_{CM}$ de la membrana.
   lineal \cite{Binney:critical_phenomema}, podemos calcular la derivada del
   radio de giro respecto a $\kappa$ (temperatura) 
 \begin{equation}
-  \frac{\partial R_g^2}{\partial \kappa}=\langle R_g^2E_C \rangle_c=\langle
-  R_g^2E_C \rangle_c=\langle R_g^2 E_C \rangle-\langle R_G^2\rangle\langle E_C\rangle,
+  \frac{\partial R_g^2}{\partial \kappa}=\langle R_g^2 E_C \rangle-\langle R_G^2\rangle\langle E_C\rangle=\langle R_g^2E_C \rangle_c,
 \end{equation}
 donde $\langle R_g^2E_C \rangle_c$ es la correlación conexa del radio de giro
 y la energía de curvatura.
@@ -421,73 +420,100 @@ la teoría (sumas de funciones analíticas). Aunque, podemos inferir sobre el
 comportamiento de los parámetros en el límite termodinámico observando como
 crecen los observables del sistema finito en función del tamaño $L$ \cite{Juan:tesis}. 
 Para ello, consideramos que nuestro sistema presenta una transición de fase de
-segundo orden en $\kappa_c=\kappa_c(L=\infty)$. Según nos vamos acercando a
-$\kappa_c$ la longitud de correlación $\xi$ va creciendo hasta que satura el
-tamaño del sistema y comienzan a aparecer los efectos de tamaño
-finito. Diremos que hemos alcanzado la temperatura crítica aparente
-$\kappa_c(L)$ cuando $L\simeq \xi$. Asumiendo la anterior afirmación podemos
-deducir como escala $\kappa_c(L)$ con $L$ ya que
-\begin{equation}
-\xi(\kappa_c(L))\propto L \sim (\kappa_c(L)-\kappa_c)
-\end{equation}
+segundo orden a una temperatura, cuyo valor en el límite termodinámico es
+$\kappa_c\!\equiv\!\kappa_c{\scriptstyle
+  (L=\infty)}\!=\!\kappa_c(\infty)$. Según nos vamos acercando a $\kappa_c$ la
+longitud de correlación $\xi$ va creciendo hasta que satura el tamaño del
+sistema y comienzan a aparecer los efectos de tamaño finito. Asumiendo la
+anterior afirmación podemos deducir como escala $\kappa_c(L)$ con $L$ ya que
+\begin{align}
+\xi&\propto L\\ 
+\xi&\sim (\kappa(L)-\kappa_c(\infty))^{-\nu}
+\end{align}
 entonces
 \begin{equation}
-\kappa_c(L)-\kappa_c\sim L^{-\frac{1}{\nu}}
+\kappa_c(L)-\kappa(L)\sim L^{-\frac{1}{\nu}}
 \end{equation}
 En las proximidades de la transición de fase, donde la longitud de correlación
 es del orden del tamaño del sistema, es razonable suponer que la dinámica está
 gobernada por una sola variable $L/\xi\sim L \kappa_L^{\nu}$, donde $\kappa_L$
 es la \textit{temperatura reducida}
 \begin{equation}
-\kappa_L\equiv \frac{\kappa_c-\kappa_c(L)}{\kappa_c(L)}
+\kappa_L\equiv \kappa(L)-\kappa_c(\infty).
 \end{equation}
-
-Esto implica que el comportamiento, para un observable genérico $\mathcal{O}$, del tipo
+Esto implica que un comportamiento, para un observable genérico $\mathcal{O}$, del tipo
 \begin{equation}
-\mathcal{O}_L\sim L^{\omega}f(L \kappa_L^{\nu}),
+\mathcal{O}_L\sim L^{\frac{x_0}{\nu}}f(L \kappa_L^{\nu}),
 \end{equation}
 donde $f$ es una función ``universal'' en el sentido que es independiente de
-$L$ pero dependiente del observable $\mathcal{O}$. Cuando $L\rightarrow \infty$
-debemos recuperar el comportamiento descrito en \ref{exponentes_criticos} 
+$L$ pero dependiente del observable $\mathcal{O}$. Ahora bien, dado que
+debemos recuperar el comportamiento descrito en \ref{exponentes_criticos}
+cuando $L\rightarrow \infty$ 
 \begin{equation}
-\mathcal{O}(\kappa)\sim t^{O}
+\mathcal{O}_L\sim \kappa_L^{-x_0},
 \end{equation}
-cuando $t\rightarrow 0$ Esto nos impone una condición sobre la función de
-escala $f(x)$
+tenemos que la función de escala $f(x)$ debe cumplir que
 \begin{equation}
-f(x)\sim x^{\frac{O}{\nu}}\quad x\rightarrow \infty ,
+f(x)\sim x^{-\frac{x_0}{\nu}}\quad x\rightarrow \infty.
 \end{equation}
-y otra sobre $\omega$
+Analicemos el valor máximo del observable respecto a $\kappa$, para ello
+igualamos la derivada a cero
 \begin{equation}
-\omega=-\frac{o}{\nu}
+\frac{d\mathcal{O}_L}{\kappa_L}=L^{\frac{x_0+1}{\nu}}\tilde{f}(L^{1/\nu} \kappa_L)=0,
 \end{equation}
-Por lo que
+donde hemos definido $\tilde{f}(L^{1/\nu}\kappa_L)=f(L\kappa_L^{\nu})$. Suponiendo que
+$\tilde{f}(x)$ tiene un máximo en $x_C$ (este máximo no depende del tamaño del
+sistema), podemos encontrar la relación de escala
+temperatura $\kappa_c(L)$ a la que tiene lugar el máximo del observable
 \begin{equation}
-\mathcal{O}_L\sim L^{-\frac{o}{\nu}}f(L \kappa^{\nu}).
+x_C=L^{1/\nu}(\kappa_c(L)-\kappa_c(\infty))\Rightarrow \kappa_c(L)=\kappa_c(\infty)+x_CL^{1/\nu}
 \end{equation}
-Si particularizamos en el punto crítico aparente tendremos el valor máximo de
-$\mathcal{O}_L$
+$\kappa_c(L)$ es la temperatura crítica aparente, es la temperatura a la cual
+la longitud de correlación satura con el tamaño del sistema. El valor que toma
+el observable en este máximo escalará con el tamaño del sistema como
 \begin{equation}
-\mathcal{O}^{max}_L\sim L^{-\frac{o}{\nu}}
+\mathcal{O}^{max}_L\sim L^{\frac{x_0}{\nu}}.
 \end{equation}
-Resumiendo, tenemos por ejemplo para el calor específico \eqref{CV_discreto}
+
+Resumiendo, tenemos las siguientes relaciones para los observables de nuestro sistema:
 \begin{itemize}
-\item El máximo del calor específico $C_V$, ocurre a una temperatura crítica
-  $\kappa_c(L)$, la cual está relacionada con la temperatura $\kappa_c$,
-  respecto al tamaño infinito del sistema, por
-\begin{equation}
-\kappa_c(L) -\kappa_c= L^{-1/\nu}
-\end{equation}
-\item El máximo $C_V$ del sistema finito está dado por la relación de
-  escala
-\begin{equation}
-C^{\max}_v(L)=L^{\alpha/nu}
-\end{equation}
+\item Tanto el máximo del calor específico $C_V$ como de la variación del
+  radio de giro $\frac{\partial R_g^2}{\partial \kappa}$, ocurren a una temperatura crítica
+  aparente $\kappa_c(L)$, la cual está relacionada con la temperatura crítica
+  en el límite termodinámico $\kappa_c(\infty)$, por
+  \begin{equation}
+    \kappa_c(L)=\kappa_c(\infty)+C_0 L^{-1/\nu},
+  \end{equation}
+  donde la constate $C_0$ depende del observable, no será la misma para $C_V$
+  que para $\frac{\partial R_g^2}{\partial \kappa}$.
+\item El máximo $C_V$ del sistema finito está dado por la siguiente relación 
+  \begin{equation}
+    C^{\max}_v(L)=C_1+C_2L^{\alpha/\nu},
+  \end{equation}
+  donde se ha añadido la constante $C_1$ debido a correcciones analíticas
+  REF. 
+\item Para hallar la relación de escala que sigue la variación del radio de
+  giro, debemos tener en cuenta que el radio de giro escala con el tamaño del
+  sistema como
+  \begin{equation}
+    R^2_G(L)\simeq L^{2\nu}f_{R_G}(L^{1/\nu}(\kappa(L)-\kappa_c(\infty))),
+  \end{equation}
+  donde $f_{R_G}(x)$ es la función de escala del radio de giro. Derivando esta
+  última expresión respecto $\kappa(L)$
+  \begin{equation}
+    \frac{\partial R_g^2(L)}{\partial \kappa}\simeq L^{2\nu+\frac{1}{\nu}}f'_{R_G}(L^{1/\nu}(\kappa(L)-\kappa_c(\infty))).
+  \end{equation}
+  Entonces el máximo de $\frac{\partial R_g^2(L)}{\partial \kappa}$ se
+  comportará como
+  \begin{equation}
+    \left( \frac{\partial R_g^2(L)}{\partial \kappa}\right)_{max}=C_3  L^{2\nu+\frac{1}{\nu}},
+  \end{equation}
+  siendo $C_3$ una constante.
 \end{itemize}
 
-Para encontrar el valor máximo de un observable a partir de los resultados de
-las simulaciones numéricas utilizamos el método de la densidad espectral que
-se describe a continuación.
+Para encontrar el valor máximo de un observable, a partir de los resultados de
+las simulaciones numéricas, utilizamos el método de la densidad espectral que
+se describe a continuación:
 
 \subsubsection{Método de la densidad espectral}
 
@@ -519,11 +545,11 @@ probabilidad de la energía a otra $\beta$ y relacionarla con la ya calculada
 p_{\beta'}(E)=\frac{p_{\beta}(E)e^{-(\beta'-\beta)E}}{\sum_E e^{-(\beta'-\beta)E}},
 \end{equation}
 también podemos estimar el valor esperado de un observable $\langle
-O_{\beta'}\rangle$  para una $\beta'$ partir del valor $\langle
-O_{\beta}\rangle$ a otra beta
+O\rangle_{\beta'}$  para una $\beta'$ partir del valor $\langle
+O\rangle_{\beta}$ a otra beta
 \begin{equation}
-\langle O_{\beta'}\rangle=\frac{\langle
-O_{\beta}\rangle e^{-(\beta'-\beta)E}}{\sum_E e^{-(\beta'-\beta)E}},
+\langle O\rangle_{\beta'}=\frac{\langle
+O\rangle_{\beta} e^{-(\beta'-\beta)E}}{\sum_E e^{-(\beta'-\beta)E}},
 \end{equation}
 
 Las ecuaciones son exactas cuando el número de configuraciones es infinito,
@@ -567,7 +593,7 @@ Usando estas dos últimas expresiones encontramos que
   A}\frac{K-\mu}{4\mu K}\\
 \end{align}
 A partir de estas expresiones podemos encontrar una definición alternativa
-para el módulo de Poisson \cite{Zang_Dmolecular}\cite{Parrinello_Crystal} en
+para el módulo de Poisson \cite{Zang_Dmolecular,Parrinello_Crystal} en
 función de las correlaciones conexas del tensor 
 de deformaciones
 \begin{equation}

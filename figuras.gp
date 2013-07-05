@@ -471,13 +471,13 @@ set mxtics 10
 
 #set xtics add (0.5,0.6,0.7,0.8,0.9,1,1.2,1.4,1.6,1.8,2.0)
 set xlabel '$\kappa$'
-set ylabel '$\langle e_c \rangle / \langle e_c \rangle_{max} $'
+set ylabel '$\langle e_c \rangle $'
 set key right bottom
-plot [0.4:2.2][0.2:1] "./source_plots/Medidas_Se_L64.dat" u 1:(($2)/2.8762):(($3)/sqrt(2.8762)) title '$64^2$' w yerrorlines pt 6 lt 1,\
-     "./source_plots/Medidas_Se_L46.dat" u 1:(($2)/2.8284):(($3)/sqrt(2.8284)) title '$46^2$' w yerrorlines pt 7 lt 0,\
-     "./source_plots/Medidas_Se_L32.dat" u 1:(($2)/2.7549):(($3)/sqrt(2.7549)) title '$32^2$' w yerrorlines pt 4 lt 2,\
-     "./source_plots/Medidas_Se_L24.dat" u 1:(($2)/2.6753):(($3)/sqrt(2.6753)) title '$24^2$' w yerrorlines pt 5 lt 5,\
-     "./source_plots/Medidas_Se_L16.dat" u 1:(($2)/2.5195):(($3)/sqrt(2.5195)) title '$16^2$' w yerrorlines pt 8 lt 14
+plot [0.4:2.2] "./source_plots/Medidas_Se_L64.dat" u 1:2:3 title '$64^2$' w yerrorlines pt 6 lt 1,\
+     "./source_plots/Medidas_Se_L46.dat" u 1:2:3 title '$46^2$' w yerrorlines pt 7 lt 0,\
+     "./source_plots/Medidas_Se_L32.dat" u 1:2:3 title '$32^2$' w yerrorlines pt 4 lt 2,\
+     "./source_plots/Medidas_Se_L24.dat" u 1:2:3 title '$24^2$' w yerrorlines pt 5 lt 5,\
+     "./source_plots/Medidas_Se_L16.dat" u 1:2:3 title '$16^2$' w yerrorlines pt 8 lt 14
 reset
 
 #resultados calor específico
@@ -528,11 +528,11 @@ set xlabel '$L$'
 set ylabel '$C_V$'
 set key right bottom 
 
-set logscale x 2
-set logscale y 2
+#set logscale x 2
+#set logscale y 2
 
-set mxtics 10
-set mytics 10
+#set mxtics 10
+#set mytics 10
 
 
 a0= 0.7702
@@ -541,19 +541,7 @@ omega= 0.7602
 
 Cv(x)=a0+a1*x**omega
 
-
-b0=0.4759
-b1= 0.21471
-omega2= 0.6180 
-Cv2(x)=b0+b1*x**omega2
-
-
-c1=0.40324 
-omega3=0.505716 
-
-Cv3(x)=c1*x**omega3
-
-plot [8:128] "./source_plots/maximos_Cv.dat" u 1:4:5 title '$\kappa_c(L)$' w yerrorbars pt 7,Cv(x) title '$c0+c_1L^{\omega}$',Cv2(x) title '$c0+c_1L^{\omega}$ sin $L=64$',Cv3(x) title '$c_1L^{\omega}$'
+plot "./source_plots/maximos_Cv.dat" u 1:4:5 title '$\kappa_c(L)$' w yerrorbars pt 7,Cv(x) title '$a+bL^c$'
 
 reset   
   	       
@@ -562,11 +550,22 @@ reset
 set terminal epslatex mono 
 set output "Cv_T_L_plot.tex"
 set xlabel '$L$'
-c0=0.7455
-c1=0.746
-nu=1.46
-g(x)=c0+c1*(x**(-1/nu))
-plot "./source_plots/maximos_Cv.dat" u 1:2:3 title '$C_v \rightarrow \kappa_c(L)$' w yerrorbars pt 7,g(x) title '$c_0+c_1\,L^{-1/\nu}$'
+a1=0.777
+b1=4.349
+nu1=1.38
+g1(x)=a1+b1*(x**(-nu1))
+
+a2=0.774
+b2=3.41
+nu2=1.38-0.09
+g2(x)=a2+b2*(x**(-nu2))
+
+a3=0.779
+b3=5.62
+nu3=1.38+0.09
+g3(x)=a3+b3*(x**(-nu3))
+
+plot "./source_plots/maximos_Cv.dat" u 1:2:3 title '$C_v \rightarrow \kappa_c(L)$' w yerrorbars pt 7,g1(x) title '$c_0+c_1\,L^{-1/\nu}$' w l lt 1 lc rgb 'gray',g2(x) title '$c_0+c_1\,L^{-1/\nu-0.09}$',g3(x) title '$c_0+c_1\,L^{-1/\nu+0.09}$'
 reset
   
 #resultados radio de giro
