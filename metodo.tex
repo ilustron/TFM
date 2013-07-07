@@ -45,12 +45,12 @@ nodos adyacentes. Estamos considerando únicamente interacciones de corto
 alcance,  no inlcuimos ningún término de exclusión, ya que, es irrelevante en
 la fase plana. Los  índices en letra minúscula representan las plaquetas, 
 los triángulos de la red, y $\vec{n}_{a}$ el vector normal a la plaqueta. La
-constante $\kappa$ es el módulo de rigidez y hemos escalado las posiciones de
+constante $\kappa$ es el módulo de curvatura y hemos escalado las posiciones de
 forma que la constante elástica es unitaria.
 
 %Colapso punto
 
-\subsection{límite continuo}
+\subsection{Límite continuo}
 \begin{figure}[h]
 \centering
  \resizebox{\columnwidth}{!}{\input{base-hexagonal-fig}}
@@ -69,8 +69,6 @@ Podemos aproximar
 \begin{equation}
 |\vec{r}_P-\vec{r}_Q|=\sqrt{a^2+2u_{\alpha\beta}e^{\alpha}e^{\beta}}\simeq a + \frac{u_{\alpha\beta}}{a}e^{\alpha}e^{\beta}
 \end{equation}
-
-
 
 Sustituyendo en la parte elástica de la energía libre
 \begin{equation}\label{He}
@@ -162,22 +160,22 @@ corresponde a una lista de $N$ posiciones tridimensionales:
 \begin{equation}
 R=\{ \vec{r}_1,\vec{r}_2,\dots \vec{r}_N\}\,.
 \end{equation}
-Si tenemos $M$ configuraciones independientes que siguen una distribución
-proporcional al factor $e^{-\mathcal{H}(\kappa)}$, A partir de las medidas
+Supongamos que hemos generado $M$ configuraciones independientes que siguen una distribución
+proporcional al factor $e^{-\mathcal{H}(\kappa)}$. A partir de las medidas
 $A_1,A_2,\dots A_N$ en cada configuración de un observable $A$, podemos
 estimar su valor medio para ese $\kappa$
 \begin{equation}
 \langle A \rangle_{\kappa}\simeq \frac{1}{M}\sum^M_{i=1} A_i\,.
 \end{equation}
-Para encontrar estas configuraciones empleamos un método de Monte Carlo, que
+Para generar estas configuraciones empleamos un método de Monte Carlo, que
 consiste en un camino aleatorio en el espacio de configuraciones, en donde, en
 cada uno de los pasos al menos se modifica en la posición de un nodo. Este camino
 aleatorio no necesita estar relacionado con ningún proceso físico, la eficacia
 en la estimación de $\langle A \rangle_{\kappa}$ es la única premisa. Este
 camino aleatorio debe, a partir de una configuración inicial y tras un número
-de pasos (termalización), alcanzar la región de interés donde
-las configuraciones son proporcionales a el factor $
-e^{-\mathcal{H}(\kappa)}$. El inconveniente de este método es que $M$
+de pasos (termalización), alcanzar la región de interés donde la probabilidad
+de encontrar una configuración dada es proporcional al factor de Boltzmann
+$e^{-\mathcal{H}(\kappa)}$. El inconveniente de este método es que $M$ 
 configuraciones sucesivas en esta región de interés no son independientes, pues no se
 diferencian lo suficiente entre sí, están correlacionadas, lo que implica que el
 error de la estimación de $\langle A \rangle_{\kappa}$ con estas $M$
@@ -201,7 +199,7 @@ operador son
   \begin{multline}
     P(U_{l+m}|R_m)=\int
   dR_{l+m-1}\dots dR_{m+2}
-  dR_{m+1}\\W(U,R_{l+m-1})\dots
+  dR_{m+1}\\\times W(U,R_{l+m-1})\dots
   W(R_{m+2},R_{m+1}) W(R_{m+1},R_{m})=W_l(\mathcal{U},R)
   \end{multline}
   también $W_l(\mathcal{U},R) \geq 0$ y $1=\int
@@ -236,8 +234,8 @@ Es posible demostrar que un operador de transición que satisfaga las dos
 \lim_{t\rightarrow \infty}W_t(R,S)=\frac{e^{-\mathcal{H}(R,\kappa)}}{\mathcal{Z}}
 \end{equation}
 Este teorema nos asegura que nuestro caminante siempre alcanzará la región de
-interés, no importa donde comience siempre se alcanzará la región donde las configuraciones siguen una
-distribución de acuerdo al factor de Boltzamann. 
+interés, no importa donde comience, siempre se alcanzará la región donde las
+configuraciones siguen una distribución de acuerdo al factor de Boltzmann. 
 
 Podemos descomponer el operador de transición $W(R,S)$ en operadores
 individuales $w^i(R,S)$, en los que sólo varía la posición $\vec{r}_i$. El
@@ -279,10 +277,10 @@ El algoritmo de Metropolis utiliza $g_M(z)=min\{1,z\}$ y lo hemos implementado d
   posición de un punto que ha sido modificada en un vector $\vec{\epsilon}$,
   elegido aleatoriamente y uniformemente en un cubo de volumen 
   $(2\varepsilon)^3$. Estamos proponiendo un cambio de forma simétrica, a
-  partir de $S$ también es posible proponer $S$ como siguiente configuración
+  partir de $S$ también es posible proponer $R$ como siguiente configuración
   con la misma probabilidad.
 \item Calculamos la diferencia de energía entre las dos configuraciones
-  $\Delta\mathcal{H}=\mathcal{H}_S-\mathcal{H}_S$:
+  $\Delta\mathcal{H}=\mathcal{H}_S-\mathcal{H}_R$:
   \begin{itemize}
     \item Si es negativa aceptamos la configuración $S$.
     \item Si es positiva, aceptamos la configuración con una probabilidad $e^{-\Delta\mathcal{H}}$.
@@ -306,7 +304,7 @@ que utilizaron el mismo algoritmo que nosotros. Posteriormente, para comprobar
 si efectivamente las medidas de un observable efectivamente han termalizado, se
 gráfica el valor que toma el observable en las
 configuraciones sucesivas en escala logarítmica, el gráfico histórico (figura
-\ref{grafico_historico}). También se gráfica el promedio del observable,
+\ref{grafico_historico}). También se representa el promedio del observable,
 resultado de eliminar configuraciones iniciales, en función del inverso del
 número de configuraciones conservadas (figura \ref{grafico_logtermal}). De
 esta forma, en ambos gráficas, se comprueba si hay una tendencia inicial en
@@ -324,9 +322,9 @@ es doble.
 
 \begin{figure}[h]
 \centering
- \resizebox{\columnwidth}{!}{\input{ejemplo_logtermal-fig}}\label{grafico_logtermal}
+ \resizebox{\columnwidth}{!}{\input{ejemplo_logtermal-fig}}
 \caption{Gráfico del promedio del radio de giro, resultado de eliminar
-  configuraciones iniciales, en función del inverso del número de configuraciones conservadas}
+  configuraciones iniciales, en función del inverso del número de configuraciones conservadas}\label{grafico_logtermal}
 \end{figure}
 
 Tanto para estimar el periodo de correlación de las medidas, como para el
@@ -349,7 +347,7 @@ La estimación del error para el tamaño de bloque $m$ es
 \delta\bar{Q}_m=\sqrt{\frac{K-1}{K}\sum^K_{k=1}(\bar{Q}^m_k-\bar{Q})}.
 \end{equation}
 Esta última expresión da una estimación no sesgada del error, para comprobarlo
-basta con tomar la esperanza $\langle \rangle$ a ambos lados de la ecuación
+basta con tomar la esperanza $\langle\dots \rangle$ a ambos lados de la ecuación
 \begin{equation}
 \langle (\delta\bar{Q}_n)^2\rangle=\sigma^2(Q)\frac{1}{N} 
 \end{equation}
@@ -362,7 +360,7 @@ basta con tomar la esperanza $\langle \rangle$ a ambos lados de la ecuación
 
 Si el tamaño del bloque, $m$, es muy pequeño comparada con la longitud de
 correlación entre medidas, el estimador $\delta\bar{Q}_m$ aumentará en un
-factor $\sqrt{2}$ cada vez que doblamos el tamaño del bloque(figura
+factor $\sqrt{2}$ cada vez que doblamos el tamaño del bloque (figura
 \ref{figura_ejemplo_error}). Este crecimiento cesará cuando el tamaño del
 bloque sea mayor que la correlación entre medidas. A partir de aquí, el valor
 del error se mantiene constante hasta que el número de bloques es demasiado
@@ -373,7 +371,7 @@ figura \ref{grafico_logtermal}, según la cual la
 dispersión máxima de la media del radio de giro (la diferencia del valor máximo y el
 mínimo) es $0.04$, que se corresponde aproximadamente con el doble de la
 estimación del error, por tanto, la estimación es correcta.
-
+\clearpage
 \section{Observables}
 
 Para estudio de la transición de fase se miden los siguientes observables en
@@ -402,7 +400,7 @@ $i$ relativo al centro de masas $\vec{r}_{CM}$ de la membrana.
   lineal \cite{Binney:critical_phenomema}, podemos calcular la derivada del
   radio de giro respecto a $\kappa$ (temperatura) 
 \begin{equation}
-  \frac{\partial R_g^2}{\partial \kappa}=\langle R_g^2 E_C \rangle-\langle R_G^2\rangle\langle E_C\rangle=\langle R_g^2E_C \rangle_c,
+  \frac{\partial R_g^2}{\partial \kappa}=\langle R_g^2 E_C \rangle-\langle R_G^2\rangle\langle E_C\rangle\equiv\langle R_g^2E_C \rangle_c,
 \end{equation}
 donde $\langle R_g^2E_C \rangle_c$ es la correlación conexa del radio de giro
 y la energía de curvatura.
@@ -491,22 +489,22 @@ Resumiendo, tenemos las siguientes relaciones para los observables de nuestro si
     C^{\max}_v(L)=C_1+C_2L^{\alpha/\nu},
   \end{equation}
   donde se ha añadido la constante $C_1$ debido a correcciones analíticas
-  REF. 
+  \cite{Cardy}. 
 \item Para hallar la relación de escala que sigue la variación del radio de
   giro, debemos tener en cuenta que el radio de giro escala con el tamaño del
   sistema como
   \begin{equation}
-    R^2_G(L)\simeq L^{2\nu}f_{R_G}(L^{1/\nu}(\kappa(L)-\kappa_c(\infty))),
+    R^2_G(L)\simeq L^{2\nu_F}f_{R_G}\left(L^{1/\nu}(\kappa(L)-\kappa_c(\infty))\right),
   \end{equation}
   donde $f_{R_G}(x)$ es la función de escala del radio de giro. Derivando esta
   última expresión respecto $\kappa(L)$
-  \begin{equation}
-    \frac{\partial R_g^2(L)}{\partial \kappa}\simeq L^{2\nu+\frac{1}{\nu}}f'_{R_G}(L^{1/\nu}(\kappa(L)-\kappa_c(\infty))).
+  \begin{equation}\label{escala_R2g_conexo}
+    \frac{\partial R_g^2(L)}{\partial \kappa}\simeq L^{2\nu_F+\frac{1}{\nu}}f'_{R_G}\left(L^{1/\nu}(\kappa(L)-\kappa_c(\infty))\right.)
   \end{equation}
   Entonces el máximo de $\frac{\partial R_g^2(L)}{\partial \kappa}$ se
   comportará como
   \begin{equation}
-    \left( \frac{\partial R_g^2(L)}{\partial \kappa}\right)_{max}=C_3  L^{2\nu+\frac{1}{\nu}},
+    \left( \frac{\partial R_g^2(L)}{\partial \kappa}\right)_{max}=C_3  L^{2\nu_F+\frac{1}{\nu}},
   \end{equation}
   siendo $C_3$ una constante.
 \end{itemize}
@@ -515,7 +513,7 @@ Para encontrar el valor máximo de un observable, a partir de los resultados de
 las simulaciones numéricas, utilizamos el método de la densidad espectral que
 se describe a continuación:
 
-\subsubsection{Método de la densidad espectral}
+\subsubsection{Método de la densidad espectral}\label{densidad_espectral-sec}
 
 Consideremos una evolución de Monte Carlo, cada una de las configuraciones
 generadas tiene una energía $E$, y denotamos por $\bar{N}(E)$ a la frecuencia
@@ -589,8 +587,7 @@ Usando estas dos últimas expresiones encontramos que
 \begin{align}
 \langle u_{11}u_{22} \rangle_c&=-\frac{1}{\beta A}\frac{K-\mu}{4\mu K}\\
 \langle u_{12}u_{12} \rangle_c&=\frac{1}{\beta A}\frac{1}{4\mu}\\
-\langle u_{11}u_{22} \rangle_c&=\langle u_{22}u_{11} \rangle_c=\frac{1}{\beta
-  A}\frac{K-\mu}{4\mu K}\\
+\langle u_{11}^2 \rangle_c=\langle u_{22}^2 \rangle_c&=\frac{1}{\beta A}\frac{K+\mu}{4\mu K}\\
 \end{align}
 A partir de estas expresiones podemos encontrar una definición alternativa
 para el módulo de Poisson \cite{Zang_Dmolecular,Parrinello_Crystal} en

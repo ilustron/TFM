@@ -155,17 +155,17 @@ set size 0.2
 set origin 0.220,0.530
 clear
 
-set title '$f(\zeta,t<0)$' offset 0,-1
+set title '$f_C(\zeta,t<0)$' offset 0,-1
 plot [-2.5:2.5][-1.5:2] g(x,-1) 
 set origin 0.475,0.225
 clear
 
-set title '$f(\zeta,t=0)$' offset 0,-1
+set title '$f_C(\zeta,t=0)$' offset 0,-1
 plot [-2.5:2.5][-0.5:3] g(x,0)
 set origin 0.700,0.550
 clear
 
-set title '$f(\zeta,t>0)$' offset 0,-1
+set title '$f_C(\zeta,t>0)$' offset 0,-1
 plot [-2.5:2.5][-0.5:3] g(x,1)
 
 unset multiplot
@@ -590,16 +590,16 @@ set terminal epslatex mono
 set output "rg2_plano_plot.tex"
 
 set xlabel '$L$'
-set ylabel '$R_g^2$'
-#set logscale x
-#set logscale y
+set ylabel '$\langle R_g^2 \rangle$'
+set logscale x
+set logscale y
 set key left top
 
-c0=0.134326
-c1=0.0160099
-nu=1.9955
+c0=0.141
+c1=0.0159
+nu=1.996
 f(x)=c0+c1*(x**nu)
-plot "./source_plots/rg2_escala.dat" u 1:6:7  title '$\kappa=2.0$' w yerrorbars pt 5 lt 1,f(x) title '$c_0+c_1\;L^{2\nu}$'
+plot "./source_plots/rg2_escala.dat" u 1:6:7  title '$\kappa=2.0$' w yerrorbars pt 5 lt 1,f(x) title '$c_0+c_1\;L^{c_2}$'
 reset
 
 #escala radio de giro transicion
@@ -622,21 +622,50 @@ reset
 set terminal epslatex mono 
 set output "rg2_rugosa_plot.tex"
 
-set xlabel '$L$'
-set ylabel '$R_g$'
+set xlabel '$\log L$'
+set ylabel '$\langle R_g^2 \rangle$'
 set key left top
-c0=0.292904
-c1=0.152853
+c0=-0.176
+c1=0.247
 f(x)=c0+c1*log(x)
-plot "./source_plots/rg2_escala.dat" u 1:(sqrt($3)):((sqrt(0.5)*($3)**(3/4))*($4))  title '$\kappa=0.5$' w yerrorbars pt 5 lt 1,f(x) title '$c_0+c_1\; (\log L)^{1/2}$'
+plot "./source_plots/rg2_escala.dat" u (log($1)):3:4  title '$\kappa=0.5$' w yerrorbars pt 5 lt 1,f(exp(x)) title '$c_0+c_1\; \log L$'
 reset
+
+#Funcion de escala radio de giro
+
+set terminal epslatex mono 
+set output "rg2_funcion_escala_plot.tex"
+
+inv_nu=1.38
+kc=0.777
+two_nu=4/2.7
+
+set key left top
+
+set xrange [-50:50]
+set xlabel '$L^{1/\nu}(\kappa-\kappa_c)$'
+set ylabel '$\frac{R_g^2}{L^{4/d_H}}$'
+plot [-50:50] "./source_plots/Medidas_Rg2_L64.dat" u\
+      (64**inv_nu*($1-kc)):($2/64**(two_nu)):($3/64**(two_nu)) w yerrorlines pt 6 lt 1 title '$64^2$',\
+      "./source_plots/Medidas_Rg2_L46.dat" u\
+      (46**inv_nu*($1-kc)):($2/46**(two_nu)):($3/46**(two_nu)) w yerrorlines pt 7 lt 0 title '$46^2$',\
+      "./source_plots/Medidas_Rg2_L32.dat" u\
+      (32**inv_nu*($1-kc)):($2/32**(two_nu)):($3/32**(two_nu)) w yerrorlines pt 4 lt 2  title '$32^2$',\
+       "./source_plots/Medidas_Rg2_L24.dat" u\
+       (24**inv_nu*($1-kc)):($2/24**(two_nu)):($3/24**(two_nu))   w yerrorlines pt 5 lt 5  title '$24^2$',\
+       "./source_plots/Medidas_Rg2_L16.dat" u\
+       (16**inv_nu*($1-kc)):($2/16**(two_nu)):($3/16**(two_nu))   w yerrorlines pt 8 lt 14 title '$16^2$'
+
+reset
+set output
+
 #resultados radio de giro conexo
 
 set terminal epslatex mono 
 set output "Drg2_plot.tex"
 
 set xlabel '$\kappa$'
-set ylabel '$\langle R_g^2 s_c \rangle$'
+set ylabel '$\langle R_g^2 e_c \rangle$'
 plot [0.5:1.2] "./source_plots/Medidas_Drg2_L64.dat" u 1:2:3 title '$64^2$' w yerrorlines pt 6 lt 1,\
      	       "./source_plots/Medidas_Drg2_L46.dat" u 1:2:3 title '$46^2$' w yerrorlines pt 7 lt 0,\
      	       "./source_plots/Medidas_Drg2_L32.dat" u 1:2:3 title '$32^2$' w yerrorlines pt 4 lt 2,\
@@ -649,7 +678,7 @@ set terminal epslatex mono
 set output "max_Drg2_plot.tex"
 
 set xlabel '$\kappa$'
-set ylabel '$\langle R_g^2 E_c\rangle$'
+set ylabel '$\langle R_g^2 e_c\rangle$'
 plot [0.75:0.9] "./source_plots/Medidas_Drg2_L16.dat" u 1:2:3 title '' w yerrorbars pt 4 lt 2,\
      	       "./source_plots/extrapolacion_Drg2_L16_K0.84.dat" title '' w l lt 1 lc rgb 'gray',\
      	       "./source_plots/maximo_Drg2_L16_K0.84.dat" u 2:4:3:5 title '$16^2$' w xyerrorlines pt 5 lt 1,\
@@ -674,14 +703,13 @@ set terminal epslatex mono
 set output "Drg2_L_plot.tex"
 
 set xlabel '$L$'
-set ylabel '$\langle R_g^2 E_c\rangle_{max}$'
-set key left
-c0=0.000996481
-c1=0.00200217
-omega= 0.906011
-g(x)=c0+c1*(x**omega)
+#set ylabel '$\langle R_g^2 e_c\rangle_{max}$'
+set key right bottom
+c1=0.00238419
+omega= 0.860348 
+g(x)=c1*(x**omega)
 
-plot "./source_plots/maximos_Drg2.dat" u 1:4:5 title '$\langle R_g^2 E_c\rangle_{max}(\kappa_c(L))$' w yerrorbars pt 5 lt 1,g(x) title '$c_0+c_1\,L^{\omega}$'
+plot "./source_plots/maximos_Drg2.dat" u 1:4:5 title '$\langle R_g^2 e_c\rangle_{max}$' w yerrorbars pt 5 lt 1,g(x) title '$c_0\,L^{c_1}$'
 
 reset   
 

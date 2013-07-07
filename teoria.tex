@@ -398,7 +398,7 @@ son, los vectores tangentes $\vec{t}_{\alpha}$. En la fase
 plana, los promedios de los vectores tangentes en un punto son no nulos, en
 cambio, en la fase rugosa, su promedio es nulo por isotropía. Por tanto,
 podemos utilizar como  parámetro de orden de grano grueso los vectores
-tangentes locales $\vec{\bar{t}}_{\alpha}(\mathbf{x}_{\Lambda})$, que serán
+tangentes locales $\vec{t}_{\alpha}(\mathbf{x}_{\Lambda})$, que serán
 los promedios de los vectores tangentes de las partículas en la vecindad
 $\Lambda$ del punto $\vec{r}(\mathbf{x})$. Entonces, en el caso de
 membranas cristalina, tenemos un parámetro de orden con carácter tensorial,
@@ -412,7 +412,7 @@ que significa que podemos encontrar regiones de dimensión lineal
 $\Lambda<\xi(T)$ donde los vectores tangentes son aproximadamente
 constantes. Además, hay que distinguir que, mientras que tratamos a
 $\mathbf{x}_{\Lambda}$ como una variable continua, la función 
-$\vec{\bar{t}}_{\alpha}(\mathbf{x}_{\Lambda})$ no presenta variaciones a distancias
+$\vec{t}_{\alpha}(\mathbf{x}_{\Lambda})$ no presenta variaciones a distancias
 del orden del espaciado microscópico $a$, o equivalentemente, su transformada
 de Fourier tiene vectores de onda con magnitud menor que cierto \textit{cut-off}
 $\Lambda^{-1} \sim 1/a$. Concluimos entonces que el tamaño del bloque en la
@@ -436,7 +436,7 @@ apoyándonos en las siguientes propiedades:
 
 \item[Simetría traslacional y rotacional en $\mathbb{R}^2$]: Lo que implica
   que los productos escalares serán con la métrica inducida $g_{\alpha\beta}$,
-  de está forma, $F[\vec{t}_{\alpha}(\mathbf{x}),T]$ serà invariante frente a
+  de está forma, $F[\vec{t}_{\alpha}(\mathbf{x}),T]$ será invariante frente a
   reparametrizaciones de la superficie, esto es, frente a cambios de 
   las coordenadas $\mathbf{x}$.
 \end{description}
@@ -484,7 +484,7 @@ este efecto indeseable.
 \begin{figure}[h]
 \centering
  \resizebox{\columnwidth}{!}{\input{campo_medio-fig}}
-\caption{Parametrización usada en la aproximación del campo medio}
+\caption{Parametrización usada en la aproximación del campo medio.}\label{campo-medio-fig}
 \end{figure}
 
 La energía libre \eqref{ELandau}, debido a las simetrías que le hemos exigido
@@ -498,9 +498,9 @@ $\langle\vec{r}(\mathbf{x})\rangle_{p}$ formarán una red regular plana:
 en donde hemos orientado y situado el sistema de referencia de las coordenadas
 externas, de forma que, el plano $xy$ coincida con el de las
 posiciones promedio. Las coordenadas internas utilizadas son 
-proporcionales a la proyección en el plano $xy$ de las posiciones. El factor
-de proporcionalidad $\zeta$, es un nuevo parámetro, cuya magnitud coincide con
-la norma del promedio de  vectores tangentes 
+proporcionales a la proyección en el plano $xy$ de las posiciones (figura
+\ref{campo-medio-fig}). El valor del factor de proporcionalidad $\zeta$
+coincide con la norma del promedio de vectores tangentes de la fase plana
 \begin{equation}
  \left.\begin{array}{c}
 \langle\vec{t}_{1}(\mathbf{x})\rangle_{p}=\langle\partial_1\vec{r}\rangle_{p}=(\zeta ,0,0)\\
@@ -509,26 +509,25 @@ la norma del promedio de  vectores tangentes
 \langle\vec{t}_{\alpha}(\mathbf{x})\rangle_{p}\cdot\langle\vec{t}_{\beta}(\mathbf{x})\rangle_{p}=\zeta^2 \delta_{\alpha\beta},
 \end{equation}
 de donde, en efecto, deducimos que
-
 \begin{equation*}
-|\langle\vec{t}_1(\mathbf{x})\rangle_{p}|=|\langle\vec{t}_2(\mathbf{x})\rangle_{p}|=\zeta
+|\langle\vec{t}_1(\mathbf{x})\rangle_{p}|=|\langle\vec{t}_2(\mathbf{x})\rangle_{p}|=\zeta.
 \end{equation*}
-
-El que la norma de ambos vectores tangentes sea igual al parámetro $\zeta$ , es
-una consecuencia directa de la isotropía de la membrana. La longitud de los
-vectores tangentes están relacionados la distancia relativa entre los puntos
-de la superficie, $\zeta$ cuantifica entonces el espaciado promedio entre
-puntos y nos da una idea del grado de extensión de la membrana.
+La norma de los vectores tangentes es una medida de la distancia relativa
+tridimensional entre los nodos de la red, por tanto, $\zeta$ cuantifica el
+espaciado promedio entre puntos y nos da una idea del grado de extensión de la
+membrana. La igualdad de la norma de los vectores tangentes es una consecuencia
+directa de la isotropía de la membrana, de manera que es independiente del
+sistema de coordenadas internas elegido.
 
 La aproximación de campo medio asume que se pueden despreciar las
 fluctuaciones, y por tanto, podemos aproximar los radio vectores de las
-partículas y lo vectores tangentes por sus promedios
+partículas y los vectores tangentes por sus promedios
 \begin{align*}
- \vec{r}(\mathbf{x})&\simeq(\zeta \mathbf{x},0)\\
- \vec{t}_1(\mathbf{x})&\simeq(\zeta ,0,0)\\
- \vec{t}_2(\mathbf{x})&\simeq(0,\zeta,0)
+ \vec{r}(\mathbf{x})&\simeq(\zeta \mathbf{x},0),\\
+ \vec{t}_1(\mathbf{x})&\simeq(\zeta ,0,0),\\
+ \vec{t}_2(\mathbf{x})&\simeq(0,\zeta,0),
 \end{align*}
-y dependencia espacial de los vectores tangentes es eliminada. La
+de forma que la dependencia espacial de los vectores tangentes es eliminada. La
 aproximación del campo medio sólo considera estados homogéneos, además, que
 el carácter tensorial del parámetro de orden, sus seis grados de libertad, se
 reducen a un solo parámetro $\zeta$, que será el parámetro de orden en esta
@@ -537,32 +536,32 @@ aproximación.
 La expresión del potencial efectivo \eqref{ELandau} en este caso será:
 \begin{align}
   F_C(\zeta,T)=&\int\! d^2 \mathbf{s}\ 2\zeta^2\!\left( \frac{t}{2} + (u+2v)\zeta^2\right)\\
-  =&Af_C(\zeta)
+  =&Af_C(\zeta),
 \end{align}
 donde 
-$$A=\int d^2 \mathbf{s}=\zeta^2\int d^2 \mathbf{x}$$
+$$A=\int d^2 \mathbf{s}=\zeta^2\int d^2 \mathbf{x} ,$$
 es el área total de la membrana y 
 \begin{equation}\label{densidadELandau}
-f_C(\zeta,T)=2\zeta^2\!\left( \frac{t}{2} + (u+2v)\zeta^2\right)
+f_C(\zeta,T)=2\zeta^2\!\left( \frac{t}{2} + (u+2v)\zeta^2\right),
 \end{equation}
 es la densidad de energía libre de Landau en la aproximación del campo medio. 
 La función de partición corresponde a la siguiente integral
 \begin{equation}\label{Zcm}
- \mathcal{Z}[T]=\int d\zeta\;e^{-Af_C(\zeta,T)}
+ \mathcal{Z}[T]=\int d\zeta\;e^{-Af_C(\zeta,T)}.
 \end{equation}
 Ahora bien, si $A$ es muy grande, únicamente contribuyen los valores menores de
 $f_C(\zeta)$, y si además, posee un mínimo con respecto a $\zeta$ en
-$\zeta_0$, la exponencial del integrando de \eqref{Zcm} tendrá un máximo,
+$\zeta_0$, el integrando de \eqref{Zcm} tendrá un máximo,
 tanto más acusado cuanto mayor sea el área $A$. Desarrollando $f_C(\zeta)$ en
 serie alrededor del mínimo $\zeta_0$
 \begin{equation*}
-f_C(\zeta)\simeq f_C(\zeta_0)+\frac{1}{2}\left(\frac{\partial f_C}{\partial \zeta}\right)_{\!\zeta_0}(\zeta-\zeta_0)^2
+f_C(\zeta)\simeq f_C(\zeta_0)+\frac{1}{2}\left(\frac{\partial f_C}{\partial \zeta}\right)_{\!\zeta_0}(\zeta-\zeta_0)^2,
 \end{equation*}
 y sustituyendo en la expresión anterior \eqref{Zcm} de $\mathcal{Z}[T]$ 
 \begin{equation}\label{Zcm2}
  \mathcal{Z}[T]\simeq\int
  d\zeta\;e^{-Af_C(\zeta_0)-\frac{A}{2}\ddot{f}_C(\zeta_0)(\zeta-\zeta_0)^2}=
- \sqrt{\frac{2\pi}{A\ddot{f}_C(\zeta_0)}}\; e^{-Af_C(\zeta_0)}
+ \sqrt{\frac{2\pi}{A\ddot{f}_C(\zeta_0)}}\; e^{-Af_C(\zeta_0)}.
 \end{equation}
 
 La energía libre de Hemholtz intensiva $f_H(T)$ en el límite termodinámico
@@ -580,13 +579,13 @@ equilibrio del sistema vienen determinados por el mínimo de la energía libre
 de Landau. Hallando el mínimo de \eqref{densidadELandau} 
 \begin{equation*}
 \left(\frac{\partial f_C}{\partial \zeta}\right)_{\!\zeta=\zeta_0}\!=0 \;
-\Rightarrow \; 4\zeta_0\left(\frac{t}{2}+2(u+2v)\zeta_0^2\right)=0
+\Rightarrow \; 4\zeta_0\left(\frac{t}{2}+2(u+2v)\zeta_0^2\right)=0,
 \end{equation*}
-encontramos que el comportamiento de $f$ depende del signo del parámetro $t$:
+encontramos que el comportamiento de $f_C$ depende del signo del parámetro $t$:
 \begin{figure}[h]
 \centering
  \resizebox{\columnwidth}{!}{\input{energia_libre_CM-fig}}
-\caption{Campo medio}
+\caption{Comportamiento de $f_C(\zeta)$ en función del parámetro $t$.}
 \end{figure} 
 
 \begin{enumerate}
@@ -599,28 +598,26 @@ encontramos que el comportamiento de $f$ depende del signo del parámetro $t$:
     \zeta_0=\mp \sqrt{\frac{-t}{4(u+2v)}}
   \end{equation}
   que muestra que la membrana se encuentra en un estado con ruptura espontánea
-  de la simetría indicando una fase ordenada, la fase plana. 
+  de la simetría, indicando una fase ordenada, la fase plana. 
 \end{enumerate}
 
 La evaluación del punto mínimo sugiere entonces que el
 signo del parámetro $t$ determina en cual de las dos fase se encuentra el
 sistema. Para encontrar el significado concreto del parámetro $t$
-realizamos un desarrollo en serie en función de la temperatura, centrado en la
-temperatura crítica $T_c$, de los parámetros que intervienen en la densidad
-de energía libre:
-
+realizamos un desarrollo en serie en función de la temperatura reducida
+$(T-T_C)/T_C$, de los parámetros que intervienen en la densidad de energía libre:
 \begin{align*}
 t=&\; t_0+t_1\frac{(T-T_c)}{T_c}+O(T-T_c)^2,\\
 u=&\; u_0+u_1\frac{(T-T_c)}{T_c}+O(T-T_c)^2,\\
 v=&\; v_0+v_1\frac{(T-T_c)}{T_c}+O(T-T_c)^2.
 \end{align*}
 Podemos tomar a $u$ y $v$ como constantes, ya que su dependencia en la 
-temperatura no contribuye en los primeros órdenes en comportamiento
+temperatura no contribuye en los primeros órdenes en el comportamiento
 termodinámico cerca de $T_c$. Ahora bien,
-para cualquier valor de $T\!<\!T_c$ sabemos que el parámetro de orden es no
-nulo, esto es, $\zeta_0\!\neq\! 0$, lo que implica que $t_0=0$. Por otra
-parte, siempre podremos escalar el parámetro de orden 
-$\zeta$, de manera que $t_1=1$, con lo que tenemos finalmente que
+para cualquier valor de $T\!<\!T_c$ sabemos que el parámetro de orden del
+sistema debe tener un valor no nulo, esto es, $\zeta_0\!\neq\! 0$, lo que
+implica que $t_0=0$. Por otra parte, siempre podremos escalar $\zeta$, 
+de manera que $t_1=1$, con lo que deducimos finalmente que
 \begin{equation*}
 t=\frac{(T-T_c)}{T_c}+O(T-T_c)^2,
 \end{equation*}
@@ -642,9 +639,11 @@ La teoría de Landau no teniendo en cuenta las fluctuaciones del parámetro de
 orden (relevantes en la vecindad de la transición de fase) expresa la energía
 libre como una función analítica del parámetro de orden. A partir de la teoría
 del grupo de renormalización \cite{Cardy} se encuentra que estas fluctuaciones contribuyen
-en una parte no analítica en la energía libre
+en una parte no analítica en la energía libre\footnote{Cuando escribimos
+  $g(t)\sim t^{\gamma}$ estamos indicando que $$\gamma=\lim_{t\rightarrow
+  0}\frac{\log g(t)}{\log t}$$.}
 \begin{equation}
-f_s(t)\sim|t|^{\nu}\Phi(|t|^{1/\nu}),
+f_s(t)\sim|t|^{2\nu}
 \end{equation}
 que explica el comportamiento divergente en la proximidad de la transición de
 fase $t\simeq 0$ de los observables termodinámicos, como por ejemplo, el calor específico
@@ -661,7 +660,11 @@ No todos los exponentes críticos son independientes entre sí, existen
 relaciones entre ellos. El número de exponentes críticos independientes es
 igual al número de parámetros relevantes del sistema, en nuestro caso, al no
 considerar una fuerza externa en la membrana, únicamente tenemos como
-parámetro relevante la temperatura $t$, por tanto, sólo habrá un exponente
+parámetro relevante la rigidez de curvatura\footnote{Cerca de la transición de
+  fase tenemos que $\kappa\propto \beta=1/k_BT$, donde $k_B$ es el factor de
+  Boltzmann y $T$ es la temperatura. Entonces, podemos usar $\kappa$ como
+  parámetro relevante del sistema, en vez de la temperatura.}  $\kappa$, por
+tanto, sólo habrá un exponente 
 crítico independiente.
 
 \subsection{Relaciones de escala del radio de giro}
@@ -672,10 +675,10 @@ membrana de $D$ dimensional en un espacio
 $d$ dimensional, el tamaño de esta membrana lo podemos especificar por el
 radio de giro $R_G$
 \begin{equation}
-R_G^2=\frac{1}{2A_d}\int d^D\mathbf{x}\int d^D\mathbf{x}' \langle |
+R_G^2=\frac{1}{2A_D}\int d^D\mathbf{x}\int d^D\mathbf{x}' \langle |
 \vec{r}(\mathbf{x})-\vec{r}(\mathbf{x}'|^2\rangle, 
 \end{equation}
-siendo $A_d$ el área $d$ dimensional de la membrana. En dos dimensiones este
+siendo $A_D$ el área $D$ dimensional de la membrana. En dos dimensiones este
 observable toma la forma
 \begin{equation}
 R_G^2=\frac{1}{3A}\int d^2\mathbf{x}\, (\langle
@@ -683,30 +686,34 @@ R_G^2=\frac{1}{3A}\int d^2\mathbf{x}\, (\langle
 \vec{r}(\mathbf{x})\rangle^2)=\frac{1}{3A}\int d^2\mathbf{x}\, \langle
 \vec{R}(\mathbf{x})\cdot\vec{R}(\mathbf{x})\rangle^2
 \end{equation} 
-
-donde $\vec{R}(\mathbf{x})=\vec{r}(\mathbf{x})-\vec{r}_{CM}(\mathbf{x})$ es la
-posición del nodo respecto al centro de masas $\vec{r}_{CM}(\mathbf{x})$ de la
-membranas. Por tanto, $R_G$ es la distancia cuadrática media respecto al
+donde $A$ es área de la membrana (hemos eliminado el subíndice $_2$) y
+$\vec{R}(\mathbf{x})$ es el vector de posición del punto de coordenadas
+internas $\mathbf{x}$ respecto al centro de masas $\vec{r}_{CM}$ de la
+membrana
+\begin{equation*}
+\vec{R}(\mathbf{x})=\vec{r}(\mathbf{x})-\vec{r}_{CM}.
+\end{equation*}
+Por tanto, $R_G$ corresponde a la distancia cuadrática media respecto al
 centro de masas. Volviendo a la membrana $D$ dimensional, si la dimensión
-lineal de la membrana es $L$, tiene entonces $L^d$ nodos, podemos
+lineal de la membrana es $L$, tiene entonces $L^D$ nodos, podemos
 aproximar los términos \cite{Gomper:triangulated} de la energía libre \eqref{ELandau}  
 \begin{equation}
 \vec{t}_{\alpha}=\partial_{\alpha} \vec{r}\simeq \frac{R_G}{L}
 \frac{\vec{t}_{\alpha}}{|\vec{t}_{\alpha}|}\quad \text{y}\quad \int
-d^D\mathbf{x}\simeq L^D
+d^D\mathbf{x}\simeq L^D,
 \end{equation}
-Con lo que
+con lo que la densidad de energía libre de Landau resulta
 \begin{equation}
-f(R_G,t)\simeq t R_G^2 L^{D-2}+(u+Dv) R_G^4 L^{D-4}+\kappa R_G^2 L^{D-4}
+f(R_G,t)\simeq t R_G^2 L^{D-2}+(u+Dv) R_G^4 L^{D-4}+\kappa R_G^2 L^{D-4}.
 \end{equation}
 Al igual que en la aproximación del campo medio anterior, minimizando esta
 energía libre respecto a $R_G$ encontramos el estado de equilibrio del sistema. En la fase
 plana, $t<0$ tenemos
 \begin{equation}
 \frac{\partial f(R_G,t)}{\partial R_G}\simeq 2t R_G L^{D-2}+4(u+Dv) R_G^3
-L^{D-4}+2 \kappa R_G L^{D-2}=0
+L^{D-4}+2 \kappa R_G L^{D-2}=0.
 \end{equation}
-despreciando $\kappa\simeq 0$, tenemos que en $D=2$
+Despreciando $\kappa\simeq 0$ y para una membrana bidimensional $D=2$
 \begin{equation}\label{Rg:escala_plano}
 R_G\sim |t|^{1/2}L\sim L^2 \Rightarrow R_G\sim L.
 \end{equation}
@@ -714,19 +721,38 @@ A este resultado también podíamos haber llegado utilizando los resultados
 obtenidos en la aproximación del campo medio, pues el radio de giro debe ser
 proporcional al producto de $L$ y $\zeta$, el espaciado entre
 nodos. De manera que utilizando el resultado \eqref{zeta_0} para la fase plana
-de la distancia entre nodos encontramos
+de la distancia entre nodos encontramos la misma relación de escala que \eqref{Rg:escala_plano}
 \begin{equation}
-R_G\sim \zeta L \quad \Rightarrow \quad R_G\sim |t|^{1/2}L,
+R_G\sim \zeta L \quad \Rightarrow \quad R_G\sim |t|^{1/2}L.
 \end{equation}
-la misma relación de escala que \eqref{Rg:escala_plano}. En la fase rugosa
-$t>0$, el tamaño del sistema disminuye drásticamente, dado que la distancia
+Se define $\nu_F$, el exponente de escala de Flory, a partir de la relación de
+escala
+\begin{equation}
+ R_G\sim L^{\nu_F}. 
+\end{equation}
+Este exponente relaciona la extensión espacial de la membrana con su tamaño
+interno $L$. Por otro lado, tenemos la dimensión fractal o de Hausdorff $d_H$,
+que relaciona el \textit{área interna} $L^D$ con su tamaño espacial
+\begin{equation}
+R_G^{d_H}\sim L^D.
+\end{equation} 
+Entonces, el exponente de Flory $\nu_F$ está relacionado con la dimensión
+fractal por
+\begin{equation}
+ \nu_F=\frac{D}{d_H}\ \stackrel{D=2}{-\!\!\!\longrightarrow}\ \nu_F=\frac{2}{d_H}.
+\end{equation}
+Y en la fase plana, según \eqref{Rg:escala_plano}, para $D=2$ tenemos que
+$\nu_F=1$ y $d_H=2$.
+
+
+En la fase rugosa $t>0$, el tamaño del sistema disminuye drásticamente, dado que la distancia
 entre nodos $\zeta\simeq 0$. Entonces el único término relevante es el correspondiente a $t$
 \begin{equation}
-f(R_G,t)\simeq t R_G^2 L^{D-2} 
+f(R_G,t)\simeq t R_G^2 L^{D-2}, 
 \end{equation}
 y minimizando respecto al radio de giro encontramos
 \begin{equation}
-R_G^2\sim L^{(2-D)} \quad \text{para } D<2
+R_G^2\sim L^{(2-D)} \quad \text{para } D<2.
 \end{equation}
 En $D>2$, las fluctuaciones son demasiado débiles para prevenir el colapso
 completo de la red. En $D=2$, el exponente es nulo, lo que significa una
@@ -734,22 +760,19 @@ divergencia logarítmica del radio de giro, ya que
 \begin{equation}
 R_G^2\sim L^{D-2}=L^{2\nu}\Rightarrow \log L=\lim_{2\nu\rightarrow
   0}\left[\frac{1-e^{-2\nu\log R^2_G}}{2\nu}\right]\equiv\lim_{2\nu\rightarrow
-  0}\left[\frac{1-R^{2\nu}_G}{2\nu}\right]
+  0}\left[\frac{1-R^{2\nu}_G}{2\nu}\right],
 \end{equation}
-por tanto, en la fase rugosa para una membrana bidimensional tenemos la
-relación de escala 
+por tanto, en la fase rugosa para una membrana bidimensional tenemos que
+$\nu_F=0\Rightarrow d_H=\infty$ y cumple una relación de escala logarítmica  
 \begin{equation}
-R_G\sim(\log L)^{1/2}
+R_G\sim(\log L)^{1/2}.
 \end{equation}
-En la transición de fase $t\rightarrow 0$, el radio de giro sigue una
-relación de escala 
-\begin{equation}
-R_G^2\sim L^{2\nu},
-\end{equation}
-Le Doussal y Radzihovsky \cite{Doussal:nu} han encontrado mediante métodos analítico aproximados
-un valor para este exponente de 
+
+Para la transición de fase $t\rightarrow 0$ en una membrana bidimensional,
+Le Doussal y Radzihovsky \cite{Doussal:nu} han encontrado, mediante métodos analítico aproximados,
+los siguientes valores para el exponente de Flory y la dimensión fractal 
 \begin{equation} 
- \nu=0.73
+ \nu=0.73\ \Rightarrow\ d_H=2.74 .
 \end{equation}
 \section{Estudio de la fase plana}
 

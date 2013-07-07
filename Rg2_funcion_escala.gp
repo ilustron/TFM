@@ -3,7 +3,7 @@ inv_nu=1.38
 kc=0.777
 
 two_nu=4/2.7
-#set xrange [-50:50]                                                                  
+set xrange [-50:50]                                                                  
 
 #set nokey
 
