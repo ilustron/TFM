@@ -155,17 +155,17 @@ set size 0.2
 set origin 0.220,0.530
 clear
 
-set title '$f_C(\zeta,t<0)$' offset 0,-1
+set title '$f_M(\zeta,t<0)$' offset 0,-1
 plot [-2.5:2.5][-1.5:2] g(x,-1) 
 set origin 0.475,0.225
 clear
 
-set title '$f_C(\zeta,t=0)$' offset 0,-1
+set title '$f_M(\zeta,t=0)$' offset 0,-1
 plot [-2.5:2.5][-0.5:3] g(x,0)
 set origin 0.700,0.550
 clear
 
-set title '$f_C(\zeta,t>0)$' offset 0,-1
+set title '$f_M(\zeta,t>0)$' offset 0,-1
 plot [-2.5:2.5][-0.5:3] g(x,1)
 
 unset multiplot
@@ -223,15 +223,15 @@ dhy(y)=y
 
 set style arrow 1 head filled
 
-set arrow 1 arrowstyle 1 from 0,0,0 to 0.2,0,0
-set arrow 2 arrowstyle 1 from 0,0,0 to 0,0.2,0
+set arrow 1 arrowstyle 1 from 0,0,0 to 0.2,0,0 front 
+set arrow 2 arrowstyle 1 from 0,0,0 to 0,0.2,0 front
 set arrow 3 arrowstyle 1 from 0,0,0 to 0,0,1
 
 set arrow 4 arrowstyle 1 from 0,0,0 to 0.5,0.5,h(0.5,0.5)
-set arrow 5 arrowstyle 1 from 0,0,0 to 0.4,0.4,0
+set arrow 5 arrowstyle 1 from 0,0,0 to 0.4,0.4,0 front
 set arrow 6 arrowstyle 1 from 0.4,0.4,0 to 0.5,0.5,h(0.5,0.5)
 
-set arrow 7 arrowstyle 1 from 0.5,0.5,h(0.5,0.5) to 0.65,0.5,h(0.65,0.5)
+set arrow 7 arrowstyle 1 from 0.5,0.5,h(0.5,0.5) to 0.65,0.5,h(0.65,0.5) front
 set arrow 8 arrowstyle 1 from 0.4,0.4,0 to 0.55,0.4,0
 
 set label 1 '$x$' at 0.05,0,-0.2
@@ -239,11 +239,11 @@ set label 2 '$y$' at 0,0.2,0.15
 set label 3 '$z$' at 0,0.01,0.5
 
 set label 4 '$\vec{r}(\mathbf{x})$' at 0.2,0.2,h(0.25,0.25)/2+0.25
-set label 5 '$\vec{r}_0(\mathbf{x})$' at 0.2,0.2,0.25
+set label 5 '$\vec{r}_0(\mathbf{x})$' at 0.2,0.2,0.25 front
 set label 6 '$\vec{u}$' at 0.375,0.45,h(0.45,0.45)/2-0.2
 
-set label 7 '$d\vec{r}$' at 0.57,0.5,h(0.5,0.5)+0.1
-set label 8 '$d\vec{r}_0$' at 0.45,0.4,0.1
+set label 7 '$d\vec{r}$' at 0.57,0.5,h(0.5,0.5)+0.1 front
+set label 8 '$d\vec{r}_0$' at 0.45,0.4,0.1 front
 
 splot [0:1][0:1] h(x,y) with l lc rgb 'gray',0 with l lt 2 lc rgb 'gray'
 
@@ -387,6 +387,30 @@ splot [-1.5:][:][-1:1] "./source_plots/flat_L8_triangular.dat" w lp lc rgb 'gray
 set output
 reset
 
+#NORMALES ADYACENTES
+set terminal epslatex monochrome  
+set output "normales_adyacentes-fig.tex"
+unset key
+unset border
+unset tics
+
+set style arrow 1 head filled
+
+set arrow arrowstyle 1 from 0.5,0.3,0 to 0.5,0.3,0.7 front
+set arrow arrowstyle 1 from 0.5,0,-0.3 to 0.5,-1,-0.3 front
+
+set label '$\vec{n}_a$' at 0.6,0.3,0.35
+set label '$\vec{n}_b$' at 0.5,-0.5,-0.40
+
+set xyplane at 0
+set view equal xyz
+set view 69,35,1.0
+
+splot "./source_plots/normales_adyacentes.dat"  i 1 u 1:2:3:($4-$1):($5-$2):($6-$3) with vectors nohead,"" with p pointtype 7 pointsize 2
+
+set output
+reset
+
 #BASE HEXAGONAL
 
 set terminal epslatex mono 
@@ -439,7 +463,7 @@ reset
 set terminal epslatex mono 
 set output "ejemplo_termal-fig.tex"
 
-set xlabel 'n\textdegree barridos/$\tau_0$'
+set xlabel 'n\textdegree actualizaciones/$\tau_0$'
 set ylabel '$\langle R_G^2\rangle$'
 set title '$L=64$ $\kappa=0.7$'
 set nokey
@@ -451,7 +475,7 @@ reset
 set terminal epslatex mono 
 set output "ejemplo_logtermal-fig.tex"
 
-set xlabel '$\tau_0$/barridos conservados'
+set xlabel '$\tau_0$/actualizaciones conservados'
 set ylabel '$\langle R_G^2\rangle$'
 set nokey
 set title '$L=64$ $\kappa=0.7$'

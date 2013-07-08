@@ -26,147 +26,153 @@ con trabajos anteriores, y si en algún caso influyen
 demasiado en las medidas, podremos minimizarlos no teniendo en cuenta
 aquellos nodos cercanos al contorno.
 
-\begin{figure}[h]\label{red_rombo}
+\begin{figure}[h]
 \centering
 \resizebox{275bp}{!}{\input{red_triangular-fig}}
-\caption{Conectividad intrínseca de la red}
+\caption{Conectividad intrínseca de la red}\label{red_rombo}
 \end{figure}
-
+\begin{figure}[h]
+\centering
+\resizebox{\columnwidth}{!}{\input{normales_adyacentes-fig}}
+\caption{Ejemplo de normales unitarias vecinas.}\label{normales-adyacentes-fig}
+\end{figure}
 Cada nodo es etiquetado mediante dos índices discretos $P=(i,j)\ i,j=1,L$
 como se indica en la figura~\ref{red_rombo}. La posición en el espacio
-tridimensional vendrá dada por el vector $\vec{r}_P$. Como energía libre discreta del sistema usamos
-\begin{equation}
-\mathcal{H}=\sum_{\langle PQ \rangle}
-|\vec{r}_P-\vec{r}_Q|^2+\kappa\sum_{\langle ab \rangle}
-|\vec{n}_a-\vec{n}_b|^2 
-\end{equation}
-donde con $\langle\rangle$ indicamos que la suma es sobre primeros vecinos,
-nodos adyacentes. Estamos considerando únicamente interacciones de corto
+tridimensional vendrá dada por el vector $\vec{r}_P$. Como energía libre
+discreta de la membrana \cite{Bowick_flat_phase} usamos
+\begin{equation*}
+\mathcal{H}=\mathcal{H}_E+\mathcal{H}_C,
+\end{equation*}
+donde
+\begin{align}
+&\text{E. libre  elástica}\rightarrow \mathcal{H}_E\sum_{\langle PQ
+  \rangle}|\vec{r}_P-\vec{r}_Q|^2\label{Hd_elastico}\\
+&\text{E. libre curvatura}\rightarrow \mathcal{H}_C=\kappa\sum_{\langle ab \rangle}|\vec{n}_a-\vec{n}_b|^2\label{Hd_curvatura} 
+\end{align}
+donde con $\langle\dots\rangle$ indicamos que la suma es sobre primeros vecinos,
+nodos adyacentes o plaquetas (triángulo formado por tres nodos adyacentes,
+figura \ref{normales-adyacentes-fig}). Estamos considerando únicamente interacciones de corto
 alcance,  no inlcuimos ningún término de exclusión, ya que, es irrelevante en
 la fase plana. Los  índices en letra minúscula representan las plaquetas, 
-los triángulos de la red, y $\vec{n}_{a}$ el vector normal a la plaqueta. La
-constante $\kappa$ es el módulo de curvatura y hemos escalado las posiciones de
-forma que la constante elástica es unitaria.
+los triángulos de la red, y $\vec{n}_{a}$ el vector normal unitario a la plaqueta. La
+constante $\kappa$ es la rigidez de curvatura, hemos escalado las posiciones $\{\vec{r}_P\}$ de
+forma que la constante elástica sea la unidad.
 
-%Colapso punto
 
 \subsection{Límite continuo}
 \begin{figure}[h]
 \centering
  \resizebox{\columnwidth}{!}{\input{base-hexagonal-fig}}
-\caption{Base hexagono}
+\caption{Base hexagono}\label{base-hexagono-fig}
 \end{figure}   
-Consideramos un sistema de coordenadas ortogonal $\{ \vec{e}_1,\vec{e}_2\}$, son los vectores de la base del plano base. La expresión \eqref{drU} podemos discretizarla
-\begin{equation}
-(\vec{r}_P-\vec{r}_Q)^2=a^2+2u_{\alpha\beta}x{\scriptstyle [q]}^{\alpha}x{\scriptstyle [q]}^{\beta}
+Para demostrar que efectivamente recuperamos la energía libre de Landau
+\eqref{densidad_Fe} en límite $N\rightarrow \infty$ vamos a considerar una
+distancia de equilibrio  $a\neq 0$ en la energía libre elástica discreta
+\eqref{Hd_elastico}
+\begin{equation}\label{Hd_elastico_a}
+\mathcal{H}_E\sum_{\langle PQ
+  \rangle}(|\vec{r}_P-\vec{r}_Q|-a)^2.
 \end{equation}
+Consideramos un sistema de coordenadas ortonormal $\{ \vec{e}_1,\vec{e}_2\}$,
+son los vectores de la base del plano de referencia tomados en las direcciones
+que la figura \ref{base-hexagono-fig}. La expresión \eqref{drU} del tensor de
+deformaciones podemos aproximarla tomando como distancia infinitesimal la
+distancia entre nodos vecinos \cite{Bowick:Membranes_review,Bowick_flat_phase}
+\begin{equation*}
+(\vec{r}_Q-\vec{r}_P)^2=a^2+2u_{\alpha\beta}x_q^{\ \alpha}x_q^{\ \beta},
+\end{equation*}
 donde $u_{\alpha\beta}$ es la versión discretizada del tensor de
-deformaciones. En este  sistema de coordenadas la métrica es
-\begin{equation}
-g_{\alpha\beta}=\vec{e}_{\alpha}\cdot\vec{e}_{\beta}=a^2\delta_{\alpha\beta}
+deformaciones y el subíndice $q$ denota cada uno de los seis nodos vecinos al punto
+$P$, sobre este índice no se aplica el convenio de Einstein. Suponiendo
+pequeñas deformaciones, podemos aproximar esta última expresión
+\begin{equation}\label{valor_absoluto}
+|\vec{r}_P-\vec{r}_Q|=\sqrt{a^2+2u_{\alpha\beta}x_q^{\ \alpha}x_q^{\ \beta}}\simeq a + \frac{u_{\alpha\beta}}{a}x_q^{\ \alpha}x_q^{\ \beta}.
 \end{equation}
-Podemos aproximar
-\begin{equation}
-|\vec{r}_P-\vec{r}_Q|=\sqrt{a^2+2u_{\alpha\beta}e^{\alpha}e^{\beta}}\simeq a + \frac{u_{\alpha\beta}}{a}e^{\alpha}e^{\beta}
-\end{equation}
-
-Sustituyendo en la parte elástica de la energía libre
+Sustituyendo esta última expresión \eqref{valor_absoluto} en la energía libre discreta \eqref{Hd_elastico_a}
 \begin{equation}\label{He}
-\mathcal{H}_E\simeq \frac{1}{2}\sum_{P} \sum^6_{j=1} \left(\frac{u_{\alpha\beta}}{a}e^{\alpha}e^{\beta}\right)^2=\frac{1}{2a^2}\sum_{P} \sum^6_{j=1} u_{\alpha\beta}u^{\mu\nu}e^{\alpha}e^{\beta}e_{\mu}e_{\nu}
+\mathcal{H}_E\simeq \frac{1}{2a^2}\sum_{P} \sum^6_{q=1} u_{\alpha\beta}u^{\mu\nu}x_q^{\ \alpha}x_q^{\ \beta}x_{q\mu}x_{q\nu},
 \end{equation}
-Siendo el primer sumatorio sobre todos los nodos y el segundo sobre los
-primeros vecinos. Teniendo en cuenta las relaciones
-\begin{equation}
-1=\frac{\delta^{\alpha\beta}\delta_{\alpha\beta}}{2}=\frac{\delta^{\mu\nu}\delta_{\mu\nu}}{2}
-\end{equation}
-Podemos escribir el término
-\begin{equation}
-e^{\alpha}e^{\beta}e_{\mu}e_{\nu}=\frac{1}{4}\delta^{\alpha\beta}\delta_{\mu\nu}\delta_{\alpha\beta}e^{\alpha}e^{\beta}\delta^{\mu\nu}e_{\mu}e_{\nu}=\frac{a^2}{4}\delta^{\alpha\beta}\delta_{\mu\nu}
-\end{equation}
-Y de forma análoga también podemos obtener
-\begin{align}
-e^{\alpha}e^{\beta}e_{\mu}e_{\nu}&=\frac{a^2}{4}\delta^{\alpha}_{\ \mu}\delta_{\beta}^{\
-  \nu}\\
-e^{\alpha}e^{\beta}e_{\mu}e_{\nu}&=\frac{a^2}{4}\delta^{\alpha}_{\ \nu}\delta_{\beta}^{\
-  \mu}
-\end{align}
-Tomando la media de las últimas tres expresiones
-\begin{equation}
-e^{\alpha}e^{\beta}e_{\mu}e_{\nu}=\frac{a^4}{12}(\delta^{\alpha\beta}\delta_{\mu\nu}+
-\delta^{\alpha}_{\ \mu}\delta_{\beta}^{\ \nu}+
-\delta^{\alpha}_{\ \nu}\delta_{\beta}^{\ \mu})
-\end{equation}
-Sustituyendo en \eqref{He}
-\begin{equation}
-\mathcal{H}_E\simeq\frac{a^2}{24}\sum_{P} \sum^6_{j=1}(\delta^{\alpha\beta}\delta_{\mu\nu}+\delta^{\alpha}_{\ \mu}\delta_{\beta}^{\ \nu}+
-\delta^{\alpha}_{\ \nu}\delta_{\beta}^{\ \mu})
-u_{\alpha\beta}u^{\mu\nu}=\frac{a^2}{4}\sum_{P}u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}+2u_{\alpha\beta}u^{\alpha\beta}
-\end{equation}
-Donde en  la última igualdad hemos efectuado la suma sobre todos los vecinos.
-Pasamos al límite continuo:
-\begin{equation}
-\frac{a^2}{4}\sum_{i=1}^L\sum_{j=1}^L\frac{\Delta i\Delta j}{\xi^2\frac{\sqrt{3}}{2}}\xi^2\,\frac{\sqrt{3}}{2}(u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}+2u_{\alpha\beta}u^{\alpha\beta})
-\end{equation}
-Tomando el límite $N\rightarrow \infty$
-elástica 
-\begin{equation}
-\mathcal{H}\simeq\int d^2\mathbf{x}\, \frac{\sqrt{3}}{4}\frac{a^2}{\xi^2}\left(\frac{1}{2}u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}+u_{\alpha\beta}u^{\alpha\beta}\right)
-\end{equation}
-recuperamos la energía libre elástica con 
-\begin{equation}
-\lambda=\mu=\frac{\sqrt{3}}{4}\frac{a^2}{\xi^2}
-\end{equation}
-Nuestro modelo corresponde al límite $a\rightarrow 0$ y $\xi$ fijo.
+siendo el primer sumatorio sobre todos los nodos y el segundo sobre los
+primeros vecinos. Efectuando la suma sobre los primeros vecinos 
+\begin{equation*}
+\mathcal{H}_E\simeq\frac{a^2}{4}\sum_{P}(\delta^{\alpha\beta}\delta_{\mu\nu}+\delta^{\alpha}_{\ \mu}\delta^{\beta}_{\ \nu}+
+\delta^{\alpha}_{\ \nu}\delta^{\beta}_{\ \mu})
+u_{\alpha\beta}u^{\mu\nu}=\frac{a^2}{4}\sum_{P}u_{\alpha}^{\ \alpha}u^{\beta}_{\ \beta}+2u_{\alpha\beta}u^{\alpha\beta}.
+\end{equation*}
+De cara a tomar el límite continuo, podemos escribir está última expresión de
+la siguiente forma equivalente 
+\begin{equation*}
+\mathcal{H}_E\simeq\frac{a^2}{4}\sum_{i=1}^L\sum_{j=1}^L\frac{\Delta i\Delta j}{\xi^2\frac{\sqrt{3}}{2}}\xi^2\,\frac{\sqrt{3}}{2}(u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}+2u_{\alpha\beta}u^{\alpha\beta}),
+\end{equation*}
+tomando el límite $N\rightarrow \infty$
+\begin{equation*}
+\mathcal{H}\simeq\int d^2\mathbf{x}\, \frac{\sqrt{3}}{4}\frac{a^2}{\xi^2}\left(\frac{1}{2}u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}+u_{\alpha\beta}u^{\alpha\beta}\right),
+\end{equation*}
+recuperamos la energía libre elástica de Landau \eqref{densidad_Fe} con 
+\begin{equation*}
+\lambda=\mu=\frac{\sqrt{3}}{4}\frac{a^2}{\xi^2}.
+\end{equation*}
+Por tanto, nuestro modelo discreto corresponde al límite $a\rightarrow 0$ y $\xi$ fijo.
 
-Respecto al término de curvatura, podemos desarrollar $\vec{n}_{b}$ desde $a$
-\begin{equation}
-\vec{n}_b\simeq\vec{n}_a+\frac{\partial \vec{n_b}}{\partial x^{\alpha}}(x_b^{\alpha}-x_a^{\alpha})
+Respecto al límite continuo de la energía libre de curvatura discreta
+\eqref{Hd_curvatura}, vamos a situar los vectores normales unitarios en el
+baricentro de los triángulos de la red. Podemos escribir \eqref{Hd_curvatura} como
+\begin{equation}\label{Hd_curvatura_aprox}
+\mathcal{H}_C=\frac{\kappa}{2}\sum_a\sum_{b=1}^{3}|\vec{n}_b-\vec{n}_a|^2,
 \end{equation}
-Sustituyendo en la energía libre
-\begin{equation}
-\mathcal{H}_C=\frac{1}{2}\kappa\sum_{\langle ab\rangle}\frac{\partial
-  \vec{n_b}}{\partial x^{\alpha}}\cdot\frac{\partial \vec{n_b}}{\partial x^{\beta}} (x_b^{\alpha}-x_a^{\alpha})(x_b^{\beta}-x_a^{\beta})
-\end{equation}
-Podemos considerar que son triángulos equiláteros
-\begin{equation}
-g^{\alpha\beta}=(x_b^{\alpha}-x_a^{\alpha})(x_b^{\beta}-x_a^{\beta})\simeq
-\sqrt{3} \delta^{\alpha\beta}
-\end{equation}
-Entonces
-\begin{equation}
-\mathcal{H}_C=\frac{\sqrt{3}}{2}\kappa\sum_{\langle ab\rangle}\frac{\partial
-  \vec{n_b}}{\partial x_{\alpha}}\cdot\frac{\partial \vec{n_b}}{\partial x^{\alpha}}
-\end{equation}
-En el límite continuo, para $N\rightarrow \infty$
-\begin{equation}
+donde el primer sumatorio es sobre todas las plaquetas y el segundo sobre las
+tres vecinas. Aproximando $\vec{n}_{b}$ mediante el siguiente desarrollo
+\begin{equation*}
+\vec{n}_b\simeq\vec{n}_a+\frac{\partial \vec{n_a}}{\partial x^{\alpha}}(x_b^{\alpha}-x_a^{\alpha}),
+\end{equation*}
+y sustituyendo en la energía libre \eqref{Hd_curvatura_aprox} 
+\begin{equation*}
+\mathcal{H}_C=\frac{1}{2}\kappa\sum_a\sum_{b=1}^{3}\frac{\partial
+  \vec{n_a}}{\partial x^{\alpha}}\cdot\frac{\partial \vec{n_a}}{\partial x^{\beta}} (x_b^{\alpha}-x_a^{\alpha})(x_b^{\beta}-x_a^{\beta}).
+\end{equation*}
+Podemos considerar que son los triángulos de la red son aproximadamente
+equiláteros \cite{Aranovitz_Fuctuations,Kroll_Discretizations}, y entonces el producto
+$(x_b^{\alpha}-x_a^{\alpha})(x_b^{\beta}-x_a^{\beta})$ podemos igualarlo a un
+tensor $\eta^{\alpha\beta}$ que no depende del punto y hace el papel de
+métrica inducida
+\begin{equation*}
+\eta^{\alpha\beta}\simeq(x_b^{\alpha}-x_a^{\alpha})(x_b^{\beta}-x_a^{\beta}).
+\end{equation*}
+Por tanto, llegamos a que podemos aproximar la energía libre
+\eqref{Hd_curvatura_aprox} como
+\begin{equation*}
+\mathcal{H}_C\simeq\frac{1}{2}\kappa\sum_a\sum_{b=1}^{3}\frac{\partial
+  \vec{n_a}}{\partial x_{\alpha}}\cdot\frac{\partial \vec{n_a}}{\partial x^{\alpha}},
+\end{equation*}
+y tomando el límite continuo $N\rightarrow \infty$
+\begin{equation*}
 \mathcal{H}_C=\frac{1}{2}\hat{\kappa}\int d^2\mathbf{x}\ \frac{\partial
-  \vec{n_b}}{\partial x_{\alpha}}\cdot\frac{\partial \vec{n_b}}{\partial x^{\alpha}}
-\end{equation}
-A partir de la expresión \eqref{derivada_n}
-\begin{equation}
-\frac{\partial \vec{n_b}}{\partial x_{\alpha}}\cdot\frac{\partial
-  \vec{n_b}}{\partial x^{\alpha}}=(K_{\alpha}^{\ \beta}\vec{t}_ {\beta})\cdot(K^{\nu
-  \alpha}\vec{t}_{\nu})=K_{\alpha}^{\ \beta}g_ {\beta\nu}K^{\nu \alpha}=K_{\alpha\beta}K^{\alpha\beta}
-\end{equation}
-Entonces 
-\begin{equation}
-\mathcal{H}_C\simeq\frac{1}{2}\hat{\kappa}\int d^2\mathbf{x}\ K_{\alpha\beta}K^{\alpha\beta}
-\end{equation}
-Y recuperamos la ecuación \eqref{ELandau_curvatura1} de la energía libre de Landau.
+  \vec{n_a}}{\partial x_{\alpha}}\cdot\frac{\partial \vec{n_a}}{\partial x^{\alpha}},
+\end{equation*}
+donde $\hat{\kappa}\propto \kappa$. A partir de la expresión \eqref{derivada_n}
+\begin{equation*}
+\frac{\partial \vec{n_a}}{\partial x_{\alpha}}\cdot\frac{\partial
+  \vec{n_a}}{\partial x^{\alpha}}=(K_{\alpha}^{\ \beta}\vec{t}_ {\beta})\cdot(K^{\nu
+  \alpha}\vec{t}_{\nu})=K_{\alpha}^{\ \beta}\delta_ {\beta\nu}K^{\nu \alpha}=K_{\alpha}^{\ \beta}K^{\alpha}_{\ \beta},
+\end{equation*}
+con lo que recuperamos la ecuación \eqref{ELandau_curvatura1} de la energía libre de Landau
+\begin{equation*}
+\mathcal{H}_C\simeq\frac{1}{2}\hat{\kappa}\int d^2\mathbf{x}\ K_{\alpha}^{\ \beta}K^{\alpha}_{\ \beta}
+\end{equation*}
 
 \section{Algoritmo de Metropolis}
 Una determinada configuración $R$ de la membrana cristalina discreta 
 corresponde a una lista de $N$ posiciones tridimensionales:
-\begin{equation}
+\begin{equation*}
 R=\{ \vec{r}_1,\vec{r}_2,\dots \vec{r}_N\}\,.
-\end{equation}
+\end{equation*}
 Supongamos que hemos generado $M$ configuraciones independientes que siguen una distribución
 proporcional al factor $e^{-\mathcal{H}(\kappa)}$. A partir de las medidas
 $A_1,A_2,\dots A_N$ en cada configuración de un observable $A$, podemos
 estimar su valor medio para ese $\kappa$
-\begin{equation}
+\begin{equation*}
 \langle A \rangle_{\kappa}\simeq \frac{1}{M}\sum^M_{i=1} A_i\,.
-\end{equation}
+\end{equation*}
 Para generar estas configuraciones empleamos un método de Monte Carlo, que
 consiste en un camino aleatorio en el espacio de configuraciones, en donde, en
 cada uno de los pasos al menos se modifica en la posición de un nodo. Este camino
@@ -196,20 +202,20 @@ operador son
   dS\,W(R,S) $, ya que es una probabilidad.
 \item La probabilidad de alcanzar la configuración $U$ desde
   $R$ en $l$ pasos es el producto de los operadores intermedios para cada paso 
-  \begin{multline}
+  \begin{multline*}
     P(U_{l+m}|R_m)=\int
   dR_{l+m-1}\dots dR_{m+2}
   dR_{m+1}\\\times W(U,R_{l+m-1})\dots
   W(R_{m+2},R_{m+1}) W(R_{m+1},R_{m})=W_l(\mathcal{U},R)
-  \end{multline}
+  \end{multline*}
   también $W_l(\mathcal{U},R) \geq 0$ y $1=\int
   dS\, W_l(\mathcal{U},R)$.
 \item Si en el tiempo $t_0$ la probabilidad densidad de probabilidad de
   encontrar a nuestro caminante en una región $dR$ es $\rho_{t_0}(R)dR$, en el tiempo $t_0+t$ será
-\begin{equation}
+\begin{equation*}
 \rho_{t_0+t}(S)=\int
   dR\, W_l(R,S)\rho_s(R)
-\end{equation}
+\end{equation*}
 \end{itemize}
 Estas propiedades son generales para cualquier cadena de Markov. Las
 siguientes propiedades son necesarias para construir nuestro método de Monte
@@ -230,9 +236,9 @@ Carlo:
 
 Es posible demostrar que un operador de transición que satisfaga las dos
 últimas propiedades cumplirá que
-\begin{equation}
+\begin{equation*}
 \lim_{t\rightarrow \infty}W_t(R,S)=\frac{e^{-\mathcal{H}(R,\kappa)}}{\mathcal{Z}}
-\end{equation}
+\end{equation*}
 Este teorema nos asegura que nuestro caminante siempre alcanzará la región de
 interés, no importa donde comience, siempre se alcanzará la región donde las
 configuraciones siguen una distribución de acuerdo al factor de Boltzmann. 
@@ -266,9 +272,9 @@ facotres de Boltzmann
 \end{equation*}
 La condición \label{balance_detallado} será satisfecha si la función $g$
 cumple
-\begin{equation}
+\begin{equation*}
 \frac{g(z)}{g(1/z)}=z.
-\end{equation}
+\end{equation*}
 El algoritmo de Metropolis utiliza $g_M(z)=min\{1,z\}$ y lo hemos implementado de
  la siguiente forma:
 \begin{itemize}
@@ -287,21 +293,20 @@ El algoritmo de Metropolis utiliza $g_M(z)=min\{1,z\}$ y lo hemos implementado d
   \end{itemize}
 \end{itemize}
 
-Un barrido de corresponde a aplicar los pasos anteriores de forma secuencial a
+Una actualización corresponde a aplicar los pasos anteriores de forma secuencial a
 todos los $N$ puntos de la membrana. El valor de $\varepsilon$ se ajusta de
-modo que en cada barrido el número de cambios aceptados sea la mitad del total
-de puntos que componen la superficie. 
+modo que en cada actualización el número de cambios aceptados sea aproximadamente la
+mitad, entre el $40\%$ y el $60\%$ del total de puntos que componen la superficie. 
  
 \subsection{Tratamiento de los datos}
 
-Puesto que las sucesivas configuraciones de una evolución de Monte Carlo están
-correlacionadas, en las simulaciones numéricas se guardaban las configuraciones cada $\tau_0$
-barridos y partir de un cierto valor $t_{termal}$, ambos son propuestas
+Las configuraciones generadas en las simulaciones numéricas se almacenaban cada $\tau_0$
+actualizaciones y partir de un cierto valor $t_{termal}$, ambos son propuestas
 iniciales del valor del periodo de correlación entre medidas y de la
 termalización. Estos valores iniciales se estiman a partir de los resultados de las
 simulaciones realizadas en el trabajo anterior \cite{Bowick_flat_phase}, ya 
 que utilizaron el mismo algoritmo que nosotros. Posteriormente, para comprobar
-si efectivamente las medidas de un observable efectivamente han termalizado, se
+si efectivamente las medidas de un observable han termalizado, se
 gráfica el valor que toma el observable en las
 configuraciones sucesivas en escala logarítmica, el gráfico histórico (figura
 \ref{grafico_historico}). También se representa el promedio del observable,
@@ -333,24 +338,24 @@ utilizamos el método del jacknife \cite{Juan:tesis}, que tiene en cuenta la
 falta de independencia de las medidas. Consideremos los valores
 $\{Q_i\,;\, i=1,\dots M\}$ que un observable $Q$ toma en una evolución de Monte
 Carlo. La estimación del valor medio será
-\begin{equation}
+\begin{equation*}
 \bar{Q}=\frac{1}{M}\sum^M_{i=1}Q_i.
-\end{equation}
+\end{equation*}
 Para estimar el error se divide el conjunto de $M$ valores en $K$ bloques
 iguales, tendrán $m=M/K$ datos cada uno. Definimos $\bar{Q}^m_k \, \{k=1,\dots
 M\}$ como el promedio de los datos después de eliminar el bloque $k$-ésimo
-\begin{equation}
+\begin{equation*}
 \bar{Q}_k^m=\frac{1}{M-m}\left(\sum^{m(k-1)}_{i=1}Q_i+\sum^{M}_{i=mk+1}Q_i\right).
-\end{equation}
+\end{equation*}
 La estimación del error para el tamaño de bloque $m$ es
-\begin{equation}
+\begin{equation*}
 \delta\bar{Q}_m=\sqrt{\frac{K-1}{K}\sum^K_{k=1}(\bar{Q}^m_k-\bar{Q})}.
-\end{equation}
+\end{equation*}
 Esta última expresión da una estimación no sesgada del error, para comprobarlo
 basta con tomar la esperanza $\langle\dots \rangle$ a ambos lados de la ecuación
-\begin{equation}
+\begin{equation*}
 \langle (\delta\bar{Q}_n)^2\rangle=\sigma^2(Q)\frac{1}{N} 
-\end{equation}
+\end{equation*}
 
 \begin{figure}[h]
 \centering
@@ -384,24 +389,25 @@ estiman que la transición de fase ocurre en $\simeq 0.79$:
 \rangle^2),
 \end{equation}
 donde
-\begin{equation}
+\begin{equation*}
 E_C=\sum_{\langle ab \rangle}\vec{n}_a\cdot\vec{n}_b, 
-\end{equation}
+\end{equation*}
 es la energía de curvatura.
 \item[Radio de giro:] Cuya expresión discreta es 
-\begin{equation} R_g^{2}=\frac{1}{3N}\left\langle \sum_{i}
+\begin{equation*} 
+  R_g^{2}=\frac{1}{3N}\left\langle \sum_{i}
   \vec{R}_i\cdot\vec{R}_i\right\rangle=\frac{1}{3N}(\langle\vec{R}^2 \rangle
 -\langle\vec{R} \rangle^2),
-\end{equation}
+\end{equation*}
 donde $\vec{R}_i=\vec{r}_{CM}-\vec{r}_i $ el es vector de posición del nodo
 $i$ relativo al centro de masas $\vec{r}_{CM}$ de la membrana.
 
 \item[Variación del radio de giro:] A partir del teorema de la respuesta
   lineal \cite{Binney:critical_phenomema}, podemos calcular la derivada del
   radio de giro respecto a $\kappa$ (temperatura) 
-\begin{equation}
+\begin{equation*}
   \frac{\partial R_g^2}{\partial \kappa}=\langle R_g^2 E_C \rangle-\langle R_G^2\rangle\langle E_C\rangle\equiv\langle R_g^2E_C \rangle_c,
-\end{equation}
+\end{equation*}
 donde $\langle R_g^2E_C \rangle_c$ es la correlación conexa del radio de giro
 y la energía de curvatura.
 \end{description}
@@ -424,54 +430,54 @@ $\kappa_c\!\equiv\!\kappa_c{\scriptstyle
 longitud de correlación $\xi$ va creciendo hasta que satura el tamaño del
 sistema y comienzan a aparecer los efectos de tamaño finito. Asumiendo la
 anterior afirmación podemos deducir como escala $\kappa_c(L)$ con $L$ ya que
-\begin{align}
-\xi&\propto L\\ 
-\xi&\sim (\kappa(L)-\kappa_c(\infty))^{-\nu}
-\end{align}
+\begin{align*}
+\xi&\propto L,\\ 
+\xi&\sim (\kappa(L)-\kappa_c(\infty))^{-\nu},
+\end{align*}
 entonces
-\begin{equation}
-\kappa_c(L)-\kappa(L)\sim L^{-\frac{1}{\nu}}
-\end{equation}
+\begin{equation*}
+\kappa_c(L)-\kappa(L)\sim L^{-\frac{1}{\nu}}.
+\end{equation*}
 En las proximidades de la transición de fase, donde la longitud de correlación
 es del orden del tamaño del sistema, es razonable suponer que la dinámica está
 gobernada por una sola variable $L/\xi\sim L \kappa_L^{\nu}$, donde $\kappa_L$
 es la \textit{temperatura reducida}
-\begin{equation}
+\begin{equation*}
 \kappa_L\equiv \kappa(L)-\kappa_c(\infty).
-\end{equation}
+\end{equation*}
 Esto implica que un comportamiento, para un observable genérico $\mathcal{O}$, del tipo
-\begin{equation}
+\begin{equation*}
 \mathcal{O}_L\sim L^{\frac{x_0}{\nu}}f(L \kappa_L^{\nu}),
-\end{equation}
+\end{equation*}
 donde $f$ es una función ``universal'' en el sentido que es independiente de
 $L$ pero dependiente del observable $\mathcal{O}$. Ahora bien, dado que
 debemos recuperar el comportamiento descrito en \ref{exponentes_criticos}
 cuando $L\rightarrow \infty$ 
-\begin{equation}
+\begin{equation*}
 \mathcal{O}_L\sim \kappa_L^{-x_0},
-\end{equation}
+\end{equation*}
 tenemos que la función de escala $f(x)$ debe cumplir que
-\begin{equation}
+\begin{equation*}
 f(x)\sim x^{-\frac{x_0}{\nu}}\quad x\rightarrow \infty.
-\end{equation}
+\end{equation*}
 Analicemos el valor máximo del observable respecto a $\kappa$, para ello
 igualamos la derivada a cero
-\begin{equation}
+\begin{equation*}
 \frac{d\mathcal{O}_L}{\kappa_L}=L^{\frac{x_0+1}{\nu}}\tilde{f}(L^{1/\nu} \kappa_L)=0,
-\end{equation}
+\end{equation*}
 donde hemos definido $\tilde{f}(L^{1/\nu}\kappa_L)=f(L\kappa_L^{\nu})$. Suponiendo que
 $\tilde{f}(x)$ tiene un máximo en $x_C$ (este máximo no depende del tamaño del
 sistema), podemos encontrar la relación de escala
 temperatura $\kappa_c(L)$ a la que tiene lugar el máximo del observable
-\begin{equation}
-x_C=L^{1/\nu}(\kappa_c(L)-\kappa_c(\infty))\Rightarrow \kappa_c(L)=\kappa_c(\infty)+x_CL^{1/\nu}
-\end{equation}
-$\kappa_c(L)$ es la temperatura crítica aparente, es la temperatura a la cual
+\begin{equation*}
+x_C=L^{1/\nu}(\kappa_c(L)-\kappa_c(\infty))\Rightarrow \kappa_c(L)=\kappa_c(\infty)+x_CL^{1/\nu},
+\end{equation*}
+donde hemos definido $\kappa_c(L)$ como la temperatura crítica aparente, es la temperatura a la cual
 la longitud de correlación satura con el tamaño del sistema. El valor que toma
 el observable en este máximo escalará con el tamaño del sistema como
-\begin{equation}
+\begin{equation*}
 \mathcal{O}^{max}_L\sim L^{\frac{x_0}{\nu}}.
-\end{equation}
+\end{equation*}
 
 Resumiendo, tenemos las siguientes relaciones para los observables de nuestro sistema:
 \begin{itemize}
@@ -479,33 +485,33 @@ Resumiendo, tenemos las siguientes relaciones para los observables de nuestro si
   radio de giro $\frac{\partial R_g^2}{\partial \kappa}$, ocurren a una temperatura crítica
   aparente $\kappa_c(L)$, la cual está relacionada con la temperatura crítica
   en el límite termodinámico $\kappa_c(\infty)$, por
-  \begin{equation}
+  \begin{equation*}
     \kappa_c(L)=\kappa_c(\infty)+C_0 L^{-1/\nu},
-  \end{equation}
+  \end{equation*}
   donde la constate $C_0$ depende del observable, no será la misma para $C_V$
   que para $\frac{\partial R_g^2}{\partial \kappa}$.
 \item El máximo $C_V$ del sistema finito está dado por la siguiente relación 
-  \begin{equation}
+  \begin{equation*}
     C^{\max}_v(L)=C_1+C_2L^{\alpha/\nu},
-  \end{equation}
+  \end{equation*}
   donde se ha añadido la constante $C_1$ debido a correcciones analíticas
   \cite{Cardy}. 
 \item Para hallar la relación de escala que sigue la variación del radio de
   giro, debemos tener en cuenta que el radio de giro escala con el tamaño del
   sistema como
-  \begin{equation}
+  \begin{equation*}
     R^2_G(L)\simeq L^{2\nu_F}f_{R_G}\left(L^{1/\nu}(\kappa(L)-\kappa_c(\infty))\right),
-  \end{equation}
+  \end{equation*}
   donde $f_{R_G}(x)$ es la función de escala del radio de giro. Derivando esta
   última expresión respecto $\kappa(L)$
   \begin{equation}\label{escala_R2g_conexo}
-    \frac{\partial R_g^2(L)}{\partial \kappa}\simeq L^{2\nu_F+\frac{1}{\nu}}f'_{R_G}\left(L^{1/\nu}(\kappa(L)-\kappa_c(\infty))\right.)
+    \frac{\partial R_g^2(L)}{\partial \kappa}\simeq L^{2\nu_F+\frac{1}{\nu}}f'_{R_G}\left(L^{1/\nu}(\kappa(L)-\kappa_c(\infty))\right).
   \end{equation}
   Entonces el máximo de $\frac{\partial R_g^2(L)}{\partial \kappa}$ se
   comportará como
-  \begin{equation}
+  \begin{equation*}
     \left( \frac{\partial R_g^2(L)}{\partial \kappa}\right)_{max}=C_3  L^{2\nu_F+\frac{1}{\nu}},
-  \end{equation}
+  \end{equation*}
   siendo $C_3$ una constante.
 \end{itemize}
 
@@ -523,14 +529,14 @@ configuraciones generadas tiende a infinito, la frecuencia relativa de la
 energía $E$ tiende a la probabilidad $P(E)$ de que el sistema tenga una
 energía $E$. De la mecánica estadística clásica sabemos que esta probabilidad
 viene dada por
-\begin{equation}
+\begin{equation*}
 P(E)=\frac{1}{\mathcal{Z}}W(E)e^{-\beta E},  
-\end{equation}
+\end{equation*}
 donde $W(E)$ es la densidad de estados de energía $E$. Si definimos $f\equiv
 \beta F$, donde $F$ es la energía libre extensiva tenemos
-\begin{equation}
+\begin{equation*}
 f=-\log \mathcal{Z}.
-\end{equation}
+\end{equation*}
 Y en el límite en el cual el número de configuraciones es infinito encontramos
 que
 \begin{equation}
@@ -539,16 +545,16 @@ P(E)\equiv p_{\beta}=W(E)e^{-\beta E+f} ,
 lo que significa que podemos estimar numéricamente la densidad de estados
 salvo el factor $e^{-f}$ \cite{Juan:tesis}. Con esta estimación ya podemos calcular la
 probabilidad de la energía a otra $\beta$ y relacionarla con la ya calculada
-\begin{equation}
+\begin{equation*}
 p_{\beta'}(E)=\frac{p_{\beta}(E)e^{-(\beta'-\beta)E}}{\sum_E e^{-(\beta'-\beta)E}},
-\end{equation}
+\end{equation*}
 también podemos estimar el valor esperado de un observable $\langle
 O\rangle_{\beta'}$  para una $\beta'$ partir del valor $\langle
 O\rangle_{\beta}$ a otra beta
-\begin{equation}
+\begin{equation*}
 \langle O\rangle_{\beta'}=\frac{\langle
 O\rangle_{\beta} e^{-(\beta'-\beta)E}}{\sum_E e^{-(\beta'-\beta)E}},
-\end{equation}
+\end{equation*}
 
 Las ecuaciones son exactas cuando el número de configuraciones es infinito,
 mientras que para una simulación de Monte Carlo serán aproximadas. Dada una
@@ -565,7 +571,7 @@ que
 Con $A=3$ la nueva probabilidad tendrá un factor $e^{-3}$ respecto a la
 probabilidad máxima en esos puntos, es decir, prácticamente no contribuirá.
 Además es interesante realizar la simulación lo más cerca posible de la
-transición. Aunque cerca de la transición, las fluctuaciones serán máximas y ,según
+transición. Aunque cerca de la transición, las fluctuaciones serán máximas, y según
  la ecuación anterior \eqref{beta_sigma}, nos podremos mover muy poco de la
  temperatura de la simulación. A pesar de este inconveniente, el método de la
  densidad espectral se ha revelado muy útil para localizar la transición.
@@ -574,45 +580,46 @@ transición. Aunque cerca de la transición, las fluctuaciones serán máximas y
 
 A partir del teorema de la respuesta lineal \cite{Binney:critical_phenomema}
 tenemos que
-\begin{equation}
+\begin{equation*}
 \langle u_{\alpha\beta}u_{\gamma\delta} \rangle_c
 =\frac{1}{\beta A}\left(\frac{\partial u_{\alpha\beta}}{\partial \sigma^{\gamma\delta}}\right),
-\end{equation}
+\end{equation*}
 donde $A$ es área de la membrana. Por otro lado, derivando la expresión
 \eqref{hooke} respecto a $\sigma^{\gamma\delta}$
-\begin{equation}\frac{\partial u_{\alpha\beta}}{\partial
-  \sigma^{\gamma\delta}}=-\frac{K-\mu}{4\mu K}\delta_{\alpha\beta}\delta_{\gamma\delta}+\frac{1}{4\mu}(\delta_{\alpha\gamma}\delta_{\beta\delta}+\delta_{\alpha\delta}\delta_{\beta\gamma})
-\end{equation}
+\begin{equation*}
+\frac{\partial u_{\alpha\beta}}{\partial
+  \sigma^{\gamma\delta}}=-\frac{K-\mu}{4\mu K}\delta_{\alpha\beta}\delta_{\gamma\delta}+\frac{1}{4\mu}(\delta_{\alpha\gamma}\delta_{\beta\delta}+\delta_{\alpha\delta}\delta_{\beta\gamma}).
+\end{equation*}
 Usando estas dos últimas expresiones encontramos que 
-\begin{align}
-\langle u_{11}u_{22} \rangle_c&=-\frac{1}{\beta A}\frac{K-\mu}{4\mu K}\\
-\langle u_{12}u_{12} \rangle_c&=\frac{1}{\beta A}\frac{1}{4\mu}\\
-\langle u_{11}^2 \rangle_c=\langle u_{22}^2 \rangle_c&=\frac{1}{\beta A}\frac{K+\mu}{4\mu K}\\
-\end{align}
+\begin{align*}
+\langle u_{11}u_{22} \rangle_c&=-\frac{1}{\beta A}\frac{K-\mu}{4\mu K},\\
+\langle u_{12}u_{12} \rangle_c&=\frac{1}{\beta A}\frac{1}{4\mu},\\
+\langle u_{11}^2 \rangle_c=\langle u_{22}^2 \rangle_c&=\frac{1}{\beta A}\frac{K+\mu}{4\mu K}.\\
+\end{align*}
 A partir de estas expresiones podemos encontrar una definición alternativa
 para el módulo de Poisson \cite{Zang_Dmolecular,Parrinello_Crystal} en
-función de las correlaciones conexas del tensor 
-de deformaciones
-\begin{equation}
+función de las correlaciones conexas del tensor de deformaciones
+\begin{equation*}
 \sigma=\frac{K-\mu}{K+\mu}=-\frac{\langle u_{11}u_{22}
-  \rangle_c}{\langle u_{22}^2 \rangle_c}
-\end{equation}
-Teniendo en cuenta \eqref{tensor_metrica} podemos expresar la anterior
+  \rangle_c}{\langle u_{22}^2 \rangle_c}.
+\end{equation*}
+Teniendo en cuenta la ecuación \eqref{tensor_metrica}, podemos expresar la anterior
 expresión en función de la métrica inducida 
-\begin{equation}
+\begin{equation*}
 \sigma=\frac{K-\mu}{K+\mu}=-\frac{\langle g_{11}g_{22}
-  \rangle_c}{\langle g_{22}^2 \rangle_c}
-\end{equation}
+  \rangle_c}{\langle g_{22}^2 \rangle_c}.
+\end{equation*}
 Para nuestra superficie discreta podemos estimar la métrica inducida
-aproximando los vectores tangentes por enlaces entre nodos en la diferentes
-direcciones. Ahora bien, al ser nuestra red triangular únicamente tenemos acceso a
-$\partial_i \vec{r}$, con $i=1,2,3$ las direcciones naturales de la red
-triangular, las cuales no son ortogonales y en la definición de $\sigma$ se
-asume implícitamente que lo son. Por tanto, debemos hacer un cambio de coordenadas, si
-$\vec{e}_1,\vec{e}_2,\vec{e}_3$ son la base natural de vectores de la red
-triangular elegimos la dirección $\vec{x}_1$ en la dirección $\vec{e}_1$ y
-para $\vec{x}_2$ usamos $(\vec{e}_2+\vec{e}_3)/\sqrt{3}$, obteniendo así una
-base ortonormal con la que poder calcular $\sigma$ \cite{Bowick_poisson_ratio}.
+aproximando los vectores tangentes por los vectores relativos entre nodos
+vecinos en la diferentes direcciones. Ahora bien, al ser nuestra red
+triangular únicamente tenemos acceso a $\partial_i \vec{r}$, con $i=1,2,3$ las
+direcciones naturales de la red triangular, las cuales no son ortogonales y en
+la definición de $\sigma$ se asume implícitamente que lo son. Por tanto,
+debemos hacer un cambio de coordenadas, si $\vec{e}_1,\vec{e}_2,\vec{e}_3$ son
+la base natural de vectores de la red triangular elegimos
+$\vec{x}_1$ en la dirección $\vec{e}_1$ y para $\vec{x}_2$ usamos
+$(\vec{e}_2+\vec{e}_3)/\sqrt{3}$, obteniendo así una base ortonormal con la
+que poder calcular $\sigma$ \cite{Bowick_poisson_ratio}.
 
 %%% Local Variables: 
 %%% mode: latex
