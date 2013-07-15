@@ -1,0 +1,141 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{xcolor,color}
+\usepackage{subfigure}
+
+\usetheme{Singapore}
+%\useinnertheme{rectangles}
+\definecolor{fblue}{rgb}{0.6,0.6,0.9}
+%\usefonttheme{structuresmallcapsserif}
+\usefonttheme{serif}
+
+%\usecolortheme{whale} % outer color
+\usecolortheme[RGB={0,50,200}]{structure}
+
+
+\setbeamertemplate{navigation symbols}{}
+
+\mode<beamer>{\setbeamertemplate{blocks}[rounded][shadow=false]}
+\setbeamercolor{block title}{bg=fblue}
+\setbeamercolor{block body}{bg=gray!10}
+%\logo{\includegraphics[width=28bp]{./Pictures/UEX.jpg}}
+
+
+\title[C. crítico de las membranas cristalinas]{Comportamiento crítico de las membranas cristalinas}
+\author[P. Monroy Dir.: Juan J.Ruiz Lorenzo]{Pedro Monroy Pérez \\ Director:
+  J.J. Ruiz Lorenzo}
+\date{\today}
+\institute[UEx]{Dep. de Física Teórica, Facultad de Ciencias, Universidad de Extremadura}
+
+\begin{document}
+
+\begin{frame}[plain]{}
+\titlepage
+\end{frame}
+
+
+\begin{frame}{Indice}
+  \tableofcontents[hideallsubsections]
+\end{frame}
+\section{Introducción}
+\begin{frame}{Introducción}
+
+\end{frame}
+\section{Estudio Analítico}
+
+\begin{frame}{Descripción geométrica}
+  \begin{columns}
+    \begin{column}{5.8cm}
+      \centering
+      Coordenadas Internas:
+      \begin{figure}[h]
+        \resizebox{\columnwidth}{!}{\input{coordenadas_internas-fig}}
+      \end{figure}
+      \begin{equation*}
+        \mathbf{x}\equiv (x^1,x^2)\in \mathbb{R}^2
+      \end{equation*}
+    \end{column}
+    \begin{column}{5.8cm}
+      \centering
+      Coordenadas Externas:
+      \begin{figure}[h]
+        \resizebox{\columnwidth}{!}{\input{coordenadas_externas-fig}}
+      \end{figure}
+      \begin{equation*}
+        \vec{r}=x\,\vec{i}+y\,\vec{j}+z\,\vec{k}\equiv (x,y,z)\in \mathbb{R}^3
+      \end{equation*}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Los Vectores Tangentes y la Métrica inducida}
+  \begin{columns}
+    \begin{column}{5.8cm}
+      \centering
+      \begin{figure}[h]
+        \resizebox{\columnwidth}{!}{\input{vectores_tangentes-fig}}
+      \end{figure}
+      \begin{equation*}
+        \vec{t}_{\alpha}=\frac{\partial \vec{r}}{\partial
+          x^{\alpha}}=\partial_{\alpha}\vec{r} \qquad \alpha=1,2;
+      \end{equation*}
+
+    \end{column}
+    \begin{column}{5.8cm}
+      \centering
+      Coordenadas Externas:
+      \begin{figure}[h]
+        \resizebox{\columnwidth}{!}{\input{coordenadas_externas-fig}}
+      \end{figure}
+      \begin{equation*}
+        \vec{r}=x\,\vec{i}+y\,\vec{j}+z\,\vec{k}\equiv (x,y,z)\in \mathbb{R}^3
+      \end{equation*}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Curvatura}
+
+\end{frame}
+
+\begin{frame}{Teoría de Landau}
+\end{frame}
+\begin{frame}{Parámetro de orden}
+\end{frame}
+\begin{frame}{Energía Libre de Landau}
+\end{frame}
+\begin{frame}{Aproximación del campo medio}
+\end{frame}
+\begin{frame}{Exponentes críticos}
+\end{frame}
+\begin{frame}{Relaciones de escala del radio de giro}
+\end{frame}
+\begin{frame}{Fase plana}
+\end{frame}
+\begin{frame}{Módulo de Poisson}
+\end{frame}
+
+\section{Simulaciones Numéricas}
+\begin{frame}{Modelo discreto}
+\end{frame}
+\begin{frame}{límite continuo}
+\end{frame}
+\begin{frame}{Algoritmo de Metropolis}
+\end{frame}
+\begin{frame}{Tratamiento de los datos}
+\end{frame}
+\begin{frame}{Estimación exponentes críticos}
+\end{frame}
+\begin{frame}{Densidad espectral}
+\end{frame}
+\section{Resultados}
+\begin{frame}{}
+\end{frame}
+\section{Conclusiones}
+\begin{frame}
+\end{frame}
+\end{document}
