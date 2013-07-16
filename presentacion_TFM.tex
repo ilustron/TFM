@@ -9,7 +9,7 @@
 
 \usetheme{Singapore}
 %\useinnertheme{rectangles}
-\definecolor{fblue}{rgb}{0.6,0.6,0.9}
+\definecolor{fblue}{rgb}{0,0.3,0.9}
 %\usefonttheme{structuresmallcapsserif}
 \usefonttheme{serif}
 
@@ -43,7 +43,14 @@
 \end{frame}
 \section{Introducción}
 \begin{frame}{Introducción}
-
+\begin{itemize}
+\item Dos clases de universalidad principales para las membranas flexibles:
+  Las membranas fluidas (topología variable) y las cristalinas (conectividad fija). 
+\item Las membranas cristalinas presentan una transición de fase plana-rugosa
+  (comportamiento crítico).
+\item Presentan un módulo de Poisson negativo.
+\item Ejemplos: El citoesqueleto de los glóbulos rojos, Óxido de grafito y grafeno. 
+\end{itemize}
 \end{frame}
 \section{Estudio Analítico}
 
@@ -374,10 +381,58 @@ con $K>0\, ,\ \mu>0$.
 
 \section{Simulaciones Numéricas}
 \begin{frame}{Modelo discreto}
+\begin{columns}[T]
+    \column{.5\textwidth}
+    \begin{itemize}
+    \item Red triangular bidimensional de $N=L^2$ partículas en un espacio
+      tridimensional.
+    \item Condiciones de contorno libres (efectos de borde).
+    \item  Hamiltoniano efectivo:
+    \end{itemize}
+    \column{.5\textwidth}
+    \begin{figure}[h]
+      \resizebox{\columnwidth}{!}{\input{red_triangular-fig}}
+    \end{figure} 
+\end{columns}
+\begin{equation*}
+\mathcal{H}=\mathcal{H}_E+\mathcal{H}_C,
+\end{equation*}
+donde
+ $$\mathcal{H}_E=\frac{1}{2}\sum_{\langle
+   ij\rangle}|\vec{r}_i-\vec{r}_j|^2 \qquad \mathcal{H}_C=\frac{\kappa}{2}\sum_{\langle ab 
+      \rangle}|\vec{n}_a-\vec{n}_b|^2$$
+\end{frame}
+\begin{frame}{Límite continuo}
+\begin{columns}[T]
+    \column{.55\textwidth}
+    \begin{equation*}
+     \mathcal{H}_E=\frac{1}{2}\sum_{\langle
+       ij\rangle}(|\vec{r}_i-\vec{r}_j|-a)^2;\quad |\vec{r}_i-\vec{r}_j|\simeq a+\frac{u_{\alpha\beta}}{a}x_q^{\ \alpha}x_q^{\ \beta}. 
+    \end{equation*}
+    \begin{equation*}
+     \mathcal{H}_E\simeq\frac{3a^2}{8}\sum_P 2u_{\alpha\beta}u^{\alpha\beta}+u_{\alpha}^{\ \alpha}u^{\beta}_{\ \beta}
+     \end{equation*}
+     Límite continuo:
+     \begin{equation*}
+     \mathcal{F}_E= \frac{\sqrt{3}}{4}\frac{a^2}{\epsilon^2}\int
+     d^2\mathbf{x}\,u_{\alpha\beta}u^{\alpha\beta}+\frac{1}{2}u_{\alpha}^{\
+       \alpha}u^{\beta}_{\ \beta} \Rightarrow \mu=\lambda= \frac{\sqrt{3}}{4}\frac{a^2}{\epsilon^2}
+     \end{equation*}
+     Nuestro modelo $a\rightarrow 0$ y $\epsilon$ fijo.
+    \column{.53\textwidth}
+    \begin{figure}[h]
+      \resizebox{\columnwidth}{!}{\input{base-hexagonal-fig}}
+    \end{figure} 
+\end{columns}
+\begin{multline*}
+F_C[\mathbf{y},T]\simeq\frac{\kappa}{2}\int d^2\mathbf{y} K_{\alpha}^{\
+  \beta}K^{\alpha}_{\ \beta}=\\=\frac{\kappa}{2}\int d^2\mathbf{y}\
+\frac{\partial \vec{n_a}}{\partial x_{\alpha}}\cdot\frac{\partial
+  \vec{n_a}}{\partial x^{\alpha}} \longrightarrow \mathcal{H}_C=\frac{\kappa}{2}\sum_{\langle ab 
+      \rangle}|\vec{n}_a-\vec{n}_b|^2
+\end{multline*}
+\end{frame}
 
-\end{frame}
-\begin{frame}{límite continuo}
-\end{frame}
 \begin{frame}{Algoritmo de Metropolis}
 Para un valor fijo de $\kappa$:
 \begin{itemize}
@@ -441,9 +496,9 @@ $$\delta\bar{\mathcal{Q}}_n=\sqrt{\frac{K-1}{K}\sum^K_{k=1}(\bar{\mathcal{Q}}^n_
 \begin{frame}
 \begin{itemize}
 \item Si $n<<\text{Correlación entre medidas}\rightarrow
-  \delta\bar{\mathcal{Q}}_n$ aumenta con el tamaño $n$
+  \delta\bar{\mathcal{Q}}_n$ aumenta con el tamaño $n$.
 \item Si $n\simeq \text{Correlación entre
-    medidas}\rightarrow\delta\bar{\mathcal{Q}}_n=const.$ (plateau)
+    medidas}\rightarrow\delta\bar{\mathcal{Q}}_n=const.$ (plateau).
 \end{itemize}
 \begin{columns}
   \begin{column}{6cm}
@@ -463,13 +518,292 @@ $\tau_0=120000$
 \end{frame}
 
 \begin{frame}{Estimación exponentes críticos}
+\begin{columns}
+  \begin{column}{5.8cm}
+    Observable genérico $\mathcal{O}$:
+    \begin{equation*}
+      \mathcal{O}_L\sim L^{\frac{x_0}{\nu}}f(L (\kappa(L)-\kappa_c(\infty))^{\nu}).
+    \end{equation*}
+  valor máximo del observable respecto a $\kappa$, $\max f(x)=f(x_C)$:
+  \begin{align*}
+    \mathcal{O}^{max}_L& \sim L^{\frac{x_0}{\nu}},\\
+    \kappa_c(L)&=\kappa_c(\infty)+x_CL^{1/\nu}.
+  \end{align*}
+  \end{column}
+  \begin{column}{5.8cm}
+    {\color{fblue} Densidad espectral:}
+
+    Tenemos que:
+    \begin{equation*}
+      \lim _{N_C\rightarrow \infty}\bar{N}(E)=P(E)
+    \end{equation*}
+
+    $P(E)\equiv p_{\beta}=W(E)e^{-\beta E+f}$,
+    \begin{equation*}
+      p_{\beta'}(E)=\frac{p_{\beta}(E)e^{-(\beta'-\beta)E}}{\sum_E e^{-(\beta'-\beta)E}},
+    \end{equation*}
+    \centering
+    \begin{equation*}
+      \langle O\rangle_{\beta'}=\frac{\langle
+        O\rangle_{\beta} e^{-(\beta'-\beta)E}}{\sum_E e^{-(\beta'-\beta)E}},
+    \end{equation*}
+  \end{column}
+\end{columns}
 \end{frame}
-\begin{frame}{Densidad espectral}
+
+\section{Resultados: Calor específico}
+\begin{frame}{Resultados}
+\begin{columns}
+  \begin{column}{5.8cm}
+    \begin{figure}[h]
+      \centering
+      \resizebox{\columnwidth}{!}{\input{Se_plot.tex}}
+    \end{figure}
+  \end{column}
+  \begin{column}{5.8cm}
+    \begin{figure}[h]
+      \centering
+     \resizebox{\columnwidth}{!}{ \input{Cv_plot.tex}}
+    \end{figure}
+  \end{column}
+\end{columns}
+\begin{equation*}
+ C_V=\frac{3(N-1)}{2}+\frac{\kappa^2}{N}(\langle E_C^2 \rangle-\langle E_C
+\rangle^2),
+\end{equation*}
+donde
+\begin{equation*}
+E_C=Ne_C=\sum_{\langle ab \rangle}\vec{n}_a\cdot\vec{n}_b, 
+\end{equation*}
+es la energía de curvatura.
 \end{frame}
-\section{Resultados}
-\begin{frame}{}
-\end{frame}
-\section{Conclusiones}
+
 \begin{frame}
+\begin{columns}[T]
+  \begin{column}{5.8cm}
+    \begin{figure}[h]
+      \centering
+      \resizebox{\columnwidth}{!}{\input{max_Cv_plot.tex}}
+    \end{figure}
+    \begin{equation*}
+    C^{\max}_v(L)=C_1+C_2L^{\alpha/\nu}
+  \end{equation*}
+  \end{column}
+  \begin{column}{5.8cm}
+    \begin{figure}[h]
+      \centering
+     \resizebox{\columnwidth}{!}{ \input{Cv_L_plot.tex}}
+    \end{figure}
+    \resizebox{\columnwidth}{!}{
+      \begin{tabular}{|c|c|}\hline
+        Coeficientes/Exponentes críticos & Resultado \\\hline
+        $c_0$         & $0.7702(36) $ \\ \hline
+        $c_1$         & $0.1098(95)$ \\ \hline
+        $c_2=\alpha/\nu$  & $0.76(18)$  \\ \hline
+        $\alpha$      & $0.55(18)$ \\ \hline
+        $\nu $        & $0.72(4)$ \\ \hline
+        $\chi_c^2/\mathrm{ngl}$ &  $0.38/2$   \\ \hline
+        $P(\chi^2>\chi_c^2)$&  $0.8257$\\ \hline
+      \end{tabular}}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\begin{columns}
+  \begin{column}{5.8cm}
+    \begin{figure}[h]
+      \centering
+       \begin{center}
+         \resizebox{\columnwidth}{!}{
+           \begin{tabular}{|c|c|c|c|}\hline
+             Ajuste              & $\frac{1}{\nu}=1.38$ & $\frac{1}{\nu}=1.38-0.09$& $\frac{1}{\nu}=1.38+0.09$ \\ \hline\hline
+             $c_0=\kappa(\infty)$   & $0.777(2) $          &  $0.774(3)$              &  $0.779(3)$   \\ \hline
+             $c_1$              & $4.35(59)$           &  $3.41(46)$              &   $5.55(77)$  \\ \hline
+             $\chi_c^2/\mathrm{ngl}$       &  $3.75/3$            &  $3.27/3$                & $4.29/3$  \\ \hline
+             $P(\chi^2>\chi_c^2)$&  $0.29$              &  $0.35$                  &   $0.23$ \\ \hline
+           \end{tabular}}
+       \end{center}
+      
+    \end{figure}
+  \end{column}
+  \begin{column}{5.8cm}
+    \begin{figure}[h]
+      \centering
+     \resizebox{\columnwidth}{!}{ \input{Cv_T_L_plot.tex}}
+    \end{figure}
+  \end{column}
+\end{columns}
+\begin{equation*}
+    \kappa_c(L)=\kappa_c(\infty)+C_0 L^{-1/\nu},\qquad\kappa_c(\infty)=0.777(3)(3)
+  \end{equation*}
+
+\end{frame}
+
+\begin{frame}{Resultados: Radio de giro}
+\begin{columns}
+  \begin{column}{5.8cm}
+    \begin{figure}[h]
+      \centering
+      \resizebox{\columnwidth}{!}{\input{Rg2_plot.tex}}
+    \end{figure}
+  \end{column}
+  \begin{column}{5.8cm}
+    \begin{figure}[h]
+      \centering
+     \resizebox{\columnwidth}{!}{ \input{Drg2_plot.tex}}
+    \end{figure}
+  \end{column}
+\end{columns}
+\begin{equation*} 
+  R_g^{2}=\frac{1}{3N}\left\langle \sum_{i}
+  \vec{R}_i\cdot\vec{R}_i\right\rangle=\frac{1}{3N}(\langle\vec{R}^2 \rangle
+-\langle\vec{R} \rangle^2),\quad \text{donde}\quad \vec{R}_i=\vec{r}_{CM}-\vec{r}_i 
+\end{equation*}
+\begin{equation*}
+  \frac{\partial R_g^2}{\partial \kappa}=\langle R_g^2 E_C \rangle-\langle R_G^2\rangle\langle E_C\rangle\equiv\langle R_g^2E_C \rangle_c=N\langle R_g^2e_C \rangle_c,
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+\begin{columns}[T]
+  \begin{column}{5.8cm}
+    \begin{figure}[h]
+      \centering
+      \resizebox{\columnwidth}{!}{\input{max_Drg2_plot.tex}}
+    \end{figure}
+    \begin{equation*}
+      \left(\frac{\partial R_g^2(L)}{\partial \kappa}\right)_{max}\simeq
+      L^{2\nu_F+\frac{1}{\nu}}
+    \end{equation*}
+  \end{column}
+  \begin{column}{5.8cm}
+    \begin{figure}[h]
+      \centering
+     \resizebox{\columnwidth}{!}{ \input{Drg2_L_plot.tex}}
+    \end{figure}
+    \resizebox{\columnwidth}{!}{
+      \begin{tabular}{|c|c|}\hline
+        Coeficientes/Exponentes críticos & Resultado \\\hline
+        $c_0$         & $0.002(2) $ \\ \hline
+        $c_1$         & $0.86(3)$ \\ \hline
+        $d_H$      & $2.7(1)$ \\ \hline
+        $\nu_F $        & $0.74(6)$ \\ \hline
+        $\chi_c^2/\mathrm{ngl}$ &  $1.41/3$   \\ \hline
+        $P(\chi^2>\chi_c^2)$&  $0.70$\\ \hline
+      \end{tabular}}
+  \end{column}
+\end{columns} 
+\end{frame}
+
+\begin{frame}{Resultados: Radio de giro}
+\begin{equation*}
+    R^2_G(L)\simeq L^{\frac{4}{d_H}}f_{R_G}\left(L^{1/\nu}(\kappa(L)-\kappa_c(\infty))\right).
+\end{equation*} 
+\begin{figure}[h]
+      \centering
+     \resizebox{0.9\columnwidth}{!}{ \input{rg2_funcion_escala_plot.tex}}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Resultados: Relaciones de escala del radio de giro}
+\begin{columns}[T]
+  \begin{column}{5.8cm}
+    \begin{figure}[h]
+      \centering
+     \resizebox{\columnwidth}{!}{ \input{rg2_plano_plot.tex}}
+    \end{figure}
+    \resizebox{\columnwidth}{!}{\begin{tabular}{|c|c|}\hline
+      Coeficientes/Exponentes críticos   & Resultados \\ \hline\hline
+        $c_0$               & $0.14(2) $  \\ \hline
+        $c_1$               & $0.0016(3)$ \\ \hline
+        $c_2=2\nu_F$        &  $1.996(5)$ \\ \hline
+        $\nu_F$             & $ 0.998(3)$ \\ \hline
+        $ d_H$               & $ 2.004(5)$ \\ \hline
+        $\chi_c^2/\mathrm{ngl}$        &  $2.939/2$  \\ \hline
+        $P(\chi^2>\chi_c^2)$&  $0.23$    \\ \hline
+      \end{tabular}}
+  \end{column}
+  \begin{column}{5.8cm}
+    \begin{figure}[h]
+      \centering
+     \resizebox{\columnwidth}{!}{ \input{rg2_rugosa_plot.tex}}
+    \end{figure}
+   \resizebox{\columnwidth}{!}{ \begin{tabular}{|c|c|}\hline
+Coeficientes/Exponentes críticos  & Resultados \\ \hline\hline
+ $c_0$               & $-0.176(5) $  \\ \hline
+ $c_1$               & $0.247(1)$ \\ \hline
+ $\chi_c^2/\mathrm{ngl}$       &  $1.85/3$  \\ \hline
+ $P(\chi^2>\chi_c^2)$&  $0.39$    \\ \hline
+\end{tabular}}
+  \end{column}
+\end{columns}
+\end{frame}
+\begin{frame}{Resultados: Módulo de Poisson}
+Según el teorema de la respuesta lineal:
+\begin{equation*}
+\langle u_{\alpha\beta}u_{\gamma\delta} \rangle_c
+=\frac{1}{\beta A}\left(\frac{\partial u_{\alpha\beta}}{\partial \sigma^{\gamma\delta}}\right),
+\end{equation*}
+donde $A$ es área de la membrana. Por otro lado:
+\begin{equation*}
+\frac{\partial u_{\alpha\beta}}{\partial
+  \sigma^{\gamma\delta}}=-\frac{K-\mu}{4\mu K}\delta_{\alpha\beta}\delta_{\gamma\delta}+\frac{1}{4\mu}(\delta_{\alpha\gamma}\delta_{\beta\delta}+\delta_{\alpha\delta}\delta_{\beta\gamma}).
+\end{equation*}
+Entonces:
+\begin{equation*}
+\sigma=\frac{K-\mu}{K+\mu}=-\frac{\langle u_{11}u_{22}
+  \rangle_c}{\langle u_{22}^2 \rangle_c}=-\frac{\langle g_{11}g_{22}
+  \rangle_c}{\langle g_{22}^2 \rangle_c}.
+\end{equation*}
+{\color{fblue} Cambio de coordenadas}: si $\vec{e}_1,\vec{e}_2,\vec{e}_3$ son
+la base natural de vectores de la red triangular elegimos
+$\vec{x}_1$ en la dirección $\vec{e}_1$ y para $\vec{x}_2$ usamos
+$(\vec{e}_2+\vec{e}_3)/\sqrt{3}$.
+
+\end{frame}
+\begin{frame}{Resultados: Módulo de Poisson}
+\begin{columns}
+  \begin{column}{5.8cm}
+
+ \resizebox{\columnwidth}{!}{\begin{tabular}{|c|c|c|c|}\hline
+  & \multicolumn{3}{c|}{Resultados}\\ \hline
+ Observable              & $16^2$ & $24^2$ & $32^2$ \\ \hline\hline
+ $\langle g_{11}^2 \rangle_c$  & $0.00154(2) $& $0.000577(8)$  & $0.000290(6)$\\ \hline
+ $\langle g_{22}^2 \rangle_c$  & $0.00164(2) $&  $0.000603(8)$ & $0.000307(6)$ \\ \hline
+$\langle g_{11}g_{22} \rangle_c$& $0.00040(2)$ &  $0.000160(6)$ & $0.000082(4)$\\ \hline
+$\sigma$                      & $ -0.244(9)$ &  $-0.264(9)$   & $-0.26(1)$ \\ \hline
+\end{tabular}}\vspace{0.4cm}
+\resizebox{\columnwidth}{!}{\begin{tabular}{|c|c|c|c|}\hline
+   & \multicolumn{3}{c|}{Resultados}\\ \hline
+  Observable             & $46^2$ & $64^2$& $128^2$\\ \hline\hline
+ $\langle g_{11}^2 \rangle_c$ & $0.000136(2)$& $0.000069(1)$  & $0.000016(1)$\\ \hline
+ $\langle g_{22}^2 \rangle_c$ & $0.000140(2)$& $0.000067(1)$  & $0.000016(1)$    \\ \hline
+$\langle g_{11}g_{22} \rangle_c$& $0.000039(2)$ & $0.000019(1)$ & $0.000005(1)$\\ \hline
+$\sigma$                      & $-0.27(1)$   & $-0.28(1)$     & $-0.31(2)$\\ \hline
+\end{tabular}} 
+      
+  \end{column}
+  \begin{column}{5.8cm}
+    \begin{figure}[h]
+      \centering
+     \resizebox{\columnwidth}{!}{ \input{poisson_plot.tex}}
+    \end{figure}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\section{Conclusiones}
+\begin{frame}{Conclusiones}
+\begin{itemize}
+\item Medida de la variación del radio de giro con respecto a la temperatura (novedad).
+\item Medida precisa de la temperatura crítica, $\alpha$, $\nu$ en acuerdo con
+  trabajos anteriores.
+\item Comprobación de escala el radio de giro, tanto en la fase plana como en la
+rugosa.
+\item Medida del módulo de Poisson para diferentes tamaños del sistema, aunque los
+errores de las medidas no nos permiten estimarlo en el límite a área infinita.
+\item Es necesario conseguir más resultados para tamaños mayores del sistema.
+\end{itemize}
 \end{frame}
 \end{document}

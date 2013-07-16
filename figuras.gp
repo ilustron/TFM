@@ -436,8 +436,8 @@ set arrow 5 heads from 0,0,0 to 0.6*0.5,-0.6*0.866,0 front
 set label 1 '$a$' at 0.15,-0.21
 set label 2 '$\vec{e}_1$' at 0.5,-0.1,0
 
-set label 3 '$x{\scriptstyle [q]}^2$' at 0.6*0.5+0.02,(0.6*0.866)/2,0
-set label 4 '$x{\scriptstyle [q]}^1$' at (0.6*0.5)/2-0.08,0.6*0.866+0.05,0
+set label 3 '$x_q^2$' at 0.6*0.5+0.02,(0.6*0.866)/2,0
+set label 4 '$x_q^1$' at (0.6*0.5)/2-0.08,0.6*0.866+0.05,0
 
 set label 6 '$\vec{e}_2$' at -0.1,0.5,0
 set label 7 '$P$' at -0.09,-0.09,0 front
@@ -565,7 +565,7 @@ omega= 0.7602
 
 Cv(x)=a0+a1*x**omega
 
-plot "./source_plots/maximos_Cv.dat" u 1:4:5 title '$\kappa_c(L)$' w yerrorbars pt 7,Cv(x) title '$a+bL^c$'
+plot "./source_plots/maximos_Cv.dat" u 1:4:5 title '$\kappa_c(L)$' w yerrorbars pt 7,Cv(x) title '$c_0+c_1L^{c_2}$'
 
 reset   
   	       
