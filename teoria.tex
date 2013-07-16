@@ -358,7 +358,7 @@ todas las partículas que forman el bloque.
 En una descripción microscópica y continua, la función de partición
 $\mathcal{Z}[T]$ de la membrana cristalina vendrá dada por
 \begin{equation}\label{Zmicroscopica}
-\mathcal{Z}[T]=\int D[\eta(\mathbf{x})]\; e^{-\beta H[\eta(\mathbf{x})]},
+\mathcal{Z}[T]=\int D[\eta(\mathbf{x})]\; e^{-\beta H[\eta(\mathbf{x}),T]},
 \end{equation}
 donde con $\int D[\eta(\mathbf{x})]$ se denota la integral funcional sobre
 todas las configuraciones posibles, $H[\eta(\mathbf{x})]$ es el hamiltoniano
@@ -683,7 +683,7 @@ $d$ dimensional, el tamaño de esta membrana lo podemos especificar por el
 radio de giro $R_G$
 \begin{equation*}
 R_G^2=\frac{1}{2A_D}\int d^D\mathbf{x}\int d^D\mathbf{x}' \langle |
-\vec{r}(\mathbf{x})-\vec{r}(\mathbf{x}'|^2\rangle, 
+\vec{r}(\mathbf{x})-\vec{r}(\mathbf{x}')|^2\rangle, 
 \end{equation*}
 siendo $A_D$ el área $D$ dimensional de la membrana. En dos dimensiones este
 observable toma la forma
@@ -1119,8 +1119,8 @@ energía elástica \eqref{densidad_Fe}
 \begin{equation}\label{densidad_Fe_K}
 f_E[u_{\alpha\beta},T]=
 \mu \left(u_{\alpha\beta}-\frac{1}{2}\delta_{\alpha\beta}u_{\gamma}^{\ \gamma}\right)
-    \left(u^{\alpha\beta}-\frac{1}{2}\delta^{\alpha\beta}u_{\gamma}^{\ \gamma}\right)+
-\frac{1}{2}K(u_{\alpha}^{\ \alpha})(u_{\alpha}^{\ \alpha}),
+    \left(u^{\alpha\beta}-\frac{1}{2}\delta^{\alpha\beta}u_{\nu}^{\ \nu}\right)+
+\frac{1}{2}K(u_{\alpha}^{\ \alpha})(u_{\beta}^{\ \beta}),
 \end{equation}
 siendo $K$ y $\mu$ el módulo de compresión y de
 cizalladura\footnote{El módulo de cizalladura $\mu$ coincide con uno de los
@@ -1277,7 +1277,7 @@ K_{\alpha\beta}=\frac{1}{\sqrt{1+\left(\nabla_{\|} h\right)^2}}\frac{\partial h}
 donde hemos aplicado la aproximación de pequeños gradientes (deformaciones
 pequeñas). Por lo tanto, la energía libre de curvatura \cite{Bowick:Membranes_review} se puede escribir como 
 \begin{equation}\label{ELandau_curvatura1}
-F_C[\mathbf{y},T]\simeq\int d^2\mathbf{y} K_{\alpha}^{\ \beta}K^{\alpha}_{\ \beta}.
+F_C[\mathbf{y},T]\simeq\frac{\kappa}{2}\int d^2\mathbf{y} K_{\alpha}^{\ \beta}K^{\alpha}_{\ \beta}.
 \end{equation} 
 Ahora bien, sumando y restando la traza al cuadrado $K_{\alpha}^{\
   \alpha}K_{\beta}^{\ \beta}$ en el integrando de la última expresión

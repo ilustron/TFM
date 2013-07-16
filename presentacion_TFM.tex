@@ -29,10 +29,10 @@
 \author[P. Monroy Dir.: Juan J.Ruiz Lorenzo]{Pedro Monroy Pérez \\ Director:
   J.J. Ruiz Lorenzo}
 \date{\today}
-\institute[UEx]{Dep. de Física Teórica, Facultad de Ciencias, Universidad de Extremadura}
+\institute[UEx]{Dep. de Física, Facultad de Ciencias, Universidad de Extremadura}
 
 \begin{document}
-
+\decimalpoint
 \begin{frame}[plain]{}
 \titlepage
 \end{frame}
@@ -72,10 +72,13 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Los Vectores Tangentes y la Métrica inducida}
-  \begin{columns}
-    \begin{column}{5.8cm}
+\begin{frame}
+  \begin{columns}[T]
+    \begin{column}{5.2cm}
       \centering
+      \begin{itemize}
+      \item Vectores Tangentes:
+      \end{itemize}
       \begin{figure}[h]
         \resizebox{\columnwidth}{!}{\input{vectores_tangentes-fig}}
       \end{figure}
@@ -83,51 +86,382 @@
         \vec{t}_{\alpha}=\frac{\partial \vec{r}}{\partial
           x^{\alpha}}=\partial_{\alpha}\vec{r} \qquad \alpha=1,2;
       \end{equation*}
-
+     
     \end{column}
-    \begin{column}{5.8cm}
+    \begin{column}{6.2cm}
       \centering
-      Coordenadas Externas:
-      \begin{figure}[h]
-        \resizebox{\columnwidth}{!}{\input{coordenadas_externas-fig}}
-      \end{figure}
+      \begin{itemize}
+\item Métrica inducida $g_{\alpha\beta}=\vec{t}_{\alpha}\cdot\vec{t}_{\beta}$:
       \begin{equation*}
-        \vec{r}=x\,\vec{i}+y\,\vec{j}+z\,\vec{k}\equiv (x,y,z)\in \mathbb{R}^3
+      \vec{V}\cdot\vec{W}=g_{\alpha\beta}V^{\alpha}W^{\beta}.
       \end{equation*}
+      \item Métrica inversa $g^{\alpha\beta}$:
+      \begin{equation*}
+       g_{\alpha\gamma}g^{\gamma\beta}= \delta_{\alpha}^{\ \beta}=\begin{cases}
+          1&\text{si $\alpha=\beta$}\\
+          0&\text{si $\alpha\neq\beta$}.
+          \end{cases}
+      \end{equation*}
+      \item Correspondencia entre vectores covariantes y contravariantes:
+      \begin{equation*}
+        V_{\alpha}=g_{\alpha\beta}V^{\beta}\rightarrow V^{\alpha}=g^{\alpha\beta}V_{\beta}, 
+      \end{equation*}
+      \begin{equation*}
+        \vec{V}\cdot\vec{W}=V_{\alpha}W^{\alpha}=V^{\alpha}W_{\alpha}.
+      \end{equation*}
+      \end{itemize}
     \end{column}
   \end{columns}
 \end{frame}
 
 \begin{frame}{Curvatura}
-
+  \begin{columns}[T]
+    \begin{column}{6.2cm}
+      \centering
+      Tensor de curvatura extrínseca $K_{\alpha\beta}$:
+      \begin{equation*}
+        \vec{K}_{\alpha\beta}=K_{\alpha\beta}\vec{n},
+      \end{equation*}
+      \begin{equation*}
+        K_{\alpha\beta}\equiv\left(\begin{array}{cc}
+            \mathcal{K}_1 & 0\\
+            0 & \mathcal{K}_2\\
+          \end{array}\right)\, ,
+      \end{equation*}
+      \begin{equation*}
+        \mathcal{R}_{\alpha}=\frac{1}{\mathcal{K}_{\alpha}} \, , \qquad \alpha=1,2.
+      \end{equation*}  
+    \end{column}
+    \begin{column}{6.25cm}
+      \centering
+      \begin{figure}[h]
+        \resizebox{\columnwidth}{!}{\input{curvatura-fig}}
+      \end{figure} 
+    \end{column}
+  \end{columns}   
+  \begin{align*}
+    \text{Curvatura Media}\longrightarrow H&=\frac{\mathcal{K}_1+\mathcal{K}_2}{2}=\frac{1}{2}K_{\alpha}^{\ \alpha},\\
+    \text{Curvatura Gaussiana}\longrightarrow  K&=\mathcal{K}_1\mathcal{K}_2=\frac{1}{2}(K_{\alpha}^{\ \alpha}K_{\beta}^{\ \beta}-K_{\alpha}^{\ \beta}K^{\alpha}_{\ \beta}).
+  \end{align*}
 \end{frame}
 
 \begin{frame}{Teoría de Landau}
+\begin{description}
+\item[Parámetro de orden:] Variable que cuantifica el grado de orden de las
+  fases, es nulo en la fase de mayor simetría. 
+  \begin{itemize}
+  \item Microscópico $\rightarrow\eta(\mathbf{x})$, $\mathbf{x}$ denota partículas
+    individuales.
+  \item Grano grueso $\rightarrow\bar{\eta}(\mathbf{x}_{\Lambda})$,
+    $\mathbf{x}_{\Lambda}$ denota bloques de partículas.
+\end{itemize}
+\item[Energía libre de Landau]$\rightarrow F[\bar{\eta}(\mathbf{x}_{\Lambda}),T]$, potencial
+  efectivo resultado de la integración de los grados de libertad microscópicos.
+\end{description}
+\begin{equation*}
+  e^{-F[\bar{\eta}(\mathbf{x}_{\Lambda}),T]}=\int D[\eta(\mathbf{x})]\;
+  e^{-\beta
+    H[\eta(\mathbf{x}),T]}\;\delta\left[\frac{1}{A_{\Lambda}}\int_{\Lambda}
+    d^2\mathbf{x}\; \eta(\mathbf{x})-\bar{\eta}(\mathbf{x}_{\Lambda})\right], 
+\end{equation*}
+\begin{equation*}
+  \mathcal{Z}[T]=\int D[\bar{\eta}(\mathbf{x}_{\Lambda})]\; e^{-F[\bar{\eta}(\mathbf{x}_{\Lambda}),T]}=\int D[\eta(\mathbf{x})]\; e^{-\beta H[\eta(\mathbf{x}),T]}.
+\end{equation*}
 \end{frame}
+
 \begin{frame}{Parámetro de orden}
+\centering
+\begin{columns}[T]
+    \begin{column}{5.8cm}
+      Fase plana (ordenada):
+        \centering
+        \begin{figure}[h]
+        \resizebox{\columnwidth}{!}{\input{fase_plana-fig}}
+        \end{figure}
+        $$ \langle\vec{t}_{\alpha}\rangle\neq 0$$
+    \end{column}
+    
+    \hspace{0.5cm}
+    
+    \begin{column}{5.8cm}
+      Fase rugosa (desordenada):
+        \centering
+        \begin{figure}[h]
+        \resizebox{\columnwidth}{!}{\input{fase_arrugada-fig}}
+        \end{figure}
+        $$ \langle\vec{t}_{\alpha}\rangle= 0$$
+    \end{column}
+  \end{columns}
+\vspace{0.8cm}
+
+Parámetro de orden $\eta(\mathbf{x}_{\Lambda})\longrightarrow$ Vectores tangentes $\vec{t}_{\alpha}(\mathbf{x}_{\Lambda})$ 
 \end{frame}
 \begin{frame}{Energía Libre de Landau}
+A partir de las siguientes ligaduras encontramos el potencial la energía Libre
+de Landau:
+  \begin{description}
+  \item[Localidad e invariancia traslacional.]
+  \item[Simetría rotacional traslacional en $\mathbb{R}^2$ y $\mathbb{R}^3$.]
+  \item[Imposibilidad de autointersección.]
+  \end{description}
+
+  \begin{equation*}
+    F[\vec{t}_{\alpha}(\mathbf{x}),T]=F_E[\vec{t}_{\alpha}(\mathbf{x}),T]+F_C[\vec{t}_{\alpha}(\mathbf{x}),T]+F_b[\vec{t}_{\alpha}(\mathbf{x}),T],
+  \end{equation*}
+  donde
+  \begin{align*}
+    F_E[\vec{t}_{\alpha}(\mathbf{x}),T]&=\int d^2\mathbf{s}\left[
+      \frac{t}{2}\!(\vec{t}_{\alpha}\!\cdot\!\vec{t}^{\alpha})+
+      u(\vec{t}_{\alpha}\!\cdot\!\vec{t}_{\beta})(\vec{t}^{\alpha}\!\cdot\!\vec{t}^{\beta})+
+      v(\vec{t}_{\alpha}\!\cdot\!\vec{t}^{\alpha})(\vec{t}_{\beta}\!\cdot\!\vec{t}^{\beta})\right],\\
+    F_C[\vec{t}_{\alpha}(\mathbf{x}),T]&= \frac{\kappa}{2}\int d^2\mathbf{s}\
+     \partial_{\alpha}\vec{t}^{\alpha}\cdot\partial^{\beta}\vec{t}_{\beta},\\ 
+   F_b[\vec{t}_{\alpha}(\mathbf{x}),T]&=\frac{b}{2}\int d^2\mathbf{x} d^2\mathbf{x'}
+\delta^2(\vec{r}(\mathbf{x})-\vec{r}(\mathbf{x'})).
+  \end{align*}
 \end{frame}
 \begin{frame}{Aproximación del campo medio}
+  \begin{columns}%[T]
+    \begin{column}{6.2cm}
+      \centering
+      Despreciando las fluctuaciones en la fase plana:
+     \begin{align*}
+       \vec{r}(\mathbf{x})&\simeq(\zeta x^1,\zeta x^2,0),\\
+       \vec{t}_1(\mathbf{x})&\simeq(\zeta ,0,0),\\
+       \vec{t}_2(\mathbf{x})&\simeq(0,\zeta,0).
+     \end{align*}
+     
+    \end{column}
+    \begin{column}{6.25cm}
+      \centering
+      \begin{figure}[h]
+      \resizebox{\columnwidth}{!}{\input{campo_medio-fig}}
+      \end{figure} 
+    \end{column}
+  \end{columns}
+Tenemos una configuración homogénea:
+\begin{equation*}
+  F(\vec{t}_{\alpha},T)\simeq Af_M(\zeta)\quad \text{con}\quad f_M(\zeta,T)=2\zeta^2\left( \frac{t}{2} +(u+2v)\zeta^2\right)
+\end{equation*}
+\end{frame}
+\begin{frame}
+\begin{align*}
+ \mathcal{Z}[T]=\int d\zeta\;e^{-Af_M(\zeta,T)}&\simeq\sqrt{\frac{2\pi}{A\ddot{f}_M(\zeta_0,T)}}\;
+ e^{-Af_M(\zeta_0,T)}\\
+ \lim_{A\rightarrow \infty}\; \frac{1}{A} \ln \mathcal{Z}[T]&=-f_M(\zeta_0,T)=-\beta f_H(T)
+\end{align*}
+\begin{columns}[T]
+    \begin{column}{5.8cm}
+      \centering
+      Mínimo de $f_M(\zeta,T)$:
+      $$\zeta^2_0=\begin{cases}
+        0& \text{si $t>0$}\\
+        \frac{-t}{4(u+2v)}& \text{si $t<0$}\\
+      \end{cases}$$
+\end{column}
+\begin{column}{5.8cm}
+      \centering
+      \begin{figure}[h]
+      \resizebox{\columnwidth}{!}{\input{energia_libre_CM-fig}}
+      \end{figure} 
+    \end{column}
+  \end{columns}
 \end{frame}
 \begin{frame}{Exponentes críticos}
+\begin{itemize}
+  \item La teoría de Landau no tiene en cuenta las fluctuaciones del parámetro de
+orden.
+  \item  La teoría del grupo de renormalización encuentra que
+    estas fluctuaciones contribuyen en una parte no analítica en la energía
+    libre:
+    \begin{equation}
+      f_s(t)\sim|t|^{2\nu}
+    \end{equation}
+  \item explica el comportamiento divergente en $t\simeq 0$ de los observables
+    termodinámicos, (ej. $C_V\sim|t|^{-\alpha}$).
+  \item No todos los exponentes críticos son independientes entre sí. En
+    nuestro caso, únicamente tenemos un exponente crítico independiente.
+\end{itemize}
 \end{frame}
 \begin{frame}{Relaciones de escala del radio de giro}
+  \begin{equation*}
+    R_G^2=\frac{1}{dA_D}\int d^D\mathbf{x}d^D\mathbf{x}' \langle |
+    \vec{r}(\mathbf{x})-\vec{r}(\mathbf{x}')|^2\rangle\stackrel{D=2}{-\!\!\!\longrightarrow}\frac{1}{3A}\int d^2\mathbf{x}\, \langle
+\vec{R}(\mathbf{x})\cdot\vec{R}(\mathbf{x})\rangle^2,
+  \end{equation*}
+donde $\vec{R}(\mathbf{x})=\vec{r}(\mathbf{x})-\vec{r}_{CM}$. Podemos aproximar:
+  \begin{equation*}
+    \vec{t}_{\alpha}=\partial_{\alpha} \vec{r}\simeq \frac{R_G}{L}
+    \frac{\vec{t}_{\alpha}}{|\vec{t}_{\alpha}|}\quad \text{y}\quad \int
+    d^D\mathbf{x}\simeq L^D,
+\end{equation*}
+\begin{equation*}
+  f(R_G,t)\simeq t R_G^2 L^{D-2}+(u+Dv) R_G^4 L^{D-4}+\kappa R_G^2 L^{D-4}.
+\end{equation*}
+Minimizando $f(R_G,t)$ respecto a $R_G$ ($D=2$):
+\begin{equation*}
+  R_G\sim L^{\nu_F}= L^{2/d_H}\rightarrow\begin{cases}
+    \text{F. plana }& \nu_F=1\quad d_H=2\\
+    \text{Transición }& \nu_F=0.73\quad d_H=2.74\\
+    \text{F. rugosa }& \nu_F=0\quad d_H=\infty\ (R_G^2\sim\log L)
+  \end{cases}
+\end{equation*}
 \end{frame}
 \begin{frame}{Fase plana}
+Coordenadas ortonormales en el plano base ($\zeta=1$) $\Rightarrow\vec{r}(\mathbf{x})=(\mathbf{x}+\mathbf{u(\mathbf{x})},h(\mathbf{x}))$.
+  \begin{columns}[T]
+    \begin{column}{5.8cm}
+      \centering
+      \begin{equation*}
+        (d\vec{r})^2=(d\vec{r}_0)^2+2u_{\alpha\beta}dx^{\alpha}dx^{\beta},
+      \end{equation*}
+      con $u_{\alpha\beta}$, tensor de deformaciones:
+      \begin{multline*}
+        u_{\alpha\beta}=\frac{1}{2}(\vec{t}_{\alpha}\cdot\vec{t}_{\beta}-\delta_{\alpha\beta})\
+        \Rightarrow\\\Rightarrow \
+        \vec{t}_{\alpha}\cdot\vec{t}_{\beta}=\delta_{\alpha\beta}+2u_{\alpha\beta}.
+      \end{multline*}     
+    \end{column}
+    \begin{column}{5.8cm}
+      \centering
+      \begin{figure}[h]
+        \resizebox{\columnwidth}{!}{\input{deformacion-fig}}
+      \end{figure} 
+    \end{column}
+  \end{columns}
+  
+  \begin{align*}
+    F_E[u_{\alpha\beta},T]&=\int d^2\mathbf{x}
+    \left[
+      \mu u_{\alpha\beta}u^{\alpha\beta}\! +\!
+      \frac{\lambda}{2}u_{\alpha}^{\ \alpha}u^{\beta}_{\ \beta}\right],
+    \quad\text{con}\quad -t=\mu+\lambda\\
+    F_C[\mathbf{y},T]&\simeq\frac{\kappa}{2}\int d^2\mathbf{y} K_{\alpha}^{\
+      \beta}K^{\alpha}_{\ \beta}\simeq \frac{1}{2}\hat{\kappa}\int d^2\mathbf{y}\, H^2 \quad
+\text{con} \quad \hat{\kappa}=4\kappa
+  \end{align*}
 \end{frame}
+
 \begin{frame}{Módulo de Poisson}
+\centering
+\begin{equation*}
+f_E[u_{\alpha\beta},T]=
+\mu \left(u_{\alpha\beta}-\frac{1}{2}\delta_{\alpha\beta}u_{\gamma}^{\ \gamma}\right)
+    \left(u^{\alpha\beta}-\frac{1}{2}\delta^{\alpha\beta}u_{\nu}^{\ \nu}\right)+
+\frac{1}{2}K(u_{\alpha}^{\ \alpha})(u_{\beta}^{\ \beta}),
+\end{equation*}
+con $K>0\, ,\ \mu>0$.
+
+\begin{columns}[T]
+    \begin{column}{5.8cm}
+      \centering
+      \begin{equation*}
+        \sigma=-\frac{\delta x^2 / x^2}{\delta x^1 / x^1}=-\frac{u_{22}}{u_{11}}=\frac{K-\mu}{K+\mu}.
+      \end{equation*}
+      Membrana $D$-dimensional:
+      \begin{equation*}
+        \sigma(D)=-\frac{1}{D+1}\ \Rightarrow \ \sigma(2)=-\frac{1}{3}. 
+      \end{equation*}
+    \end{column}
+    \begin{column}{5.8cm}
+      \centering
+      \begin{figure}[h]
+        \resizebox{\columnwidth}{!}{\input{Poisson-fig}}
+      \end{figure} 
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \section{Simulaciones Numéricas}
 \begin{frame}{Modelo discreto}
+
 \end{frame}
 \begin{frame}{límite continuo}
 \end{frame}
 \begin{frame}{Algoritmo de Metropolis}
+Para un valor fijo de $\kappa$:
+\begin{itemize}
+  \item  Se modifica $\vec{r}_i\rightarrow \vec{r}_i+\vec{\epsilon}$, con
+    $\vec{\epsilon}$ elegido aleatoriamente en un cubo de lado $\delta$.
+  \item  Si
+    $\Delta\mathcal{H}=\mathcal{H}_{NEW}-\mathcal{H}_{OLD}<0$ se
+    acepta la nueva posición. 
+  \item Si  $\Delta\mathcal{H}>0$, se acepta la nueva posición con
+    probabilidad $e^{-\Delta\mathcal{H}}$. 
+  \item Se repiten los pasos anteriores para otro punto.
+\end{itemize}
+\begin{columns}[T]
+    \column{.44\textwidth}
+    \begin{block}{}
+      Una actualización corresponde a aplicar el
+      algoritmo a todos los $N$ puntos de la red.
+    \end{block}
+    \column{.44\textwidth}
+    \begin{block}{}
+      $\delta$ se ajusta de modo que en cada actualización el número de cambios
+      aceptados sea $N/2$.
+    \end{block}
+\end{columns}
+
+\begin{description}
+\centering
+\item[Configuraciones resultantes] $\rightarrow$ $P(\vec{r}_i)\propto e^{-\mathcal{H}(\kappa)}$
+\end{description}
 \end{frame}
 \begin{frame}{Tratamiento de los datos}
+A partir de las configuraciones resultantes, se estiman los observables teniendo en cuenta:
+\begin{columns}
+  \column{.55\textwidth}
+  \begin{figure}[h]
+        \resizebox{\columnwidth}{!}{\input{ejemplo_termal-fig}}
+      \end{figure}
+  \column{.5\textwidth}
+  \begin{itemize}
+  \item Tiempo de Termalización.
+  \item Periodo de correlación entre medidas.
+  \end{itemize}
+\end{columns}
 \end{frame}
+\begin{frame}{Cálculo de errores (Método de Jacknife)}
+  \begin{itemize}
+  \item Sean $\mathcal{Q}_i,(i=1,\dots N)$ los valores obtenidos de un
+    observable $\mathcal{Q}$ en una evolución de Monte-Carlo. 
+  \item Dividimos el conjunto de $N$ en $K$ bloques con $n=\frac{N}{K}$
+    elementos.
+  \item Definimos $\bar{\mathcal{Q}}_k^n(k=1,\dots K)$ el promedio de los
+    datos sin el bloque $k$-ésimo:
+    $$\bar{\mathcal{Q}}_k^n=\frac{1}{N-n}\left(\sum^{n(k-1)}_{i=1}\mathcal{Q}_i+\sum^{N}_{i=nk+1}\mathcal{Q}_i\right).$$
+\item La estimación del error:
+$$\delta\bar{\mathcal{Q}}_n=\sqrt{\frac{K-1}{K}\sum^K_{k=1}(\bar{\mathcal{Q}}^n_k-\bar{\mathcal{Q}})},$$
+\item ya que
+  $$ \langle (\delta\bar{\mathcal{Q}}_n)^2\rangle=\sigma^2(\mathcal{Q})\frac{1}{N}.$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item Si $n<<\text{Correlación entre medidas}\rightarrow
+  \delta\bar{\mathcal{Q}}_n$ aumenta con el tamaño $n$
+\item Si $n\simeq \text{Correlación entre
+    medidas}\rightarrow\delta\bar{\mathcal{Q}}_n=const.$ (plateau)
+\end{itemize}
+\begin{columns}
+  \begin{column}{6cm}
+    \begin{figure}
+      \resizebox{\columnwidth}{!}{\input{ejemplo_logtermal-fig}}
+    \end{figure}
+  \end{column}
+  \begin{column}{6cm}
+     \begin{figure}
+       \resizebox{\columnwidth}{!}{\input{ejemplo_error-fig}}
+    \end{figure}
+  \end{column}
+\end{columns}
+\begin{center}
+$\tau_0=120000$
+\end{center}
+\end{frame}
+
 \begin{frame}{Estimación exponentes críticos}
 \end{frame}
 \begin{frame}{Densidad espectral}
