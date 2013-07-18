@@ -475,7 +475,7 @@ reset
 set terminal epslatex mono 
 set output "ejemplo_logtermal-fig.tex"
 
-set xlabel '$\tau_0$/actualizaciones conservados'
+set xlabel '$\tau_0$/actualizaciones conservadas'
 set ylabel '$\langle R_G^2\rangle$'
 set nokey
 set title '$L=64$ $\kappa=0.7$'

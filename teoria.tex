@@ -99,11 +99,11 @@ contravariante y rango $n$ covariante como un objeto cuyas $2^{m+n}$ componentes
 bajo un cambio de coordenadas $\mathbf{x}\rightarrow\mathbf{x'}$ transforman
 como 
 \begin{equation*}
-T'^{\alpha_1,\dots,\alpha_m}_{\beta_1,\dots,\beta_m}=
-\frac{\partial x'^{\alpha_1}}{\partial x^{\beta_1}}\dots \frac{\partial
-  x'^{\alpha_m}}{\partial x^{\beta_m}}
-\frac{\partial x^{\beta_1}}{\partial x'^{\alpha_1}}\dots \frac{\partial
-  x^{\beta_n}}{\partial x'^{\alpha_n}}T^{\alpha_1,\dots,\alpha_n}_{\beta_1,\dots,\beta_m}.
+T'^{\alpha_1,\dots,\alpha_m}_{\beta_1,\dots,\beta_n}=
+\frac{\partial x'^{\alpha_1}}{\partial x^{\mu_1}}\dots \frac{\partial
+  x'^{\alpha_m}}{\partial x^{\mu_m}}
+\frac{\partial x^{\nu_1}}{\partial x'^{\beta_1}}\dots \frac{\partial
+  x^{\nu_n}}{\partial x'^{\beta_n}}T^{\mu_1,\dots,\mu_n}_{\nu_1,\dots,\nu_n} .
 \end{equation*}
 
 Entonces $V^{\alpha}$ son las componentes de un tensor de rango $1$
@@ -112,7 +112,7 @@ llamaremos a un tensor de rango $1$ covariante vector covariante.
  
 \subsection{Métrica inducida}
 
-La distancia tridimensional $dl$ entre dos puntos de coordenadas internas
+La distancia tridimensional $dl$ entre dos puntos $P$ y $Q$ próximos de coordenadas internas
 $\mathbf{x}$ y $\mathbf{x}+d\mathbf{x}$ respectivamente es:
 \begin{equation}\label{elemento_linea}
 dl^2=(\vec{r}(\mathbf{x}+d\mathbf{x})-\vec{r}(\mathbf{x}))^2=g_{\alpha\beta}dx^{\alpha}dx^{\beta},
@@ -174,7 +174,7 @@ y
 \begin{multline*}
 |\vec{t}_1\times\vec{t}_2|^2=|\vec{t}_1|^2|\vec{t}_2|^2\sen^2
 \theta=g_{11}g_{22}(1-\cos^2 \theta)=\\
-g_{11}g_{22}-(\vec{t}_1\cdot\vec{t}_2)^2=g_{11}g_{22}-g_{12}g_{21}=g
+g_{11}g_{22}-(\vec{t}_1\cdot\vec{t}_2)^2=g_{11}g_{22}-g_{12}g_{21}=g.
 \end{multline*}
 
 \subsection{Curvatura}
@@ -192,13 +192,13 @@ curvatura nula), se usa en \eqref{tensor_curvatura} para derivar $D_{\alpha}$,
 el operador correspondiente a la derivada covariante, que se define para las
 componentes covariantes de un vector $\vec{V}$ como
 \begin{equation}\label{derivada_covariante}
-D_{\alpha}V^{\beta}=\frac{\partial V_{\beta}}{\partial x^{\alpha}}-\Gamma^{\gamma}_{\alpha\beta}V_{\gamma},
+D_{\alpha}V_{\beta}=\frac{\partial V_{\beta}}{\partial x^{\alpha}}-\Gamma^{\gamma}_{\alpha\beta}V_{\gamma},
 \end{equation}
 siendo $\Gamma^{\beta}_{\alpha\nu}$ la conexión afín, que no es un tensor, y
 determina qué vectores son paralelos en puntos diferentes usando la noción del transporte
 paralelo. Utilizaremos la conexión de Levi Civita, donde dos vectores
 tangentes de planos tangentes diferentes serán paralelos, si son tangentes a la
-misma curva geodésica: La curva entre los puntos $P$ y $Q$ cuya longitud es
+misma curva geodésica: La curva entre los puntos $P$ y $Q$ distantes cuya longitud es
 estacionaria. Por tanto, la conexión de Levi Civita está directamente
 relacionada con la métrica inducida, de hecho, cumple las siguientes dos condiciones
 con las que queda completamente determinada:
@@ -260,15 +260,15 @@ Por otro lado, derivando de igual forma la expresión $\vec{n}\cdot\vec{n}=1$ ob
 \begin{equation*}
 \frac{\partial \vec{n}}{\partial x^{\beta} }\cdot \vec{n}=0,
 \end{equation*}
-Lo que implica que $\frac{\partial \vec{n}}{\partial x^{\beta}}$ es paralelo
+lo que implica que $\frac{\partial \vec{n}}{\partial x^{\beta}}$ es paralelo
 al plano tangente y podemos expresarlo en función de su base $\vec{t}_{\alpha}$
 \begin{equation*}
-\frac{\partial \vec{n}}{\partial x^{\beta}}=A_{\beta}^{\ \alpha}\vec{t}_{\alpha}
+\frac{\partial \vec{n}}{\partial x^{\beta}}=A_{\beta}^{\ \alpha}\vec{t}_{\alpha}.
 \end{equation*}
-Multiplicando a ambos lados por $\vec{t}^{\gamma}$ y teniendo en cuenta
+Multiplicando en la última relación a ambos lados por $\vec{t}^{\gamma}$ y teniendo en cuenta
 \eqref{weingarten}, llegamos finalmente a 
 \begin{equation}\label{derivada_n}
-\frac{\partial \vec{n}}{\partial x^{\beta}}=-K_{\beta}^{\ \alpha}\vec{t}_{\alpha}
+\frac{\partial \vec{n}}{\partial x^{\beta}}=-K_{\beta}^{\ \alpha}\vec{t}_{\alpha}.
 \end{equation}
 
 \begin{figure}[h]
@@ -289,13 +289,13 @@ donde $\mathcal{K}_1$ y $\mathcal{K}_2$ son los autovalores, llamados
 curvaturas principales y están relacionados con los radios principales
 de curvatura $\mathcal{R}_{\alpha}$ por
 \begin{equation*}
-\mathcal{R}_{\alpha}=\frac{1}{\mathcal{K}_{\alpha}} \, , \qquad \alpha=1,2.
+\mathcal{R}_{\alpha}=\frac{1}{\mathcal{K}_{\alpha}} \, , \qquad \alpha=1,2;
 \end{equation*}
 que corresponden a los radios de la mayor y menor circunferencia osculatriz en
 el punto $P$ (figura \ref{radios_curvatura-fig}).
 Estas curvaturas principales nos permiten definir dos importantes nuevas magnitudes:
 La curvatura media $H$ y la curvatura Gaussiana $K$, definidos como el
-promedio y el producto de las curvaturas principales:
+promedio y el producto de las curvaturas principales
 \begin{align*}
 H&=\frac{\mathcal{K}_1+\mathcal{K}_2}{2},\\
 K&=\mathcal{K}_1\mathcal{K}_2.
@@ -307,8 +307,8 @@ decir, no depende de como este sumergida la superficie en el espacio euclídeo,
 sino que únicamente depende de la geometría propia de la superficie. La
 expresión de ambas magnitudes en un sistema de coordenadas cualquiera es
 \begin{align}
-H&= \frac{1}{2}K_{\alpha}^{\ \alpha}\label{curvatura_media}\\
-K&= \det(K_{\alpha\beta})=\frac{1}{2}(K_{\alpha}^{\ \alpha}K_{\beta}^{\ \beta}-K_{\alpha}^{\ \beta}K^{\alpha}_{\ \beta})\label{curvatura_gaussiana}
+H&= \frac{1}{2}K_{\alpha}^{\ \alpha},\label{curvatura_media}\\
+K&= \det(K_{\alpha\beta})=\frac{1}{2}(K_{\alpha}^{\ \alpha}K_{\beta}^{\ \beta}-K_{\alpha}^{\ \beta}K^{\alpha}_{\ \beta}).\label{curvatura_gaussiana}
 \end{align}
 
 \section{Estudio de la transición de fase}
@@ -317,7 +317,7 @@ En una membrana se pueden encontrar dos fases: La fase plana y la fase
 rugosa, que se distinguen por sus simetrías. A la temperatura crítica $T_c$ se
 produce la transición entre estas dos fases. Sobre la temperatura crítica la
 membrana es invariante frente a rotaciones, 
-la membrana se encuentra en la fase rugosa. En cambio, bajo la temperatura
+la membrana se encuentra en la fase rugosa. En cambio, por debajo de la temperatura
 crítica, se encuentra en la fase plana donde el promedio del vector normal a
 la superficie $\langle \vec{n}\rangle$ define una dirección privilegiada en el
 espacio, destruyendo la invariancia frente a rotaciones cuyo eje es
@@ -367,9 +367,8 @@ energía libre de Landau $F[\bar{\eta}(\mathbf{x}_{\Lambda}),T]$ como
 \begin{equation*}
 e^{-F[\bar{\eta}(\mathbf{x}_{\Lambda}),T]}=\int D[\eta(\mathbf{x})]\; e^{-\beta
   H[\eta(\mathbf{x}),T]}
-  \;\delta\left[\frac{1}{A_{\Lambda}}\int_{\Lambda} d^2\mathbf{x}\; \eta(\mathbf{x})-\bar{\eta}(\mathbf{x}_{\Lambda})\right],
+  \;\delta\left[\frac{1}{A_{\Lambda}}\int_{\Lambda} d^2\mathbf{s}\; \eta(\mathbf{x})-\bar{\eta}(\mathbf{x}_{\Lambda})\right],
 \end{equation*}
-
 siendo $\delta$ la función delta de Dirac y $A_{\Lambda}$ es el área
 formada por las partículas del bloque. Esta energía libre de Landau se puede
 interpretar como un potencial efectivo \cite{Heller:Method}, resultado de la integración de los
@@ -381,7 +380,7 @@ Landau como
 \begin{equation*}
 \mathcal{Z}[T]=\int D[\bar{\eta}(\mathbf{x}_{\Lambda})]\; e^{-F[\bar{\eta}(\mathbf{x}_{\Lambda}),T]}.
 \end{equation*}
-Esta expresión nos muestra que $F[\bar{\eta}(\mathbf{x}),T]$ es una funcional
+Esta última relación nos muestra que $F[\bar{\eta}(\mathbf{x}),T]$ es una funcional
 que representa un hamiltoniano efectivo dividido por $k_BT$. A su vez, podemos
 escribir 
 \begin{equation*}
@@ -393,8 +392,8 @@ el parámetro de orden $\bar{\eta}(\mathbf{x})$ toma valores pequeño, podemos
 desarrollar $f[\bar{\eta}(\mathbf{x}),T]$ en potencias de
 $\bar{\eta}(\mathbf{x})$ y sus derivadas, sin olvidar que los factores que
 acompañan a los términos del desarrollo, en principio, dependerán de la
-temperatura. Al igual que el hamiltoniano microscópico, podemos exigir que
-$F[\bar{\eta}(\mathbf{x}_{\Lambda}),T]$ cumpla con las simetrías del sistema.
+temperatura. Al igual que el hamiltoniano microscópico, la energía libre de Landau
+$F[\bar{\eta}(\mathbf{x}_{\Lambda}),T]$ deberá cumplir las simetrías del sistema.
 
 La simetría traslacional de la membrana implica que su energía libre de Landau
 sólo puede depender de las derivadas de $\vec{r}(\mathbf{x}_{\Lambda})$, estos
@@ -422,8 +421,8 @@ de Fourier tiene vectores de onda con magnitud menor que cierto \textit{cut-off}
 $\Lambda^{-1} \sim 1/a$. Concluimos entonces que el tamaño del bloque en la
 descripción de grano grueso deberá cumplir que $a<<\Lambda<\xi(T)$. En lo que
 sigue, siempre se utilizará está descripción de grano grueso, mientras no se
-exprese lo contrario, por lo que omitiremos el subíndice $\Lambda$ y las
-barras de las variables para no recargar sin necesidad la notación.
+exprese lo contrario, por lo que omitiremos el subíndice $\Lambda$ para no
+recargar sin necesidad la notación. 
 
 Vamos a proponer una expresión de energía libre de Landau
 $F[\vec{t}_{\alpha}(\mathbf{x}),T]$ para una membrana cristalina
@@ -453,7 +452,7 @@ apoyándonos en las siguientes propiedades:
       \frac{t}{2}(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})+
       u(\vec{t}_{\alpha}\cdot\vec{t}_{\beta})(\vec{t}^{\alpha}\cdot\vec{t}^{\beta})+
       v(\vec{t}_{\alpha}\cdot\vec{t}^{\alpha})(\vec{t}_{\beta}\cdot\vec{t}^{\beta})+
-      \frac{\kappa}{2}(\partial_{\alpha}\vec{t}^{\alpha})\cdot(\partial^{\beta}\vec{t}_{\beta}) \right]
+      \frac{\kappa}{2}(\partial_{\alpha}\vec{t}^{\alpha})\cdot(\partial^{\beta}\vec{t}_{\beta}) \right].
   \end{multline}
 
 El coeficiente $t$ veremos que corresponde a la temperatura reducida, $u$ y $v$ están
@@ -461,22 +460,22 @@ relacionados con los módulos elásticos de compresión y cizalladura y $\kappa$
 es la rigidez de curvatura. Esta forma funcional únicamente se ha deducido a
 partir de las simetrías del sistema, el precio que hay que pagar por esta aproximación es que en su
 expresión tenemos los parámetros fenomenológicos $t$, $u$, $v$ y $\kappa$ cuya
-dependencia funcional con los parámetros microscópicos originales no es
+dependencia funcional con los parámetros microscópicos originales nos es
 desconocida, así como con la temperatura.
 
 
-La energía libre \eqref{ELandau}, al no haber considerado
-interacciones de largo alcance en su deducción, permite la membrana puede
+La energía libre \eqref{ELandau}, al no haber considerado interacciones de
+largo alcance en su deducción, permite que la membrana la membrana pueda 
 cruzarse libremente a sí misma. Para evitar que el sistema acceda
 configuraciones incompatibles con la estructura cristalina subyacente, se
-puede incluir el siguiente término de exclusión de volumen
+puede incluir el siguiente término de exclusión de volumen 
 
 \begin{equation*}
-\frac{b}{2}\int d^2\mathbf{x} d^2\mathbf{x'}
-\delta^2(\vec{r}(\mathbf{x})-\vec{r}(\mathbf{x'}))
+\frac{b}{2}\int d^2\mathbf{s} d^2\mathbf{s'}
+\delta^2(\vec{r}(\mathbf{x})-\vec{r}(\mathbf{x'})),
 \end{equation*}
 
-El parámetro $b$ modula este mecanismo, de forma que si es nulo, la superficie
+el parámetro $b$ modula este mecanismo, de forma que si es nulo, la superficie
 puede cruzarse a sí misma sin coste energético. Las membranas con $b=0$ se
 denominan \textit{membranas fantasmas}, el tratamiento matemático de éstas es
  más sencillo, y serán el objeto de estudio de este presente
@@ -572,12 +571,12 @@ y sustituyendo en la expresión anterior \eqref{Zcm} de $\mathcal{Z}[T]$
 La energía libre de Hemholtz intensiva $f_H(T)$ en el límite termodinámico
 viene dada por el siguiente límite
 \begin{equation*}
-\lim_{A\rightarrow \infty}\; \frac{1}{A} \ln \mathcal{Z}[T]=-\beta f_H(T).
+\lim_{A\rightarrow \infty}\; \frac{1}{A} \log \mathcal{Z}[T]=-\beta f_H(T).
 \end{equation*}
 Si tomamos este límite en la expresión \eqref{Zcm2} de $\mathcal{Z}[T]$
 encontramos
 \begin{equation*}
-\lim_{A\rightarrow \infty}\; \frac{1}{A} \ln \mathcal{Z}[T]=-f_M(\zeta_0),
+\lim_{A\rightarrow \infty}\; \frac{1}{A} \log \mathcal{Z}[T]=-f_M(\zeta_0),
 \end{equation*}
 es decir, $f_M(\zeta_0)=\beta f_H(T)$, lo que significa que los estados de
 equilibrio del sistema vienen determinados por el mínimo de la energía libre
@@ -662,17 +661,7 @@ definida como
 \langle \vec{n}(\mathbf{x})\cdot\vec{n}(\mathbf{0})\rangle\propto e^{-x/\xi}.
 \end{equation*}
 No todos los exponentes críticos son independientes entre sí, existen
-relaciones entre ellos. El número de exponentes críticos independientes es
-igual al número de parámetros relevantes del sistema, en nuestro caso, al no
-considerar una fuerza externa en la membrana, únicamente tenemos como
-parámetro relevante la rigidez de curvatura\footnote{Cerca de la transición de
-  fase tenemos que $\kappa\propto \beta=1/k_BT$, donde $k_B$ es el factor de
-  Boltzmann y $T$ es la temperatura. Entonces, podemos usar $\kappa$ como
-  parámetro relevante del sistema, en vez de la temperatura. Incluso, en
-  ocasiones, nos referiremos a $\kappa$ como la temperatura del sistema,
-  puesto que juega el mismo papel.}  $\kappa$, por
-tanto, sólo habrá un exponente 
-crítico independiente.
+relaciones entre ellos.
 
 \subsection{Relaciones de escala del radio de giro}
 
@@ -682,7 +671,7 @@ membrana de $D$ dimensional en un espacio
 $d$ dimensional, el tamaño de esta membrana lo podemos especificar por el
 radio de giro $R_G$
 \begin{equation*}
-R_G^2=\frac{1}{2A_D}\int d^D\mathbf{x}\int d^D\mathbf{x}' \langle |
+R_G^2=\frac{1}{dA_D}\int d^D\mathbf{x}\int d^D\mathbf{x}' \langle |
 \vec{r}(\mathbf{x})-\vec{r}(\mathbf{x}')|^2\rangle, 
 \end{equation*}
 siendo $A_D$ el área $D$ dimensional de la membrana. En dos dimensiones este
@@ -691,7 +680,7 @@ observable toma la forma
 R_G^2=\frac{1}{3A}\int d^2\mathbf{x}\, (\langle
 \vec{r}(\mathbf{x})\cdot\vec{r}(\mathbf{x})\rangle-\langle
 \vec{r}(\mathbf{x})\rangle^2)=\frac{1}{3A}\int d^2\mathbf{x}\, \langle
-\vec{R}(\mathbf{x})\cdot\vec{R}(\mathbf{x})\rangle^2
+\vec{R}(\mathbf{x})\cdot\vec{R}(\mathbf{x})\rangle^2,
 \end{equation*} 
 donde $A$ es área de la membrana (hemos eliminado el subíndice $_2$) y
 $\vec{R}(\mathbf{x})$ es el vector de posición del punto de coordenadas
@@ -765,9 +754,9 @@ En $D>2$, las fluctuaciones son demasiado débiles para prevenir el colapso
 completo de la red. En $D=2$, el exponente es nulo, lo que significa una
 divergencia logarítmica del radio de giro, ya que
 \begin{equation*}
-R_G^2\sim L^{D-2}=L^{2\nu}\Rightarrow \log L=\lim_{2\nu\rightarrow
-  0}\left[\frac{1-e^{-2\nu\log R^2_G}}{2\nu}\right]\equiv\lim_{2\nu\rightarrow
-  0}\left[\frac{1-R^{2\nu}_G}{2\nu}\right],
+R_G^2\sim L^{D-2}=L^{2\nu_F}\Rightarrow \log L=\lim_{2\nu_F\rightarrow
+  0}\left[\frac{1-e^{-2\nu_F\log R^2_G}}{2\nu_F}\right]\equiv\lim_{2\nu_F\rightarrow
+  0}\left[\frac{1-R^{2\nu_F}_G}{2\nu_F}\right],
 \end{equation*}
 por tanto, en la fase rugosa para una membrana bidimensional tenemos que
 $\nu_F=0\Rightarrow d_H=\infty$ y cumple una relación de escala logarítmica  
@@ -779,7 +768,7 @@ Para la transición de fase $t\rightarrow 0$ en una membrana bidimensional,
 Le Doussal y Radzihovsky \cite{Doussal:nu} han encontrado, mediante métodos analítico aproximados,
 los siguientes valores para el exponente de Flory y la dimensión fractal 
 \begin{equation*} 
- \nu=0.73\ \Rightarrow\ d_H=2.74 .
+ \nu_F=0.73\ \Rightarrow\ d_H=2.74 .
 \end{equation*}
 
 \section{Estudio de la fase plana}
@@ -958,7 +947,7 @@ cambiará a $d^2\mathbf{s}=dx^1dx^2$ y estará relacionado con el volumen inicia
 d^2\mathbf{s}=(1+u_{(1)})(1+u_{(2)})d^2\mathbf{s}_d\simeq (1+u_{(1)}+u_{(2)})d^2\mathbf{s}_d,
 \end{equation*}
 donde hemos despreciado ordenes superiores. Dado que
-$u_{\alpha}^{\alpha}=u_{(1)}+u_{(2)}$ es la traza del tensor de deformaciones, la
+$u_{\alpha}^{\ \alpha}=u_{(1)}+u_{(2)}$ es la traza del tensor de deformaciones, la
 suma de sus elementos diagonales, cuyo valor es independiente del sistema de
 coordenadas, tenemos la siguiente expresión general:
 \begin{equation}\label{deformacion_area}
@@ -1001,7 +990,7 @@ dx^{\alpha}dx^{\beta}.
 \end{equation}
 Por otro lado tenemos también
 \begin{equation}\label{drdu}
-d\vec{r}_0\cdot d\vec{u}=\frac{\partial u^{\alpha}}{\partial x^{\beta}}dx^{\alpha}dx^{\beta}=\frac{1}{2}\left[\frac{\partial u_{\beta}}{\partial x^{\alpha}}+ \frac{\partial u_{\alpha}}{\partial x^{\beta}}\right]dx^{\alpha}dx^{\beta},
+d\vec{r}_0\cdot d\vec{u}=\frac{\partial u_{\alpha}}{\partial x^{\beta}}dx^{\alpha}dx^{\beta}=\frac{1}{2}\left[\frac{\partial u_{\beta}}{\partial x^{\alpha}}+ \frac{\partial u_{\alpha}}{\partial x^{\beta}}\right]dx^{\alpha}dx^{\beta},
 \end{equation}
 donde hemos usado que
  $$\frac{\partial u_{\beta}}{\partial
@@ -1093,7 +1082,7 @@ que hemos fijado. Finalmente la energía libre elástica de Landau queda como
 F_E[u_{\alpha\beta},T]=\int d^2\mathbf{x}\, f_E[u_{\alpha\beta},T]\quad \text{con}\quad
 f_E[u_{\alpha\beta},T]=
 \mu u_{\alpha\beta}u^{\alpha\beta} +
-\frac{\lambda}{2}u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}\label{densidad_Fe}.
+\frac{\lambda}{2}u_{\alpha}^{\ \alpha}u^{\beta}_{\ \beta}\label{densidad_Fe}.
 \end{equation} 
 Bajo pequeñas deformaciones podemos usar \eqref{u_aprox} 
 como expresión de $u_{\alpha\beta}$, lo que equivale a retener términos hasta
@@ -1110,7 +1099,7 @@ compresiones puras. Cualquier deformación puede descomponerse como una suma de
 los dos tipos anteriores. Para ello, usamos la siguiente identidad
 \begin{equation}\label{identidad_u}
 u_{\alpha\beta}=(u_{\alpha\beta}-\frac{1}{2}\delta_{\alpha\beta}u_{\gamma}^{\
-  \gamma})+\delta_{\alpha\beta}u_{\gamma}^{\ \gamma},
+  \gamma})+\frac{1}{2}\delta_{\alpha\beta}u_{\gamma}^{\ \gamma},
 \end{equation}
 el primer término del miembro de la derecha es una cizalladura pura, dado que
 su traza es nula ($\delta_{\alpha}^{\ \alpha}=2$), y el segundo término es una
@@ -1120,7 +1109,7 @@ energía elástica \eqref{densidad_Fe}
 f_E[u_{\alpha\beta},T]=
 \mu \left(u_{\alpha\beta}-\frac{1}{2}\delta_{\alpha\beta}u_{\gamma}^{\ \gamma}\right)
     \left(u^{\alpha\beta}-\frac{1}{2}\delta^{\alpha\beta}u_{\nu}^{\ \nu}\right)+
-\frac{1}{2}K(u_{\alpha}^{\ \alpha})(u_{\beta}^{\ \beta}),
+\frac{1}{2}K(u_{\alpha}^{\ \alpha})(u_{\ \beta}^{\beta}),
 \end{equation}
 siendo $K$ y $\mu$ el módulo de compresión y de
 cizalladura\footnote{El módulo de cizalladura $\mu$ coincide con uno de los
@@ -1216,7 +1205,7 @@ elegido para fase plana como\footnote{No es difícil comprobar que
   efectivamente recuperamos \eqref{ELandau_curvatura} integrando por partes
   dos veces \eqref{ELandau_curvatura_aprox}.}
 \begin{equation}\label{ELandau_curvatura_aprox}
-F_C[\mathbf{x},T]\simeq\int d^2\mathbf{x} 
+F_C[\mathbf{x},T]\simeq\frac{\kappa}{2}\int d^2\mathbf{x} 
 \left(\frac{\partial h}{\partial x_{\alpha} \partial x^{\beta}}\right)
 \left(\frac{\partial h}{\partial x^{\alpha} \partial x_{\beta}}\right),
 \end{equation}
@@ -1232,7 +1221,7 @@ en el plano base de la posición tridimensional de los puntos
 \end{equation*}
 está parametrización es denominada la parametrización de Monge, y es
 importante puntualizar que con ella las coordenadas internas de los puntos no
-permanecen invariantes después de la deformación, puesto, puede suceder que su
+permanecen invariantes después de la deformación, ya que puede suceder que su
 proyección en el plano sea diferente antes y después de la deformación. En
 estas coordenadas los vectores tangentes son
 \begin{align*}
@@ -1259,7 +1248,7 @@ g\simeq 1\quad&\Rightarrow\quad d^2\mathbf{x}\simeq d^2\mathbf{y}\\
 \end{align*}
 y podemos aproximar \eqref{ELandau_curvatura_aprox} como 
 \begin{equation*}
-F_C[\mathbf{y},T]\simeq\int d^2\mathbf{y} 
+F_C[\mathbf{y},T]\simeq\frac{\kappa}{2}\int d^2\mathbf{y} 
 \left(\frac{\partial h}{\partial y_{\alpha} \partial y^{\beta}}\right)
 \left(\frac{\partial h}{\partial y^{\alpha} \partial y_{\beta}}\right).
 \end{equation*}
@@ -1316,7 +1305,7 @@ término de contorno constante, con lo que obtenemos finalmente que la energía
 libre de curvatura depende únicamente de la curvatura media 
 \begin{equation}\label{ELandau_curvatura2}
 F_C[\mathbf{y},T]\simeq\frac{1}{2}\hat{\kappa}\int d^2\mathbf{y}\, H^2 \quad
-\text{con} \quad \hat{\kappa}=4\kappa
+\text{con} \quad \hat{\kappa}=4\kappa.
 \end{equation} 
 
 %%% Local Variables: 

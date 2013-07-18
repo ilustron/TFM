@@ -1,4 +1,5 @@
 \documentclass[xcolor=dvipsnames]{beamer}
+%\documentclass[trans,gray]{beamer}
 \usepackage[utf8x]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{amsmath}
@@ -6,8 +7,12 @@
 \usepackage{graphicx}
 \usepackage{xcolor,color}
 \usepackage{subfigure}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+
 
 \usetheme{Singapore}
+
 %\useinnertheme{rectangles}
 \definecolor{fblue}{rgb}{0,0.3,0.9}
 %\usefonttheme{structuresmallcapsserif}
@@ -28,7 +33,7 @@
 \title[C. crítico de las membranas cristalinas]{Comportamiento crítico de las membranas cristalinas}
 \author[P. Monroy Dir.: Juan J.Ruiz Lorenzo]{Pedro Monroy Pérez \\ Director:
   J.J. Ruiz Lorenzo}
-\date{\today}
+\date{19 de Julio de 2013}
 \institute[UEx]{Dep. de Física, Facultad de Ciencias, Universidad de Extremadura}
 
 \begin{document}
@@ -49,7 +54,7 @@
 \item Las membranas cristalinas presentan una transición de fase plana-rugosa
   (comportamiento crítico).
 \item Presentan un módulo de Poisson negativo.
-\item Ejemplos: El citoesqueleto de los glóbulos rojos, Óxido de grafito y grafeno. 
+\item Ejemplos: El citoesqueleto de los glóbulos rojos, superficie de óxido de grafito y grafeno. 
 \end{itemize}
 \end{frame}
 \section{Estudio Analítico}
@@ -253,9 +258,9 @@ Tenemos una configuración homogénea:
 \end{frame}
 \begin{frame}
 \begin{align*}
- \mathcal{Z}[T]=\int d\zeta\;e^{-Af_M(\zeta,T)}&\simeq\sqrt{\frac{2\pi}{A\ddot{f}_M(\zeta_0,T)}}\;
+ \mathcal{Z}[T]=\int d\zeta\;e^{-Af_M(\zeta,T)}&\simeq\sqrt{\frac{2\pi}{Af"_M(\zeta_0,T)}}\;
  e^{-Af_M(\zeta_0,T)}\\
- \lim_{A\rightarrow \infty}\; \frac{1}{A} \ln \mathcal{Z}[T]&=-f_M(\zeta_0,T)=-\beta f_H(T)
+ \lim_{A\rightarrow \infty}\; \frac{1}{A} \log \mathcal{Z}[T]&=-f_M(\zeta_0,T)=-\beta f_H(T)
 \end{align*}
 \begin{columns}[T]
     \begin{column}{5.8cm}
@@ -281,13 +286,12 @@ orden.
   \item  La teoría del grupo de renormalización encuentra que
     estas fluctuaciones contribuyen en una parte no analítica en la energía
     libre:
-    \begin{equation}
+    \begin{equation*}
       f_s(t)\sim|t|^{2\nu}
-    \end{equation}
-  \item explica el comportamiento divergente en $t\simeq 0$ de los observables
+    \end{equation*}
+  \item Explica el comportamiento divergente en $t\simeq 0$ de los observables
     termodinámicos, (ej. $C_V\sim|t|^{-\alpha}$).
-  \item No todos los exponentes críticos son independientes entre sí. En
-    nuestro caso, únicamente tenemos un exponente crítico independiente.
+  \item No todos los exponentes críticos son independientes entre sí.
 \end{itemize}
 \end{frame}
 \begin{frame}{Relaciones de escala del radio de giro}
@@ -477,7 +481,7 @@ A partir de las configuraciones resultantes, se estiman los observables teniendo
   \end{itemize}
 \end{columns}
 \end{frame}
-\begin{frame}{Cálculo de errores (Método de Jacknife)}
+\begin{frame}{Cálculo de errores (Método de Jackknife)}
   \begin{itemize}
   \item Sean $\mathcal{Q}_i,(i=1,\dots N)$ los valores obtenidos de un
     observable $\mathcal{Q}$ en una evolución de Monte-Carlo. 
@@ -544,14 +548,13 @@ $\tau_0=120000$
     \end{equation*}
     \centering
     \begin{equation*}
-      \langle O\rangle_{\beta'}=\frac{\langle
-        O\rangle_{\beta} e^{-(\beta'-\beta)E}}{\sum_E e^{-(\beta'-\beta)E}},
+      \langle O\rangle_{\beta'}=\frac{\sum_E  O(E)p_{\beta}(E) e^{-(\beta'-\beta)E}}{\sum_E e^{-(\beta'-\beta)E}},
     \end{equation*}
   \end{column}
 \end{columns}
 \end{frame}
 
-\section{Resultados: Calor específico}
+\section{Resultados}
 \begin{frame}{Resultados}
 \begin{columns}
   \begin{column}{5.8cm}
@@ -757,7 +760,7 @@ Entonces:
   \rangle_c}{\langle g_{22}^2 \rangle_c}.
 \end{equation*}
 {\color{fblue} Cambio de coordenadas}: si $\vec{e}_1,\vec{e}_2,\vec{e}_3$ son
-la base natural de vectores de la red triangular elegimos
+la base natural de vectores de la red triangular, elegimos
 $\vec{x}_1$ en la dirección $\vec{e}_1$ y para $\vec{x}_2$ usamos
 $(\vec{e}_2+\vec{e}_3)/\sqrt{3}$.
 
@@ -799,7 +802,7 @@ $\sigma$                      & $-0.27(1)$   & $-0.28(1)$     & $-0.31(2)$\\ \hl
 \item Medida de la variación del radio de giro con respecto a la temperatura (novedad).
 \item Medida precisa de la temperatura crítica, $\alpha$, $\nu$ en acuerdo con
   trabajos anteriores.
-\item Comprobación de escala el radio de giro, tanto en la fase plana como en la
+\item Comprobación del escalado el radio de giro, tanto en la fase plana como en la
 rugosa.
 \item Medida del módulo de Poisson para diferentes tamaños del sistema, aunque los
 errores de las medidas no nos permiten estimarlo en el límite a área infinita.

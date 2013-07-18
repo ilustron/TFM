@@ -45,9 +45,9 @@ discreta de la membrana \cite{Bowick_flat_phase} usamos
 \end{equation*}
 donde
 \begin{align}
-&\text{E. libre  elástica}\rightarrow \mathcal{H}_E\sum_{\langle PQ
+&\text{E. libre  elástica}\rightarrow \mathcal{H}_E=\frac{1}{2}\sum_{\langle PQ
   \rangle}|\vec{r}_P-\vec{r}_Q|^2\label{Hd_elastico}\\
-&\text{E. libre curvatura}\rightarrow \mathcal{H}_C=\kappa\sum_{\langle ab \rangle}|\vec{n}_a-\vec{n}_b|^2\label{Hd_curvatura} 
+&\text{E. libre curvatura}\rightarrow \mathcal{H}_C=\frac{\kappa}{2}\sum_{\langle ab \rangle}|\vec{n}_a-\vec{n}_b|^2\label{Hd_curvatura} 
 \end{align}
 donde con $\langle\dots\rangle$ indicamos que la suma es sobre primeros vecinos,
 nodos adyacentes o plaquetas (triángulo formado por tres nodos adyacentes,
@@ -70,7 +70,7 @@ Para demostrar que efectivamente recuperamos la energía libre de Landau
 distancia de equilibrio  $a\neq 0$ en la energía libre elástica discreta
 \eqref{Hd_elastico}
 \begin{equation}\label{Hd_elastico_a}
-\mathcal{H}_E\sum_{\langle PQ
+\mathcal{H}_E=\frac{1}{2}\sum_{\langle PQ
   \rangle}(|\vec{r}_P-\vec{r}_Q|-a)^2.
 \end{equation}
 Consideramos un sistema de coordenadas ortonormal $\{ \vec{e}_1,\vec{e}_2\}$,
@@ -90,23 +90,23 @@ pequeñas deformaciones, podemos aproximar esta última expresión
 \end{equation}
 Sustituyendo esta última expresión \eqref{valor_absoluto} en la energía libre discreta \eqref{Hd_elastico_a}
 \begin{equation}\label{He}
-\mathcal{H}_E\simeq \frac{1}{2a^2}\sum_{P} \sum^6_{q=1} u_{\alpha\beta}u^{\mu\nu}x_q^{\ \alpha}x_q^{\ \beta}x_{q\mu}x_{q\nu},
+\mathcal{H}_E\simeq \frac{1}{4a^2}\sum_{P} \sum^6_{q=1} u_{\alpha\beta}u^{\mu\nu}x_q^{\ \alpha}x_q^{\ \beta}x_{q\mu}x_{q\nu},
 \end{equation}
 siendo el primer sumatorio sobre todos los nodos y el segundo sobre los
 primeros vecinos. Efectuando la suma sobre los primeros vecinos 
 \begin{equation*}
-\mathcal{H}_E\simeq\frac{a^2}{4}\sum_{P}(\delta^{\alpha\beta}\delta_{\mu\nu}+\delta^{\alpha}_{\ \mu}\delta^{\beta}_{\ \nu}+
+\mathcal{H}_E\simeq\frac{3a^2}{16}\sum_{P}(\delta^{\alpha\beta}\delta_{\mu\nu}+\delta^{\alpha}_{\ \mu}\delta^{\beta}_{\ \nu}+
 \delta^{\alpha}_{\ \nu}\delta^{\beta}_{\ \mu})
-u_{\alpha\beta}u^{\mu\nu}=\frac{a^2}{4}\sum_{P}u_{\alpha}^{\ \alpha}u^{\beta}_{\ \beta}+2u_{\alpha\beta}u^{\alpha\beta}.
+u_{\alpha\beta}u^{\mu\nu}=\frac{3a^2}{16}\sum_{P}u_{\alpha}^{\ \alpha}u^{\beta}_{\ \beta}+2u_{\alpha\beta}u^{\alpha\beta}.
 \end{equation*}
 De cara a tomar el límite continuo, podemos escribir está última expresión de
 la siguiente forma equivalente 
 \begin{equation*}
-\mathcal{H}_E\simeq\frac{a^2}{4}\sum_{i=1}^L\sum_{j=1}^L\frac{\Delta i\Delta j}{\xi^2\frac{\sqrt{3}}{2}}\xi^2\,\frac{\sqrt{3}}{2}(u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}+2u_{\alpha\beta}u^{\alpha\beta}),
+\mathcal{H}_E\simeq\frac{3a^2}{16}\sum_{i=1}^L\sum_{j=1}^L\frac{\Delta i\Delta j}{\xi^2\frac{\sqrt{3}}{2}}\xi^2\,\frac{\sqrt{3}}{2}(u_{\alpha}^{\ \alpha}u^{\beta}_{\ \beta}+2u_{\alpha\beta}u^{\alpha\beta}),
 \end{equation*}
 tomando el límite $N\rightarrow \infty$
 \begin{equation*}
-\mathcal{H}\simeq\int d^2\mathbf{x}\, \frac{\sqrt{3}}{4}\frac{a^2}{\xi^2}\left(\frac{1}{2}u_{\alpha}^{\ \alpha}u^{\alpha}_{\ \alpha}+u_{\alpha\beta}u^{\alpha\beta}\right),
+\mathcal{H}_E\simeq\int d^2\mathbf{x}\, \frac{\sqrt{3}}{4}\frac{a^2}{\xi^2}\left(\frac{1}{2}u_{\alpha}^{\ \alpha}u^{\beta}_{\ \beta}+u_{\alpha\beta}u^{\alpha\beta}\right),
 \end{equation*}
 recuperamos la energía libre elástica de Landau \eqref{densidad_Fe} con 
 \begin{equation*}
@@ -334,7 +334,7 @@ es doble.
 
 Tanto para estimar el periodo de correlación de las medidas, como para el
 cálculo de los errores, en las estimaciones de los observables, 
-utilizamos el método del jacknife \cite{Juan:tesis}, que tiene en cuenta la
+utilizamos el método del jackknife \cite{Juan:tesis}, que tiene en cuenta la
 falta de independencia de las medidas. Consideremos los valores
 $\{Q_i\,;\, i=1,\dots M\}$ que un observable $Q$ toma en una evolución de Monte
 Carlo. La estimación del valor medio será
@@ -354,7 +354,7 @@ La estimación del error para el tamaño de bloque $m$ es
 Esta última expresión da una estimación no sesgada del error, para comprobarlo
 basta con tomar la esperanza $\langle\dots \rangle$ a ambos lados de la ecuación
 \begin{equation*}
-\langle (\delta\bar{Q}_n)^2\rangle=\sigma^2(Q)\frac{1}{N} 
+\langle (\delta\bar{Q}_n)^2\rangle=\sigma^2(Q)\frac{1}{N}. 
 \end{equation*}
 
 \begin{figure}[h]
@@ -424,7 +424,12 @@ la teoría (sumas de funciones analíticas). Aunque, podemos inferir sobre el
 comportamiento de los parámetros en el límite termodinámico observando como
 crecen los observables del sistema finito en función del tamaño $L$ \cite{Juan:tesis}. 
 Para ello, consideramos que nuestro sistema presenta una transición de fase de
-segundo orden a una temperatura, cuyo valor en el límite termodinámico es
+segundo orden a una temperatura\footnote{Cerca de la transición de
+  fase tenemos que $\kappa\propto \beta=1/k_BT$, donde $k_B$ es el factor de
+  Boltzmann y $T$ es la temperatura. Entonces, podemos usar $\kappa$ como
+  parámetro relevante del sistema, en vez de la temperatura. Incluso, en
+  ocasiones, nos referiremos a $\kappa$ como la temperatura del sistema,
+  puesto que juega el mismo papel.}, cuyo valor en el límite termodinámico es
 $\kappa_c\!\equiv\!\kappa_c{\scriptstyle
   (L=\infty)}\!=\!\kappa_c(\infty)$. Según nos vamos acercando a $\kappa_c$ la
 longitud de correlación $\xi$ va creciendo hasta que satura el tamaño del
@@ -549,11 +554,9 @@ probabilidad de la energía a otra $\beta$ y relacionarla con la ya calculada
 p_{\beta'}(E)=\frac{p_{\beta}(E)e^{-(\beta'-\beta)E}}{\sum_E e^{-(\beta'-\beta)E}},
 \end{equation*}
 también podemos estimar el valor esperado de un observable $\langle
-O\rangle_{\beta'}$  para una $\beta'$ partir del valor $\langle
-O\rangle_{\beta}$ a otra beta
+O\rangle_{\beta'}$  para una $\beta'$ partir del valor $p_{\beta}(E)$
 \begin{equation*}
-\langle O\rangle_{\beta'}=\frac{\langle
-O\rangle_{\beta} e^{-(\beta'-\beta)E}}{\sum_E e^{-(\beta'-\beta)E}},
+\langle O\rangle_{\beta'}=\frac{\sum_E O(E)p_{\beta}(E) e^{-(\beta'-\beta)E}}{\sum_E e^{-(\beta'-\beta)E}},
 \end{equation*}
 
 Las ecuaciones son exactas cuando el número de configuraciones es infinito,
@@ -603,7 +606,7 @@ función de las correlaciones conexas del tensor de deformaciones
 \sigma=\frac{K-\mu}{K+\mu}=-\frac{\langle u_{11}u_{22}
   \rangle_c}{\langle u_{22}^2 \rangle_c}.
 \end{equation*}
-Teniendo en cuenta la ecuación \eqref{tensor_metrica}, podemos expresar la anterior
+Teniendo en cuenta la ecuación \eqref{tensor_metrica}, podemos escribir la anterior
 expresión en función de la métrica inducida 
 \begin{equation*}
 \sigma=\frac{K-\mu}{K+\mu}=-\frac{\langle g_{11}g_{22}
