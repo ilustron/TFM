@@ -1,14 +1,13 @@
 \documentclass[xcolor=dvipsnames]{beamer}
-%\documentclass[trans,gray]{beamer}
 \usepackage[utf8x]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{graphicx}
 \usepackage{xcolor,color}
-\usepackage{subfigure}
-\usepackage{pgfpages}
-\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+%PARA IMPRIMIR DOS TRANSPARENCIAS POR HOJA
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
 
 
 \usetheme{Singapore}
@@ -30,9 +29,10 @@
 %\logo{\includegraphics[width=28bp]{./Pictures/UEX.jpg}}
 
 
-\title[C. crítico de las membranas cristalinas]{Comportamiento crítico de las membranas cristalinas}
+\title[Trans. de fase en membranas cristalinas]{Transiciones de fase en
+  membranas cristalinas}
 \author[P. Monroy Dir.: Juan J.Ruiz Lorenzo]{Pedro Monroy Pérez \\ Director:
-  J.J. Ruiz Lorenzo}
+  Juan Jesús Ruiz Lorenzo}
 \date{19 de Julio de 2013}
 \institute[UEx]{Dep. de Física, Facultad de Ciencias, Universidad de Extremadura}
 
@@ -132,7 +132,9 @@
       \centering
       Tensor de curvatura extrínseca $K_{\alpha\beta}$:
       \begin{equation*}
-        \vec{K}_{\alpha\beta}=K_{\alpha\beta}\vec{n},
+        \vec{K}_{\alpha\beta}=K_{\alpha\beta}\vec{n}, \quad\text{con}\quad
+        K_{\alpha\beta}=\frac{\partial \vec{t}_{\alpha}}{\partial
+          x^{\beta}}\cdot \vec{n}
       \end{equation*}
       \begin{equation*}
         K_{\alpha\beta}\equiv\left(\begin{array}{cc}
@@ -526,7 +528,7 @@ $\tau_0=120000$
   \begin{column}{5.8cm}
     Observable genérico $\mathcal{O}$:
     \begin{equation*}
-      \mathcal{O}_L\sim L^{\frac{x_0}{\nu}}f(L (\kappa(L)-\kappa_c(\infty))^{\nu}).
+      \mathcal{O}_L\sim L^{\frac{x_0}{\nu}}f\left[L (\kappa(L)-\kappa_c(\infty))^{\nu}\right].
     \end{equation*}
   valor máximo del observable respecto a $\kappa$, $\max f(x)=f(x_C)$:
   \begin{align*}
@@ -555,7 +557,7 @@ $\tau_0=120000$
 \end{frame}
 
 \section{Resultados}
-\begin{frame}{Resultados}
+\begin{frame}{Resultados: Calor específico}
 \begin{columns}
   \begin{column}{5.8cm}
     \begin{figure}[h]
@@ -590,6 +592,9 @@ es la energía de curvatura.
     \end{figure}
     \begin{equation*}
     C^{\max}_v(L)=C_1+C_2L^{\alpha/\nu}
+  \end{equation*}
+  \begin{equation*}
+    \alpha=2(1-\nu) \quad \text{(hyperscaling)}
   \end{equation*}
   \end{column}
   \begin{column}{5.8cm}
@@ -676,8 +681,11 @@ es la energía de curvatura.
       \resizebox{\columnwidth}{!}{\input{max_Drg2_plot.tex}}
     \end{figure}
     \begin{equation*}
-      \left(\frac{\partial R_g^2(L)}{\partial \kappa}\right)_{max}\simeq
+      \left(\frac{\partial R_g^2(L)}{\partial \kappa}\right)_{max}\sim
       L^{2\nu_F+\frac{1}{\nu}}
+    \end{equation*}
+    \begin{equation*}
+      \langle R_G^2 e_C\rangle_{C,\max}\sim  L^{2\nu_F+\frac{1}{\nu}-2}
     \end{equation*}
   \end{column}
   \begin{column}{5.8cm}
@@ -701,7 +709,7 @@ es la energía de curvatura.
 
 \begin{frame}{Resultados: Radio de giro}
 \begin{equation*}
-    R^2_G(L)\simeq L^{\frac{4}{d_H}}f_{R_G}\left(L^{1/\nu}(\kappa(L)-\kappa_c(\infty))\right).
+    R^2_G(L)\simeq L^{\frac{4}{d_H}}f_{R_G}\left[L^{1/\nu}(\kappa(L)-\kappa_c(\infty))\right].
 \end{equation*} 
 \begin{figure}[h]
       \centering
